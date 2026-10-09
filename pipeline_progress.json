@@ -15,11 +15,11 @@
   },
   "shot_001": {
     "shot_num": 1,
-    "iteration": 3,
+    "iteration": 2,
     "verdict": "REVISE",
-    "review": "1. Composition Match Score: 74%\n2. Character & Subject Authenticity Score: 72%\n3. Manga Art Style Fidelity Score: 48%\n4. Overall Match Accuracy: 65%\n\n5. Specific differences observed:\n- Image 2 retains full cinematic rendering rather than adopting a manga/pencil sketch medium.\n- Video player UI overlay present in Image 1 is cleanly removed.\n- Atmospheric lighting and midground details exhibit slight contrast and clarity adjustments.\n\n6. Recommendation for next iteration:\n- Apply authentic manga stylization, including monochrome linework, cross-hatching, and screentone shading.\n\n7. Verdict: REVISE",
-    "latest_file": "manga_sketches/sketch_001_iter3.jpg",
-    "timestamp": 1791576528.0435183
+    "review": "### Evaluation\n\n1. **Composition Match Score:** 72%\n2. **Character & Subject Authenticity Score:** 70%\n3. **Manga Art Style Fidelity Score:** 52%\n4. **Overall Match Accuracy:** 65%\n\n### 5. Specific Differences Observed\n* **Art Style:** Image 2 remains a fully rendered, photorealistic digital matte painting rather than a stylized manga or pencil sketch keyframe.\n* **Detail & Clarity:** Image 2 features heightened resolution, removing the UI overlay and clarifying background cliff carvings (colossal statues) and architectural silhouettes.\n* **Atmosphere:** Fog density and lighting across the waterfalls and midground valleys are sharper and slightly higher in contrast in Image 2.\n\n### 6. Recommendation for Next Iteration\n* Apply distinct manga/sketch conventions, such as dynamic linework, cross-hatching, screentone shading, and black-and-white tonal reduction, instead of retaining full photorealistic color rendering.\n\n### 7. Verdict: REVISE",
+    "latest_file": "manga_sketches/sketch_001_iter2.jpg",
+    "timestamp": 1791576870.5076473
   },
   "shot_002": {
     "shot_num": 2,
@@ -454,5 +454,26 @@
     "verdict": "APPROVED",
     "review": "### Evaluation: Manga Keyframe Adaptation\n\n#### 1. Composition Match\n* **Score:** 7/10\n* **Summary:** Strong top-down framing fidelity. Placement of the thrones, game board, surrounding props, and rolling dice matches the reference angle closely.\n\n#### 2. Character & Subject Accuracy\n* **Score:** 7/10\n* **Summary:** Accurately reflects the historical Indian epic setting. The Chaupar/Pachisi cloth, long rectangular dice (*pasa*), and ornate seat motifs are preserved without inappropriate foreign stylistic elements.\n\n#### 3. Manga Art Style Fidelity\n* **Score:** 7/10\n* **Summary:** Clean manga ink lineart with effective hatching, screentone shading, and speed lines to convey the motion of the airborne dice.\n\n---\n\n### 4. Detailed Feedback & Differences\n* **Motion & Dynamic Lines:** Speed lines applied to the tumbling dice capture the live-action motion blur well in a manga medium.\n* **Tonal Values:** The dark cloth on the thrones and game mat is well-translated using cross-hatching and deep blacks.\n* **Geometry:** Minor perspective divergence along the edge of the dice and hexagonal carpet boundary compared to the source frame.\n\n---\n\n### 5. Overall Match Score & Verdict\n* **Overall Match Score:** 71/100\n* **Verdict:** APPROVED",
     "timestamp": 1791576415.064092
+  },
+  "shot_066": {
+    "shot_num": 66,
+    "iteration": 1,
+    "verdict": "APPROVED",
+    "review": "### Evaluation Breakdown\n\n**1. Composition Match: 7/10**\nThe top-down perspective, placement of the flanking ornate thrones, central Chaupar board, and foreground tumbling dice replicate the reference shot's geometry effectively. Characters are brought more clearly into frame to enhance narrative drama.\n\n**2. Character & Subject Accuracy: 7/10**\nThe elongated dice (*pasa*), game mat, and throne carvings faithfully reflect the reference. Background figures are appropriately stylized with classical Indian epic attire, armor, and crowns, avoiding mismatched cultural tropes.\n\n**3. Manga Art Style Fidelity: 7/10**\nFeatures crisp linework, effective cross-hatching, screentone shading, and dynamic motion lines with integrated sound effects (*ZDOON*, *ZUKIN*), capturing a balanced shonen/epic manga look.\n\n---\n\n### Detailed Feedback & Differences\n\n* **Dice Depiction:** The reference captures two distinct blur instances of rolling dice; the sketch renders them as a fused, single tumbling block with linear speed lines.\n* **Character Visibility:** The sketch introduces clear background onlookers and an active thrower to fill negative space, whereas the reference shot leaves human figures indistinct or mostly out of frame.\n* **Lighting and Atmosphere:** The sketch opts for high-clarity white background space rather than the low-key, dimly lit mood of the live-action plate.\n\n---\n\n### Overall Match Score & Verdict\n\n* **Overall Score:** 72/100\n* **Verdict:** APPROVED",
+    "timestamp": 1791576453.1161964
+  },
+  "shot_067": {
+    "shot_num": 67,
+    "iteration": 1,
+    "verdict": "APPROVED",
+    "review": "### 1. Composition Match\n**Score: 6/10**  \nThe framing maintains a tight focus on the subject with similar eye level and tilt. However, the sketch introduces a fully realized palace and crowd background, whereas the reference shot features a soft, undefined background with an off-center crop.\n\n---\n\n### 2. Character & Subject Accuracy\n**Score: 7/10**  \nThe facial expression, signature squint, forehead mark, and facial hair are well-translated. Ornaments, turban styling, and the fur shoulder trim accurately reflect the source material without unwanted foreign elements.\n\n---\n\n### 3. Manga Art Style Fidelity\n**Score: 7/10**  \nFeatures crisp ink linework, distinct crosshatching, and effective use of screentone shading. The style cleanly integrates classic Shonen manga sensibilities while retaining the likeness.\n\n---\n\n### 4. Detailed Feedback & Differences\n* **Facial Features:** Squint, smirk, and forehead mark accurately match the original actor's expression.\n* **Costume & Props:** Jewel-embedded crown, turban wrap, and fur accents closely echo the live-action costume.\n* **Environment:** The sketch adds an exterior palace courtyard with an assembled army, diverging from the reference's blurred interior space.\n* **Framing:** Character is placed centrally in the sketch rather than slightly right of center.\n\n---\n\n### 5. Overall Match Score & Verdict\n**Overall Match Score: 68/100**  \n**Verdict: APPROVED**",
+    "timestamp": 1791576608.8100867
+  },
+  "shot_068": {
+    "shot_num": 68,
+    "iteration": 1,
+    "verdict": "REVIEWED",
+    "review": "### Evaluation\n\n**1. Composition Match:** 7/10  \nThe framing, low camera angle, grounded stance, and central impact point closely replicate the original composition. Background architecture is expanded horizontally but maintains proper perspective.\n\n**2. Character & Subject Accuracy:** 7/10  \nTraditional attire, curved footwear (*juttis*), and the ornate mace (*gada*) accurately reflect the epic Indian motif with no conflicting cultural elements present.\n\n**3. Manga Art Style Fidelity:** 3/10  \nThe rendition is a photorealistic/CGI composite rather than a traditional manga or pencil sketch. It lacks lineart, screentones, ink hatching, and stylized anime aesthetics.\n\n---\n\n### Detailed Feedback & Differences\n\n* **Style Discrepancy:** The asset is fully rendered and realistic instead of adopting the requested black-and-white ink, pencil sketch, or anime/manga look.\n* **Detailing:** Mace ornamentation, ground fracturing, and cloth folds match well in placement and design, though a decorative sash was added to the weapon.\n* **Lighting/Atmosphere:** Lighting and dust effects are cinematic and realistic rather than rendered via stylized manga action lines.\n\n---\n\n### Overall Match Score & Verdict\n\n**Overall Match Score:** 54/100  \n**Verdict:** REVISE\n\n**Revision Instructions:** Convert the image into a genuine manga sketch. Strip the realistic color and surface textures, replacing them with dynamic ink linework, monochrome cross-hatching, screentone shading, and manga-style impact lines.",
+    "timestamp": 1791576679.5282578
   }
 }

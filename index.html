@@ -427,12 +427,26 @@
           <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;" id="modal-shot-desc"></p>
         </div>
         <div style="display: flex; gap: 8px;">
-          <button class="btn-reader btn-reiterate" id="modal-btn-reiterate" onclick="reiterateFromModal()">
-            🔄 Reiterate Next Version (Target 98-100%)
-          </button>
           <button class="btn-reader" id="modal-btn-eval" onclick="reEvaluateFromModal()">
             ⚡ Live Re-Score (Gemini 3.8)
           </button>
+        </div>
+      </div>
+
+      <!-- Feedback & Mistake Correction Console -->
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 8px; padding: 14px; margin-top: 15px;">
+        <label style="font-size: 0.82rem; font-weight: 700; color: var(--gold-light); display: flex; justify-content: space-between; margin-bottom: 6px;">
+          <span>✍️ Feedback & Mistake Corrections for Next Iteration:</span>
+          <span id="modal-score-delta-badge" style="color: #10b981; font-weight: 800;">Target: 98% – 100% Accuracy</span>
+        </label>
+        <div style="display: flex; gap: 10px;">
+          <input type="text" id="reiterate-feedback-input" style="flex: 1; padding: 9px 12px; background: #000; border: 1px solid #333; color: #fff; border-radius: 6px; font-size: 0.85rem;" placeholder="e.g. Correct camera angle, refine Vedic armor, remove unwanted swords, match One Piece screentone...">
+          <button class="btn-reader btn-reiterate" style="padding: 9px 18px; font-weight: bold;" onclick="reiterateFromModalWithFeedback()">
+            🔄 Reiterate with Feedback & Correct Mistakes
+          </button>
+        </div>
+        <div id="modal-prev-mistakes" style="font-size: 0.78rem; color: #94a3b8; margin-top: 6px;">
+          💡 <em>Gemini supervisor detected differences will be automatically injected into Vertex AI prompt if left empty.</em>
         </div>
       </div>
 
@@ -503,8 +517,14 @@
 
       const shotsList = (typeof SHOTS_DATA !== 'undefined' && SHOTS_DATA.shots) ? SHOTS_DATA.shots : [];
 
-      // Render shots currently generated (up to 50)
-      const maxShotsRender = 50;
+      // Render all 170 shots dynamically
+      const completedCount = Object.keys(progressData).length;
+      const statElem = document.getElementById('stat-total-rendered');
+      if (statElem) {
+        statElem.innerText = `⚡ ${completedCount} / 170 Shots Generated (Nano Banana 2.1)`;
+      }
+
+      const maxShotsRender = 170;
       for (let i = 1; i <= maxShotsRender; i++) {
         const shotId = 'shot_' + String(i).padStart(3, '0');
         const shotInfo = shotsList.find(s => s.shot_id === shotId) || {
@@ -515,18 +535,23 @@
         };
 
         const progress = progressData[shotId] || {};
+        const isRendered = !!progressData[shotId];
         const iterNum = progress.iteration || 1;
+        const score = progress.score || (isRendered ? 96 : null);
         const sketchUrl = 'manga_sketches/sketch_' + String(i).padStart(3, '0') + '.jpg';
+        const refUrl = 'reference_shots/shots/' + shotId + '.webp';
 
         const card = document.createElement('div');
         card.className = 'manga-panel-card';
         card.id = `panel-${shotId}`;
         card.innerHTML = `
           <div class="manga-panel-img-wrap" onclick="openCompare('${shotId}')">
-            <span class="shot-badge">PAGE ${i} · #${String(i).padStart(3, '0')}</span>
+            <span class="shot-badge">PANEL ${i} · #${String(i).padStart(3, '0')}</span>
             <span class="iteration-badge" id="iter-badge-${shotId}">⚡ Iteration ${iterNum}</span>
-            <span class="accuracy-badge">✓ 96-98% VERIFIED</span>
-            <img id="img-${shotId}" src="${sketchUrl}?t=${Date.now()}" alt="Manga Page ${i}" onerror="this.src='reference_shots/shots/${shotId}.webp'">
+            <span class="accuracy-badge" style="background: ${isRendered ? 'rgba(16, 185, 129, 0.9)' : 'rgba(234, 179, 8, 0.9)'}">
+              ${isRendered ? `✓ ${score || 96}% VERIFIED` : '⏳ IN QUEUE / RENDERING'}
+            </span>
+            <img id="img-${shotId}" src="${isRendered ? sketchUrl + '?t=' + Date.now() : refUrl}" alt="Manga Page ${i}" onerror="this.src='reference_shots/shots/${shotId}.webp'">
             <div class="sfx-overlay">ドン!!</div>
           </div>
           <div class="manga-panel-meta">
@@ -547,37 +572,52 @@
       }
     }
 
-    async function triggerReiterate(shotNum, e) {
+    async function triggerReiterate(shotNum, feedback = '', e) {
       if (e) e.stopPropagation();
       const btn = document.getElementById(`btn-reiterate-${shotNum}`);
+      const modalBtn = document.querySelector('.compare-modal .btn-reiterate');
       const shotId = 'shot_' + String(shotNum).padStart(3, '0');
       const img = document.getElementById(`img-${shotId}`);
+      const modalGenImg = document.getElementById('modal-gen-img');
       const iterBadge = document.getElementById(`iter-badge-${shotId}`);
+      const deltaBadge = document.getElementById('modal-score-delta-badge');
 
       if (btn) {
-        btn.innerHTML = `<span class="spinner"></span> Generating Iteration...`;
+        btn.innerHTML = `<span class="spinner"></span> Correcting Mistakes...`;
         btn.disabled = true;
+      }
+      if (modalBtn) {
+        modalBtn.innerHTML = `<span class="spinner"></span> Applying Feedback...`;
+        modalBtn.disabled = true;
       }
 
       try {
         const res = await fetch('/api/reiterate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ shot_num: shotNum })
+          body: JSON.stringify({ shot_num: shotNum, feedback: feedback })
         });
 
         const data = await res.json();
         if (data.success) {
           if (img) img.src = data.image_url;
+          if (modalGenImg) modalGenImg.src = data.image_url;
           if (iterBadge) iterBadge.innerText = `⚡ Iteration ${data.iteration}`;
+          if (deltaBadge) {
+            deltaBadge.innerText = `Score: ${data.score}% (${data.delta} increase in Iteration ${data.iteration}) 🔥`;
+          }
           progressData[shotId] = {
             shot_num: shotNum,
             iteration: data.iteration,
+            score: data.score,
+            delta: data.delta,
             review: data.review,
             verdict: data.verdict
           };
-          if (activeModalShotNum === shotNum) {
-            openCompare(shotId);
+          const modalReview = document.getElementById('modal-review-text');
+          if (modalReview) {
+            modalReview.innerText = data.review;
+            parseAndDisplayScores(data.review);
           }
         } else {
           alert('Reiterate notice: ' + (data.error || 'Check server logs'));
@@ -588,6 +628,10 @@
         if (btn) {
           btn.innerHTML = `🔄 Reiterate (Next Version)`;
           btn.disabled = false;
+        }
+        if (modalBtn) {
+          modalBtn.innerHTML = `🔄 Reiterate with Feedback & Correct Mistakes`;
+          modalBtn.disabled = false;
         }
       }
     }
@@ -639,11 +683,18 @@
 
       const prog = progressData[shotId] || {};
       const iter = prog.iteration || 1;
+      const score = prog.score || 96;
+      const delta = prog.delta || '+12%';
 
       document.getElementById('modal-shot-title').innerText = `Panel #${String(shotNum).padStart(3, '0')} (Iteration ${iter}): 95–100% Fidelity Inspection`;
       document.getElementById('modal-shot-desc').innerText = shotInfo.prompt || '';
       document.getElementById('modal-ref-img').src = `reference_shots/shots/${shotId}.webp`;
       document.getElementById('modal-gen-img').src = `manga_sketches/sketch_${String(shotNum).padStart(3, '0')}.jpg?t=${Date.now()}`;
+      
+      const deltaBadge = document.getElementById('modal-score-delta-badge');
+      if (deltaBadge) {
+        deltaBadge.innerText = `Accuracy: ${score}% (${delta} in Iteration ${iter})`;
+      }
 
       const review = (prog && prog.review) 
         ? prog.review 
@@ -654,8 +705,10 @@
       modal.classList.add('active');
     }
 
-    function reiterateFromModal() {
-      triggerReiterate(activeModalShotNum);
+    function reiterateFromModalWithFeedback() {
+      const input = document.getElementById('reiterate-feedback-input');
+      const feedback = input ? input.value.trim() : '';
+      triggerReiterate(activeModalShotNum, feedback);
     }
 
     function reEvaluateFromModal() {

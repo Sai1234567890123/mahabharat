@@ -15,11 +15,11 @@
   },
   "shot_001": {
     "shot_num": 1,
-    "iteration": 2,
+    "iteration": 3,
     "verdict": "REVISE",
-    "review": "1. **Composition Match Score:** 76%\n2. **Character & Subject Authenticity Score:** 74%\n3. **Manga Art Style Fidelity Score:** 48%\n4. **Overall Match Accuracy:** 66%\n\n5. **Specific differences observed:**\n   - Image 2 exhibits a warmer, more vibrant sky gradient than Image 1.\n   - The play button overlay from the reference is absent in Image 2.\n   - The rendition retains a fully colored cinematic finish rather than translating the shot into a traditional manga or pencil-sketch style.\n\n6. **Recommendation for next iteration:**\n   - Convert the frame into an authentic manga aesthetic utilizing clean line art, screentones, and monochrome hatching instead of cinematic coloring.\n\n7. **Verdict:** REVISE",
-    "latest_file": "manga_sketches/sketch_001_iter2.jpg",
-    "timestamp": 1791576470.0097682
+    "review": "1. Composition Match Score: 74%\n2. Character & Subject Authenticity Score: 72%\n3. Manga Art Style Fidelity Score: 48%\n4. Overall Match Accuracy: 65%\n\n5. Specific differences observed:\n- Image 2 retains full cinematic rendering rather than adopting a manga/pencil sketch medium.\n- Video player UI overlay present in Image 1 is cleanly removed.\n- Atmospheric lighting and midground details exhibit slight contrast and clarity adjustments.\n\n6. Recommendation for next iteration:\n- Apply authentic manga stylization, including monochrome linework, cross-hatching, and screentone shading.\n\n7. Verdict: REVISE",
+    "latest_file": "manga_sketches/sketch_001_iter3.jpg",
+    "timestamp": 1791576528.0435183
   },
   "shot_002": {
     "shot_num": 2,

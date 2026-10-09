@@ -15,11 +15,11 @@
   },
   "shot_001": {
     "shot_num": 1,
-    "iteration": 2,
+    "iteration": 3,
     "verdict": "REVISE",
-    "review": "### Evaluation\n\n1. **Composition Match Score:** 72%\n2. **Character & Subject Authenticity Score:** 70%\n3. **Manga Art Style Fidelity Score:** 52%\n4. **Overall Match Accuracy:** 65%\n\n### 5. Specific Differences Observed\n* **Art Style:** Image 2 remains a fully rendered, photorealistic digital matte painting rather than a stylized manga or pencil sketch keyframe.\n* **Detail & Clarity:** Image 2 features heightened resolution, removing the UI overlay and clarifying background cliff carvings (colossal statues) and architectural silhouettes.\n* **Atmosphere:** Fog density and lighting across the waterfalls and midground valleys are sharper and slightly higher in contrast in Image 2.\n\n### 6. Recommendation for Next Iteration\n* Apply distinct manga/sketch conventions, such as dynamic linework, cross-hatching, screentone shading, and black-and-white tonal reduction, instead of retaining full photorealistic color rendering.\n\n### 7. Verdict: REVISE",
-    "latest_file": "manga_sketches/sketch_001_iter2.jpg",
-    "timestamp": 1791576870.5076473
+    "review": "1. **Composition Match Score:** 72%\n2. **Character & Subject Authenticity Score:** 68%\n3. **Manga Art Style Fidelity Score:** 38%\n4. **Overall Match Accuracy:** 58%\n5. **Specific differences observed:** \n   - Image 2 remains a fully rendered, full-color landscape rather than a black-and-white manga or pencil sketch.\n   - Additional bird silhouettes appear in the upper-left sky.\n   - Minor shifts in lighting exposure and mist saturation across the valley.\n6. **Recommendation for next iteration:** Fully restyle into monochrome line work with cross-hatching and ink/screentone shading to achieve the required manga aesthetic.\n7. **Verdict:** REVISE",
+    "latest_file": "manga_sketches/sketch_001_iter3.jpg",
+    "timestamp": 1791577030.2671206
   },
   "shot_002": {
     "shot_num": 2,

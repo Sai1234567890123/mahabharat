@@ -15,10 +15,11 @@
   },
   "shot_001": {
     "shot_num": 1,
-    "iteration": 1,
-    "verdict": "APPROVED",
-    "review": "### Evaluation\n\n* **Composition Match:** 7/10  \n  High-level framing aligns well with the panoramic reference. Key elements\u2014foreground waterfalls, central city, and mountain silhouettes\u2014are accurately placed relative to each other.\n\n* **Character/Subject Accuracy:** 7/10  \n  The central palace, cliffside outpost, and environmental geology faithfully replicate the structural designs of the reference landscape.\n\n* **Manga Style Fidelity:** 7/10  \n  Effective translation into traditional ink and screentone aesthetic, utilizing clean hatching for rock textures and stylized line bursts for the fireworks.\n\n* **Differences:**  \n  * Fireworks placement and density are slightly altered and emphasized in the sky.  \n  * Atmospheric mist and water spray are stylized via cross-hatching and dot tones rather than soft diffusion.  \n  * Center fold seam runs through the double-page layout.\n\n* **Overall Score:** 72/100\n\n* **Verdict:** APPROVED",
-    "timestamp": 1791566999
+    "iteration": 2,
+    "verdict": "REVISE",
+    "review": "1. **Composition Match Score:** 76%\n2. **Character & Subject Authenticity Score:** 74%\n3. **Manga Art Style Fidelity Score:** 48%\n4. **Overall Match Accuracy:** 66%\n\n5. **Specific differences observed:**\n   - Image 2 exhibits a warmer, more vibrant sky gradient than Image 1.\n   - The play button overlay from the reference is absent in Image 2.\n   - The rendition retains a fully colored cinematic finish rather than translating the shot into a traditional manga or pencil-sketch style.\n\n6. **Recommendation for next iteration:**\n   - Convert the frame into an authentic manga aesthetic utilizing clean line art, screentones, and monochrome hatching instead of cinematic coloring.\n\n7. **Verdict:** REVISE",
+    "latest_file": "manga_sketches/sketch_001_iter2.jpg",
+    "timestamp": 1791576470.0097682
   },
   "shot_002": {
     "shot_num": 2,
@@ -453,12 +454,5 @@
     "verdict": "APPROVED",
     "review": "### Evaluation: Manga Keyframe Adaptation\n\n#### 1. Composition Match\n* **Score:** 7/10\n* **Summary:** Strong top-down framing fidelity. Placement of the thrones, game board, surrounding props, and rolling dice matches the reference angle closely.\n\n#### 2. Character & Subject Accuracy\n* **Score:** 7/10\n* **Summary:** Accurately reflects the historical Indian epic setting. The Chaupar/Pachisi cloth, long rectangular dice (*pasa*), and ornate seat motifs are preserved without inappropriate foreign stylistic elements.\n\n#### 3. Manga Art Style Fidelity\n* **Score:** 7/10\n* **Summary:** Clean manga ink lineart with effective hatching, screentone shading, and speed lines to convey the motion of the airborne dice.\n\n---\n\n### 4. Detailed Feedback & Differences\n* **Motion & Dynamic Lines:** Speed lines applied to the tumbling dice capture the live-action motion blur well in a manga medium.\n* **Tonal Values:** The dark cloth on the thrones and game mat is well-translated using cross-hatching and deep blacks.\n* **Geometry:** Minor perspective divergence along the edge of the dice and hexagonal carpet boundary compared to the source frame.\n\n---\n\n### 5. Overall Match Score & Verdict\n* **Overall Match Score:** 71/100\n* **Verdict:** APPROVED",
     "timestamp": 1791576415.064092
-  },
-  "shot_066": {
-    "shot_num": 66,
-    "iteration": 1,
-    "verdict": "APPROVED",
-    "review": "### Evaluation Breakdown\n\n**1. Composition Match: 7/10**\nThe top-down perspective, placement of the flanking ornate thrones, central Chaupar board, and foreground tumbling dice replicate the reference shot's geometry effectively. Characters are brought more clearly into frame to enhance narrative drama.\n\n**2. Character & Subject Accuracy: 7/10**\nThe elongated dice (*pasa*), game mat, and throne carvings faithfully reflect the reference. Background figures are appropriately stylized with classical Indian epic attire, armor, and crowns, avoiding mismatched cultural tropes.\n\n**3. Manga Art Style Fidelity: 7/10**\nFeatures crisp linework, effective cross-hatching, screentone shading, and dynamic motion lines with integrated sound effects (*ZDOON*, *ZUKIN*), capturing a balanced shonen/epic manga look.\n\n---\n\n### Detailed Feedback & Differences\n\n* **Dice Depiction:** The reference captures two distinct blur instances of rolling dice; the sketch renders them as a fused, single tumbling block with linear speed lines.\n* **Character Visibility:** The sketch introduces clear background onlookers and an active thrower to fill negative space, whereas the reference shot leaves human figures indistinct or mostly out of frame.\n* **Lighting and Atmosphere:** The sketch opts for high-clarity white background space rather than the low-key, dimly lit mood of the live-action plate.\n\n---\n\n### Overall Match Score & Verdict\n\n* **Overall Score:** 72/100\n* **Verdict:** APPROVED",
-    "timestamp": 1791576453.1161964
   }
 }

@@ -54,5 +54,33 @@
     "verdict": "APPROVED",
     "review": "* **Composition Match:** 7/10  \n  High-level alignment with the source; perspective, wide-angle framing, circular hall layout, and foreground character positioning closely mirror the reference.\n\n* **Character/Subject Accuracy:** 7/10  \n  The central figure's headdress, sash, and posture are well-replicated. Court attendees and surrounding architecture reflect the placement in the original shot.\n\n* **Manga Style Fidelity:** 7/10  \n  Strong execution of screentone application, fine linework, and hatching typical of detailed historical manga spreads.\n\n* **Differences:**  \n  Lighting is adapted from cinematic atmospheric glow to high-contrast screentones. Certain background figures and distant architectural carvings have been simplified into line art.\n\n* **Overall Score:** 71/100  \n\n* **Verdict:** APPROVED",
     "timestamp": 1791566999
+  },
+  "shot_009": {
+    "shot_num": 9,
+    "iteration": 1,
+    "verdict": "APPROVED",
+    "review": "### Evaluation\n\n**1. Composition Match:** 7/10  \nThe wide framing, low-angle perspective, and spatial relationship between the duelists and surrounding dense forest closely replicate the reference layout.\n\n**2. Character & Subject Accuracy:** 7/10  \nThe depiction successfully captures the epic Indian aesthetic, retaining traditional dhotis and armor while incorporating ornate crowns (*mukut*). Weapon designs remain culturally appropriate rather than East Asian styles.\n\n**3. Manga Art Style Fidelity:** 7/10  \nClean line art, accurate ink contours, and uniform screentone shading provide a polished, manga-adapted look suitable for an epic sequence.\n\n---\n\n### Detailed Feedback & Differences\n\n* **Headwear:** Both characters feature ornate crowns (*mukut*) not present in the live-action shot.\n* **Costuming & Linework:** Fabric drapery and armor patterns are stylized with defined hatching and tone gradients, enhancing readability compared to the muted original.\n* **Background:** Tree density and foreground foliage closely match the placement of the reference environment.\n\n---\n\n### Overall Match Score & Verdict\n\n* **Overall Score:** 70/100  \n* **Verdict:** **APPROVED**",
+    "timestamp": 1791571247.761014
+  },
+  "shot_010": {
+    "shot_num": 10,
+    "iteration": 1,
+    "verdict": "APPROVED",
+    "review": "### Evaluation\n\n**1. Composition Match:** 6/10  \n*Rationale:* The over-the-shoulder framing, character positioning, and forest background layout align well with the reference shot.\n\n**2. Character & Subject Accuracy:** 6/10  \n*Rationale:* Weapon hilts, clashing blades, and ornate arm guards appropriately reflect the source material without unwanted Japanese elements, though the manga adds an ornate crown not visible in the reference.\n\n**3. Manga Art Style Fidelity:** 6/10  \n*Rationale:* Strong screentone textures, clean line work, and integrated action SFX successfully capture classic shonen manga aesthetics.\n\n---\n\n### Detailed Feedback & Differences\n* **Foreground Character:** The manga version introduces a detailed crown/headdress, whereas the reference shot features bare black hair.\n* **Opponent's Arm:** The bracer on the defending warrior's forearm changes from a fibrous/textured wrap in the original to ornate metal armor in the sketch.\n* **Environment & SFX:** Background foliage has been simplified into defined manga tree trunks, accented with stylized action lines and sound effects.\n\n---\n\n### Final Assessment\n* **Overall Match Score:** 66/100  \n* **Verdict:** APPROVED",
+    "timestamp": 1791571299.4226704
+  },
+  "shot_011": {
+    "shot_num": 11,
+    "iteration": 1,
+    "verdict": "APPROVED",
+    "review": "### Evaluation\n\n**1. Composition Match:** 6.5/10  \nTight crop on the eyes, brow, and forehead aligns well with the reference framing. The manga adds background depth on the right edge (chariot and battlefield) absent in the original blur.\n\n**2. Character & Subject Accuracy:** 7/10  \nAccurately captures the traditional Indian epic aesthetic. The *tilak* design, ornate crown rim, and facial features closely reflect the reference character without inappropriate cultural elements.\n\n**3. Manga Art Style Fidelity:** 7/10  \nHigh-quality manga aesthetic featuring clean ink line work, cross-hatching, screentone shading, and manga-style visual effects (sound effect text and motion lines).\n\n---\n\n### Detailed Feedback & Differences\n* **Foreground:** Eye angle, eyebrow shape, and forehead mark are faithful adaptations of the live-action frame.\n* **Background:** The original shot features a soft-focus forest background, whereas the sketch introduces narrative context via a background chariot and soldiers.\n* **Stylization:** Dynamic line weights and classic manga hatching replace the soft cinematic lighting of the reference.\n\n---\n\n### Overall Match Score & Verdict\n* **Overall Match Score:** 68/100  \n* **Verdict:** **APPROVED**",
+    "timestamp": 1791571346.259008
+  },
+  "shot_012": {
+    "shot_num": 12,
+    "iteration": 2,
+    "verdict": "APPROVED",
+    "review": "### Evaluation\n\n* **1. Composition Match:** 7/10  \n* **2. Character & Subject Accuracy:** 7/10  \n* **3. Manga Art Style Fidelity:** 7/10  \n\n---\n\n### Detailed Feedback & Differences\n\n* **Composition:** Framing, low-angle perspective, and subject placement on the cliff edge closely mirror the reference layout.  \n* **Subject & Props:** Character design accurately reflects Indian epic iconography (traditional dhoti, crown, ornaments, blue skin tone) with no out-of-place samurai elements.  \n* **Style:** Visuals translate the cinematic lighting into defined ink contours, cross-hatching, and stylized cel shading typical of vintage anime productions. Cloud depth is simplified into clean anime-style shapes.\n\n---\n\n### Overall Match Score & Verdict\n\n* **Overall Match Score:** 70/100  \n* **Verdict:** APPROVED",
+    "timestamp": 1791571425.7919114
   }
 }

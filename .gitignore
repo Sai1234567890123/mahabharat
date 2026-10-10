@@ -13,3 +13,7 @@ __pycache__/
 # IDE / OS
 .DS_Store
 Thumbs.db
+
+# Short renders (large media; the shared project folder holds the copies)
+preproduction/art/shorts/*.mp4
+preproduction/art/shorts/*.wav

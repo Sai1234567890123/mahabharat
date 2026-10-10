@@ -54,14 +54,17 @@ def build_prompt(shot, data):
         "geometry) in the same places, cleaner and more beautiful.",
         "Render style: painterly stylized 3D animation with visible brushwork on every surface, soft painted "
         "gradients and textured shading. Do NOT use flat 2D cel shading, thick ink outlines or simple vector "
-        "shapes. Sparkles and light should glow softly, not look like flat stickers.",
+        "shapes. Define every shape by light, value and color, never by dark contour lines: no outlines around "
+        "characters, horses, chariots or armies. Model form with soft volumetric shading and colored rim light, "
+        "with brush texture on skin, cloth, metal and sky. Sparkles and light should glow softly, not look like "
+        "flat stickers. Keep background ornaments and geometry as abstract shapes; do not turn them into faces.",
         GLOBAL,
         act["prompt"],
     ]
     for k in cast(shot):
         lines.append(data["characters"][k]["prompt"] + ".")
     lines.append(shot["keyframe_prompt"] + f". {shot['camera']['lens']}mm lens, 2.39:1 widescreen.")
-    lines.append("Avoid: " + NEGATIVE + ".")
+    lines.append("Avoid: " + NEGATIVE + ", black ink outlines, anime cel shading, faces in the background.")
     return "\n".join(lines)
 
 

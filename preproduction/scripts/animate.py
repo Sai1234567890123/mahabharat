@@ -103,7 +103,8 @@ def main():
             with open(still, "rb") as f:
                 image = types.Image(image_bytes=f.read(), mime_type="image/png")
             op = client.models.generate_videos(
-                model=a.model, prompt=prompt, image=image,
+                model=a.model,
+                source=types.GenerateVideosSource(prompt=prompt, image=image),
                 config=types.GenerateVideosConfig(aspect_ratio="16:9", duration_seconds=seconds,
                                                   number_of_videos=1))
             waited = 0

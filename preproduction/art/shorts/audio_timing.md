@@ -1,12 +1,12 @@
 # Audio Timing Sheet
 
-Total duration: 84.0 seconds (matches animatic_v01.mp4)
+Total duration: 97.0 seconds (matches mahabharat_shorts_1080x1920_silent.mp4)
 
 ## Cues
 
 | Time (s) | Shot | Cue | Description |
 |---|---|---|---|
-| 0.0 - 84.0 | Master | Background | Low synthetic drone bed (55 Hz) |
+| 0.0 - 97.0 | Master | Background | Low synthetic drone bed (55 Hz) |
 | 7.0 | SH020 | SFX | Drum hit (synthetic noise burst) |
 | 15.0 | SH040 | SFX | Bhishma's conch (300 Hz synth horn + noise) |
 | 26.0 | SH070 | SFX | Two conches (350 Hz, 400 Hz) |

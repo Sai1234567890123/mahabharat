@@ -4,7 +4,7 @@ import struct
 import os
 
 sample_rate = 44100
-duration = 84.0
+duration = 97.0
 num_samples = int(sample_rate * duration)
 
 def generate_tone(freq, duration_s, vol=0.5):

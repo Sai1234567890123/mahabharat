@@ -45,7 +45,7 @@ PICKS = {
     "SH130": "SH130_v09.png",
     "SH140": "SH140_v05.png",
     "SH150": "SH150_v23.png",
-    "SH160": "SH160_v08.png",
+    "SH160": "SH160_v36.png",
     "SH170": "SH170_v09.png",
     "SH180": "SH180_v04.png",
 }

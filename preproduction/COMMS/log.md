@@ -45,3 +45,13 @@
 2026-10-10 18:10 | T-008 | antigravity | blocked | review Sai's clips and cut animatic once clips land in art/motion
 2026-10-10 18:22 | T-006 | antigravity | doing | sync art/selected with APPROVED.json, rebuild storyboards and docs
 2026-10-10 18:38 | T-006 | antigravity | review | synced 18 approved frames in art/selected/, rebuilt storyboards and docs; see R-007
+2026-10-10 18:40 | T-005 | claude | review | SH160 v22: new staging (Krishna frontal, Arjuna kneeling in front, v20) + full 162 face swapped and hand-painted; awaiting Sai
+2026-10-10 18:54 | T-005 | claude | review | SH160 pencil_v01: own pencil body sketch (blank face) + full 162 face attached, eyes +12%; serial screenshot not used as model input or traced; paint waits for Sai's OK
+2026-10-10 19:08 | T-005 | claude | review | SH160 pencil stages: stage1_outline_v3, stage2_lines_v3 (lower hands swapped, lotus on viewer's right), pencil_v03 (our crown + full 162 face, eyes +12%); awaiting Sai before paint
+2026-10-10 19:11 | T-005 | claude | review | SH160 v28 = painted pencil_v03 (v26) with exact 162 face restored by frequency blend; awaiting Sai
+2026-10-10 19:19 | T-005 | claude | review | SH160 pencil_v04: snakes removed, approved body kept, head+crown+neck from our manga 162 (eyes +12%), edges blended; awaiting Sai before paint
+2026-10-10 19:29 | T-005 | claude | review | SH160 ink_v07: body redrawn broader in 162 ink style (from enlarged guide), exact 162 face restored, eyes +12%; awaiting Sai before paint
+2026-10-10 19:33 | T-005 | claude | review | SH160 v33 = painted ink_v07 (v30) + exact 162 face restored, old tilak removed; awaiting Sai
+2026-10-10 19:36 | T-005 | claude | review | SH160 v35: face+neck shape taken from approved ink_v07, recoloured to painted skin; old tilak removed; awaiting Sai
+2026-10-10 19:38 | T-005 | claude | review | SH160 v36: Sai's ink sketch coloured line for line (lines from sketch, colour/light from v30); awaiting Sai
+2026-10-10 19:42 | T-005 | claude | done | SH160 v36 approved by Sai; art/selected, APPROVED.json, animate.py PICKS, keyframe and video_handoff_pilot.zip updated to v36

@@ -15,7 +15,7 @@ nothing and prints the plan. Then test one shot before the full run:
 Settings come from the environment, with these defaults:
   GOOGLE_CLOUD_PROJECT=aiautomationplatform
   GOOGLE_CLOUD_LOCATION=us-central1   (Veo is served from a regional endpoint)
-  VIDEO_MODEL=veo-3.0-fast-generate-001   (use veo-3.0-generate-001 for final quality)
+  VIDEO_MODEL=veo-3.0-generate-001   (the Veo 3 model enabled in this project; the fast variant returned 404)
 
 Veo bills per generated second, so check the Vertex AI pricing page before a
 full run. Clip lengths are snapped to 4, 6 or 8 seconds.
@@ -58,7 +58,7 @@ def build_prompt(shot):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--shot", action="append", help="shot id, repeatable (default: all picks)")
-    ap.add_argument("--model", default=os.environ.get("VIDEO_MODEL", "veo-3.0-fast-generate-001"))
+    ap.add_argument("--model", default=os.environ.get("VIDEO_MODEL", "veo-3.0-generate-001"))
     ap.add_argument("--project", default=os.environ.get("GOOGLE_CLOUD_PROJECT", "aiautomationplatform"))
     ap.add_argument("--location", default=os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1"))
     ap.add_argument("--dry-run", action="store_true", help="print the plan, call nothing")

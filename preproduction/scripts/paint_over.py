@@ -47,10 +47,14 @@ def build_prompt(shot, data):
     act = data["acts"][shot["act"]]
     lines = [
         "Repaint the attached layout frame as a finished keyframe for an animated feature.",
-        "Keep the exact composition, camera angle, lens, horizon line, character positions and scale, "
-        "and the overall color palette of the layout. Replace the simple proxy figures, horses and props "
+        "Keep the exact composition, camera angle, lens, horizon line, and the position and size of every "
+        "chariot, figure and army block. Do not move or resize anything, and do not add or remove figures. "
+        "Keep the overall color palette of the layout. Replace the simple proxy figures, horses and props "
         "with fully designed, detailed ones. Keep the hand-drawn effects (sound rings, light rays, halos, "
         "geometry) in the same places, cleaner and more beautiful.",
+        "Render style: painterly stylized 3D animation with visible brushwork on every surface, soft painted "
+        "gradients and textured shading. Do NOT use flat 2D cel shading, thick ink outlines or simple vector "
+        "shapes. Sparkles and light should glow softly, not look like flat stickers.",
         GLOBAL,
         act["prompt"],
     ]

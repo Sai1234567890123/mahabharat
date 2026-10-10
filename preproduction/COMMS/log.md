@@ -63,3 +63,7 @@
 2026-10-10 22:29 | T-005 | claude | done | Shorts master rebuilt with analysis focus offsets (SH010 0.60, SH050 0.40, SH060 0.50, SH130 0.38, SH170 0.60); SH140 0.62 kept pending Sai's decision
 2026-10-10 22:34 | T-014 | antigravity | doing | generating synthetic audio with python wave module to ensure clear licensing
 2026-10-10 22:34 | T-014 | antigravity | done | audio_v01.wav generated; timing sheet and licenses documented in COMMS
+2026-10-10 22:55 | T-015 | claude | todo | created metadata and upload checklist task for Antigravity (uncommitted)
+2026-10-10 23:02 | T-015 | antigravity | doing | picked up task to write metadata and upload checklist
+2026-10-10 23:02 | T-015 | antigravity | review | shorts_metadata_v01.md and upload_checklist.md written, see R-015
+2026-10-10 23:02 | T-014 | claude | done | mixed review file art/shorts/mahabharat_shorts_1080x1920_mixed_v01.mp4 (silent master + audio_v01.wav at -1 dB peak, 97.0 s); silent master unchanged; black-frame and freeze scan clean apart from the title and end fades

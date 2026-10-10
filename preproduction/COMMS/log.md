@@ -58,3 +58,8 @@
 2026-10-10 20:01 | T-005 | claude | done | SH160 take2 re-rendered from v36 keyframe with veo-3.1-fast (4s); take1 kept as the v08 take
 2026-10-10 20:38 | T-008 | antigravity | review | all 18 pilot clips generated, QA frames extracted, PICKS.json created, animatic_v01.mp4 assembled (84.0s); see R-008
 2026-10-10 22:13 | T-008 | antigravity | review | Updated PICKS.json and R-008 to use SH160_take2.mp4 due to face drift in take 1; animatic shot duration confirmed.
+2026-10-10 22:26 | T-010 | claude | todo | created task for YouTube Shorts audio and SFX
+2026-10-10 22:28 | T-005 | claude | done | Shorts master art/shorts/mahabharat_shorts_1080x1920_silent.mp4: 1080x1920, 24 fps, 97 s, silent, crop-to-fill from the 18 clips (SH160 take 2), title card, fade transitions; SH140 keeps Krishna only, Arjuna cropped out
+2026-10-10 22:29 | T-005 | claude | done | Shorts master rebuilt with analysis focus offsets (SH010 0.60, SH050 0.40, SH060 0.50, SH130 0.38, SH170 0.60); SH140 0.62 kept pending Sai's decision
+2026-10-10 22:34 | T-010 | antigravity | doing | generating synthetic audio with python wave module to ensure clear licensing
+2026-10-10 22:34 | T-010 | antigravity | done | audio_v01.wav generated; timing sheet and licenses documented in COMMS

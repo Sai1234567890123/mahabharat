@@ -6,7 +6,8 @@ from data/shots.json, and asks for a finished painterly keyframe that keeps
 the exact layout. A second model scores each result against the style bible.
 
 Run it on a machine that is already logged in to Google Cloud
-(`gcloud auth application-default login`), for example:
+(`gcloud auth application-default login`), or set GCP_SA_KEY to a service
+account's JSON key (Vertex AI User role). For example:
 
   pip install google-genai
   python paint_over.py                      # the 8 hero shots
@@ -135,7 +136,12 @@ def main():
 
     from google import genai
     from google.genai import types
-    client = genai.Client(vertexai=True, project=a.project, location=a.location)
+    creds = None
+    if os.environ.get("GCP_SA_KEY"):  # service-account JSON in an env var (cloud sessions)
+        from google.oauth2 import service_account
+        creds = service_account.Credentials.from_service_account_info(
+            json.loads(os.environ["GCP_SA_KEY"]), scopes=["https://www.googleapis.com/auth/cloud-platform"])
+    client = genai.Client(vertexai=True, project=a.project, location=a.location, credentials=creds)
     print(f"Vertex AI project={a.project} location={a.location} model={a.model}")
 
     for s in shots:

@@ -285,5 +285,37 @@
         "Heavy lineart emphasis over painterly brushwork"
       ]
     }
+  },
+  "SH070_v02.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Added flag element not present in layout",
+        "Renders more as 2D digital illustration than stylized CG brushwork"
+      ]
+    }
+  },
+  "SH170_v02.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Clean contour linework reduces visible painterly brushwork",
+        "Foreground lightning arcs slightly simplified from layout"
+      ]
+    }
   }
 }

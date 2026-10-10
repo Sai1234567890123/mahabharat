@@ -1,7 +1,7 @@
 ---
 id: T-002
 owner: antigravity
-status: review
+status: done
 created: 2026-10-10
 depends_on: []
 ---

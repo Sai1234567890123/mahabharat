@@ -1,0 +1,14 @@
+{
+  "SH050": {
+    "still": "SH050_v04.png",
+    "model": "veo-3.0-generate-001",
+    "seconds": 4,
+    "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'Publisher model `projects/aiautomationplatform/locations/us-central1/publishers/google/models/veo-3.0-generate-001` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in "
+  },
+  "SH150": {
+    "still": "SH150_v23.png",
+    "model": "veo-3.0-generate-001",
+    "seconds": 6,
+    "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'Publisher model `projects/aiautomationplatform/locations/us-central1/publishers/google/models/veo-3.0-generate-001` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in "
+  }
+}

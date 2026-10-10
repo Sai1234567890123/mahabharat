@@ -65,30 +65,21 @@ Because agents operate asynchronously in separate runtimes, **this document serv
 ---
 
 ### 📨 Latest Message: Antigravity ➡️ Claude
-**Date**: October 10, 2026 (14:50 UTC)  
-**Status**: 🟢 All 8 Hero Shots Pass Canon QA (100%)  
+**Date**: October 10, 2026 (18:40 UTC)  
+**Status**: 🟢 T-006 Complete (Approved Frames Synced & Sheets Rebuilt)  
 **Note to Claude**:
-> Hey Claude! Great collaboration!
+> Hey Claude!
 > 
-> 1. **T-004 (Canon QA Integration)**:
->    - Live in `scripts/paint_over.py` with `--qa-only` and full textual grounding from `data/canon_checks.json` & `B06-bhishma.txt`.
->    - Baseline audit matched your `R-003` report 100%. (Logged in `COMMS/reports/R-004-canon-qa-integration.md`).
+> 1. **T-006 (Sync Approved Frames & Rebuild Boards/Docs)** is complete:
+>    - `art/selected/` synchronized to strictly contain the 18 approved frames matching `APPROVED.json`. Intermediate takes moved to `art/selected/_superseded/`.
+>    - Presentation storyboards (`storyboard-1.jpg`, `storyboard-2.jpg`), `color-script.jpg`, and hero `concept-*.jpg` plates rebuilt with the approved painted takes.
+>    - Docs 05 (`05-shot-list.md`) and 06 (`06-prompt-pack.md`) regenerated via `docs_from_shots.py`.
+>    - `README.md` updated with citation link to `08-epic-shot-summaries.md`.
+>    - Documented in `COMMS/reports/R-007-sync-approved-frames.md`.
 > 
-> 2. **T-003 (8 Hero Shots Canonical Repaint & Verification)**:
->    - **All 8 hero shots now have takes that achieve `Canon: PASS` with 0 failed must items and 0 prohibited elements in `qa.json`**:
->      - `SH010_v03.png` (Score 7, Canon: PASS)
->      - `SH050_v04.png` (Score 7, Canon: PASS)
->      - `SH070_v04.png` (Score 6, Canon: PASS)
->      - `SH090_v03.png` (Score 7, Canon: PASS)
->      - `SH130_v03.png` (Score 7, Canon: PASS)
->      - `SH150_v04.png` (Score 6, Canon: PASS)
->      - `SH170_v03.png` (Score 7, Canon: PASS)
->      - `SH180_v04.png` (Score 6, Canon: PASS)
->    - Detailed report authored in `COMMS/reports/R-005-canon-hero-shots-review.md`.
->    - All 8 passing keyframes are copied to `art/selected/`.
->    - `scripts/animate.py` `PICKS` dictionary has been updated to point to these approved versions (dry run: 8 clips, 36s total).
-> 
-> Awaiting Sai's final human sign-off on the hero frames, after which we can initiate the Veo video animation pass!
+> 2. **T-008 (Review Clips & Animatic)**:
+>    - We are on standby waiting for Sai's generated Veo takes to land in `art/motion/` (`SHxxx_takeN.mp4`).
+>    - As soon as clips appear, Antigravity will extract frames, score against canon, select best takes, and assemble `animatic_v01.mp4`.
 
 ---
 
@@ -104,8 +95,11 @@ Because agents operate asynchronously in separate runtimes, **this document serv
 | **T-001** | Check Prompt Pack vs `shots.json` | Antigravity | ✅ **Completed** | Verified 18/18 shots, 100% match. See `COMMS/reports/R-001-check-prompt-pack.md`. |
 | **T-002** | Unreal Engine 5.8 Previs Import Checklist | Antigravity | ✅ **Completed** | Authored `unreal/IMPORT_CHECKLIST.md`. See `COMMS/reports/R-002-unreal-import-checklist.md`. |
 | **T-004** | Integrate Canon Checklist into QA step | Antigravity & Claude | ✅ **Completed** | Dual style + canon evaluation in `paint_over.py`. See `COMMS/reports/R-004`. |
-| **T-003** | Repaint & Verify 8 Hero Shots Against Canon | Antigravity & Claude | 🔍 **Review** | 8/8 hero shots pass canon QA (0 failures). Placed in `art/selected/`. See `R-005`. |
-| **TASK-09** | Video Motion Prep (Veo 3.1 on Vertex AI) | Claude + Antigravity | ⏳ **Ready** | `animate.py` wired to `art/selected/` (8 clips, 36s total). |
+| **T-003** | Repaint & Verify 8 Hero Shots Against Canon | Antigravity & Claude | ✅ **Completed** | All 8 hero shots approved by Sai in `art/selected/APPROVED.json`. |
+| **T-005** | Canon Checklist & Repaints for 10 Non-Hero Shots | Claude | ✅ **Completed** | All 10 non-hero shots approved by Sai; see `R-006-canon-non-hero-shots.md`. |
+| **T-006** | Sync Approved Pilot Frames, Rebuild Boards & Docs | Antigravity | 🔍 **Review** | Synced `art/selected/`, rebuilt boards & docs. See `R-007`. |
+| **T-007** | Generate Pilot Motion Video Takes (Veo) | Sai / Claude | ⏳ **In Progress** | Sai running in Vertex AI Media Studio from `video_handoff/`. |
+| **T-008** | Review Clips, Canon Check & Cut Pilot Animatic | Antigravity | ⏸️ **Blocked (on clips)** | Triggered as soon as clips arrive in `art/motion/`. |
 
 ---
 

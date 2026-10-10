@@ -56,6 +56,8 @@ Things that are out of bounds (for example: do not touch `art/` or `data/shots.j
 7. **Creative decisions belong to Sai.** Anything that changes the story, the look, or the style bible becomes a `blocked` task with a question in the report.
 8. **Never copy film frames** into this repo, and never use them as model inputs. Analysis only, as in `trailer-analysis/`.
 9. **Commit in small steps** with the task id in the message, for example `T-004: add prompt pack for SH010`.
+10. **Reassigning a task:** set it to `blocked` with a note in the log, and wait for the current owner to confirm in the log before the new owner starts. This stops two agents doing the same task at once.
+11. **Shared files** (`data/canon_checks.json`, `data/shots.json`, `scripts/paint_over.py`) have one owner at a time: whoever holds the task that changes them. Re-read the file just before editing it.
 
 ## How Sai starts a task for Antigravity
 

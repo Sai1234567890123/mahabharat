@@ -2,66 +2,253 @@
   "_about": "Canon checklist per hero shot, from the Ganguli translation of the Bhishma Parva (mahabharat-site/source/B06-bhishma.txt) and 03-characters.md. The QA step must score each painted frame against 'must' and 'must_not'. A frame that fails any 'must' or shows any 'must_not' is rejected, whatever its style score.",
   "global": {
     "must": [
-      "Krishna: deep indigo-blue skin, yellow silk dhoti, gold crown with one peacock feather",
-      "Arjuna: warm brown skin, curly black hair, white and silver scale armor, blue sash",
-      "Arjuna's chariot: gold, white horses, the ape banner on its own flagstaff",
-      "Krishna drives (holds the reins); Arjuna is the warrior and holds Gandiva"
+      "if Krishna is in frame: deep indigo-blue skin, yellow silk dhoti, gold crown with one peacock feather",
+      "if Arjuna is in frame: warm brown skin, curly black hair, white and silver scale armor, blue sash",
+      "if Arjuna's chariot is in frame: it is gold; its horses, if in frame, are white; its flagstaff, if in frame, carries the ape banner",
+      "if both are on the chariot: Krishna is the driver and Arjuna is the warrior with Gandiva (Krishna never holds Gandiva)",
+      "the frame reads as hand-painted by one artist: consistent brushwork, deliberate shapes, one clear focal point"
     ],
     "must_not": [
       "the ape banner drawn as a cartoon chimp face; it is a great ape (Hanuman), dignified",
       "any other emblem (eagle, Garuda, lion) on Arjuna's flagstaff",
       "Krishna holding Gandiva or any weapon in the field scenes",
-      "brown, black or grey horses on Arjuna's chariot"
+      "brown, black or grey horses on Arjuna's chariot",
+      "AI look: floating star or sparkle stickers, lens-flare clutter or random glitter",
+      "AI look: glossy plastic or airbrushed skin; every surface must show the same painted brush texture",
+      "AI look: wrong hands (extra, missing or fused fingers) or wrong limb count on anyone except the universal form",
+      "AI look: horses with wrong anatomy, extra or missing legs, or harness and reins not connected to the car",
+      "AI look: chariot wheels with uneven, broken or melted spokes",
+      "AI look: garbled, mirrored or half-formed emblems, or pseudo-text anywhere",
+      "AI look: copy-pasted crowds where soldiers repeat in identical poses",
+      "AI look: light from more than one direction, or shadows that disagree with the key light"
     ]
   },
   "shots": {
     "SH010": {
       "source": "B06 2963-2964",
       "epic": "Above every standard of both hosts towered the one gigantic ape on Arjuna's car.",
-      "must": ["the ape banner flies from Arjuna's own chariot and is the tallest standard on the field", "the two hosts arrayed facing each other, the battle not yet begun", "Krishna (blue) at the reins"],
-      "must_not": ["Arjuna drawing or firing the bow; no one shoots before the conches", "the ape banner on a separate pole away from Arjuna's car", "a turbaned charioteer who is not Krishna"]
+      "must": [
+        "the ape banner flies from Arjuna's own chariot and is the tallest standard on the field",
+        "the two hosts arrayed facing each other, the battle not yet begun",
+        "Krishna (blue) at the reins"
+      ],
+      "must_not": [
+        "Arjuna drawing or firing the bow; no one shoots before the conches",
+        "the ape banner on a separate pole away from Arjuna's car",
+        "a turbaned charioteer who is not Krishna"
+      ]
     },
     "SH050": {
       "source": "B06 3208-3213",
       "epic": "Arjuna's car: a hundred bells, finest gold, fine wheels, fiery radiance, white steeds, bright as a thousand suns; Kesava holds the reins, Arjuna stands with Gandiva and arrows.",
-      "must": ["four white steeds", "many small bells along the car", "the car itself blazing with light, not only sparkles around it", "Krishna holding the reins", "Arjuna with Gandiva and arrows"],
-      "must_not": ["a cartoon monkey face on the banner"]
+      "must": [
+        "four white steeds",
+        "many small bells along the car",
+        "the car itself blazing with light, not only sparkles around it",
+        "Krishna holding the reins",
+        "Arjuna with Gandiva and arrows"
+      ],
+      "must_not": [
+        "a cartoon monkey face on the banner"
+      ]
     },
     "SH070": {
       "source": "B06 3478-3483",
       "epic": "Madhava and Arjuna, on their great car yoked to white steeds, blew their celestial conches: Panchajanya and Devadatta.",
-      "must": ["Krishna blows Panchajanya, Arjuna blows Devadatta, both conches white", "the ape banner on the flagstaff"],
-      "must_not": ["a war horn or trumpet on the car; horns belong to the Kaurava uproar before this", "an empty flagstaff"]
+      "must": [
+        "Krishna blows Panchajanya, Arjuna blows Devadatta, both conches white",
+        "the ape banner on the flagstaff"
+      ],
+      "must_not": [
+        "a war horn or trumpet on the car; horns belong to the Kaurava uproar before this",
+        "an empty flagstaff"
+      ]
     },
     "SH090": {
       "source": "B06 3488-3490",
       "epic": "That blare, echoing through sky and earth, rent the hearts of the Dhartarashtras.",
-      "must": ["Kaurava soldiers in the foreground visibly shaken (recoiling, covering ears, faces turned)", "the ground trembling (dust lifting)"],
-      "must_not": ["foreground figures as faceless posts with no reaction"]
+      "must": [
+        "Kaurava soldiers in the foreground visibly shaken (recoiling, covering ears, faces turned)",
+        "the ground trembling (dust lifting)"
+      ],
+      "must_not": [
+        "foreground figures as faceless posts with no reaction"
+      ]
     },
     "SH130": {
       "source": "B06 3517-3521",
       "epic": "Arjuna: my limbs fail, my mouth is dry, my body trembles; Gandiva slips from my hand; I cannot stand.",
-      "must": ["Arjuna sinking onto the car floor", "Gandiva sliding out of his hand toward the floor", "Krishna still at the front of the car"],
-      "must_not": ["Arjuna still holding the bow upright"]
+      "must": [
+        "Arjuna sinking onto the car floor",
+        "Gandiva sliding out of his hand toward the floor",
+        "Krishna still at the front of the car",
+        "the ape banner shows a dignified, crowned Hanuman figure, never a gorilla, chimp or cartoon monkey"
+      ],
+      "must_not": [
+        "Arjuna still holding the bow upright"
+      ]
     },
     "SH150": {
-      "source": "B06 4826-4862",
-      "epic": "Faces turned on all sides; many arms, bellies, mouths and eyes; no end, middle or beginning; diadem, mace and discus; the splendour of a thousand suns at once.",
-      "must": ["countless arms and faces on every side, not a single calm four- or eight-armed figure", "diadem, mace and discus clearly held", "light like a thousand suns", "Arjuna's chariot with the ape banner and white horses"],
-      "must_not": ["an eagle or Garuda banner on Arjuna's car", "brown horses", "the whole army reacting as if it sees the form; the vision is given to Arjuna"]
+      "source": "B06 4838-4935",
+      "epic": "Krishna gives Arjuna a divine eye and shows his sovereign form: countless mouths, eyes, arms and bellies, terrible with tusks; fire for a mouth, sun and moon for eyes; radiance of a thousand suns touching the sky; the whole universe, the gods, Brahma on his lotus and the sages inside his body; the three worlds tremble; Bhishma, Drona, Karna and the warriors of both armies rush into his fanged flaming mouths like moths into fire. He declares he is Death, destroyer of the worlds.",
+      "must": [
+        "the mood is awe and terror, not calm or benevolent",
+        "a form too vast to see whole, filling the sky from horizon to zenith",
+        "many mouths with tusks, at least one flaming mouth, fire glowing inside",
+        "countless arms holding many raised celestial weapons, including a diadem, a mace and a discus",
+        "the cosmos inside the body: stars, worlds and tiny gods visible within the form",
+        "streams of tiny warrior figures and chariots flowing up into the flaming mouths (this shot may add these figures to the layout)",
+        "Arjuna's chariot tiny on the ground, Arjuna looking up; white horses; the ape banner",
+        "radiance like a thousand suns"
+      ],
+      "must_not": [
+        "a serene, smiling or blessing figure; no raised blessing hand",
+        "a single calm face in front of a decorative mandala",
+        "the armies looking up or raising arms toward the form; only Arjuna sees it",
+        "a cartoon monkey or chimp on the banner"
+      ]
     },
     "SH170": {
       "source": "B06 5773",
       "epic": "Arjuna: my delusion is destroyed, my memory regained; I am firm, my doubts are gone; I will do your bidding.",
-      "must": ["ARJUNA rising and lifting Gandiva", "Krishna taking the reins"],
-      "must_not": ["Krishna holding Gandiva", "Arjuna missing from the frame"]
+      "must": [
+        "ARJUNA rising and lifting Gandiva",
+        "Krishna taking the reins",
+        "Gandiva raised high overhead in both hands or one raised arm, not held at the chest"
+      ],
+      "must_not": [
+        "Krishna holding Gandiva",
+        "Arjuna missing from the frame",
+        "any dark horse or dark horse body part at the frame edge"
+      ]
     },
     "SH180": {
       "source": "B06 2963-2964, 3212",
       "epic": "The ape on Arjuna's car above all standards.",
-      "must": ["the ape banner on its flagstaff, snapping in the wind against a red sun"],
-      "must_not": ["a chariot or figure standing on top of the flagstaff"]
+      "must": [
+        "the ape banner on its flagstaff, snapping in the wind against a red sun"
+      ],
+      "must_not": [
+        "a chariot or figure standing on top of the flagstaff"
+      ]
+    },
+    "SH160": {
+      "source": "B06 4843-4862",
+      "epic": "Arjuna, amazed, hair standing on end, bows his head and joins his palms; he sees all the gods, Brahma on his lotus, the sages and serpents inside the form, with no end, middle or beginning.",
+      "must": [
+        "Arjuna trembling, bowing his head with joined palms",
+        "his face lit by the form",
+        "gods and worlds visible inside the light above him"
+      ],
+      "must_not": [
+        "Arjuna calm or smiling",
+        "Arjuna holding a weapon"
+      ]
+    },
+    "SH020": {
+      "source": "B06 2963-2964, 3212",
+      "epic": "The ape on Arjuna's standard rises above every other standard; his car is called ape-bannered.",
+      "must": [
+        "the ape standard alone and dominant against the sky",
+        "a dignified crowned Hanuman on the banner or standard"
+      ],
+      "must_not": [
+        "any other banner taller than the ape standard"
+      ]
+    },
+    "SH030": {
+      "source": "B06 3472-3478",
+      "epic": "Duryodhana has told his commanders to guard Bhishma; to cheer him, Bhishma, the aged grandsire, gives a lion's roar.",
+      "must": [
+        "Bhishma old, long white beard and hair, white and silver armor, roaring",
+        "Duryodhana near him, heavy-shouldered, crimson and black armor, mace"
+      ],
+      "must_not": [
+        "Bhishma young or dark-haired",
+        "Bhishma blowing the conch yet (that is SH040)"
+      ]
+    },
+    "SH040": {
+      "source": "B06 3476-3478",
+      "epic": "Bhishma blows his conch; at once the Kaurava side sounds conches, drums, cymbals and horns in a great uproar.",
+      "must": [
+        "Bhishma blowing a white conch",
+        "the blast reading as the first sound of the battle"
+      ],
+      "must_not": [
+        "Krishna or Arjuna in this frame"
+      ]
+    },
+    "SH060": {
+      "source": "B06 3478-3481",
+      "epic": "Krishna and Arjuna, on their great car yoked to white horses, raise their celestial conches Panchajanya and Devadatta.",
+      "must": [
+        "Krishna and Arjuna on the same car, each raising a white conch",
+        "Krishna's conch and Arjuna's conch both visible"
+      ],
+      "must_not": [
+        "a war horn or trumpet on the car"
+      ]
+    },
+    "SH080": {
+      "source": "B06 3481-3484",
+      "epic": "Bhima blows the huge conch Paundra; Yudhishthira blows Anantavijaya; the twins blow Sughosha and Manipushpaka.",
+      "must": [
+        "Bhima massive, dark skin, saffron dhoti, with a huge conch",
+        "Yudhishthira calm, with a royal parasol, blowing his conch"
+      ],
+      "must_not": [
+        "Bhima with a small conch",
+        "Krishna or Arjuna as the focus"
+      ]
+    },
+    "SH100": {
+      "source": "B06 3494-3502",
+      "epic": "Just as missiles are about to fly, Arjuna raises his bow and asks Krishna to place the car between the two armies so he can see whom he must fight.",
+      "must": [
+        "Arjuna lifting his bow and speaking to Krishna",
+        "Krishna at the reins listening",
+        "the car about to move forward"
+      ],
+      "must_not": [
+        "anyone shooting"
+      ]
+    },
+    "SH110": {
+      "source": "B06 3504-3510",
+      "epic": "Krishna drives the car into the open ground between the hosts, in full view of Bhishma, Drona and all the kings, and tells Arjuna to behold the assembled Kurus.",
+      "must": [
+        "the single chariot alone in the empty middle ground",
+        "both hosts on either side, still",
+        "white horses, ape banner"
+      ],
+      "must_not": [
+        "fighting",
+        "other chariots in the middle ground"
+      ]
+    },
+    "SH120": {
+      "source": "B06 3504-3514",
+      "epic": "Arjuna sees in both armies fathers, grandfathers, teachers, uncles, brothers, sons, grandsons, friends and in-laws, and is overcome by pity.",
+      "must": [
+        "recognisable elders across the field: Bhishma (white beard, white armor) and Drona (grey beard, teacher)",
+        "the faces of kin, not anonymous soldiers"
+      ],
+      "must_not": [
+        "the kin looking hostile or monstrous"
+      ]
+    },
+    "SH140": {
+      "source": "Bhagavad Gita, B06 Sections XXV-XLII",
+      "epic": "Krishna answers Arjuna's grief with the teaching of the Gita.",
+      "must": [
+        "Krishna turning to Arjuna, calm, about to speak",
+        "Arjuna seated, grieving"
+      ],
+      "must_not": [
+        "Krishna holding a weapon",
+        "a cosmic form yet (that is SH150)"
+      ]
     }
   }
 }

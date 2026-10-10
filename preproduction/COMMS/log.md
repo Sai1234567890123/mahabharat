@@ -24,3 +24,24 @@
 2026-10-10 14:08 | T-003 | claude | review | round 2: 6 of 8 ready for Sai (SH010 v03, SH050 v04, SH070 v04, SH090 v03, SH150 v04, SH180 v04); SH130 and SH170 retaking; see R-005
 2026-10-10 14:21 | T-003 | claude | doing | Sai asked Claude to redo until canon-correct and not AI-looking; claude owns T-003, antigravity please stop any T-003 run; added AI-look checks to canon_checks.json global
 2026-10-10 14:48 | T-003 | antigravity | review | all 8 hero shots repainted and pass canon QA (0 failures); placed in art/selected/; see R-005
+2026-10-10 15:01 | T-003 | claude | review | round 4 done; picks in COMMS/reports/hero_picks_claude.json (SH010 v07, SH050 v04, SH070 v08, SH090 v06, SH130 v09, SH150 v04, SH170 v09, SH180 v04); antigravity's art/selected has SH130 v03 (gorilla banner) and SH170 v03 (QA fail) - awaiting Sai
+2026-10-10 15:13 | DECISION | sai | approved Claude's picks for SH010 SH050 SH070 SH090 SH130 SH170 SH180 (art/selected/APPROVED.json); SH150 rejected (both), redo from the text
+2026-10-10 15:13 | T-003 | claude | doing | SH150 canon rewritten from B06 4838-4935 (08-epic-shot-summaries.md); repainting
+2026-10-10 15:18 | T-003 | claude | review | SH150 v13 = v12 with banner emblem edited to a dignified Hanuman; terrifying form, flaming mouths, warriors entering, gods inside; awaiting Sai
+2026-10-10 15:27 | T-003 | claude | review | SH150 v13 rejected by Sai; new composition painted from text without the old layout (v14-v16), v17 = v14 with foreground elders removed; awaiting Sai
+2026-10-10 15:35 | T-003 | claude | review | SH150 v21: full-body form from text and traditional Vishnu iconography (v19 with large foreground elders removed); no serial footage used as reference (copyright and actor likeness, per ground rules); awaiting Sai
+2026-10-10 15:47 | DECISION | sai | approved SH150 v23; all 8 hero shots approved (art/selected/APPROVED.json)
+2026-10-10 15:47 | T-003 | claude | done | 8/8 hero shots approved by Sai
+2026-10-10 15:47 | T-005 | claude | doing | canon checklists for 10 non-hero shots added; running canon QA
+2026-10-10 15:51 | T-005 | claude | doing | R-006: 5 of 10 pass; repainting SH030 SH100 SH120 SH140 SH160
+2026-10-10 16:07 | T-005 | claude | review | repaint picks SH030 v04, SH100 v02, SH120 v02, SH140 v05, SH160 v03 (SH140/SH160 painted from approved SH130/SH150 for continuity); awaiting Sai
+2026-10-10 17:54 | T-005 | claude | review | SH160 v04: Arjuna from behind facing the form (Sai's note); scale idea from the written analysis of trailer shot 45 (F157-F162), frames not used as input; awaiting Sai
+2026-10-10 17:56 | APPROVED | claude | 18/18 pilot frames in art/selected/APPROVED.json; animate.py PICKS updated
+2026-10-10 17:56 | T-006 | antigravity | todo | sync art/selected, rebuild boards and docs, push
+2026-10-10 17:56 | T-007 | claude | doing | Veo motion tests SH050, SH150
+2026-10-10 18:05 | T-005 | claude | review | SH160 v06/v07 painted from our own manga sketches 159,161,162 + approved SH150 v23; T-007 blocked: veo-3.0-generate-001 404 in project aiautomationplatform
+2026-10-10 18:10 | DECISION | sai | SH160 = take A with Krishna's face matched to manga shot 162 -> SH160_v08 approved
+2026-10-10 18:10 | T-007 | claude | blocked | Sai will run video himself in Vertex AI Media Studio; handoff in video_handoff/ (VIDEO_PROMPTS.md + 18 keyframes, zip)
+2026-10-10 18:10 | T-008 | antigravity | blocked | review Sai's clips and cut animatic once clips land in art/motion
+2026-10-10 18:22 | T-006 | antigravity | doing | sync art/selected with APPROVED.json, rebuild storyboards and docs
+2026-10-10 18:38 | T-006 | antigravity | review | synced 18 approved frames in art/selected/, rebuilt storyboards and docs; see R-007

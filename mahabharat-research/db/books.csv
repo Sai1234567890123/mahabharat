@@ -1,0 +1,19 @@
+book_id,book,parva_number,chapters,numbering,section_gaps,source_file,source,source_lines,words_total,words_front_matter,words_in_chapters,word_check
+B01,Adi Parva,1,236,roman,,source/B01-adi.txt,"Ganguli, Gutenberg #7864",25108,230906,2008,228426,ok
+B02,Sabha Parva,2,79,roman,67,source/B02-sabha.txt,"Ganguli, Gutenberg #7965",8058,74664,124,74382,ok
+B03,Vana Parva,3,313,roman,,source/B03-vana.txt,"Ganguli, Gutenberg #11894 + #12333",33899,326586,6,325954,ok
+B04,Virata Parva,4,71,roman,23,source/B04-virata.txt,"Ganguli, Gutenberg #12058",6960,62975,4,62829,ok
+B05,Udyoga Parva,5,199,roman,,source/B05-udyoga.txt,"Ganguli, Gutenberg #15475 (volume)",23536,190683,422,189863,ok
+B06,Bhishma Parva,6,124,roman,,source/B06-bhishma.txt,"Ganguli, Gutenberg #15475 (volume)",24587,162825,274,162303,ok
+B07,Drona Parva,7,200,roman,54 55 189,source/B07-drona.txt,"Ganguli, Gutenberg #15475 (volume)",31826,252670,414,251856,ok
+B08,Karna Parva,8,96,arabic,,source/B08-karna.txt,"Ganguli, Gutenberg #15476 (volume)",12797,138333,35,138202,ok
+B09,Shalya Parva,9,65,arabic,,source/B09-shalya.txt,"Ganguli, Gutenberg #15476 (volume)",8778,91634,33,91536,ok
+B10,Sauptika Parva,10,18,arabic,,source/B10-sauptika.txt,"Ganguli, Gutenberg #15476 (volume)",2344,21395,33,21344,ok
+B11,Stri Parva,11,27,arabic,,source/B11-stri.txt,"Ganguli, Gutenberg #15476 (volume)",2150,21884,33,21824,ok
+B12,Shanti Parva,12,363,roman,35 364,source/B12-shanti.txt,"Ganguli, Gutenberg #15476 (volume)",57153,536671,35,535910,ok
+B13,Anushasana Parva,13,168,roman,,source/B13-anushasana.txt,"Ganguli, Gutenberg #15477 (volume)",30310,299866,35,299495,ok
+B14,Aswamedhika Parva,14,92,roman,,source/B14-aswamedhika.txt,"Ganguli, Gutenberg #15477 (volume)",9737,89389,32,89173,ok
+B15,Asramavasika Parva,15,39,roman,,source/B15-asramavasika.txt,"Ganguli, Gutenberg #15477 (volume)",3445,32761,27,32656,ok
+B16,Mausala Parva,16,8,arabic,,source/B16-mausala.txt,"Ganguli, Gutenberg #15477 (volume)",830,8072,35,8029,ok
+B17,Mahaprasthanika Parva,17,3,arabic,,source/B17-mahaprasthanika.txt,"Ganguli, Gutenberg #15477 (volume)",459,3164,92,3069,ok
+B18,Svargarohana Parva,18,6,arabic,,source/B18-svargarohana.txt,"Ganguli, Gutenberg #15477 (volume)",1075,8690,35,8649,ok

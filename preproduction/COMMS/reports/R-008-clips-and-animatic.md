@@ -39,7 +39,7 @@ All 18 generated takes (`SHxxx_take1.mp4`) were evaluated across three temporal 
 | **SH130** | Gandiva slips (Hero) | B | Veo 3.1 | 5.0s | Take 1 | **PASS**. Arjuna sinks onto car floor in despair; Gandiva bow slides from his grasp; Krishna seated still. |
 | **SH140** | Krishna turns | C | Veo 3.1 Fast | 4.0s | Take 1 | **PASS**. Divine charioteer turns calmly toward camera; divine halo ring manifests; posture serene. |
 | **SH150** | The universal form (Hero) | C | Veo 3.1 | 6.0s | Take 1 | **PASS**. Colossal awe-inspiring Vishvarupa filling cosmic space; fire glows in vast mouths; stream of warriors. |
-| **SH160** | Arjuna beholds | C | Veo 3.1 Fast | 4.0s | Take 1 | **PASS**. Arjuna viewed past shoulder with joined palms, trembling before cosmic light; rings rotate above. |
+| **SH160** | Arjuna beholds | C | Veo 3.1 Fast | 4.0s | Take 2 | **PASS**. Take 1 failed (face drift). Take 2 passes: Arjuna viewed past shoulder with joined palms, trembling before cosmic light; rings rotate above. |
 | **SH170** | Arjuna rises (Hero) | D | Veo 3.1 | 5.0s | Take 1 | **PASS**. Arjuna rises renewed and hoists Gandiva high overhead; lightning crawls along bow; Krishna grips reins. |
 | **SH180** | The banner, then black (Hero) | D | Veo 3.1 | 4.0s | Take 1 | **PASS**. Ape banner snaps in wind against setting red sun; cuts cleanly to black. |
 

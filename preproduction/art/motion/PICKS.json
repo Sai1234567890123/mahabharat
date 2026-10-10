@@ -90,8 +90,8 @@
     "status": "ready"
   },
   "SH160": {
-    "take": 1,
-    "file": "SH160_take1.mp4",
+    "take": 2,
+    "file": "SH160_take2.mp4",
     "target_duration": 4.0,
     "status": "ready"
   },

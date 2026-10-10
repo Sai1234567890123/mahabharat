@@ -57,3 +57,4 @@
 2026-10-10 19:42 | T-005 | claude | done | SH160 v36 approved by Sai; art/selected, APPROVED.json, animate.py PICKS, keyframe and video_handoff_pilot.zip updated to v36
 2026-10-10 20:01 | T-005 | claude | done | SH160 take2 re-rendered from v36 keyframe with veo-3.1-fast (4s); take1 kept as the v08 take
 2026-10-10 20:38 | T-008 | antigravity | review | all 18 pilot clips generated, QA frames extracted, PICKS.json created, animatic_v01.mp4 assembled (84.0s); see R-008
+2026-10-10 22:13 | T-008 | antigravity | review | Updated PICKS.json and R-008 to use SH160_take2.mp4 due to face drift in take 1; animatic shot duration confirmed.

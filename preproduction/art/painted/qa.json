@@ -125,5 +125,165 @@
         "Added flanking chariots absent from blockout layout"
       ]
     }
+  },
+  "SH020_v01.png": {
+    "frame": "SH020.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Lens flare effect leans slightly photographic",
+        "Flag shape differs slightly from blockout rectangle"
+      ]
+    }
+  },
+  "SH030_v01.png": {
+    "frame": "SH030.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Sky gradient lacks the deep purple tones of the layout",
+        "Concentric sound wave rings appear slightly digital rather than painterly"
+      ]
+    }
+  },
+  "SH040_v01.png": {
+    "frame": "SH040.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Graphic sound waves slightly detach from scene depth",
+        "Pillar detailing slightly alters layout pole thickness"
+      ]
+    }
+  },
+  "SH060_v01.png": {
+    "frame": "SH060.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Characters face camera instead of facing away into the battlefield",
+        "Style is clean 2D line-art rather than painterly CG with visible brushwork"
+      ]
+    }
+  },
+  "SH080_v01.png": {
+    "frame": "SH080.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Added a second figure on the chariot not present in layout",
+        "Soundwave FX style differs from segmented rings in layout"
+      ]
+    }
+  },
+  "SH100_v01.png": {
+    "frame": "SH100.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Renders as clean 2D cel line art rather than painterly CG with visible brushwork",
+        "Rim light reads as a flat glow/halo rather than integrated directional lighting"
+      ]
+    }
+  },
+  "SH110_v01.png": {
+    "frame": "SH110.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": false,
+      "characters_on_model": true,
+      "problems": [
+        "central chariot scale slightly larger than layout proxy",
+        "subtle colored rim lighting mostly absent"
+      ]
+    }
+  },
+  "SH120_v01.png": {
+    "frame": "SH120.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Clean cel-style outlines reduce visible painterly brushwork",
+        "Foreground bow angle shifted slightly relative to layout blockout"
+      ]
+    }
+  },
+  "SH140_v01.png": {
+    "frame": "SH140.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Character turned to profile instead of facing away as established in layout",
+        "Foreground armies added that deviate from empty ground plane in layout"
+      ]
+    }
+  },
+  "SH160_v01.png": {
+    "frame": "SH160.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Foreground archer on right deviates from layout blocking",
+        "Heavy lineart emphasis over painterly brushwork"
+      ]
+    }
   }
 }

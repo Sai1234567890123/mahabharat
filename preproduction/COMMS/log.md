@@ -60,3 +60,7 @@
 2026-10-10 16:41 | T-007 | claude | done | superseded by T-008; SH050 and SH150 takes are in art/motion
 2026-10-10 16:41 | T-008 | claude | done | reviewed R-008: 20 mp4 files; animatic 84.000 s, 1920x1080, 24 fps; PICKS.json has 18 shots. log.json SH050/SH150 errors are old veo-3.0 404s from the Claude script, takes exist
 2026-10-10 16:41 | T-009 | antigravity | todo | rebuild animatic from PICKS.json with build_animatic.py (new task)
+2026-10-10 16:50 | T-010 | claude | review | 52 s vertical Short rendered (short_v01.mp4): crop, captions, sound, flashes
+2026-10-10 16:50 | T-011 | antigravity | todo | Veo audio review, music options, copy and synthetic-content note
+2026-10-10 16:50 | T-012 | antigravity | todo | QA of short_v01 on a phone frame, sound and canon (after T-010, T-011)
+2026-10-10 16:50 | T-013 | antigravity | todo | reach tracking sheet, numbers left blank

@@ -55,3 +55,5 @@
 2026-10-10 19:36 | T-005 | claude | review | SH160 v35: face+neck shape taken from approved ink_v07, recoloured to painted skin; old tilak removed; awaiting Sai
 2026-10-10 19:38 | T-005 | claude | review | SH160 v36: Sai's ink sketch coloured line for line (lines from sketch, colour/light from v30); awaiting Sai
 2026-10-10 19:42 | T-005 | claude | done | SH160 v36 approved by Sai; art/selected, APPROVED.json, animate.py PICKS, keyframe and video_handoff_pilot.zip updated to v36
+2026-10-10 20:01 | T-005 | claude | done | SH160 take2 re-rendered from v36 keyframe with veo-3.1-fast (4s); take1 kept as the v08 take
+2026-10-10 20:38 | T-008 | antigravity | review | all 18 pilot clips generated, QA frames extracted, PICKS.json created, animatic_v01.mp4 assembled (84.0s); see R-008

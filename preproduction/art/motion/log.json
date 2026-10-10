@@ -10,5 +10,176 @@
     "model": "veo-3.0-generate-001",
     "seconds": 6,
     "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'Publisher model `projects/aiautomationplatform/locations/us-central1/publishers/google/models/veo-3.0-generate-001` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in "
+  },
+  "SH010_take1": {
+    "shot": "SH010",
+    "take": 1,
+    "status": "success",
+    "file": "SH010_take1.mp4",
+    "model": "veo-3.1-generate-001",
+    "length": 8,
+    "timestamp": "2026-10-10 19:24:30"
+  },
+  "SH020_take1": {
+    "shot": "SH020",
+    "take": 1,
+    "status": "success",
+    "file": "SH020_take1.mp4",
+    "model": "veo-3.1-fast-generate-001",
+    "length": 4,
+    "timestamp": "2026-10-10 19:24:30"
+  },
+  "SH030_take1": {
+    "shot": "SH030",
+    "take": 1,
+    "status": "success",
+    "file": "SH030_take1.mp4",
+    "model": "veo-3.1-fast-generate-001",
+    "length": 4,
+    "timestamp": "2026-10-10 19:25:26"
+  },
+  "SH040_take1": {
+    "shot": "SH040",
+    "take": 1,
+    "status": "success",
+    "file": "SH040_take1.mp4",
+    "model": "veo-3.1-fast-generate-001",
+    "length": 4,
+    "timestamp": "2026-10-10 19:26:40"
+  },
+  "SH050_take1": {
+    "shot": "SH050",
+    "take": 1,
+    "status": "success",
+    "file": "SH050_take1.mp4",
+    "model": "veo-3.1-generate-001",
+    "length": 6,
+    "timestamp": "2026-10-10 19:28:02"
+  },
+  "SH060_take1": {
+    "shot": "SH060",
+    "take": 1,
+    "status": "success",
+    "file": "SH060_take1.mp4",
+    "model": "veo-3.1-fast-generate-001",
+    "length": 4,
+    "timestamp": "2026-10-10 19:28:58"
+  },
+  "SH070_take1": {
+    "shot": "SH070",
+    "take": 1,
+    "status": "success",
+    "file": "SH070_take1.mp4",
+    "model": "veo-3.1-generate-001",
+    "length": 4,
+    "timestamp": "2026-10-10 19:29:55"
+  },
+  "SH080_take1": {
+    "shot": "SH080",
+    "take": 1,
+    "status": "success",
+    "file": "SH080_take1.mp4",
+    "model": "veo-3.1-fast-generate-001",
+    "length": 6,
+    "timestamp": "2026-10-10 19:31:01"
+  },
+  "SH090_take1": {
+    "shot": "SH090",
+    "take": 1,
+    "status": "success",
+    "file": "SH090_take1.mp4",
+    "model": "veo-3.1-generate-001",
+    "length": 6,
+    "timestamp": "2026-10-10 19:32:18"
+  },
+  "SH100_take1": {
+    "shot": "SH100",
+    "take": 1,
+    "status": "success",
+    "file": "SH100_take1.mp4",
+    "model": "veo-3.1-fast-generate-001",
+    "length": 6,
+    "timestamp": "2026-10-10 19:33:39"
+  },
+  "SH110_take1": {
+    "shot": "SH110",
+    "take": 1,
+    "status": "success",
+    "file": "SH110_take1.mp4",
+    "model": "veo-3.1-fast-generate-001",
+    "length": 6,
+    "timestamp": "2026-10-10 19:34:53"
+  },
+  "SH120_take1": {
+    "shot": "SH120",
+    "take": 1,
+    "status": "success",
+    "file": "SH120_take1.mp4",
+    "model": "veo-3.1-fast-generate-001",
+    "length": 6,
+    "timestamp": "2026-10-10 19:36:08"
+  },
+  "SH130_take1": {
+    "shot": "SH130",
+    "take": 1,
+    "status": "success",
+    "file": "SH130_take1.mp4",
+    "model": "veo-3.1-generate-001",
+    "length": 6,
+    "timestamp": "2026-10-10 19:37:24"
+  },
+  "SH140_take1": {
+    "shot": "SH140",
+    "take": 1,
+    "status": "success",
+    "file": "SH140_take1.mp4",
+    "model": "veo-3.1-fast-generate-001",
+    "length": 4,
+    "timestamp": "2026-10-10 19:38:40"
+  },
+  "SH150_take1": {
+    "shot": "SH150",
+    "take": 1,
+    "status": "success",
+    "file": "SH150_take1.mp4",
+    "model": "veo-3.1-generate-001",
+    "length": 6,
+    "timestamp": "2026-10-10 19:40:17"
+  },
+  "SH160_take1": {
+    "shot": "SH160",
+    "take": 1,
+    "status": "success",
+    "file": "SH160_take1.mp4",
+    "model": "veo-3.1-fast-generate-001",
+    "length": 4,
+    "timestamp": "2026-10-10 19:41:19"
+  },
+  "SH170_take1": {
+    "shot": "SH170",
+    "take": 1,
+    "status": "success",
+    "file": "SH170_take1.mp4",
+    "model": "veo-3.1-generate-001",
+    "length": 6,
+    "timestamp": "2026-10-10 19:42:33"
+  },
+  "SH180_take1": {
+    "shot": "SH180",
+    "take": 1,
+    "status": "success",
+    "file": "SH180_take1.mp4",
+    "model": "veo-3.1-generate-001",
+    "length": 4,
+    "timestamp": "2026-10-10 19:43:34"
+  },
+  "SH160_take2": {
+    "shot": "SH160",
+    "take": 2,
+    "status": "success",
+    "file": "SH160_take2.mp4",
+    "model": "veo-3.1-fast-generate-001",
+    "length": 4,
+    "timestamp": "2026-10-10 20:01:24"
   }
 }

@@ -324,7 +324,7 @@ extreme wide low angle, a tiny chariot on a thin dark horizon beneath a colossal
 **Motion prompt (Veo 3.1 / Wan 2.2)**
 
 ```
-slow tilt up from the chariot to the cosmic form, mandala rings counter-rotate, light pulses, 6 seconds. Painterly stylized animation, keep the art style of the first frame, no photorealism.
+slow tilt up from the tiny chariot to the colossal form, Adishesha's hoods sway, streams of tiny warriors pour into the flaming mouths, fire flickers, the light pulses like a thousand suns, 6 seconds. Painterly stylized animation, keep the art style of the first frame, no photorealism.
 ```
 
 ### SH160 Arjuna beholds (act C, 4s)

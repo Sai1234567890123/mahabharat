@@ -1,0 +1,2065 @@
+{
+  "SH010_v01.png": {
+    "frame": "SH010.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Foreground chariot scale and position pushed closer than layout reference",
+        "Opposing army formation slightly altered along the horizon"
+      ]
+    }
+  },
+  "SH050_v01.png": {
+    "frame": "SH050.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Style leans toward clean 2D cel animation rather than painterly CG with visible brushwork",
+        "Sparkle effects appear slightly flat and graphic"
+      ]
+    }
+  },
+  "SH070_v01.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Leans toward clean 2D line art rather than painterly CG brushwork",
+        "Surface textures could use more visible brush strokes"
+      ]
+    }
+  },
+  "SH090_v01.png": {
+    "frame": "SH090.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Added energy dome alters atmospheric haze density",
+        "Emblem detail on yellow banner borders on logo use"
+      ]
+    }
+  },
+  "SH130_v01.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Clean graphic outlines slightly overpower painterly brushwork",
+        "Rim light on horses could be more pronounced"
+      ]
+    }
+  },
+  "SH150_v01.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Chariot and horses turned to profile instead of rear-facing layout perspective",
+        "Background geometric eyes replaced with rendered faces"
+      ]
+    }
+  },
+  "SH170_v01.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Character staging and poses deviate significantly from layout reference",
+        "Line-heavy cel style lacks painterly CG brushwork"
+      ]
+    }
+  },
+  "SH180_v01.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Horizontal lens flare sits lower relative to the central idol than in layout",
+        "Statue placed slightly higher above the sun core"
+      ]
+    }
+  },
+  "SH010_v02.png": {
+    "frame": "SH010.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "problems": [
+        "Foreground chariot and figures added, altering the layout composition",
+        "Charioteer is not blue-skinned Krishna and wears a turban",
+        "Arjuna is actively drawing a charged bow before battle start",
+        "Ape banner placed on a separate pole in the field rather than on Arjuna's car"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the ape banner flies from Arjuna's own chariot and is the tallest standard on the field",
+          "Krishna (blue) at the reins",
+          "Krishna: deep indigo-blue skin, yellow silk dhoti, gold crown with one peacock feather"
+        ],
+        "found_must_not": [
+          "Arjuna drawing or firing the bow; no one shoots before the conches",
+          "the ape banner on a separate pole away from Arjuna's car",
+          "a turbaned charioteer who is not Krishna"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH050_v02.png": {
+    "frame": "SH050.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Clean outline work limits visible brushwork texture",
+        "Extra FX ring added that was not indicated in layout"
+      ]
+    }
+  },
+  "SH070_v02.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "added second character standing outside the original rough silhouette",
+        "lightning FX added along bow string"
+      ]
+    }
+  },
+  "SH090_v02.png": {
+    "frame": "SH090.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "problems": [
+        "Foreground figures rendered as geometric pillars rather than human soldiers",
+        "Chariot figures too distant to discern character traits"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Kaurava soldiers in the foreground visibly shaken (recoiling, covering ears, faces turned)",
+          "Krishna: deep indigo-blue skin, yellow silk dhoti, gold crown with one peacock feather",
+          "Arjuna: warm brown skin, curly black hair, white and silver scale armor, blue sash",
+          "Krishna drives (holds the reins); Arjuna is the warrior and holds Gandiva"
+        ],
+        "found_must_not": [
+          "foreground figures as faceless posts with no reaction"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH130_v02.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Reins are missing from Krishna's hands",
+        "Gandiva placement behind Arjuna rather than actively slipping from grip"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Krishna drives (holds the reins)"
+        ],
+        "found_must_not": []
+      },
+      "accepted": false
+    }
+  },
+  "SH150_v02.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "problems": [
+        "Arjuna's flag and finial depict a bird/Garuda rather than Hanuman",
+        "Central manifestation is rendered as a calm eight-armed figure"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "countless arms and faces on every side, not a single calm four- or eight-armed figure",
+          "Arjuna's chariot with the ape banner and white horses"
+        ],
+        "found_must_not": [
+          "an eagle or Garuda banner on Arjuna's car",
+          "any other emblem (eagle, Garuda, lion) on Arjuna's flagstaff"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH170_v02.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "problems": [
+        "Arjuna is absent from the frame",
+        "Krishna is depicted holding the bow Gandiva instead of driving"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "ARJUNA rising and lifting Gandiva",
+          "Krishna taking the reins",
+          "Arjuna: warm brown skin, curly black hair, white and silver scale armor, blue sash",
+          "Krishna drives (holds the reins); Arjuna is the warrior and holds Gandiva"
+        ],
+        "found_must_not": [
+          "Krishna holding Gandiva",
+          "Arjuna missing from the frame",
+          "Krishna holding Gandiva or any weapon in the field scenes"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH180_v02.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "problems": [
+        "Chariot perched atop flagstaff",
+        "Missing Krishna",
+        "Arjuna lacks required armor, skin tone, and bow details due to heavy backlighting"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Krishna: deep indigo-blue skin, yellow silk dhoti, gold crown with one peacock feather",
+          "Arjuna: warm brown skin, curly black hair, white and silver scale armor, blue sash",
+          "Arjuna's chariot is gold",
+          "Krishna drives (holds the reins); Arjuna is the warrior and holds Gandiva"
+        ],
+        "found_must_not": [
+          "a chariot or figure standing on top of the flagstaff"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH050_v03.png": {
+    "frame": "SH050.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Car lacks an inherent blazing light source beyond surface sparkles",
+        "Banner depicts a simplified cartoon ape head rather than a dignified Hanuman"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the car itself blazing with light, not only sparkles around it"
+        ],
+        "found_must_not": [
+          "a cartoon monkey face on the banner",
+          "the ape banner drawn as a cartoon chimp face; it is a great ape (Hanuman), dignified"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH070_v03.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "A large war horn is mounted directly to the chariot rail.",
+        "The flagstaff is empty with no ape banner shown."
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the ape banner on the flagstaff",
+          "Krishna drives (holds the reins); Arjuna is the warrior and holds Gandiva"
+        ],
+        "found_must_not": [
+          "a war horn or trumpet on the car",
+          "an empty flagstaff"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH010_v03.png": {
+    "frame": "SH010.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Foreground chariot scale slightly increased relative to layout guide",
+        "Stylized geometric sun disc detail added"
+      ],
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "accepted": true
+    }
+  },
+  "SH050_v04.png": {
+    "frame": "SH050.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Slightly smooth digital rendering with limited textured brushwork."
+      ],
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "accepted": true
+    }
+  },
+  "SH070_v04.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [],
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "accepted": true
+    }
+  },
+  "SH090_v03.png": {
+    "frame": "SH090.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Soundwave graphic overlay slightly detaches from painterly background",
+        "Foreground line art is somewhat rigid"
+      ],
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "accepted": true
+    }
+  },
+  "SH130_v03.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Gandiva placement shifted outside the chariot rather than inside the cart frame"
+      ],
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "accepted": true
+    }
+  },
+  "SH150_v03.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "problems": [
+        "Vishvarupa is depicted as a standard symmetrical multi-armed deity rather than an overwhelming, infinite cosmic manifestation",
+        "Krishna's skin tone is pale white-blue instead of deep indigo-blue"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "countless arms and faces on every side, not a single calm four- or eight-armed figure",
+          "deep indigo-blue skin"
+        ],
+        "found_must_not": []
+      },
+      "accepted": false
+    }
+  },
+  "SH150_v04.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Slightly crisp linework on central avatar relative to painterly background"
+      ],
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "accepted": true
+    }
+  },
+  "SH170_v03.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "problems": [
+        "Framing widened significantly compared to layout frame",
+        "Krishna lacks the required gold crown",
+        "Lion emblem present on the flag"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "gold crown with one peacock feather on Krishna"
+        ],
+        "found_must_not": [
+          "any other emblem (eagle, Garuda, lion) on Arjuna's flagstaff"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH170_v04.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Shot framing pulled out significantly wider than layout reference",
+        "Camera angle and character scale do not match layout frame",
+        "Ape banner emblem styled as a chimp face rather than dignified Hanuman"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [],
+        "found_must_not": [
+          "the ape banner drawn as a cartoon chimp face; it is a great ape (Hanuman), dignified"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH170_v05.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Clean digital finish with limited visible painterly brushwork",
+        "Dark horse visible at edge violates white horse canon requirement"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "its horses, if in frame, are white"
+        ],
+        "found_must_not": [
+          "brown, black or grey horses on Arjuna's chariot"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH180_v03.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Ape rendered as sculpted finial rather than flag banner emblem",
+        "Banner lacks ape insignia"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the ape banner on its flagstaff, snapping in the wind against a red sun"
+        ],
+        "found_must_not": [
+          "a chariot or figure standing on top of the flagstaff"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH180_v04.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Ape emblem is rendered as a metal finial medallion rather than on the snapping cloth banner itself"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the ape banner on its flagstaff, snapping in the wind against a red sun"
+        ],
+        "found_must_not": []
+      },
+      "accepted": false
+    }
+  },
+  "SH180_v05.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "problems": [
+        "Ape sculpted as a figure atop the staff rather than depicted on the banner fabric",
+        "Banner emblem lacks the ape design"
+      ],
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the ape banner on its flagstaff, snapping in the wind against a red sun"
+        ],
+        "found_must_not": [
+          "a chariot or figure standing on top of the flagstaff"
+        ]
+      },
+      "accepted": false
+    }
+  },
+  "SH130_v04.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Subtle over-smoothing on figures reducing visible painterly brushwork",
+        "Rim light on Arjuna could be slightly more pronounced"
+      ]
+    }
+  },
+  "SH130_v05.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Gandiva slipping from hand could be more explicitly staged in motion",
+        "Rendering slightly leans toward clean digital illustration rather than raw visible brushwork"
+      ]
+    }
+  },
+  "SH130_v06.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Gandiva placement could show more dynamic slippage toward the car floor",
+        "Flag framing extends slightly above the original layout bounds"
+      ]
+    }
+  },
+  "SH170_v06.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Slightly higher level of clean digital finish relative to rough animatic brushwork"
+      ]
+    }
+  },
+  "SH170_v07.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Krishna taking the reins",
+          "Gandiva raised high overhead in both hands or one raised arm, not held at the chest"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Krishna is omitted from the chariot",
+        "Gandiva is held low in the left hand rather than raised overhead"
+      ]
+    }
+  },
+  "SH010_v04.png": {
+    "frame": "SH010.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Arjuna's chariot is oriented in profile rather than rear view facing the enemy lines as established in the layout frame.",
+        "Foreground framing banner added on the far left alters composition and scale relationships."
+      ]
+    }
+  },
+  "SH010_v05.png": {
+    "frame": "SH010.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Arjuna's chariot is brought fully into frame on the right compared to the partially cropped chariot in the layout reference."
+      ]
+    }
+  },
+  "SH010_v06.png": {
+    "frame": "SH010.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Chariot camera angle changed from rear-facing perspective to a side profile",
+        "Foreground chariot scale is significantly larger than layout reference"
+      ]
+    }
+  },
+  "SH010_v07.png": {
+    "frame": "SH010.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Krishna's posture could more clearly delineate driving the reins rather than standing idle beside Arjuna"
+      ]
+    }
+  },
+  "SH050_v05.png": {
+    "frame": "SH050.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Style leans slightly clean 2D animation line-art rather than painterly textured CG brushwork."
+      ]
+    }
+  },
+  "SH050_v06.png": {
+    "frame": "SH050.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [],
+        "found_must_not": [
+          "a cartoon monkey face on the banner",
+          "floating star or sparkle stickers"
+        ]
+      },
+      "problems": [
+        "Ape banner depicts a cartoonish ape rather than a dignified Hanuman emblem",
+        "Prominent floating sparkle stickers retained from layout",
+        "Style leans toward flat cel animation rather than painterly stylized CG with brushwork"
+      ]
+    }
+  },
+  "SH050_v07.png": {
+    "frame": "SH050.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Carriage body could exhibit stronger internal fiery radiance rather than primarily edge glow."
+      ]
+    }
+  },
+  "SH050_v08.png": {
+    "frame": "SH050.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "four white steeds (only three fully depicted)",
+          "the car itself blazing with light, not only sparkles around it"
+        ],
+        "found_must_not": [
+          "floating star or sparkle stickers, lens-flare clutter or random glitter",
+          "the ape banner drawn as a cartoon chimp face; it is a great ape (Hanuman), dignified"
+        ]
+      },
+      "problems": [
+        "Only three steeds are visible instead of the required four.",
+        "Ape on the flag resembles a chimpanzee rather than a dignified Hanuman.",
+        "Floating glowing orb sparkles are present in the scene.",
+        "Chariot lacks inherent fiery radiance."
+      ]
+    }
+  },
+  "SH070_v05.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Sound-ring overlays lean slightly vector-clean relative to the painterly background."
+      ]
+    }
+  },
+  "SH070_v06.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Line work leans slightly clean/vector rather than loose painterly brushwork",
+        "Concentric sound wave rings are slightly more opaque than the layout guide"
+      ]
+    }
+  },
+  "SH070_v07.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Style leans toward 2D cel animation lineart rather than purely painterly CG value blocks."
+      ]
+    }
+  },
+  "SH070_v08.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Soundwave rings slightly sharper than the reference layout glow",
+        "Chariot ornament detailing marginally complex relative to flat blocking style"
+      ]
+    }
+  },
+  "SH090_v04.png": {
+    "frame": "SH090.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Minor digital motion glow effects slightly reduce hand-painted feel",
+        "Foreground soldiers could show greater variation in silhouette"
+      ]
+    }
+  },
+  "SH090_v05.png": {
+    "frame": "SH090.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Arjuna's flagstaff must carry the ape banner"
+        ],
+        "found_must_not": [
+          "any other emblem (eagle, Garuda, lion) on Arjuna's flagstaff"
+        ]
+      },
+      "problems": [
+        "Central chariot flagstaff displays an eagle emblem instead of the required ape banner",
+        "Repetitive poses among foreground soldiers covering their ears"
+      ]
+    }
+  },
+  "SH090_v06.png": {
+    "frame": "SH090.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Ground trembling and lifting dust could be more prominent"
+      ]
+    }
+  },
+  "SH130_v07.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Gandiva sliding out of his hand toward the floor"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Gandiva is resting upright behind the figures rather than actively slipping from Arjuna's hand."
+      ]
+    }
+  },
+  "SH130_v08.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Arjuna sinking onto the car floor"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Arjuna is kneeling on the ground outside the chariot rather than sinking onto the chariot floor as required by layout and canon.",
+        "Layout mismatch with character positioning relative to the chariot body."
+      ]
+    }
+  },
+  "SH130_v09.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Lightning energy effect on the falling bow is slightly stylized/excessive"
+      ]
+    }
+  },
+  "SH130_v10.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Gandiva sliding out of his hand toward the floor"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Gandiva is not clearly visible slipping from Arjuna's hand toward the car floor"
+      ]
+    }
+  },
+  "SH150_v05.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Arjuna is kneeling outside the chariot rather than standing on it as shown in the layout reference",
+        "An unidentified third passenger appears in the chariot alongside Krishna"
+      ]
+    }
+  },
+  "SH150_v06.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "countless arms and faces on every side, not a single calm four- or eight-armed figure"
+        ],
+        "found_must_not": [
+          "the whole army reacting as if it sees the form; the vision is given to Arjuna"
+        ]
+      },
+      "problems": [
+        "Chariot scale and camera distance deviate from the layout frame.",
+        "Universal form displays a finite, structured arm and face count rather than boundless cosmic multiplicity.",
+        "Background armies are reacting to the vision, which must remain visible only to Arjuna."
+      ]
+    }
+  },
+  "SH150_v07.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "countless arms and faces on every side, not a single calm four- or eight-armed figure"
+        ],
+        "found_must_not": [
+          "the ape banner drawn as a cartoon chimp face; it is a great ape (Hanuman), dignified"
+        ]
+      },
+      "problems": [
+        "Ape banner resembles a simplified cartoon primate rather than a dignified Hanuman emblem",
+        "Universal form reads as a symmetrical multi-armed deity rather than an unfathomable, countless manifestation"
+      ]
+    }
+  },
+  "SH150_v08.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Slightly rigid outline quality on the central cosmic figure",
+        "Ape banner illustration leans slightly simple in silhouette"
+      ]
+    }
+  },
+  "SH170_v08.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Gandiva raised high overhead in both hands or one raised arm, not held at the chest"
+        ],
+        "found_must_not": [
+          "any dark horse or dark horse body part at the frame edge"
+        ]
+      },
+      "problems": [
+        "Arjuna holds Gandiva at chest level rather than raised high overhead",
+        "Dark horse silhouette visible at bottom-left frame edge violating white-horse canon"
+      ]
+    }
+  },
+  "SH170_v09.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Ape banner on flagstaff is cropped out of the frame edge"
+      ]
+    }
+  },
+  "SH170_v10.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [],
+        "found_must_not": [
+          "any dark horse or dark horse body part at the frame edge",
+          "brown, black or grey horses on Arjuna's chariot"
+        ]
+      },
+      "problems": [
+        "Camera perspective and composition deviate from layout reference",
+        "Dark horse visible at the bottom-right frame edge violates color requirement"
+      ]
+    }
+  },
+  "SH170_v11.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Omitted central flagstaff pole from layout frame",
+        "Energy sphere replaced with concentric target rings"
+      ]
+    }
+  },
+  "SH180_v06.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the ape banner on its flagstaff, snapping in the wind against a red sun (cloth lacks ape emblem)"
+        ],
+        "found_must_not": [
+          "a chariot or figure standing on top of the flagstaff"
+        ]
+      },
+      "problems": [
+        "Hanuman figure is placed on top of the flagstaff instead of depicted on the banner cloth",
+        "Banner cloth is plain orange without the required ape emblem"
+      ]
+    }
+  },
+  "SH180_v07.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the ape banner on its flagstaff, snapping in the wind against a red sun (emblem is a sculpted figure atop the mast rather than the banner itself)"
+        ],
+        "found_must_not": [
+          "a chariot or figure standing on top of the flagstaff"
+        ]
+      },
+      "problems": [
+        "A sculpted figure of Hanuman is mounted directly on top of the flagstaff",
+        "Arjuna's chariot is separated from the main ape standard instead of carrying it"
+      ]
+    }
+  },
+  "SH180_v08.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the ape banner on its flagstaff, snapping in the wind against a red sun"
+        ],
+        "found_must_not": [
+          "a chariot or figure standing on top of the flagstaff"
+        ]
+      },
+      "problems": [
+        "A physical ape figure stands atop the flagstaff holding a plain flag, violating the explicit must-not rule against figures standing on the staff.",
+        "The ape should be an emblem depicted on the banner cloth itself rather than a statue or entity perched on top."
+      ]
+    }
+  },
+  "SH180_v09.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [],
+        "found_must_not": [
+          "a chariot or figure standing on top of the flagstaff"
+        ]
+      },
+      "problems": [
+        "Figure mounted on top of the flagstaff violates canon must-not rule",
+        "Banner orientation flipped to the right opposite the layout guide"
+      ]
+    }
+  },
+  "SH150_v09.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "An extra seated figure appears in the chariot alongside Arjuna and Krishna",
+        "Central pillar of light slightly obscures internal cosmic elements"
+      ]
+    }
+  },
+  "SH150_v10.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the cosmos inside the body: stars, worlds and tiny gods visible within the form"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Internal cosmic vista (stars, worlds, tiny gods inside the torso) is omitted in favor of standard vestments."
+      ]
+    }
+  },
+  "SH150_v11.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Arjuna's required design and identity in the chariot are ambiguous or swapped"
+        ],
+        "found_must_not": [
+          "the armies looking up or raising arms toward the form; only Arjuna sees it",
+          "Krishna holding Gandiva or any weapon in the field scenes"
+        ]
+      },
+      "problems": [
+        "Distant armies are reacting and raising arms toward the cosmic form.",
+        "Chariot shows a blue-skinned Krishna holding Arjuna's bow while also appearing as Vishvarupa.",
+        "Arjuna's canonical armor and coloring are incorrectly assigned between the two chariot figures."
+      ]
+    }
+  },
+  "SH150_v12.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7.4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Slightly busy graphic elements around the mandala framing compared to layout simplicity"
+      ]
+    }
+  },
+  "SH020_v01.png": {
+    "frame": "SH020.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Added army silhouettes along horizon not present in layout blockout",
+        "Anamorphic flare element is slightly sharp against the painterly clouds"
+      ]
+    }
+  },
+  "SH030_v01.png": {
+    "frame": "SH030.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Duryodhana near him, heavy-shouldered, crimson and black armor, mace"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Duryodhana is completely missing from the shot",
+        "Bhishma is facing the camera rather than facing forward toward the army as established in layout",
+        "Conch shockwave VFX reads overly graphic rather than painterly"
+      ]
+    }
+  },
+  "SH040_v01.png": {
+    "frame": "SH040.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": []
+    }
+  },
+  "SH060_v01.png": {
+    "frame": "SH060.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Rendering leans slightly toward flat cel animation rather than dimensional painterly CG brushwork"
+      ]
+    }
+  },
+  "SH080_v01.png": {
+    "frame": "SH080.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Soundwave graphic rings feel slightly clean and digital compared to the painted environment.",
+        "Foreground wheel perspective is slightly flatter than the block-in layout."
+      ]
+    }
+  },
+  "SH100_v01.png": {
+    "frame": "SH100.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Krishna at the reins listening",
+          "Arjuna lifting his bow"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Krishna is not holding the reins",
+        "Arjuna is not lifting his bow",
+        "Character facing angles deviate significantly from layout staging"
+      ]
+    }
+  },
+  "SH110_v01.png": {
+    "frame": "SH110.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Chariot orientation faces camera rather than lateral angle from layout",
+        "Chariot scale is slightly larger relative to layout frame"
+      ]
+    }
+  },
+  "SH120_v01.png": {
+    "frame": "SH120.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Crowd figures in mid-ground show repeated instancing",
+        "Minor digital horizontal flare artifact across central chariot"
+      ]
+    }
+  },
+  "SH140_v01.png": {
+    "frame": "SH140.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Krishna turned to full profile rather than rear three-quarter angle in layout",
+        "Arjuna cropped out of frame"
+      ]
+    }
+  },
+  "SH160_v01.png": {
+    "frame": "SH160.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Arjuna trembling, bowing his head with joined palms"
+        ],
+        "found_must_not": [
+          "Arjuna holding a weapon"
+        ]
+      },
+      "problems": [
+        "Arjuna is standing upright holding his bow rather than bowing with joined palms",
+        "Composition deviates from layout by placing Arjuna on the right frame"
+      ]
+    }
+  },
+  "SH030_v02.png": {
+    "frame": "SH030.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Duryodhana near him, heavy-shouldered, crimson and black armor, mace"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Duryodhana is reduced to an indistinct background silhouette lacking required crimson and black armor and mace"
+      ]
+    }
+  },
+  "SH030_v03.png": {
+    "frame": "SH030.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Duryodhana near him, heavy-shouldered, crimson and black armor, mace"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Duryodhana is missing from the scene",
+        "Visible digital lens flare and sun-ray effects present on the key light"
+      ]
+    }
+  },
+  "SH030_v04.png": {
+    "frame": "SH030.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Sky color grading shifts from deep purple-orange in the layout to a predominantly warm amber tone",
+        "Palm fronds added to the central standard diverge slightly from the bare pole in layout"
+      ]
+    }
+  },
+  "SH100_v02.png": {
+    "frame": "SH100.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Unspecified glowing ring effect around the chariot base",
+        "Character head angles adjusted from layout to fulfill interaction requirement"
+      ]
+    }
+  },
+  "SH100_v03.png": {
+    "frame": "SH100.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Flagstaff shortened slightly to fit Hanuman emblem inside the top frame unlike layout crop",
+        "Subtle floating light specks around Krishna's halo border on sparkle clutter"
+      ]
+    }
+  },
+  "SH100_v04.png": {
+    "frame": "SH100.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7.3,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Rendering leans slightly toward clean 2D animation cel rather than textured painterly brushwork",
+        "Ape on banner resembles a chimpanzee rather than a traditional stylized Hanuman"
+      ]
+    }
+  },
+  "SH120_v02.png": {
+    "frame": "SH120.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Stylized circular reticle graphic overlay is added over the layout composition",
+        "Line work leans slightly comic/graphic rather than purely painterly brushwork"
+      ]
+    }
+  },
+  "SH120_v03.png": {
+    "frame": "SH120.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "if Arjuna is in frame: warm brown skin, curly black hair"
+        ],
+        "found_must_not": [
+          "AI look: wrong limb count on anyone except the universal form"
+        ]
+      },
+      "problems": [
+        "Foreground figure appears headless rather than showing Arjuna's head from behind as indicated in the layout",
+        "Missing character head prevents verification of skin and hair canonical requirements"
+      ]
+    }
+  },
+  "SH120_v04.png": {
+    "frame": "SH120.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [],
+        "found_must_not": [
+          "AI look: floating star or sparkle stickers, lens-flare clutter or random glitter"
+        ]
+      },
+      "problems": [
+        "Horizontal anamorphic lens flare artifact across left field",
+        "Floating glowing halo ring artifact above the central standard"
+      ]
+    }
+  },
+  "SH140_v02.png": {
+    "frame": "SH140.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Krishna turning to Arjuna, calm, about to speak"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Krishna faces forward toward the opposing armies rather than turning toward Arjuna"
+      ]
+    }
+  },
+  "SH140_v03.png": {
+    "frame": "SH140.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Krishna turning to Arjuna, calm, about to speak"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Krishna faces directly away toward the battlefield rather than turning toward Arjuna",
+        "Arjuna and the chariot interaction are entirely omitted from the composition"
+      ]
+    }
+  },
+  "SH140_v04.png": {
+    "frame": "SH140.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Foreground soldiers appear slightly rigid in repetition",
+        "Rim light on Krishna could be more pronounced to separate from background"
+      ]
+    }
+  }
+}

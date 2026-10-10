@@ -1,0 +1,110 @@
+{
+  "SH010": {
+    "take": 1,
+    "file": "SH010_take1.mp4",
+    "target_duration": 7.0,
+    "status": "ready"
+  },
+  "SH020": {
+    "take": 1,
+    "file": "SH020_take1.mp4",
+    "target_duration": 4.0,
+    "status": "ready"
+  },
+  "SH030": {
+    "take": 1,
+    "file": "SH030_take1.mp4",
+    "target_duration": 4.0,
+    "status": "ready"
+  },
+  "SH040": {
+    "take": 1,
+    "file": "SH040_take1.mp4",
+    "target_duration": 3.0,
+    "status": "ready"
+  },
+  "SH050": {
+    "take": 1,
+    "file": "SH050_take1.mp4",
+    "target_duration": 5.0,
+    "status": "ready"
+  },
+  "SH060": {
+    "take": 1,
+    "file": "SH060_take1.mp4",
+    "target_duration": 3.0,
+    "status": "ready"
+  },
+  "SH070": {
+    "take": 1,
+    "file": "SH070_take1.mp4",
+    "target_duration": 4.0,
+    "status": "ready"
+  },
+  "SH080": {
+    "take": 1,
+    "file": "SH080_take1.mp4",
+    "target_duration": 5.0,
+    "status": "ready"
+  },
+  "SH090": {
+    "take": 1,
+    "file": "SH090_take1.mp4",
+    "target_duration": 5.0,
+    "status": "ready"
+  },
+  "SH100": {
+    "take": 1,
+    "file": "SH100_take1.mp4",
+    "target_duration": 5.0,
+    "status": "ready"
+  },
+  "SH110": {
+    "take": 1,
+    "file": "SH110_take1.mp4",
+    "target_duration": 6.0,
+    "status": "ready"
+  },
+  "SH120": {
+    "take": 1,
+    "file": "SH120_take1.mp4",
+    "target_duration": 5.0,
+    "status": "ready"
+  },
+  "SH130": {
+    "take": 1,
+    "file": "SH130_take1.mp4",
+    "target_duration": 5.0,
+    "status": "ready"
+  },
+  "SH140": {
+    "take": 1,
+    "file": "SH140_take1.mp4",
+    "target_duration": 4.0,
+    "status": "ready"
+  },
+  "SH150": {
+    "take": 1,
+    "file": "SH150_take1.mp4",
+    "target_duration": 6.0,
+    "status": "ready"
+  },
+  "SH160": {
+    "take": 1,
+    "file": "SH160_take1.mp4",
+    "target_duration": 4.0,
+    "status": "ready"
+  },
+  "SH170": {
+    "take": 1,
+    "file": "SH170_take1.mp4",
+    "target_duration": 5.0,
+    "status": "ready"
+  },
+  "SH180": {
+    "take": 1,
+    "file": "SH180_take1.mp4",
+    "target_duration": 4.0,
+    "status": "ready"
+  }
+}

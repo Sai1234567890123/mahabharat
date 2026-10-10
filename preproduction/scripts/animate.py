@@ -30,14 +30,24 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, ".."))
 
 PICKS = {
-    "SH010": "SH010_v01.png",
-    "SH050": "SH050_v03.png",
-    "SH070": "SH070_v02.png",
-    "SH090": "SH090_v01.png",
-    "SH130": "SH130_v02.png",
-    "SH150": "SH150_v02.png",
-    "SH170": "SH170_v02.png",
-    "SH180": "SH180_v01.png",
+    "SH010": "SH010_v07.png",
+    "SH020": "SH020_v01.png",
+    "SH030": "SH030_v04.png",
+    "SH040": "SH040_v01.png",
+    "SH050": "SH050_v04.png",
+    "SH060": "SH060_v01.png",
+    "SH070": "SH070_v08.png",
+    "SH080": "SH080_v01.png",
+    "SH090": "SH090_v06.png",
+    "SH100": "SH100_v02.png",
+    "SH110": "SH110_v01.png",
+    "SH120": "SH120_v02.png",
+    "SH130": "SH130_v09.png",
+    "SH140": "SH140_v05.png",
+    "SH150": "SH150_v23.png",
+    "SH160": "SH160_v36.png",
+    "SH170": "SH170_v09.png",
+    "SH180": "SH180_v04.png",
 }
 CLIP_LENGTHS = (4, 6, 8)
 STYLE = ("Painterly stylized 3D animation, hand-painted textures with visible brushwork, "

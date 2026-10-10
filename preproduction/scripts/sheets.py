@@ -19,6 +19,8 @@ import compose as C
 ROOT = C.ROOT
 ART = os.path.join(ROOT, "art")
 FR = os.path.join(ART, "frames")
+SELECTED = os.path.join(ART, "selected")
+APP_JSON = os.path.join(SELECTED, "APPROVED.json")
 RENDER = os.environ.get("RENDER_DIR", os.path.join(ART, "render"))
 PAPER = (24, 20, 26)
 INK = (236, 228, 214)
@@ -27,12 +29,38 @@ MUTED = (160, 150, 140)
 FONT_DIR = "/usr/share/fonts/opentype/inter"
 
 
+def shot_frame(sid):
+    if os.path.exists(APP_JSON):
+        try:
+            with open(APP_JSON) as f:
+                shots_map = json.load(f).get("shots", {})
+            if sid in shots_map:
+                p = os.path.join(SELECTED, shots_map[sid])
+                if os.path.exists(p):
+                    return p
+        except Exception:
+            pass
+    for ext in (".png", ".jpg"):
+        p = os.path.join(SELECTED, f"{sid}{ext}")
+        if os.path.exists(p):
+            return p
+    for ext in (".png", ".jpg"):
+        p = os.path.join(FR, f"{sid}{ext}")
+        if os.path.exists(p):
+            return p
+    return None
+
+
 def font(size, bold=False):
     for name in (("Inter-Bold.otf" if bold else "Inter-Regular.otf"), "InterDisplay-Medium.otf"):
         p = os.path.join(FONT_DIR, name)
         if os.path.exists(p):
             return ImageFont.truetype(p, size)
     for p in ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",):
+        if os.path.exists(p):
+            return ImageFont.truetype(p, size)
+    win_fonts = ["C:\\Windows\\Fonts\\segoeuib.ttf", "C:\\Windows\\Fonts\\arialbd.ttf"] if bold else ["C:\\Windows\\Fonts\\segoeui.ttf", "C:\\Windows\\Fonts\\arial.ttf"]
+    for p in win_fonts:
         if os.path.exists(p):
             return ImageFont.truetype(p, size)
     return ImageFont.load_default()
@@ -69,12 +97,12 @@ def storyboard(data):
         sheet = Image.new("RGB", (W, H), PAPER)
         d = ImageDraw.Draw(sheet)
         header(d, W, f"The First Conch: storyboard {pi + 1}/2",
-               "Blender blockout + 2D compositor. Layout, color and FX design; faces and textures come in the AI paint-over pass.")
+               "Approved pilot frames: AI paint-over pass on Blender layout.")
         for k, s in enumerate(page):
             x = 40 + (k % cols) * (tw + 30)
             y = 130 + (k // cols) * (th + cap + 20)
-            fp = os.path.join(FR, f"{s['id']}.jpg")
-            if os.path.exists(fp):
+            fp = shot_frame(s['id'])
+            if fp and os.path.exists(fp):
                 im = Image.open(fp).convert("RGB").resize((tw, th), Image.LANCZOS)
                 sheet.paste(im, (x, y))
             act = data["acts"][s["act"]]
@@ -103,8 +131,8 @@ def color_script(data):
     for i, (b, s) in enumerate(sorted(beats.items())):
         x = 40 + i * (pw + 8)
         y = 140
-        fp = os.path.join(FR, f"{s['id']}.jpg")
-        if os.path.exists(fp):
+        fp = shot_frame(s['id'])
+        if fp and os.path.exists(fp):
             im = Image.open(fp).convert("RGB").resize((pw, ph), Image.LANCZOS)
             im = im.filter(ImageFilter.GaussianBlur(2.2)).quantize(7, method=Image.Quantize.MEDIANCUT).convert("RGB")
             sheet.paste(im, (x, y))
@@ -230,8 +258,8 @@ def concept_plates(data):
     for s in data["shots"]:
         if not s.get("hero"):
             continue
-        fp = os.path.join(FR, f"{s['id']}.jpg")
-        if not os.path.exists(fp):
+        fp = shot_frame(s['id'])
+        if not fp or not os.path.exists(fp):
             continue
         im = Image.open(fp).convert("RGB")
         w, h = im.size
@@ -240,7 +268,7 @@ def concept_plates(data):
         d = ImageDraw.Draw(sheet)
         d.text((30, h + 18), f"{s['id']}  {s['title']}", font=font(30, True), fill=INK)
         d.text((30, h + 56), f"Act {s['act']}: {data['acts'][s['act']]['name']} · {s['source']}", font=font(18), fill=MUTED)
-        d.text((w - 560, h + 56), "Blockout concept, pre AI paint-over", font=font(18), fill=MUTED)
+        d.text((w - 560, h + 56), "Approved hero frame (AI paint-over pass)", font=font(18), fill=MUTED)
         slug = s["title"].lower().replace("'", "").replace(",", "").replace(" ", "-")
         sheet.save(os.path.join(ART, f"concept-{s['id']}-{slug}.jpg"), quality=92, subsampling=0)
 

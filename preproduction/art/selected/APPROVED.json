@@ -1,0 +1,25 @@
+{
+  "approved_by": "Sai",
+  "date": "2026-10-10",
+  "shots": {
+    "SH010": "SH010_v07.png",
+    "SH020": "SH020_v01.png",
+    "SH030": "SH030_v04.png",
+    "SH040": "SH040_v01.png",
+    "SH050": "SH050_v04.png",
+    "SH060": "SH060_v01.png",
+    "SH070": "SH070_v08.png",
+    "SH080": "SH080_v01.png",
+    "SH090": "SH090_v06.png",
+    "SH100": "SH100_v02.png",
+    "SH110": "SH110_v01.png",
+    "SH120": "SH120_v02.png",
+    "SH130": "SH130_v09.png",
+    "SH140": "SH140_v05.png",
+    "SH150": "SH150_v23.png",
+    "SH160": "SH160_v36.png",
+    "SH170": "SH170_v09.png",
+    "SH180": "SH180_v04.png"
+  },
+  "note": "non-hero shots accepted when Sai said 'continue with next task' after the repaint review"
+}

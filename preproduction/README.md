@@ -11,6 +11,7 @@ Preproduction package for a 90-second proof-of-concept sequence, **"The First Co
 5. [05-shot-list.md](05-shot-list.md): 18 shots with lens, camera move, FX, sound and source line.
 6. [06-prompt-pack.md](06-prompt-pack.md): keyframe and motion prompts for every shot, ready for Nano Banana, Imagen, Flux, Veo 3.1 or Wan 2.2.
 7. [07-pipeline-and-next-steps.md](07-pipeline-and-next-steps.md): how the concept art was made, how to re-run it, and the next steps to reach final quality.
+8. [08-epic-shot-summaries.md](08-epic-shot-summaries.md): exact line citations from the Bhishma Parva, character actions and canonical check criteria for each shot.
 
 ## Concept art (`art/`)
 

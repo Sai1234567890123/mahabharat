@@ -1,0 +1,67 @@
+{
+  "_about": "Canon checklist per hero shot, from the Ganguli translation of the Bhishma Parva (mahabharat-site/source/B06-bhishma.txt) and 03-characters.md. The QA step must score each painted frame against 'must' and 'must_not'. A frame that fails any 'must' or shows any 'must_not' is rejected, whatever its style score.",
+  "global": {
+    "must": [
+      "Krishna: deep indigo-blue skin, yellow silk dhoti, gold crown with one peacock feather",
+      "Arjuna: warm brown skin, curly black hair, white and silver scale armor, blue sash",
+      "Arjuna's chariot: gold, white horses, the ape banner on its own flagstaff",
+      "Krishna drives (holds the reins); Arjuna is the warrior and holds Gandiva"
+    ],
+    "must_not": [
+      "the ape banner drawn as a cartoon chimp face; it is a great ape (Hanuman), dignified",
+      "any other emblem (eagle, Garuda, lion) on Arjuna's flagstaff",
+      "Krishna holding Gandiva or any weapon in the field scenes",
+      "brown, black or grey horses on Arjuna's chariot"
+    ]
+  },
+  "shots": {
+    "SH010": {
+      "source": "B06 2963-2964",
+      "epic": "Above every standard of both hosts towered the one gigantic ape on Arjuna's car.",
+      "must": ["the ape banner flies from Arjuna's own chariot and is the tallest standard on the field", "the two hosts arrayed facing each other, the battle not yet begun", "Krishna (blue) at the reins"],
+      "must_not": ["Arjuna drawing or firing the bow; no one shoots before the conches", "the ape banner on a separate pole away from Arjuna's car", "a turbaned charioteer who is not Krishna"]
+    },
+    "SH050": {
+      "source": "B06 3208-3213",
+      "epic": "Arjuna's car: a hundred bells, finest gold, fine wheels, fiery radiance, white steeds, bright as a thousand suns; Kesava holds the reins, Arjuna stands with Gandiva and arrows.",
+      "must": ["four white steeds", "many small bells along the car", "the car itself blazing with light, not only sparkles around it", "Krishna holding the reins", "Arjuna with Gandiva and arrows"],
+      "must_not": ["a cartoon monkey face on the banner"]
+    },
+    "SH070": {
+      "source": "B06 3478-3483",
+      "epic": "Madhava and Arjuna, on their great car yoked to white steeds, blew their celestial conches: Panchajanya and Devadatta.",
+      "must": ["Krishna blows Panchajanya, Arjuna blows Devadatta, both conches white", "the ape banner on the flagstaff"],
+      "must_not": ["a war horn or trumpet on the car; horns belong to the Kaurava uproar before this", "an empty flagstaff"]
+    },
+    "SH090": {
+      "source": "B06 3488-3490",
+      "epic": "That blare, echoing through sky and earth, rent the hearts of the Dhartarashtras.",
+      "must": ["Kaurava soldiers in the foreground visibly shaken (recoiling, covering ears, faces turned)", "the ground trembling (dust lifting)"],
+      "must_not": ["foreground figures as faceless posts with no reaction"]
+    },
+    "SH130": {
+      "source": "B06 3517-3521",
+      "epic": "Arjuna: my limbs fail, my mouth is dry, my body trembles; Gandiva slips from my hand; I cannot stand.",
+      "must": ["Arjuna sinking onto the car floor", "Gandiva sliding out of his hand toward the floor", "Krishna still at the front of the car"],
+      "must_not": ["Arjuna still holding the bow upright"]
+    },
+    "SH150": {
+      "source": "B06 4826-4862",
+      "epic": "Faces turned on all sides; many arms, bellies, mouths and eyes; no end, middle or beginning; diadem, mace and discus; the splendour of a thousand suns at once.",
+      "must": ["countless arms and faces on every side, not a single calm four- or eight-armed figure", "diadem, mace and discus clearly held", "light like a thousand suns", "Arjuna's chariot with the ape banner and white horses"],
+      "must_not": ["an eagle or Garuda banner on Arjuna's car", "brown horses", "the whole army reacting as if it sees the form; the vision is given to Arjuna"]
+    },
+    "SH170": {
+      "source": "B06 5773",
+      "epic": "Arjuna: my delusion is destroyed, my memory regained; I am firm, my doubts are gone; I will do your bidding.",
+      "must": ["ARJUNA rising and lifting Gandiva", "Krishna taking the reins"],
+      "must_not": ["Krishna holding Gandiva", "Arjuna missing from the frame"]
+    },
+    "SH180": {
+      "source": "B06 2963-2964, 3212",
+      "epic": "The ape on Arjuna's car above all standards.",
+      "must": ["the ape banner on its flagstaff, snapping in the wind against a red sun"],
+      "must_not": ["a chariot or figure standing on top of the flagstaff"]
+    }
+  }
+}

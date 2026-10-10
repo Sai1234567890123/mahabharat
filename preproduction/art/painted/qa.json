@@ -306,15 +306,247 @@
     "frame": "SH170.jpg",
     "model": "gemini-3.1-flash-image",
     "qa": {
+      "score": 3,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Arjuna: warm brown skin, curly black hair, white and silver scale armor, blue sash",
+          "Krishna drives (holds the reins); Arjuna is the warrior and holds Gandiva",
+          "ARJUNA rising and lifting Gandiva",
+          "Krishna taking the reins",
+          "Arjuna's chariot: white horses, the ape banner on its own flagstaff"
+        ],
+        "found_must_not": [
+          "Krishna holding Gandiva",
+          "Krishna holding Gandiva or any weapon in the field scenes",
+          "Arjuna missing from the frame"
+        ]
+      },
+      "problems": [
+        "Arjuna is absent from the frame.",
+        "Krishna is mistakenly holding Gandiva instead of holding the reins.",
+        "Chariot horses and ape banner are not visible."
+      ]
+    }
+  },
+  "SH010_v02.png": {
+    "frame": "SH010.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 3,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Krishna: deep indigo-blue skin, yellow silk dhoti, gold crown with one peacock feather",
+          "the ape banner flies from Arjuna's own chariot and is the tallest standard on the field",
+          "the two hosts arrayed facing each other, the battle not yet begun",
+          "Krishna (blue) at the reins"
+        ],
+        "found_must_not": [
+          "Arjuna drawing or firing the bow; no one shoots before the conches",
+          "the ape banner on a separate pole away from Arjuna's car",
+          "a turbaned charioteer who is not Krishna"
+        ]
+      },
+      "problems": [
+        "Foreground chariot was added, breaking layout camera and scale",
+        "Arjuna is actively drawing the bow",
+        "Ape banner placed on an isolated staff in the field rather than on Arjuna's chariot",
+        "Charioteer lacks Krishna's canonical blue skin, peacock feather, and attire"
+      ]
+    }
+  },
+  "SH050_v03.png": {
+    "frame": "SH050.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the car itself blazing with light, not only sparkles around it"
+        ],
+        "found_must_not": [
+          "the ape banner drawn as a cartoon chimp face; it is a great ape (Hanuman), dignified",
+          "a cartoon monkey face on the banner"
+        ]
+      },
+      "problems": [
+        "Ape banner depicts a simplified cartoon monkey face instead of a dignified Hanuman",
+        "Chariot lacks fiery radiance and self-illumination"
+      ]
+    }
+  },
+  "SH070_v03.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "the ape banner on the flagstaff"
+        ],
+        "found_must_not": [
+          "a war horn or trumpet on the car",
+          "an empty flagstaff"
+        ]
+      },
+      "problems": [
+        "A large war horn is mounted directly on the chariot side.",
+        "The flagstaff is empty with no ape banner visible."
+      ]
+    }
+  },
+  "SH090_v02.png": {
+    "frame": "SH090.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Krishna character details not discernible on distant chariot",
+          "Arjuna character details and Gandiva not discernible",
+          "Kaurava soldiers visibly shaken, recoiling, or covering ears"
+        ],
+        "found_must_not": [
+          "foreground figures as faceless posts with no reaction"
+        ]
+      },
+      "problems": [
+        "Foreground soldiers are rendered as rigid, stylized posts lacking human anatomy or emotional reaction.",
+        "Arjuna and Krishna on the chariot are too small and indistinct to satisfy character design requirements."
+      ]
+    }
+  },
+  "SH130_v02.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Krishna drives (holds the reins)",
+          "Gandiva sliding out of his hand toward the floor",
+          "the ape banner on its own flagstaff"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Reins are absent from Krishna's hands and the harness.",
+        "Gandiva is propped behind Arjuna rather than slipping from his grip.",
+        "Banner atop the flagstaff is cropped out of view."
+      ]
+    }
+  },
+  "SH150_v02.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 4,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "countless arms and faces on every side, not a single calm four- or eight-armed figure",
+          "Arjuna's chariot: ape banner on its own flagstaff"
+        ],
+        "found_must_not": [
+          "any other emblem (eagle, Garuda, lion) on Arjuna's flagstaff",
+          "an eagle or Garuda banner on Arjuna's car"
+        ]
+      },
+      "problems": [
+        "Garuda/eagle emblem used on the banner and finial instead of Hanuman",
+        "Central cosmic form is rendered as a calm multi-armed deity rather than an infinite manifold body",
+        "Chariot figures lack required costume and color details"
+      ]
+    }
+  },
+  "SH180_v02.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 3,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": false,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Krishna: deep indigo-blue skin, yellow silk dhoti, gold crown with one peacock feather",
+          "Arjuna: warm brown skin, curly black hair, white and silver scale armor, blue sash",
+          "Arjuna's chariot: gold, white horses, the ape banner on its own flagstaff",
+          "Krishna drives (holds the reins); Arjuna is the warrior and holds Gandiva"
+        ],
+        "found_must_not": [
+          "a chariot or figure standing on top of the flagstaff"
+        ]
+      },
+      "problems": [
+        "A chariot and figure are positioned directly on top of the flagstaff.",
+        "Arjuna's chariot lacks horses and proper ground placement.",
+        "Krishna is missing from the chariot.",
+        "Required character details and colors are absent due to heavy backlighting/silhouette."
+      ]
+    }
+  },
+  "SH010_v03.png": {
+    "frame": "SH010.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
       "score": 7,
       "keeps_layout": true,
       "painterly_not_photoreal": true,
       "palette_matches_act": true,
       "rim_light": true,
       "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
       "problems": [
-        "Clean contour linework reduces visible painterly brushwork",
-        "Foreground lightning arcs slightly simplified from layout"
+        "Arjuna's scale armor and sash details appear slightly simplified at shot resolution",
+        "Sun flare rays somewhat overlap the ape standard silhouette"
       ]
     }
   }

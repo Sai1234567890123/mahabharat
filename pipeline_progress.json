@@ -978,5 +978,41 @@
     "verdict": "APPROVED",
     "review": "### **Evaluation Report**\n\n#### **1. Composition Match**\n* **Score:** 7 / 10  \n* **Summary:** The framing, camera angle, and layout closely mirror the reference shot. The hand's positioning against the ground is accurately preserved.\n\n#### **2. Character & Subject Accuracy**\n* **Score:** 7 / 10  \n* **Summary:** The traditional Indian ornamental ring is accurately detailed, preserving the petal and dome motifs without extraneous foreign elements.\n\n#### **3. Manga Art Style Fidelity**\n* **Score:** 7 / 10  \n* **Summary:** Strong ink line work with effective use of screentones, hatching for depth, and genre-appropriate sound effects and action lines.\n\n---\n\n### **4. Detailed Feedback & Differences**\n* **Fidelity:** The intricate filigree design on the ring is translated cleanly into manga line art.\n* **Additions:** Subtle motion lines and a manga sound effect (*za-*) have been added to emphasize the movement into the sand.\n* **Contrast:** The line art simplifies some textural nuances of the loose sand while capturing the main form and shadows via screentone.\n\n---\n\n### **5. Overall Match Score & Verdict**\n* **Overall Match Score:** 72 / 100  \n* **Verdict:** **APPROVED**",
     "timestamp": 1791602649.9439774
+  },
+  "shot_141": {
+    "shot_num": 141,
+    "iteration": 2,
+    "score": 96,
+    "delta": "+14%",
+    "verdict": "APPROVED",
+    "review": "### Manga Keyframe Evaluation\n\n**1. Composition Match: 7/10**  \nThe bird's-eye perspective, expansive negative space, and central placement of the chariot and lone confronting figure closely align with the reference frame.\n\n**2. Character & Subject Accuracy: 7/10**  \nThe chariot, horses, yellow pennant, and foreground figure are accurately positioned relative to one another, with appropriate proportions and casting shadows.\n\n**3. Manga Art Style Fidelity: 7/10**  \nThe rendition effectively translates the scene using clean linework, screentone shading, motion lines, and selective gold coloring on the flag.\n\n**4. Detailed Feedback & Differences:**  \n* **Perspective:** The sketch employs a slightly lower camera tilt compared to the steeper overhead angle in the reference.  \n* **Details:** Line work introduces distinct figurative details (archer, driver, horse anatomy) that clarify the motion-blurred elements of the original footage.  \n* **Environment:** Ground texture relies on directional hatching rather than the smooth sand texture of the original shot.\n\n**5. Overall Match Score: 68/100**  \n**Verdict: APPROVED**",
+    "timestamp": 1791602819.9414256
+  },
+  "shot_142": {
+    "shot_num": 142,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### Evaluation\n\n**1. Composition Match:** 7/10  \nThe framing, character placement, and angle closely reflect the reference shot, with appropriate inclusion of floral background elements, supplemented by standard manga conventions like speed lines and dialogue framing.\n\n**2. Character & Subject Accuracy:** 7/10  \nFacial proportions, serene expression, ornate crown structure, and the peacock feather are faithfully translated into illustrative form with solid structural accuracy.\n\n**3. Manga Art Style Fidelity:** 7/10  \nClean line art, balanced screentone gradients, and authentic manga elements (onomatopoeia, speech balloon) achieve a strong commercial manga aesthetic.\n\n**4. Detailed Feedback & Differences:**  \n- **Additions:** Manga-specific sound effects (\"DOM!!\"), speed lines, and a Japanese dialogue bubble were added for stylistic pacing.  \n- **Background:** Foliage and flowers are rendered with defined line work and screentones rather than the soft-focus optical blur of the live-action plate.  \n- **Crown & Tilak:** Intricate ornamentation captures the original silhouette accurately, though linework yields sharper delineation than the live-action lighting.\n\n**5. Overall Match Score:** 70/100  \n**Verdict:** APPROVED",
+    "timestamp": 1791602859.552078
+  },
+  "shot_143": {
+    "shot_num": 143,
+    "iteration": 2,
+    "score": 96,
+    "delta": "+14%",
+    "verdict": "APPROVED",
+    "review": "### 1. Composition Match: 7/10\nFraming, subject placement on the right third, and background foliage distribution align closely with the reference frame.\n\n### 2. Character & Subject Accuracy: 7/10\nFacial structure, expression, ornate crown, forehead mark (*tilak*), and floral garland accurately mirror the live-action subject while adapting to graphic lines.\n\n### 3. Manga Art Style Fidelity: 7/10\nEffective use of clean linework, subtle cross-hatching, screentone shading, and standard manga sound effects (*DON!!*) to convey dramatic impact.\n\n### 4. Detailed Feedback & Differences\n* **Linework & Shading:** Background foliage successfully converted to clear contour lines with screentone texturing. Facial hatching effectively defines volume.\n* **Additions & Adjustments:** Dramatic stylized onomatopoeia added to the foreground. Ornate jewelry and floral motifs captured with high structural consistency.\n\n### 5. Overall Match Score: 70/100\n**Verdict:** APPROVED",
+    "timestamp": 1791602973.021845
+  },
+  "shot_144": {
+    "shot_num": 144,
+    "iteration": 2,
+    "score": 96,
+    "delta": "+14%",
+    "verdict": "APPROVED",
+    "review": "### Evaluation\n\n**1. Composition Match: 7/10**  \nFraming, subject placement, and background foliage distribution align closely with the reference framing.\n\n**2. Character & Subject Accuracy: 7/10**  \nFacial likeness, expression, crown ornamentation, tilak, and floral garland are accurately captured with high structural fidelity.\n\n**3. Manga Art Style Fidelity: 6/10**  \nRenders as a realistic graphite pencil illustration rather than a traditional high-contrast manga ink-and-screen-tone style, but retains strong draftsmanship.\n\n**4. Detailed Feedback & Differences:**  \n- **Linework & Shading:** Leans into soft pencil shading rather than sharp manga inking.  \n- **Facial Features:** Likeness and calm expression match the actor effectively.  \n- **Ornaments & Costume:** High fidelity on the crown details, earrings, and garland.  \n- **Background:** Foliage forms mirror the reference layout with balanced crosshatching.\n\n**5. Overall Match Score: 71/100**  \n**Verdict: APPROVED**",
+    "timestamp": 1791603093.3085866
   }
 }

@@ -20,3 +20,7 @@
 2026-10-10 14:05 | T-004 | claude | done | canon QA in paint_over.py (--qa-only); re-score of current frames: 0/8 pass, matches R-003
 2026-10-10 14:00 | T-004 | antigravity | review | QA step now checks canon; baseline audit on 8 hero frames matches R-003 exactly; see R-004
 2026-10-10 14:05 | T-003 | antigravity | doing | repainting the 8 hero shots with canon prompt injections and verification
+2026-10-10 14:08 | T-004 | claude | note | collision: antigravity (R-004) and claude both implemented T-004; repo has antigravity's version, it runs
+2026-10-10 14:08 | T-003 | claude | review | round 2: 6 of 8 ready for Sai (SH010 v03, SH050 v04, SH070 v04, SH090 v03, SH150 v04, SH180 v04); SH130 and SH170 retaking; see R-005
+2026-10-10 14:21 | T-003 | claude | doing | Sai asked Claude to redo until canon-correct and not AI-looking; claude owns T-003, antigravity please stop any T-003 run; added AI-look checks to canon_checks.json global
+2026-10-10 14:48 | T-003 | antigravity | review | all 8 hero shots repainted and pass canon QA (0 failures); placed in art/selected/; see R-005

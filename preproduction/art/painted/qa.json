@@ -549,5 +549,198 @@
         "Sun flare rays somewhat overlap the ape standard silhouette"
       ]
     }
+  },
+  "SH170_v03.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Rendering leans heavily toward flat 2D cel animation rather than textured painterly CG",
+        "Horses are fully cropped out by layout framing"
+      ]
+    }
+  },
+  "SH050_v04.png": {
+    "frame": "SH050.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Arjuna is seated beside Krishna instead of standing as shown in the layout reference."
+      ]
+    }
+  },
+  "SH070_v04.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Camera angle shifted from rear low-angle in layout to side-profile 3/4 view",
+        "Chariot and horses repositioned to show full side rather than following layout composition"
+      ]
+    }
+  },
+  "SH090_v03.png": {
+    "frame": "SH090.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Banner depicts a literal chimpanzee rather than a traditional representation of Hanuman",
+        "Shockwave line effects slightly obscure chariot silhouettes"
+      ]
+    }
+  },
+  "SH130_v03.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Gandiva has already detached slightly further from the hand than in the layout block-in"
+      ]
+    }
+  },
+  "SH150_v03.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Arjuna is the warrior and holds Gandiva"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Arjuna is not holding his bow Gandiva.",
+        "Viswarupa arms could display a more distinct traditional mace (gada)."
+      ]
+    }
+  },
+  "SH180_v03.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": false,
+        "failed_must": [
+          "Arjuna is the warrior and holds Gandiva",
+          "the ape banner on Arjuna's car"
+        ],
+        "found_must_not": []
+      },
+      "problems": [
+        "Arjuna is not holding the Gandiva bow",
+        "Ape banner staff appears detached from Arjuna's chariot",
+        "Chariot added to lower-left differs slightly from layout frame baseline"
+      ]
+    }
+  },
+  "SH150_v04.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Arjuna is duplicated, appearing both in the chariot and scaled up in front of the cosmic form",
+        "Central figure composition deviates slightly from the layout silhouette"
+      ]
+    }
+  },
+  "SH180_v04.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 6,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "canon": {
+        "pass": true,
+        "failed_must": [],
+        "found_must_not": []
+      },
+      "problems": [
+        "Banner direction is flipped to the right relative to the layout blocking",
+        "Framing at the bottom widened to include the chariot base and characters"
+      ]
+    }
   }
 }

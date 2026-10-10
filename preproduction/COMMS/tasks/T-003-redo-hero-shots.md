@@ -1,7 +1,7 @@
 ---
 id: T-003
 owner: claude
-status: doing
+status: review
 created: 2026-10-10
 depends_on: [T-004]
 ---

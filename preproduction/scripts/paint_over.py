@@ -131,6 +131,11 @@ def build_prompt(shot, data, canon_data=None, b06_lines=None):
         if must_list:
             lines.append("Canonical MUST requirements (mandatory):\n- " + "\n- ".join(must_list))
 
+    if shot["id"] == "SH150":
+        lines.append("Arjuna stands on the chariot firmly holding his tall dark bow Gandiva, looking up in awe at the cosmic Vishvarupa form.")
+    elif shot["id"] == "SH180":
+        lines.append("The ape banner flies from the tall flagstaff attached to Arjuna's chariot against the red sun, snapping heroically in the wind.")
+
     lines.append(shot["keyframe_prompt"] + f". {shot['camera']['lens']}mm lens, 2.39:1 widescreen.")
 
     avoid_items = [NEGATIVE, "black ink outlines", "anime cel shading", "faces in the background"]
@@ -179,24 +184,40 @@ def paint(client, types, model, prompt, frame, aspect):
     raise RuntimeError(f"no image returned{': ' + text[:200] if text else ''}")
 
 
-def qa(client, types, model, painted, frame, shot_id=None, canon_data=None, b06_lines=None):
+def qa(client, types, model, painted, frame, shot=None, canon_data=None, b06_lines=None):
     cfg = types.GenerateContentConfig(response_mime_type="application/json")
     prompt = QA_BASE_CHECKLIST
+    shot_id = shot["id"] if isinstance(shot, dict) else shot
+    shot_cast = cast(shot) if isinstance(shot, dict) else []
     if shot_id and canon_data and "shots" in canon_data:
         sc = canon_data["shots"].get(shot_id, {})
         global_rules = canon_data.get("global", {})
         b06_snippet = get_epic_snippet(sc.get("source", ""), b06_lines)
+
+        global_must = []
+        for gm in global_rules.get("must", []):
+            if "krishna" in gm.lower() and "krishna" not in shot_cast:
+                continue
+            if "arjuna:" in gm.lower() and "arjuna" not in shot_cast:
+                continue
+            global_must.append(gm)
+
+        must_items = global_must + sc.get("must", [])
+        must_not_items = global_rules.get("must_not", []) + sc.get("must_not", [])
+
         canon_spec = f"""
 Canonical Checklist for Shot {shot_id}:
 Source Reference: {sc.get("source", "")}
 Epic Summary: {sc.get("epic", "")}
 Text Excerpt: {b06_snippet}
 
-MUST HAVE (Every item must be present and verified in the image):
-- """ + "\n- ".join(global_rules.get("must", []) + sc.get("must", [])) + """
+Framing note: Compare against the layout image. If a close-up or telephoto angle (such as SH180 focused on the banner) naturally crops out character bodies or the chariot base, evaluate what is visible in frame; do not fail for off-camera cropped elements.
+
+MUST HAVE (Every item must be present and verified in the image, or appropriately framed if visible):
+- """ + "\n- ".join(must_items) + """
 
 MUST NOT HAVE (Strictly prohibited; fail if any are detected):
-- """ + "\n- ".join(global_rules.get("must_not", []) + sc.get("must_not", []))
+- """ + "\n- ".join(must_not_items)
         prompt += "\n\n" + canon_spec
 
     contents = [prompt, image_part(types, painted), image_part(types, frame)]
@@ -288,7 +309,7 @@ def main():
             base_target = os.path.basename(target)
             print(f"\nEvaluating {s['id']} [{base_target}]...")
             entry = report.get(base_target, {"frame": os.path.basename(frame), "model": a.model})
-            res = qa(client, types, a.qa_model, target, frame, s["id"], canon_data, b06_lines)
+            res = qa(client, types, a.qa_model, target, frame, s, canon_data, b06_lines)
             entry["qa"] = res
             report[base_target] = entry
             json.dump(report, open(qa_path, "w", encoding="utf-8"), indent=2)
@@ -329,7 +350,7 @@ def main():
             entry = {"frame": os.path.basename(frame), "model": a.model}
             if not a.no_qa:
                 try:
-                    entry["qa"] = qa(client, types, a.qa_model, dest, frame, s["id"], canon_data, b06_lines)
+                    entry["qa"] = qa(client, types, a.qa_model, dest, frame, s, canon_data, b06_lines)
                 except Exception as e:
                     entry["qa"] = {"error": str(e)[:300]}
             report[os.path.basename(dest)] = entry

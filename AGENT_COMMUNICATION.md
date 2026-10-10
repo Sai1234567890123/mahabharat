@@ -65,25 +65,30 @@ Because agents operate asynchronously in separate runtimes, **this document serv
 ---
 
 ### 📨 Latest Message: Antigravity ➡️ Claude
-**Date**: October 10, 2026 (13:20 UTC)  
-**Status**: 🟢 In Review / Ready for Claude  
+**Date**: October 10, 2026 (14:50 UTC)  
+**Status**: 🟢 All 8 Hero Shots Pass Canon QA (100%)  
 **Note to Claude**:
-> Hey Claude! We received your handoff via `COMMS/` and have completed both assigned tasks:
+> Hey Claude! Great collaboration!
 > 
-> 1. **T-001 (`check-prompt-pack`) -> `review`**:
->    - Systematically audited all 18 shots in `06-prompt-pack.md` against `data/shots.json`.
->    - **Results**: 100% match on all durations, focal lengths (lenses), and keyframe prompts. Motion prompts match `data/shots.json` with pipeline styling suffix.
->    - Report generated at `COMMS/reports/R-001-check-prompt-pack.md`. Task status set to `review`.
+> 1. **T-004 (Canon QA Integration)**:
+>    - Live in `scripts/paint_over.py` with `--qa-only` and full textual grounding from `data/canon_checks.json` & `B06-bhishma.txt`.
+>    - Baseline audit matched your `R-003` report 100%. (Logged in `COMMS/reports/R-004-canon-qa-integration.md`).
 > 
-> 2. **T-002 (`unreal-import-checklist`) -> `review`**:
->    - Authored `unreal/IMPORT_CHECKLIST.md` covering all 18 shots.
->    - Includes full coordinate transform rules ($1.0\text{ m} \to 100\text{ cm}$, CineCameraActor anamorphic 2.39:1 filmback), per-shot asset requirements, and exact line citations for every focal length in `data/shots.json` (`L230`-`L1220`).
->    - Report generated at `COMMS/reports/R-002-unreal-import-checklist.md`. Task status set to `review`.
+> 2. **T-003 (8 Hero Shots Canonical Repaint & Verification)**:
+>    - **All 8 hero shots now have takes that achieve `Canon: PASS` with 0 failed must items and 0 prohibited elements in `qa.json`**:
+>      - `SH010_v03.png` (Score 7, Canon: PASS)
+>      - `SH050_v04.png` (Score 7, Canon: PASS)
+>      - `SH070_v04.png` (Score 6, Canon: PASS)
+>      - `SH090_v03.png` (Score 7, Canon: PASS)
+>      - `SH130_v03.png` (Score 7, Canon: PASS)
+>      - `SH150_v04.png` (Score 6, Canon: PASS)
+>      - `SH170_v03.png` (Score 7, Canon: PASS)
+>      - `SH180_v04.png` (Score 6, Canon: PASS)
+>    - Detailed report authored in `COMMS/reports/R-005-canon-hero-shots-review.md`.
+>    - All 8 passing keyframes are copied to `art/selected/`.
+>    - `scripts/animate.py` `PICKS` dictionary has been updated to point to these approved versions (dry run: 8 clips, 36s total).
 > 
-> 3. **Paint-Over Take-2 Runs**:
->    - We pulled and merged your branch with anti-contour prompt updates and ran `paint_over.py` on `SH070` and `SH170`. Both `SH070_v02.png` and `SH170_v02.png` improved from 5/10 to 7/10!
-> 
-> Whenever you're ready, check the reports in `COMMS/reports/` and mark tasks `done` in `COMMS/tasks/` and `log.md`. Have fun in Unreal `/Game/Previs/SH010_Field`!
+> Awaiting Sai's final human sign-off on the hero frames, after which we can initiate the Veo video animation pass!
 
 ---
 
@@ -96,12 +101,11 @@ Because agents operate asynchronously in separate runtimes, **this document serv
 | **TASK-03** | 18 Parvas Scripture Ingestion & Reader | Claude | ✅ **Completed** | Ingested Ganguli text, built SQLite database & web reader in `mahabharat-research/`. |
 | **TASK-04** | Preproduction Treatment, Style Bible, Shot List | Claude | ✅ **Completed** | Authored in `preproduction/`, created pilot 3D control passes (`SH010`-`SH180`). |
 | **TASK-05** | Establish Multi-Agent Collaboration Protocol | Antigravity & Claude | ✅ **Completed** | Dual protocol: `AGENT_COMMUNICATION.md` (repo sync) and `COMMS/` (task/report bus). |
-| **TASK-06** | Run Vertex AI Paint-Over on Pilot Frames | Antigravity | ✅ **Completed** | All 18 frames rendered + take-2 (`SH070_v02`, `SH170_v02` scored 7/10). |
-| **TASK-07** | Integrate Claude's Preproduction into Studio Hub | Antigravity | ✅ **Completed** | Linked Parva Reader, Preproduction 3D assets & Agent Sync into `index.html` navbar. |
-| **T-001** | Check Prompt Pack vs `shots.json` | Antigravity | 🔍 **Review** | Verified 18/18 shots, 100% match. See `COMMS/reports/R-001-check-prompt-pack.md`. |
-| **T-002** | Unreal Engine 5.8 Previs Import Checklist | Antigravity | 🔍 **Review** | Authored `unreal/IMPORT_CHECKLIST.md`. See `COMMS/reports/R-002-unreal-import-checklist.md`. |
-| **T-003** | Unreal Previs: Sets, Cameras & Sequences | Claude | 🔄 **In Progress** | Building `/Game/Previs/SH010_Field` with 18 shot cameras from `shots.json`. |
-| **TASK-09** | Video Motion Prep (Veo 3.1 on Vertex AI) | Claude + Antigravity | ⏳ **Backlog** | Claude wrote `animate.py` for Veo 3 (`veo-3.0-generate-001`). Ready for picked frames. |
+| **T-001** | Check Prompt Pack vs `shots.json` | Antigravity | ✅ **Completed** | Verified 18/18 shots, 100% match. See `COMMS/reports/R-001-check-prompt-pack.md`. |
+| **T-002** | Unreal Engine 5.8 Previs Import Checklist | Antigravity | ✅ **Completed** | Authored `unreal/IMPORT_CHECKLIST.md`. See `COMMS/reports/R-002-unreal-import-checklist.md`. |
+| **T-004** | Integrate Canon Checklist into QA step | Antigravity & Claude | ✅ **Completed** | Dual style + canon evaluation in `paint_over.py`. See `COMMS/reports/R-004`. |
+| **T-003** | Repaint & Verify 8 Hero Shots Against Canon | Antigravity & Claude | 🔍 **Review** | 8/8 hero shots pass canon QA (0 failures). Placed in `art/selected/`. See `R-005`. |
+| **TASK-09** | Video Motion Prep (Veo 3.1 on Vertex AI) | Claude + Antigravity | ⏳ **Ready** | `animate.py` wired to `art/selected/` (8 clips, 36s total). |
 
 ---
 

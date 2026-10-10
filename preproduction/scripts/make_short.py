@@ -51,6 +51,18 @@ EDL = [
     ("SH180", "Then black", []),
 ]
 SERIES_TAG = "THE FIRST CONCH"
+# crop-to-fill keeps only about a quarter of each 16:9 take's width, so the
+# window is placed per shot: 0 = the left edge of the picture, 1 = the right
+# edge, 0.5 = centre. Shots not listed use the centre.
+FOCUS = {
+    "SH010": 0.60,  # chariot in the centre-right
+    "SH020": 0.55,  # ape finial on the banner pole
+    "SH040": 0.50,  # Bhishma and the light arcs on the right
+    "SH050": 0.40,  # Krishna and Arjuna at the chariot, left of centre
+    "SH060": 0.50,  # both conch blowers
+    "SH130": 0.38,  # Arjuna and the bow
+    "SH170": 0.60,  # Arjuna's raised bow and face
+}
 
 
 def font():
@@ -113,8 +125,10 @@ def segment_chain(i, s, tag, fontfile, fit):
     """One shot as a 9:16 video, with its captions."""
     head = f"[{i}:v]crop={s['crop']},trim=0:{s['d']},setpts=PTS-STARTPTS,fps={FPS},"
     if fit == "fill":
-        # crop-to-fill: the centre of the picture, scaled up to the frame
-        body = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,eq=saturation=1.05"
+        # crop-to-fill: a 9:16 window scaled up from the picture, placed at the shot's focus (even x for yuv420)
+        f = FOCUS.get(s["id"], 0.5)
+        body = (f"scale=1080:1920:force_original_aspect_ratio=increase,"
+                f"crop=1080:1920:floor((iw-1080)*{f}/2)*2:0,eq=saturation=1.05")
     else:
         # blur: the whole picture centred over a blurred copy of itself
         body = (f"split[a{i}][b{i}];[a{i}]scale=1080:1920:force_original_aspect_ratio=increase,"
@@ -125,8 +139,6 @@ def segment_chain(i, s, tag, fontfile, fit):
            f"fontcolor=white:borderw=4:bordercolor=black@0.7:x=(w-text_w)/2:y=200,"
            f"drawtext=textfile='{fp(tag)}':fontfile='{fp(fontfile)}':fontsize=40:"
            f"fontcolor=white@0.85:x=(w-text_w)/2:y=1640[v{i}]")
-    if fit == "fill":
-        return head + body + "," + cap
     return head + body + "," + cap
 
 

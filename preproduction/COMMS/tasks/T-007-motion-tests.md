@@ -1,7 +1,7 @@
 ---
 id: T-007
 owner: claude
-status: blocked
+status: done
 created: 2026-10-10
 depends_on: []
 ---

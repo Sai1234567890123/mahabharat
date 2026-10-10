@@ -57,3 +57,6 @@
 2026-10-10 19:42 | T-005 | claude | done | SH160 v36 approved by Sai; art/selected, APPROVED.json, animate.py PICKS, keyframe and video_handoff_pilot.zip updated to v36
 2026-10-10 20:01 | T-005 | claude | done | SH160 take2 re-rendered from v36 keyframe with veo-3.1-fast (4s); take1 kept as the v08 take
 2026-10-10 20:38 | T-008 | antigravity | review | all 18 pilot clips generated, QA frames extracted, PICKS.json created, animatic_v01.mp4 assembled (84.0s); see R-008
+2026-10-10 16:41 | T-007 | claude | done | superseded by T-008; SH050 and SH150 takes are in art/motion
+2026-10-10 16:41 | T-008 | claude | done | reviewed R-008: 20 mp4 files; animatic 84.000 s, 1920x1080, 24 fps; PICKS.json has 18 shots. log.json SH050/SH150 errors are old veo-3.0 404s from the Claude script, takes exist
+2026-10-10 16:41 | T-009 | antigravity | todo | rebuild animatic from PICKS.json with build_animatic.py (new task)

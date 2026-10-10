@@ -1,7 +1,7 @@
 ---
 id: T-008
 owner: antigravity
-status: review
+status: done
 created: 2026-10-10
 depends_on: [T-006]
 ---

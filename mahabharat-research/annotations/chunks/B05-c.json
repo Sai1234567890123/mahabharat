@@ -1,0 +1,620 @@
+{
+"B05C146": {
+"summary": "Kunti makes a final plea for Karna to join the Pandavas, and a voice from the sun god Surya backs her. Karna refuses, citing his loyalty to Duryodhana, his honor, and the wrong Kunti did him by abandoning him at birth. He promises that Kunti will keep five sons either way, since he will spare the other Pandavas and fight only Arjuna, and then mother and son part.",
+"scenes": {
+"B05C146S01": "Surya's voice supports Kunti, but Karna refuses to desert Duryodhana and promises to spare four of Kunti's sons."
+},
+"shots": {
+"B05C146S01H01": "A voice from the sun, which the text says is Surya's, tells Karna to follow his mother's words.",
+"B05C146S01H02": "Karna refuses, listing his grievances against Kunti and his duty to the Kauravas, and promises to fight Arjuna while sparing the other Pandavas for now.",
+"B05C146S01H03": "Kunti embraces him, says the Kauravas will fall by fate anyway, and asks him to keep his pledge in mind in battle; they part with blessings."
+}
+},
+"B05C147": {
+"summary": "Krishna returns from Hastinapura and reports to the Pandavas, who ask him to repeat exactly what was said in the Kuru assembly. He repeats Bhishma's speech, in which Bhishma explains how the throne passed through Santanu's line and how his own vow shaped that line. Bhishma concludes that Pandu's sons are the rightful heirs and that Duryodhana should give them half the kingdom.",
+"scenes": {
+"B05C147S01": "Krishna reports his failed mission to the Pandavas, and Yudhishthira asks him to recall the full speeches of the Kuru assembly, starting with Bhishma's."
+},
+"shots": {
+"B05C147S01H01": "Krishna returns to Upaplavya and reports to the Pandavas, who meet after sunset and ask him to repeat what he said to Duryodhana.",
+"B05C147S01H02": "Yudhishthira asks Krishna to recall exactly what Bhishma, Drona, Dhritarashtra, Vidura, and the other kings said in the assembly.",
+"B05C147S01H03": "Krishna repeats Bhishma's speech, which tells how Duryodhana laughed at his words, recounts the royal family's history, and urges Duryodhana to give half the kingdom to the Pandavas."
+}
+},
+"B05C148": {
+"summary": "Drona backs Bhishma and tells Duryodhana to give the Pandavas half the kingdom, since righteousness brings victory. Vidura blames Bhishma for allowing Duryodhana's wrongdoing and warns of a great slaughter. Suvala's daughter then argues in the assembly that the kingdom lawfully belongs to the Pandavas.",
+"scenes": {
+"B05C148S01": "Drona, Vidura, and Suvala's daughter each speak against Duryodhana's claim, urging that the Pandavas receive half the kingdom."
+},
+"shots": {
+"B05C148S01H01": "Drona speaks after Bhishma, citing the righteous rule of Pandu and Bhishma, and tells Duryodhana to give the Pandavas half the kingdom.",
+"B05C148S01H02": "Vidura turns to Bhishma, blames him for tolerating Duryodhana's greed, and warns that the Kuru line and many kings face destruction.",
+"B05C148S01H03": "Vidura falls silent in sorrow, and Suvala's daughter speaks in anger, telling Duryodhana that the kingdom passes by right to Pandu's sons."
+}
+},
+"B05C149": {
+"summary": "Dhritarashtra speaks to Duryodhana and recounts a long family history of rulers who passed over eldest sons for the throne, including Yayati, who chose Puru over Yadu, and Pratipa, who passed over Devapi because of a skin disease. He applies the same logic to himself, since he was passed over for a bodily defect, and says Yudhishthira is the rightful heir. He ends by urging Duryodhana to give the Pandavas half the kingdom.",
+"scenes": {
+"B05C149S01": "Dhritarashtra tells Duryodhana the family history of passed-over heirs, argues that Yudhishthira is the rightful king, and asks him to give up half the kingdom."
+},
+"shots": {
+"B05C149S01H01": "Dhritarashtra addresses Duryodhana with a long genealogy of passed-over heirs, then argues that Yudhishthira rightly holds the kingdom and urges Duryodhana to share half of it."
+}
+},
+"B05C150": {
+"summary": "Krishna reports to the Pandavas on his failed mission. He describes Duryodhana storming out of the assembly and sending the allied kings to Kurukshetra under Bhishma's command. He recounts each stage of his peace effort, from conciliation to stirring division to offering five villages, and concludes that war is now the only path.",
+"scenes": {
+"B05C150S01": "Krishna tells the Pandavas that Duryodhana rejected every offer, has gathered an army at Kurukshetra, and that the war cannot now be avoided."
+},
+"shots": {
+"B05C150S01H01": "Krishna reports Duryodhana's angry exit, his order to march to Kurukshetra, Bhishma's command of eleven akshauhinis, and his own failed attempts at conciliation, division, and a five-village offer, ending with the view that war is inevitable."
+}
+},
+"B05C151": {
+"summary": "Yudhishthira asks his brothers to name a commander for his seven akshauhinis, and each brother proposes a candidate. Yudhishthira then leaves the final choice to Krishna, who approves the names and picks Dhrishtadyumna as overall leader. The army is set to march at dawn.",
+"scenes": {
+"B05C151S01": "Yudhishthira asks his brothers to choose a commander, and each proposes a candidate, from Virata to Sikhandin.",
+"B05C151S02": "Yudhishthira hands the decision to Krishna, who names Dhrishtadyumna as the army's leader."
+},
+"shots": {
+"B05C151S01H01": "Yudhishthira reports the assembly's outcome, lists seven possible leaders for his seven akshauhinis, and asks Sahadeva to name the best commander.",
+"B05C151S01H02": "Sahadeva proposes Virata, the Matsya king, as a strong ally who can withstand Bhishma.",
+"B05C151S01H03": "Nakula proposes Drupada, the father-in-law of the Pandavas, for his experience, learning, and skill with celestial weapons.",
+"B05C151S01H04": "Arjuna proposes Dhrishtadyumna, born to destroy Drona, as the only warrior able to stand against Bhishma's arrows.",
+"B05C151S01H05": "Bhima proposes Sikhandin, whom he sees as the one warrior who can slay Bhishma in single combat.",
+"B05C151S02H01": "Yudhishthira says Krishna knows everyone's strengths and weaknesses, so the leader should be whomever Krishna names, and that the army will march at dawn after worship.",
+"B05C151S02H02": "Krishna approves all the proposed warriors and names Dhrishtadyumna as the commander, adding that Duryodhana will not hold out against the Pandavas."
+}
+},
+"B05C152": {
+"summary": "The Pandava army sets out for Kurukshetra with a tremendous din, its divisions moving in order. The narrator describes the commanders, the supply train, and Draupadi remaining at Upaplavya under guard. On reaching the field, the warriors blow their conches, and the noise fills the earth and sky.",
+"scenes": {
+"B05C152S01": "The Pandava army marches to Kurukshetra in formation, leaves Draupadi behind at Upaplavya, and blows its conches on arrival."
+},
+"shots": {
+"B05C152S01H01": "The army marches out in order, with Bhima and the twins at the front, Yudhishthira in the centre with his baggage and attendants, and Draupadi left behind at Upaplavya; they blow conches on reaching the field, and the noise fills the sky."
+}
+},
+"B05C153": {
+"summary": "Yudhishthira's army makes camp on level, grassy ground by the Hiranwati river, avoiding sacred sites. Krishna has a moat dug and sets up guarded tents and well-stocked camps for the allied kings. Skilled workers and healers join the camp, and many kings arrive to support the Pandavas.",
+"scenes": {
+"B05C153S01": "The Pandavas set up camp on the plain of Kurukshetra by the Hiranwati, with a moat, tents, supplies, and skilled workers, and allied kings arrive to join them."
+},
+"shots": {
+"B05C153S01H01": "Yudhishthira chooses a clean site for the camp and Krishna and Arjuna scout the ground, and Krishna has a moat dug by the Hiranwati, with tents and stores for the allied kings, and mechanics and physicians set up; allied kings arrive to support the Pandavas.",
+"B05C153S01H02": "Heading: the next section, Section CLIV, begins."
+}
+},
+"B05C154": {
+"summary": "Janamejaya asks Vaisampayana what Duryodhana did once the Pandavas camped at Kurukshetra with their powerful allies. Duryodhana tells Karna, Dussasana, and Sakuni to prepare the camps and the road, and the kings arm themselves. The narrator describes the capital filled with war preparations, comparing it to the sea stirred by the rising moon.",
+"scenes": {
+"B05C154S01": "Janamejaya asks what Duryodhana planned, and the narrator describes Duryodhana ordering the army's preparations and the kings arming for battle."
+},
+"shots": {
+"B05C154S01H01": "Janamejaya asks what measures Duryodhana took after learning that the Pandavas had camped on Kurukshetra with their many allies, and asks to hear every detail.",
+"B05C154S01H02": "Duryodhana tells Karna, Dussasana, and Sakuni to prepare camps and a road, the kings arm and dress for battle, and the capital takes on a war-time air, which the narrator likens to the ocean under the rising moon."
+}
+},
+"B05C155": {
+"summary": "Yudhishthira asks Krishna what they should do, given the views of Duryodhana, Karna, Sakuni, Vidura, Bhishma, and Kunti. Krishna replies that Duryodhana rejects every counsel, so war is the only way forward. Yudhishthira reluctantly orders the army arrayed, and Arjuna insists they must fight, so the brothers resolve on war and spend the night in good spirits.",
+"scenes": {
+"B05C155S01": "Krishna tells Yudhishthira that peace is impossible, Yudhishthira reluctantly orders the army to battle, and Arjuna insists they must fight, so the brothers prepare for war."
+},
+"shots": {
+"B05C155S01H01": "Yudhishthira asks Krishna how to act, given what Duryodhana, Karna, Sakuni, Vidura, Bhishma, and Kunti have said.",
+"B05C155S01H02": "Krishna answers that Duryodhana is wicked and ignores all counsel, and that the Pandavas will not give up their property, so war must take place.",
+"B05C155S01H03": "The kings look to Yudhishthira, who orders the army drawn up, and then laments that he must fight elders and teachers whom he cannot slay in good conscience.",
+"B05C155S01H04": "Arjuna repeats Krishna's words to Yudhishthira, says he trusts Vidura and Kunti, and insists they cannot withdraw without fighting.",
+"B05C155S01H05": "Krishna agrees, and the Pandavas resolve on war and spend the night with their soldiers in good spirits."
+}
+},
+"B05C156": {
+"summary": "Duryodhana arranges his eleven akshauhinis, equipping each division with cars, elephants, horses, foot soldiers, and an enormous range of weapons and supplies. The narrator defines the military units from a sena up to a vahini, and gives the totals: seven akshauhinis for the Pandavas and eleven for the Kauravas. Duryodhana places a senior warrior over each division, and they all become eager to please him.",
+"scenes": {
+"B05C156S01": "Duryodhana arranges and equips his eleven akshauhinis, the narrator explains the military units, and Duryodhana places senior warriors over the divisions."
+},
+"shots": {
+"B05C156S01H01": "Duryodhana sorts his troops into three grades and equips his cars, elephants, horses, and foot soldiers with a long list of weapons and supplies, and the narrator defines the military units from a sena up to a vahini.",
+"B05C156S01H02": "The narrator gives the total of eighteen akshauhinis, defines the smaller units, and says Duryodhana appoints Kripa, Drona, Salya, Karna, and others to lead the eleven divisions and honors them daily."
+}
+},
+"B05C157": {
+"summary": "Duryodhana asks Bhishma to lead the army, arguing from an old story that an army needs one commander to win. Bhishma accepts but says he loves the Pandavas and will kill ten thousand men each day, and he asks that either Karna or he fight first. Karna vows not to fight while Bhishma lives. Bhishma is installed with gifts, omens appear, and Duryodhana marches his army to Kurukshetra.",
+"scenes": {
+"B05C157S01": "Duryodhana asks Bhishma to lead the army, Bhishma sets his conditions, Karna vows not to fight while Bhishma lives, and the army marches to Kurukshetra amid omens."
+},
+"shots": {
+"B05C157S01H01": "Duryodhana asks Bhishma to lead, arguing that an army needs one commander and recalling a story of Brahmanas who won against Kshatriyas once they chose a single leader.",
+"B05C157S01H02": "Bhishma agrees to lead but says he loves the Pandavas, that Arjuna will never fight him openly, and that he will kill ten thousand warriors a day, and he asks that either Karna or he fight first.",
+"B05C157S01H03": "Karna vows he will not fight while Bhishma lives, and will fight Arjuna only after Bhishma falls.",
+"B05C157S01H04": "Duryodhana installs Bhishma with gifts, and the narrator lists the omens that follow, then describes the Kuru camp on the plain of Kurukshetra."
+}
+},
+"B05C158": {
+"summary": "Janamejaya asks what the Pandavas said on hearing that Bhishma led the Kaurava army. Yudhishthira calls his brothers and Krishna and asks them to choose seven leaders for his seven divisions. Dhrishtadyumna is placed over all the troops, and Arjuna over the leaders, with Krishna as his charioteer. Balarama arrives, speaks sadly of the coming slaughter, and leaves on a pilgrimage to the Saraswati rather than watch the battle.",
+"scenes": {
+"B05C158S01": "Yudhishthira names seven leaders for his army, and Balarama arrives, predicts the slaughter, and explains his wish to stay out of the fight.",
+"B05C158S02": "Balarama takes leave of the Pandavas and sets out for the sacred waters."
+},
+"shots": {
+"B05C158S01H01": "Janamejaya asks what Yudhishthira, Bhima, Arjuna, and Krishna said on learning that Bhishma had been installed as commander.",
+"B05C158S01H02": "Yudhishthira summons his brothers and Krishna, tells them to inspect the troops in armour, says the first clash will be with their grandsire, and orders seven leaders chosen.",
+"B05C158S01H03": "Krishna approves Yudhishthira's words and asks him to name seven leaders.",
+"B05C158S01H04": "Yudhishthira names seven leaders, puts Dhrishtadyumna over all troops, and makes Arjuna the chief of the leaders, with Krishna as his charioteer.",
+"B05C158S01H05": "Balarama arrives with his Vrishni companions, the Pandavas honor him, and he says the slaughter is fated and that he will go on pilgrimage to avoid watching the Kauravas destroyed.",
+"B05C158S02H01": "Balarama takes leave of the Pandavas and Krishna, and sets out on his journey to the sacred waters."
+}
+},
+"B05C159": {
+"summary": "Rukmi, a southern king and master of the celestial bow Vijaya, arrives at the Pandava camp with a large army. He recalls his old feud with Krishna over Rukmini and offers to kill the Kuru champions for Arjuna. Arjuna refuses his help, and Duryodhana also turns him away, so Rukmi withdraws and the Pandavas gather to consult again.",
+"scenes": {
+"B05C159S01": "Rukmi offers to fight for Arjuna, Arjuna declines, and Duryodhana rejects Rukmi too, so he leaves the battle."
+},
+"shots": {
+"B05C159S01H01": "Rukmi, Bhishmaka's son and master of the bow Vijaya, arrives with an army, recalls his feud with Krishna over Rukmini, offers to kill Drona, Kripa, Bhishma, and Karna for Arjuna, and Arjuna declines and Duryodhana also refuses him.",
+"B05C159S01H02": "Rama and Rukmi have both withdrawn, and the Pandavas sit down again to consult, with Yudhishthira presiding over the assembled kings."
+}
+},
+"B05C160": {
+"summary": "Janamejaya asks what the Kauravas did once the armies stood ready on Kurukshetra. Dhritarashtra asks Sanjaya to report what is happening in both camps, lamenting that he cannot restrain Duryodhana. Sanjaya says the blame lies with Duryodhana rather than fate or the gods, and then sets out three views on whether human acts are fated, freely chosen, or shaped by past lives.",
+"scenes": {
+"B05C160S01": "Janamejaya asks what the Kauravas did next, and Dhritarashtra asks Sanjaya for the news, who answers with a view on fate and human agency."
+},
+"shots": {
+"B05C160S01H01": "Janamejaya asks what the Kauravas did once their soldiers stood arrayed on the field, urged on by destiny.",
+"B05C160S01H02": "The narrator says Dhritarashtra then turns to Sanjaya to ask for the news.",
+"B05C160S01H03": "Dhritarashtra asks Sanjaya for full details, says he understands war will bring ruin but cannot restrain Duryodhana, and calls a warrior's death in battle a Kshatriya's duty.",
+"B05C160S01H04": "Sanjaya tells Dhritarashtra not to blame Duryodhana alone, notes the Pandavas patiently bore their wrongs, and sets out three views on whether acts are ordained, freely chosen, or shaped by past lives."
+}
+},
+"B05C161": {
+"summary": "Duryodhana sends his envoy Uluka to the Pandavas with a defiant message. Uluka first tells Yudhishthira the story of a cat who won the mice's trust and then devoured them, calling Yudhishthira a hypocrite, and then taunts each brother and Krishna over their past humiliations and dares them to fight. Duryodhana lists the Kaurava army and its leaders as unbeatable and rules out any compromise, so the war will go ahead.",
+"scenes": {
+"B05C161S01": "Duryodhana briefs Uluka and sends him to Yudhishthira, with a message that includes a cat-and-mice parable and then taunts to Krishna, Bhima, and Nakula.",
+"B05C161S02": "The message continues with challenges to Sahadeva, Virata, Drupada, Dhrishtadyumna, and Sikhandin, and ends with a long boast to Arjuna listing the Kaurava army."
+},
+"shots": {
+"B05C161S01H01": "Heading: the section called the Uluka embassy begins.",
+"B05C161S01H02": "Duryodhana sends Uluka to Yudhishthira with a message calling him a hypocrite, telling the parable of a cat that won the mice's trust and then ate them, and urging him to act like a warrior.",
+"B05C161S01H03": "The message to Krishna mocks his tricks and illusions, reminds him of his boast that Dhritarashtra's sons would be slain, and dares him to fight Arjuna openly.",
+"B05C161S01H04": "The message to Bhima taunts him as a cook in Virata's court and challenges him to fulfil his vow to drink Dussasana's blood.",
+"B05C161S01H05": "The message to Nakula urges him to fight and to show his hatred for Duryodhana, and to recall the suffering Krishna endured.",
+"B05C161S02H01": "The message to Sahadeva tells him to fight with all his strength and remember his woes.",
+"B05C161S02H02": "The message to Virata and Drupada says masters never fully understand servants and servants never fully understand masters, and urges the two kings to fight Duryodhana together.",
+"B05C161S02H03": "The message to Dhrishtadyumna tells him that his hour has come and that he should face Drona in battle.",
+"B05C161S02H04": "The message to Sikhandin says Bhishma will not kill him because he sees him as a woman, and urges him to fight without fear.",
+"B05C161S02H05": "Duryodhana laughs and sends a final challenge to Arjuna, mocking his boasts, recalling their exile, and listing the kings and commanders on his side as an army no one can beat."
+}
+},
+"B05C162": {
+"summary": "Uluka delivers Duryodhana's message to Yudhishthira before the assembled Pandavas and their allies. He repeats the old taunts about the dice loss, the exile, and the humiliation of Krishna, and dares Bhima to fulfil his vow. He then turns to Arjuna, telling him to stop boasting and calling the Kaurava army, led by Drona and Bhishma, too strong to beat.",
+"scenes": {
+"B05C162S01": "Uluka presents himself to the Pandavas and repeats Duryodhana's taunts to Yudhishthira and then to Arjuna."
+},
+"shots": {
+"B05C162S01H01": "Uluka presents himself to the Pandavas and asks not to be blamed, since he will repeat only the words Duryodhana gave him.",
+"B05C162S01H02": "Yudhishthira tells Uluka to speak freely, and Uluka delivers the message before the Pandavas, Srinjayas, Krishna, Drupada, Virata, and the other kings.",
+"B05C162S01H03": "Uluka recites Duryodhana's taunts, recalling the dice loss, the exile, Krishna's humiliation, and Bhima's vow, and boasts that Drona and Bhishma cannot be defeated.",
+"B05C162S01H04": "Uluka turns to Arjuna, telling him to stop boasting, reminding him of his past humiliation, and describing the Kaurava army as too great to defeat."
+}
+},
+"B05C163": {
+"summary": "The Pandavas are enraged by Uluka's repeated taunts. Bhima vows to drink Dussasana's blood and kill Duryodhana's brothers, Sahadeva threatens Sakuni, and Arjuna says his answer will come through his bow. Yudhishthira rebukes Duryodhana as a crooked coward who relies on others, and Krishna promises to act only as Arjuna's charioteer.",
+"scenes": {
+"B05C163S01": "The Pandavas answer Uluka in turn, with Bhima, Sahadeva, Arjuna, and Yudhishthira each swearing to fight Duryodhana.",
+"B05C163S02": "Krishna adds his own reply, saying he will act only as Arjuna's charioteer and warning that Duryodhana cannot hide from Arjuna's car."
+},
+"shots": {
+"B05C163S01H01": "The Pandavas grow enraged, Krishna tells Uluka to leave, and Bhima vows to drink Dussasana's blood and to kill Duryodhana's brothers.",
+"B05C163S01H02": "Sahadeva warns Uluka that he will kill him in front of Sakuni, and then kill Sakuni, blaming Dhritarashtra's family for the quarrel.",
+"B05C163S01H03": "Arjuna says Uluka should not be harshly treated for carrying messages, and says he will answer Duryodhana with his bow the next day.",
+"B05C163S01H04": "The kings praise Arjuna's reply, and Yudhishthira prepares to answer the challenge himself.",
+"B05C163S01H05": "Yudhishthira rebukes Duryodhana as crooked and cowardly, calls him a man who relies on others' strength, and challenges him to fight in person.",
+"B05C163S02H01": "Krishna says he will serve only as Arjuna's charioteer, and warns Duryodhana that even if he flees to the ends of the earth he will see Arjuna's car."
+}
+},
+"B05C164": {
+"summary": "Arjuna replies to Duryodhana with a vow to kill Bhishma before the eyes of the Kurus, and calls him a coward who hides behind others. The other Pandavas, Virata and Drupada, Sikhandin, and Dhrishtadyumna each send a reply, several swearing to kill Bhishma or Drona. Yudhishthira says he does not want the slaughter of kinsmen but accepts the war, and Uluka returns and reports to Duryodhana, who orders his army arrayed before dawn.",
+"scenes": {
+"B05C164S01": "Arjuna answers Uluka with a vow to kill Bhishma, and Bhima, Nakula, Sahadeva, Virata, and Drupada send their replies.",
+"B05C164S02": "Sikhandin, Dhrishtadyumna, and Yudhishthira send their final replies, and Uluka reports back to Duryodhana, who orders the army arrayed before dawn."
+},
+"shots": {
+"B05C164S01H01": "Arjuna answers Uluka that Duryodhana hides behind Bhishma, and vows to kill Bhishma before the eyes of all the Kurus the next day, and tells Uluka to deliver the answer.",
+"B05C164S01H02": "Bhima repeats his vow to drink Dussasana's blood and says he will strike Duryodhana's head with his foot.",
+"B05C164S01H03": "Nakula replies briefly that the words have been heard, and that he will do what Duryodhana urged.",
+"B05C164S01H04": "Sahadeva says Duryodhana will repent with his children, kinsmen, and counsellors for boasting over the Pandavas' suffering.",
+"B05C164S01H05": "Virata and Drupada say they would gladly be the slaves of a virtuous man, and that who is slave or master will be known tomorrow.",
+"B05C164S02H01": "Sikhandin vows to kill Bhishma from his car in front of the bowmen, saying he was created for that purpose.",
+"B05C164S02H02": "Dhrishtadyumna vows to kill Drona together with his followers and to do a deed no one else will do.",
+"B05C164S02H03": "Yudhishthira says he does not want to kill his kinsmen, blames Duryodhana for the war, and asks Uluka to leave.",
+"B05C164S02H04": "Uluka returns and reports every reply to Duryodhana, who orders his troops arrayed before sunrise, and messengers spread the order through the camp."
+}
+},
+"B05C165": {
+"summary": "Sanjaya describes how Dhrishtadyumna arranges the Pandava army. He pairs each of his warriors against a Kaurava champion, with Arjuna against Karna, Bhima against Duryodhana, and Sikhandin against Bhishma, and keeps Drona for himself. The Pandava force then waits, steady as the ocean, for the battle to begin.",
+"scenes": {
+"B05C165S01": "Dhrishtadyumna arranges the Pandava army and assigns a Pandava warrior to face each leading Kaurava champion."
+},
+"shots": {
+"B05C165S01H01": "Dhrishtadyumna leads the Pandava army, pairs his warriors against the main Kaurava champions, takes Drona for himself, and waits for battle with a steady heart."
+}
+},
+"B05C166": {
+"summary": "Dhritarashtra asks Sanjaya what his sons and Bhishma did after Arjuna vowed to kill Bhishma. Bhishma accepts command and reassures Duryodhana that he knows the military arts. Duryodhana asks Bhishma to rank the warriors on both sides, and Bhishma begins by ranking Duryodhana's brothers, Kritavarman, Salya, Bhurisravas, and Jayadratha.",
+"scenes": {
+"B05C166S01": "Dhritarashtra asks about the Kaurava response to Arjuna's vow, Bhishma takes command, and Bhishma begins ranking the Kaurava warriors at Duryodhana's request."
+},
+"shots": {
+"B05C166S01H01": "Dhritarashtra laments that he already sees Bhishma, his elder, slain by Arjuna, and asks what his sons and Bhishma did after the vow.",
+"B05C166S01H02": "Sanjaya says he will report everything Bhishma said.",
+"B05C166S01H03": "Bhishma takes command and tells Duryodhana that he knows the arts of war and will protect his army and dispel his fears.",
+"B05C166S01H04": "Duryodhana says he fears nothing with Bhishma and Drona leading, and asks Bhishma to name which warriors on each side are rathas and atirathas.",
+"B05C166S01H05": "Bhishma begins with Duryodhana's brothers, the foremost rathas, then names Kritavarman, Salya, Bhurisravas, and Jayadratha as the leading fighters on the Kaurava side."
+}
+},
+"B05C167": {
+"summary": "Bhishma continues ranking Duryodhana's warriors, naming Sudakshina of the Kamvojas, Nila of Mahishmati, the Avanti princes Vinda and Anuvinda, and the five Trigarta brothers. He also names Lakshmana, Dussasana's son, Dandadhara, Vrihadvala of Kosala, and Kripa, each as a strong fighter who will fight hard for Duryodhana.",
+"scenes": {
+"B05C167S01": "Bhishma continues the ranking of Kaurava warriors, naming kings and princes and describing how each will fight."
+},
+"shots": {
+"B05C167S01H01": "Bhishma continues the ranking, naming Sudakshina, Nila, Vinda and Anuvinda, the five Trigarta brothers, Lakshmana, Dussasana's son, Dandadhara, Vrihadvala, and Kripa, and says how each will fight the Pandavas."
+}
+},
+"B05C168": {
+"summary": "Bhishma continues the ranking with Sakuni, Ashvatthama, and Drona, whom he praises as a great teacher but says will not kill Arjuna out of affection. He names a further group of Kaurava fighters, including Vrishasena, Jalasandha, Vahlika, Satyavan, the rakshasa Alambhusha, and Bhagadatta. The chapter ends with Bhagadatta, a king who fights from an elephant and was once a friend to Arjuna.",
+"scenes": {
+"B05C168S01": "Bhishma keeps ranking the Kaurava warriors, praising Ashvatthama and Drona, and naming more princes and kings, ending with Bhagadatta."
+},
+"shots": {
+"B05C168S01H01": "Bhishma ranks Sakuni, Ashvatthama, Drona, Vrihadvala, Vrishasena, Jalasandha, Vahlika, Satyavan, Alambhusha, and Bhagadatta, noting Ashvatthama's skill and his fondness for life, and Drona's affection for Arjuna, which Bhishma thinks will keep Drona from killing him."
+}
+},
+"B05C169": {
+"summary": "Bhishma calls Karna only half a ratha, and Drona agrees, saying Karna boasts before every battle but retreats from each one. Karna angrily answers that he tolerates the insults only for Duryodhana's sake and vows not to fight while Bhishma lives. Bhishma says he will take on the battle himself, and Duryodhana asks his commanders to report on the strengths and weaknesses of the enemy before dawn.",
+"scenes": {
+"B05C169S01": "Bhishma and Drona belittle Karna, Karna swears he will not fight while Bhishma lives, Bhishma answers him, and Duryodhana asks for a report on the enemy."
+},
+"shots": {
+"B05C169S01H01": "Bhishma calls Karna only half a ratha and predicts he will not survive facing Arjuna; Drona agrees, saying Karna boasts before battle and then retreats.",
+"B05C169S01H02": "Karna answers angrily, accusing Bhishma of hostility toward him and of disparaging the kings, and vows not to fight while Bhishma lives, and to fight the rest of the Maharathas only after Bhishma falls.",
+"B05C169S01H03": "Bhishma says he will carry the burden of the battle himself, that he will not stir up quarrels now, and that Karna lives only because Bhishma does not want discord.",
+"B05C169S01H04": "Duryodhana asks Bhishma and Drona to name the best enemy atirathas and the leaders of the car divisions, with their strengths and weaknesses, since the battle begins at dawn."
+}
+},
+"B05C170": {
+"summary": "Bhishma now ranks the Pandava warriors, with Yudhishthira and the twins as rathas, Bhima equal to eight rathas, and Arjuna, with Krishna as his driver, unmatched on the field. He says that he and Drona are old while Arjuna is young and fierce. The Kaurava kings grow fearful as they listen.",
+"scenes": {
+"B05C170S01": "Bhishma ranks the Pandava brothers and says Arjuna is unmatched, and the narrator notes the Kaurava kings losing heart."
+},
+"shots": {
+"B05C170S01H01": "Bhishma goes on to rank the Pandava warriors, praising each brother's strength, saying Arjuna cannot be matched on the field, and noting that he and Drona are old.",
+"B05C170S01H02": "The narrator says the kings hearing Bhishma's words grow fearful, as their arms hang weak while they recall the Pandavas' past valour."
+}
+},
+"B05C171": {
+"summary": "Bhishma names the Pandava allies, rating Draupadi's five sons as maharathas and Virata's son Uttara as a foremost ratha. He praises Abhimanyu as nearly the equal of Arjuna, and Satyaki, Uttamaujas, and Yudhamanyu as strong car-warriors. He also says the aged kings Virata and Drupada will fight hard for the Pandavas.",
+"scenes": {
+"B05C171S01": "Bhishma ranks Draupadi's sons, Uttara, Abhimanyu, Satyaki, and other allies, and says that Virata and Drupada will fight with great determination."
+},
+"shots": {
+"B05C171S01H01": "Bhishma rates Draupadi's five sons as maharathas, Uttara and Abhimanyu as strong fighters, and Satyaki, Uttamaujas, Yudhamanyu, Virata, and Drupada as warriors who will fight hard for Kunti's sons."
+}
+},
+"B05C172": {
+"summary": "Bhishma continues the ranking with Sikhandin and Dhrishtadyumna, whom he calls an atiratha and the leader of the Pandava army. He gives lower ratings to Dhrishtadyumna's young son Kshattradharman, who is only half a ratha, and rates many Panchala, Chedi, and other allied kings as rathas or maharathas. The list ends with Srenimat and Vasudeva, both named atirathas.",
+"scenes": {
+"B05C172S01": "Bhishma gives his ratings for Sikhandin, Dhrishtadyumna, Dhrishtaketu, and a long list of Panchala and allied kings."
+},
+"shots": {
+"B05C172S01H01": "Bhishma gives ratings for Sikhandin, Dhrishtadyumna, Kshattradharman, Dhrishtaketu, and many other Pandava allies, from half-rathas to atirathas, ending with Srenimat and Vasudeva."
+}
+},
+"B05C173": {
+"summary": "Bhishma names Kuntibhoja, Bhima's maternal uncle, and Ghatotkacha, Bhima's rakshasa son, as strong Pandava fighters. He says he will oppose Arjuna and Krishna, but he declares he will never strike Sikhandin, because Sikhandin was born a daughter and Bhishma has sworn never to slay a woman or a former woman.",
+"scenes": {
+"B05C173S01": "Bhishma rates more Pandava allies, declares whom he will fight, and explains why he will not harm Sikhandin."
+},
+"shots": {
+"B05C173S01H01": "Bhishma rates Rochamana, Kuntibhoja, and Ghatotkacha, Bhima's rakshasa son, as strong fighters on the Pandava side.",
+"B05C173S01H02": "Bhishma says the Pandava leaders are assembled, that he will face them with illusions and a fierce will, and that he will advance against Krishna and Arjuna.",
+"B05C173S01H03": "Bhishma states he will spare Sikhandin, recalling that he gave up the throne and vowed never to slay a woman, and noting that Sikhandin was born a daughter who later became male."
+}
+},
+"B05C174": {
+"summary": "Duryodhana asks why Bhishma will not kill Sikhandin, given his earlier boast. Bhishma tells the story of his father Santanu and his vows, and of how he carried off the three princesses of Kasi, Amba, Ambika, and Ambalika, for his brother Vichitravirya. He brought them to Satyavati, after defeating the assembled kings.",
+"scenes": {
+"B05C174S01": "Duryodhana asks Bhishma why he will spare Sikhandin, and Bhishma recounts how he won the princesses of Kasi for his brother."
+},
+"shots": {
+"B05C174S01H01": "Duryodhana asks why Bhishma will not kill Sikhandin when he comes at him with arms raised, reminding him of his old vow to slay the Panchalas.",
+"B05C174S01H02": "Bhishma recounts the history of his father Santanu, his vows, the installation of his brothers, and how he took the three princesses of Kasi by force from a gathering of kings, defeating their pursuit, and brought them to Satyavati."
+}
+},
+"B05C175": {
+"summary": "Bhishma tells his mother Satyavati that he has abducted the princesses of Kasi, and she is delighted by his victory. When the wedding nears, the eldest princess, Amba, reveals that she had already chosen the king of Salwa and asks Bhishma, as a moral man, to let her go to him.",
+"scenes": {
+"B05C175S01": "Bhishma reports the abduction to Satyavati, who rejoices, and Amba asks Bhishma to release her so that she can marry Salwa."
+},
+"shots": {
+"B05C175S01H01": "Bhishma tells Satyavati about the abduction, she greets his victory with tears of joy, and at the nuptials Amba explains she had chosen the king of Salwa and begs Bhishma to let her go."
+}
+},
+"B05C176": {
+"summary": "Bhishma lets Amba go to Salwa's city, but Salwa rejects her, mocking that Bhishma had carried her off. Amba protests her innocence and swears she never chose another husband, but Salwa refuses. Amba leaves in grief and anger, vowing that the righteous will protect her.",
+"scenes": {
+"B05C176S01": "Bhishma sends Amba to Salwa, who rejects her, and Amba protests and pleads to be accepted, but Salwa refuses."
+},
+"shots": {
+"B05C176S01H01": "Bhishma consults his mother and counsellors and lets Amba travel to Salwa's city, where Salwa laughs at her and refuses to take her, and Amba pleads that she never wanted Bhishma.",
+"B05C176S01H02": "Salwa repeats his refusal, saying he is afraid of Bhishma, and Amba leaves the city sobbing like a bird in grief."
+}
+},
+"B05C177": {
+"summary": "Rejected by Salwa, Amba laments that she has no one, blames Bhishma, her father, Salwa, and herself, and vows to take vengeance on Bhishma. She goes to a hermitage and tells the sages her story. The learned sage Saikhavatya comforts her and promises to help.",
+"scenes": {
+"B05C177S01": "Amba laments her fate, vows vengeance on Bhishma, and goes to a hermitage, where the sage Saikhavatya comforts her."
+},
+"shots": {
+"B05C177S01H01": "Amba laments her fate, blames Bhishma, her father, Salwa, and herself, vows vengeance on Bhishma, and goes to an ascetics' hermitage, where she tells the sages what happened.",
+"B05C177S01H02": "The learned Brahmana Saikhavatya comforts Amba with examples and reasons from the scriptures, and promises, with the other Brahmanas, to do what she asks.",
+"B05C177S01H03": "Running head reading The Mahabharata, with no content."
+}
+},
+"B05C178": {
+"summary": "The ascetics in the forest argue over what to do with Amba, some urging her to go home and others urging her to plead again with Salwa. Amba refuses to return to Kasi and asks to live as an ascetic. Her maternal grandfather, King Hotravahana, arrives, hears her story, and sends her to the sage Rama, son of Jamadagni, who he believes can end her grief and even kill Bhishma.",
+"scenes": {
+"B05C178S01": "The ascetics debate Amba's future, Amba refuses to go back to Kasi, and her grandfather Hotravahana sends her to Rama for help."
+},
+"shots": {
+"B05C178S01H01": "The ascetics debate Amba's fate, with some urging her to go to her father, some urging her to ask Salwa again, and some advising against it, since Salwa has rejected her.",
+"B05C178S01H02": "Amba says she cannot go back to Kasi, where her relatives would scorn her, and wants to practise austerities among the ascetics.",
+"B05C178S01H03": "King Hotravahana, her maternal grandfather, arrives, pities her, and sends her to Rama, son of Jamadagni, who can end her sorrow and even slay Bhishma if he refuses.",
+"B05C178S01H04": "Hotravahana tells Akritavrana, Rama's friend, the whole story of Amba's abduction and rejection, and Amba agrees to go to Rama."
+}
+},
+"B05C179": {
+"summary": "Akritavrana asks Amba whether she wants Salwa to marry her or Bhishma to be defeated, and she says her heart was given to Salwa before Bhishma seized her. Rama arrives, and Amba begs for his protection. Rama promises to send word to Bhishma and fight him if Bhishma refuses, but Amba insists that Bhishma must be slain.",
+"scenes": {
+"B05C179S01": "Akritavrana questions Amba about her wishes, Rama arrives, Hotravahana introduces Amba, and Amba begs Rama to slay Bhishma."
+},
+"shots": {
+"B05C179S01H01": "Akritavrana asks whether Amba wants Salwa to marry her or Bhishma to be beaten in battle, and Amba says Bhishma acted without knowing her heart belonged to Salwa.",
+"B05C179S01H02": "Akritavrana says Bhishma's seizure is the cause of Salwa's suspicion, so vengeance should fall on Bhishma, and Amba agrees she wants Bhishma slain.",
+"B05C179S01H03": "Rama arrives with his disciples, a sage in matted hair and deerskins with bow, sword, and axe, and the ascetics honor him; Hotravahana presents Amba to him.",
+"B05C179S01H04": "Amba bows at Rama's feet, weeps, asks for his protection, and begs him to lift her from her sorrow.",
+"B05C179S01H05": "Rama is moved by her grief, promises to send word to Bhishma and to fight him if he refuses, and Amba insists that Bhishma be slain as Indra slew Vritra."
+}
+},
+"B05C180": {
+"summary": "Rama tells Amba he takes up arms only at the command of Brahmanas, but says he will act for her, since both Bhishma and Salwa obey him. Amba repeatedly asks him to slay Bhishma. Akritavrana reminds Rama of his old vow to protect those who seek shelter and to slay the foes of Brahmanas, and Rama agrees to go to Bhishma with Amba, and to slay him if he refuses. The party reaches Kurukshetra and camps by the Saraswati.",
+"scenes": {
+"B05C180S01": "Rama declines to fight except on the command of Brahmanas, Amba urges him to slay Bhishma, and Akritavrana reminds him of his vow.",
+"B05C180S02": "Rama agrees to confront Bhishma with Amba, and the party travels to Kurukshetra and camps by the Saraswati."
+},
+"shots": {
+"B05C180S01H01": "Rama tells Amba that he takes up arms only at the command of Brahmanas, but that he will act for her since Bhishma and Salwa both obey him.",
+"B05C180S01H02": "Amba asks Rama to slay Bhishma without delay, since Bhishma is the cause of her misery.",
+"B05C180S01H03": "Rama offers that Bhishma will, at his word, lay his head at Amba's feet.",
+"B05C180S01H04": "Amba insists that Rama slay Bhishma in battle, as he is roaring like an asura, and keep his promise.",
+"B05C180S01H05": "Akritavrana reminds Rama of his vow to slay any foe of the Brahmanas and to shield those seeking protection, and urges him to fight Bhishma.",
+"B05C180S02H01": "Rama agrees to take Amba to Bhishma, to slay him if Bhishma refuses to obey, and the company travels to Kurukshetra and camps on the banks of the Saraswati."
+}
+},
+"B05C181": {
+"summary": "Rama, son of Jamadagni, orders Bhishma to take Amba as his wife, since Salwa rejected her after Bhishma carried her off. Bhishma refuses, citing his vow, and Rama challenges him to a duel at Kurukshetra. Bhishma's mother Ganga pleads with him to back down, but he accepts the challenge and sets out for the field.",
+"scenes": {
+"B05C181S01": "Rama orders Bhishma to marry Amba, Bhishma refuses, Rama challenges him to fight, and Ganga pleads with Bhishma in vain."
+},
+"shots": {
+"B05C181S01H01": "Bhishma recounts that Rama arrived in his kingdom, and he went out with a cow, Brahmanas, and priests to greet him and offer worship.",
+"B05C181S01H02": "Rama asks why Bhishma abducted Amba and then sent her away, says no one will now marry her, and orders Bhishma to take her as his own wife.",
+"B05C181S01H03": "Bhishma refuses, saying he cannot give her to his brother and will keep his vow; Rama threatens to slay him, and Bhishma, once Rama's pupil, accepts a duel at Kurukshetra.",
+"B05C181S01H04": "Rama laughingly accepts, and Bhishma sets out in a white chariot, but his mother Ganga appears and begs him not to fight his teacher, which he refuses.",
+"B05C181S01H05": "Ganga pleads with Rama, who sends her back to Bhishma, and Bhishma still refuses; Rama then appears before him, ready to fight."
+}
+},
+"B05C182": {
+"summary": "Bhishma and Rama fight on Kurukshetra, with Rama in a celestial car and Bhishma first dismounting to honor his teacher. Rama wounds Bhishma first, but Bhishma breaks Rama's bow and wounds him in return, sparing his brahminical status. At sunset Bhishma stops, grieved that he has fought his teacher.",
+"scenes": {
+"B05C182S01": "Bhishma dismounts to honor Rama, Rama answers with a shower of arrows, and Bhishma wounds Rama in return."
+},
+"shots": {
+"B05C182S01H01": "Bhishma offers to fight Rama fairly on foot, and Rama answers that the earth is his car and the Vedas his horses, then covers Bhishma with arrows; Bhishma dismounts, bows to his teacher, and asks for his blessing.",
+"B05C182S01H02": "Rama wishes him well but says he will defeat him; Rama first wounds Bhishma heavily, then Bhishma cuts Rama's bow and shoots him, sparing his brahminical status, and at sunset Bhishma halts, lamenting that he has harmed his teacher."
+}
+},
+"B05C183": {
+"summary": "The duel resumes at dawn with celestial weapons. Rama wounds Bhishma until he falls into a swoon, but Bhishma revives and wounds Rama in turn, and the ascetics comfort their teacher. The two warriors fill the sky with arrows until dusk, when the fight stops with neither side winning.",
+"scenes": {
+"B05C183S01": "The duel resumes at dawn, Rama wounds Bhishma into a swoon, Bhishma revives and wounds Rama, and the battle ends at dusk with arrows filling the sky."
+},
+"shots": {
+"B05C183S01H01": "The duel resumes at dawn, both trade celestial weapons, Rama wounds Bhishma into a swoon, Bhishma wounds Rama in turn, and the arrows fill the sky until the fight stops at evening."
+}
+},
+"B05C184": {
+"summary": "The duel with Rama resumes the next day and escalates, as both use celestial weapons. Bhishma cuts down Rama's lance and darts, but Rama's arrows break his chariot and wound him. Bhishma in turn wounds his teacher heavily, and the fight ends at sunset.",
+"scenes": {
+"B05C184S01": "The duel escalates with celestial weapons, Bhishma defeats Rama's lance and darts, Rama breaks Bhishma's chariot, and the fight stops at sunset."
+},
+"shots": {
+"B05C184S01H01": "On the next day the combat grows fiercer, with both men using celestial weapons; Bhishma cuts Rama's lance and darts, Rama breaks Bhishma's chariot, Bhishma wounds his preceptor, and the fight ends when the sun sets."
+}
+},
+"B05C185": {
+"summary": "The fight resumes the next morning, and Rama kills Bhishma's charioteer and then knocks Bhishma down. Eight Brahmanas raise him up, and his mother Ganga guides his chariot, letting him wound Rama into unconsciousness. Omens of disaster follow, and the battle goes on for twenty-three days.",
+"scenes": {
+"B05C185S01": "The duel resumes, Rama kills Bhishma's charioteer and wounds him, Bhishma is raised by eight Brahmanas and his mother Ganga helps, and Bhishma wounds Rama into unconsciousness."
+},
+"shots": {
+"B05C185S01H01": "The next morning the fight resumes; Rama's arrows kill Bhishma's charioteer and knock Bhishma down, eight Brahmanas raise him and his mother Ganga drives his chariot, Bhishma wounds Rama into unconsciousness, omens appear, and the battle lasts twenty-three days."
+}
+},
+"B05C186": {
+"summary": "Bhishma, unable to defeat Rama, goes to bed and prays for the gods to show him a sign. In a dream eight Brahmanas promise that he will overcome Rama, and they reveal two weapons: Praswapa, which puts a foe to sleep, and Samvodhana, which wakes him.",
+"scenes": {
+"B05C186S01": "Bhishma prays for a sign, and in a dream eight Brahmanas reveal the Praswapa and Samvodhana weapons and promise his victory."
+},
+"shots": {
+"B05C186S01H01": "Unable to defeat Rama, Bhishma prays that the gods show him a sign, and in a dream the eight Brahmanas promise he will win and reveal the Praswapa weapon, which puts a foe to sleep, and the Samvodhana, which wakes him."
+}
+},
+"B05C187": {
+"summary": "Bhishma resumes the battle, remembering his dream. Rama hurls a dart that wounds Bhishma's shoulder, and Bhishma's arrow wounds Rama, who falls and recovers. Both invoke the Brahma weapon, and the world burns, so Bhishma resolves to use the Praswapa.",
+"scenes": {
+"B05C187S01": "Bhishma resumes the fight after his dream, both wound each other, and both invoke the Brahma weapon, and Bhishma resolves to use the Praswapa."
+},
+"shots": {
+"B05C187S01H01": "Bhishma resumes the fight with new confidence, Rama's dart wounds him on the shoulder, Bhishma's arrow wounds Rama, the two invoke the Brahma weapon until the world burns, and Bhishma resolves to use the Praswapa."
+}
+},
+"B05C188": {
+"summary": "As Bhishma aims the Praswapa, the sage Narada and the gods warn him not to use it, since Rama is a Brahmana and his teacher. Bhishma withdraws the weapon, and Rama admits defeat, but his ancestors urge him to give up the fight, and Bhishma gives way too. The two part with mutual respect, and Rama summons Amba.",
+"scenes": {
+"B05C188S01": "Narada and the gods stop Bhishma from using the Praswapa, Rama's ancestors urge him to stop fighting, and Rama and Bhishma agree to end the combat."
+},
+"shots": {
+"B05C188S01H01": "Narada and the gods warn Bhishma not to use the Praswapa, since Rama is his teacher and a Brahmana; Bhishma withdraws it, Rama admits defeat, and his ancestors urge him to stop fighting and to take up ascetic life.",
+"B05C188S01H02": "Rama refuses to yield at first, but the sages, the forefathers, and the Pitris urge both men to stop; Rama lays down his weapons, Bhishma worships him, and Rama praises him and summons Amba."
+}
+},
+"B05C189": {
+"summary": "Rama admits defeat and tells Amba to seek Bhishma's protection, but Amba vows to kill Bhishma and leaves for severe penance. Bhishma has his spies follow her and consults Narada and Vyasa, who tell him not to grieve. After years of penance across many sacred sites, Ganga foretells that Amba will become a river, and half of her body stays a maiden.",
+"scenes": {
+"B05C189S01": "Rama admits defeat, Amba vows to kill Bhishma, and she performs penance for many years until Ganga tells her she will become a river."
+},
+"shots": {
+"B05C189S01H01": "Rama admits he could not defeat Bhishma and tells Amba to seek his protection; Amba vows to kill Bhishma and goes off to penance, Bhishma has spies track her, Narada and Vyasa tell him not to grieve, and Amba performs severe penances for years at many holy places until Ganga tells her she will become a river, with half of her still a maiden."
+}
+},
+"B05C190": {
+"summary": "Amba tells the ascetics of Vatsabhumi that she will not stop her penance until Bhishma is slain, even if it means taking on a man's form. The god with the trident, lord of Uma, appears and promises that she will kill Bhishma and be reborn as a man in Drupada's line. She then builds a funeral pyre by the Yamuna and burns herself, crying out that it is for Bhishma's destruction.",
+"scenes": {
+"B05C190S01": "Amba refuses the ascetics' advice, the trident-bearing god promises her vengeance and a male rebirth, and Amba burns herself on a pyre by the Yamuna."
+},
+"shots": {
+"B05C190S01H01": "Amba tells the ascetics she is driven only by her wish to destroy Bhishma; the god promises she will kill him and be reborn as a warrior and then a man; she builds a pyre by the Yamuna and burns herself, crying out for Bhishma's destruction."
+}
+},
+"B05C191": {
+"summary": "Duryodhana asks how Sikhandin, born a daughter, became a man. Bhishma explains that King Drupada prayed to Shiva for a son to avenge himself on Bhishma, and the god promised a child who would first be a daughter and later a male. The queen had a daughter, whom the king had raised as a son and named Sikhandin, with only a few people knowing the secret.",
+"scenes": {
+"B05C191S01": "Duryodhana asks how Sikhandin became a man, and Bhishma explains Drupada's prayer, the god's promise, and the secret raising of the child as a son."
+},
+"shots": {
+"B05C191S01H01": "Duryodhana asks Bhishma how Sikhandin, born a daughter, later became a man.",
+"B05C191S01H02": "Bhishma explains that the childless Drupada prayed to Shiva for a son to avenge himself on Bhishma, and was told the child would be a daughter who later becomes male; the queen gave birth to a daughter, whom Drupada had raised as a son and named Sikhandin, while only a few people knew the truth, and Bhishma learned it through his spies and Narada."
+}
+},
+"B05C192": {
+"summary": "Drupada has Sikhandin trained in the arts and in arms under Drona, and when Sikhandin reaches maturity, the royal couple arrange a marriage with the daughter of the Dasarnaka king Hiranyavarman. The bride soon discovers that her husband is a woman, and her nurses tell the king. Hiranyavarman is enraged and sends a threatening messenger to Drupada.",
+"scenes": {
+"B05C192S01": "Sikhandin is raised and trained, married to the Dasarnaka princess, and the discovery of the deception leads to Hiranyavarman's threat against Drupada."
+},
+"shots": {
+"B05C192S01H01": "Drupada has his daughter Sikhandin taught the arts and arms under Drona, and the queen and king arrange a marriage with Hiranyavarman's daughter; once the bride learns Sikhandin is a woman, Hiranyavarman is enraged and sends a messenger threatening Drupada with death."
+}
+},
+"B05C193": {
+"summary": "Drupada is caught out and frightened, and tries to calm his brother-in-law with conciliatory messages, but Hiranyavarman prepares an army to march. His allies plan to bind Drupada, install a new king, and kill Drupada and Sikhandin. Drupada, afraid, turns to his queen for the truth about their child.",
+"scenes": {
+"B05C193S01": "Hiranyavarman prepares his army and plots to depose Drupada, and Drupada, now fearful, asks his queen about the truth."
+},
+"shots": {
+"B05C193S01H01": "Drupada tries to calm Hiranyavarman with soft messages, but Hiranyavarman marches with an army, and his council plans to bind Drupada, install another king, and kill Drupada and Sikhandin.",
+"B05C193S01H02": "Drupada, afraid and in grief, tells his favourite queen, Sikhandin's mother, that Hiranyavarman is coming to attack him, and asks her to say what is true about their child, while pretending innocence before others."
+}
+},
+"B05C194": {
+"summary": "Sikhandin's mother admits that she had the daughter's birth concealed out of fear of her co-wives and because of the god's words, and Drupada confirms the deception. The king prepares his city's defences and prays, while Sikhandini, shamed by the trouble she has caused, goes to a haunted forest and fasts until the Yaksha Sthunakarna appears. She asks him to make her a true man so that her parents can be spared.",
+"scenes": {
+"B05C194S01": "The queen admits the truth, Drupada prepares his defences and prays, and Sikhandini, ashamed, goes to a Yaksha in the forest and asks him to change her into a man."
+},
+"shots": {
+"B05C194S01H01": "The queen admits the daughter was passed off as a son out of fear of her co-wives and because of the god's words, Drupada informs his counsellors and fortifies the city, and the queen urges prayer and sacrifice; Sikhandini, ashamed, goes into a haunted forest and fasts until the Yaksha Sthuna appears and promises help, and she asks him to make her a true man to spare her father."
+}
+},
+"B05C195": {
+"summary": "Sikhandini and the Yaksha Sthuna swap sexes for a time, so that Sikhandin becomes a man and can save the city. Sikhandin tells Drupada, and the Dasarnaka king's envoys are satisfied after women he sends confirm that Sikhandin is male. Kubera, lord of the Yakshas, learns of the swap and curses Sthuna to stay a woman until Sikhandin dies. Bhishma tells the Kauravas why he will not fight Sikhandin, and Duryodhana accepts his reasoning.",
+"scenes": {
+"B05C195S01": "Sikhandini and Sthuna swap sexes, Sikhandin is cleared of the deception, Kubera curses Sthuna, and Bhishma explains to the Kauravas why he will not fight Sikhandin."
+},
+"shots": {
+"B05C195S01H01": "The Yaksha Sthuna agrees to lend Sikhandini his manhood, on the condition that Sikhandini return it when the Dasarnaka king leaves, and Sikhandini promises to do so.",
+"B05C195S01H02": "The two swap sexes; Sikhandin tells Drupada, who sends word that the child is male; the Dasarnaka king's envoy is sent away after women he sends confirm Sikhandin's manhood; Kubera finds Sthuna in female form and curses him to stay a woman until Sikhandin dies; Sthuna then sends Sikhandin on his way.",
+"B05C195S01H03": "Sikhandin returns home and makes offerings, Drupada has him trained by Drona, and Bhishma tells the Kauravas that he will not shoot at a woman or one who was once a woman, so he will not fight Sikhandin.",
+"B05C195S01H04": "Sanjaya reports that Duryodhana, reflecting on Bhishma's words, judged his refusal to fight Sikhandin proper."
+}
+},
+"B05C196": {
+"summary": "Duryodhana asks Bhishma how many days he needs to destroy the Pandava army, and Bhishma answers that he can slay ten thousand foot soldiers and a thousand chariot warriors each day, finishing in a month with his great weapons. The other commanders offer their own timelines, with Drona saying a month, Kripa two months, Ashvatthama ten nights, and Karna five days. Bhishma laughs at Karna's boast.",
+"scenes": {
+"B05C196S01": "Duryodhana asks the commanders how long each would need to destroy the Pandava army, and each gives his estimate."
+},
+"shots": {
+"B05C196S01H01": "Sanjaya says Duryodhana asks Bhishma how many days he would need to destroy the Pandava army and lists its formidable leaders.",
+"B05C196S01H02": "Bhishma answers that he will slay ten thousand foot soldiers and a thousand car warriors each day, and that with his great weapons he could finish in a month.",
+"B05C196S01H03": "Drona says he needs about a month, Kripa two months, Ashvatthama ten nights, and Karna five days, and Bhishma laughs and tells Karna he cannot boast until he meets Arjuna."
+}
+},
+"B05C197": {
+"summary": "Yudhishthira, informed by his spies of the Kaurava commanders' boasts, asks Arjuna how long he needs to destroy the enemy. Arjuna answers that with Krishna's help he could destroy the three worlds in an instant, that he holds Shiva's weapon, and that it is not right to kill ordinary men with celestial weapons. He names the Pandava allies whose strength will win the day.",
+"scenes": {
+"B05C197S01": "Yudhishthira calls his brothers, relays the Kaurava boasts, and asks Arjuna how long he will need, and Arjuna answers with confidence and names the allies."
+},
+"shots": {
+"B05C197S01H01": "Vaisampayana says that after hearing the Kaurava commanders, Yudhishthira summons his brothers and speaks to them in private.",
+"B05C197S01H02": "Yudhishthira reports the spies' news and asks Arjuna how long he will need, and Arjuna says he and Krishna could destroy the enemy quickly with Shiva's weapon, but prefers a fair fight, and then names the Pandava allies, including Sikhandin, Dhrishtadyumna, Bhima, and Draupadi's five sons."
+}
+},
+"B05C198": {
+"summary": "On the next morning, the Kaurava kings march out under Duryodhana, purified and armed, and take position at the far end of Kurukshetra in three divisions. Drona leads the first, Ashvatthama and Bhishma the second, and Kritavarman, Bhurisravas, and Salya lead the rear with Duryodhana. Duryodhana sets up a camp that looks like a second Hastinapura, with ample provisions for kings, followers, traders, and spectators.",
+"scenes": {
+"B05C198S01": "The Kaurava army marches out in divisions, takes position at Kurukshetra, and Duryodhana sets up a grand camp with provisions for all."
+},
+"shots": {
+"B05C198S01H01": "The Kaurava kings march out in three divisions under Duryodhana, with Drona leading the first, Ashvatthama and Bhishma the second, and Kritavarman, Salya, and Bhurisravas with Duryodhana in the rear, and Duryodhana sets up a camp like a second Hastinapura with supplies for all."
+}
+},
+"B05C199": {
+"summary": "Yudhishthira sends out his army in ordered divisions, with Dhrishtadyumna, Abhimanyu, and Draupadi's sons in front, Bhima and the twins in a leading division, and Krishna and Arjuna in the centre with Virata and the Panchala princes. Kshatrahan and Kshatradeva guard the rear, and Yudhishthira himself marches slowly behind the main divisions, with the baggage, the sick, and the weak. The chapter closes the Udyoga Parva, and the rest of the section is editorial footnotes explaining Sanskrit terms, the weapons, and the philosophy of the earlier sage's answers.",
+"scenes": {
+"B05C199S01": "Yudhishthira orders his divisions out in battle array, and the chapter closes the Udyoga Parva before the footnotes begin.",
+"B05C199S02": "Footnotes 2 to 6 explain divination by stars, the sage's answers on action and liberation, and the link between the soul and the Supreme Soul.",
+"B05C199S03": "Footnotes 7 to 11 explain the kinds of troops, a name for a fire, an allusion to Vishnu, and the literal sense of an epithet.",
+"B05C199S04": "Footnotes 12 to 16 explain the story of Vishwamitra, sacrificial offerings, the sacred syllable, a unit of time, and the bodily marks thought auspicious.",
+"B05C199S05": "Footnotes 17 to 19 cover a river, the classification of weapons, and the story of Kartaviryarjuna, followed by running heads.",
+"B05C199S06": "A heading names Krishna-Dwaipayana Vyasa as the author."
+},
+"shots": {
+"B05C199S01H01": "Yudhishthira sends out his commanders in order: Dhrishtadyumna with Abhimanyu and Draupadi's sons in front, Bhima with Nakula and Sahadeva in a leading division, Virata and the Panchala princes with Krishna and Arjuna in the centre, Satyaki leading the cars in the centre, Kshatrahan and Kshatradeva guarding the rear, and Yudhishthira marching slowly with the baggage behind the main divisions.",
+"B05C199S01H02": "The narrator sums up the array, which confounds the Kauravas, and notes that allied kings and their followers stream behind, roaring and blowing conches.",
+"B05C199S01H03": "Heading: the Udyoga Parva ends here.",
+"B05C199S01H04": "Heading: the footnotes begin.",
+"B05C199S01H05": "Footnote 1 glosses a term as the sun's passage from the winter to the summer solstice.",
+"B05C199S02H01": "Footnote 2 notes that divination was done by reading the stars at night.",
+"B05C199S02H02": "Footnote 3 explains Dhritarashtra's question about whether knowledge outweighs ritual action, and defines liberation as freedom from rebirth and karma.",
+"B05C199S02H03": "Footnote 4 explains the sage's reply: giving up desire leads to the supreme state, while ritual action leads only to temporary rewards that must be earned again.",
+"B05C199S02H04": "Footnote 5 explains why Dhritarashtra's next question follows from the sage's answer, asking whether the Supreme Soul could itself become an ordinary soul.",
+"B05C199S02H05": "Footnote 6 gives the sage's analogy of the space inside a jar being part of unbounded space, to explain how the soul is linked to the universe without being identical with it.",
+"B05C199S03H01": "Footnote 7 lists the kinds of troops: cars, elephants, horses, foot soldiers, other vehicles, and camel-riders.",
+"B05C199S03H02": "Footnote 8 gives another name for a fire, the Badava fire.",
+"B05C199S03H03": "Footnote 9 explains the allusion to Vishnu's horse-necked incarnation, whose voice the commentator takes to sound out the Vedic chants.",
+"B05C199S03H04": "Footnote 10 derives a word for the nether region from a root meaning to flow down, following the commentator's explanation.",
+"B05C199S03H05": "Footnote 11 notes the literal sense of an epithet as one with a beautiful or excellent face.",
+"B05C199S04H01": "Footnote 12 summarizes the story of Vishwamitra, who, humbled by the Brahmana Vasishtha, gained Brahmanhood through penance, which the notes call the only such case in the scriptures.",
+"B05C199S04H02": "Footnote 13 lists clarified butter, milk, and similar items as the libations used in sacrifice.",
+"B05C199S04H03": "Footnote 14 says the subdivisions of the sacred syllable, the Pranava, were taken as the origin of the Vedas, Upanishads, and later scriptures.",
+"B05C199S04H04": "Footnote 15 gives the meaning of a term as a small division of time.",
+"B05C199S04H05": "Footnote 16 lists the bodily marks considered auspicious, such as elevated, slender, deep, and red parts, noting that commentators differ on which ones.",
+"B05C199S05H01": "Footnote 17 corrects a variant reading and identifies the river Vitasta as one of the five rivers of the Punjab.",
+"B05C199S05H02": "Footnote 18 sorts weapons into four classes: those thrown by hand, those not thrown, those sometimes thrown, and those shot from machines.",
+"B05C199S05H03": "Footnote 19 identifies the thousand-armed Arjuna of the Haihaya clan, also called Kartaviryarjuna, as the king Rama slew.",
+"B05C199S05H04": "Running head reading The Mahabharata, with no content.",
+"B05C199S05H05": "Running head fragment reading of, with no content.",
+"B05C199S06H01": "Heading naming the author, Krishna-Dwaipayana Vyasa."
+}
+}
+}

@@ -1086,5 +1086,41 @@
     "verdict": "APPROVED",
     "review": "### Evaluation Report\n\n**1. Composition Match:** 7/10  \nThe framing, center positioning, and close-up perspective align well with the reference shot. \n\n**2. Character & Subject Accuracy:** 7/10  \nFacial structure, crown ornamentation, floral garlands, and attire details are translated faithfully, with minor stylization in the expression.\n\n**3. Manga Art Style Fidelity:** 7/10  \nEffective use of screentones, cross-hatching, clean line art, and shonen-style onomatopoeia to emulate classic manga aesthetics.\n\n**4. Detailed Feedback & Differences:**  \n* The soft, blurred floral background of the original is adapted into defined screentone foliage.  \n* Manga sound effects (`\u30c9\u30f3!!`, `\u30cb\u30b3\u30c3`) and emphasis lines have been added around the character.  \n* Facial proportions and smile lines are slightly more pronounced than the live-action capture.\n\n**5. Overall Match Score:** 68/100  \n**Verdict:** APPROVED",
     "timestamp": 1791603621.5443115
+  },
+  "shot_153": {
+    "shot_num": 153,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### Evaluation\n\n#### 1. Composition Match: 7 / 10\nThe framing, perspective, and parting wave layout closely mirror the reference. The rocky foreground ledge and vanishing point alignment are preserved accurately.\n\n#### 2. Character & Subject Accuracy: 7 / 10\nThe subject's central placement, stance, drapery, and headdress match the original source well, with minor variations in the crown's shape and silhouette proportion.\n\n#### 3. Manga Art Style Fidelity: 7 / 10\nThe adaptation successfully utilizes clean linework, hatching, and screentone gradients to translate the dynamic water and lighting into traditional manga aesthetics.\n\n#### 4. Detailed Feedback & Differences:\n- **Environment:** The water texture is rendered with linear hatching instead of organic fluid motion, slightly altering wave volume.\n- **Lighting:** Strong backlighting from the source is converted into open white space and screentones, reducing overall contrast.\n- **Subject Detail:** The headdress design differs slightly in geometry, and the fabric folds are more defined than in the original footage.\n\n#### 5. Overall Match Score: 68 / 100\n**Verdict:** APPROVED",
+    "timestamp": 1791603677.4583924
+  },
+  "shot_154": {
+    "shot_num": 154,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### Evaluation Report\n\n**1. Composition Match:** 7/10  \nThe framing, camera angle, dynamic tilt of the head, and placement of the raised arm on the left closely mirror the reference shot with high fidelity.\n\n**2. Character & Subject Accuracy:** 6.5/10  \nFacial structure, expression, and jewelry align well with the original actor. The forehead mark (tilak) has been adapted into a stylized golden emblem rather than the applied paste texture seen in the reference, but the core aesthetic remains intact.\n\n**3. Manga Art Style Fidelity:** 7/10  \nStrong execution of classic manga linework, screentone shading, and cross-hatching, effectively translating the live-action lighting and forms into graphic print media.\n\n**4. Detailed Feedback & Differences:**  \n* **Forehead Insignia:** The reference features an organic, fiery paste application, while the adaptation presents a clean, sharp, outlined metallic crest.  \n* **Lighting & Shading:** Dramatic cinematic chiaroscuro has been converted into clean manga screentones and line contours.  \n* **Expression:** The manga version carries a slightly sharper, more pronounced smirk compared to the softer, subtle look in the live-action frame.\n\n**5. Overall Match Score:** 68/100  \n**Verdict:** APPROVED",
+    "timestamp": 1791603704.753266
+  },
+  "shot_155": {
+    "shot_num": 155,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### 1. Composition Match: 7/10\nThe framing, camera angle, and head tilt align closely with the reference frame. The positioning of the raised arm and ornate armlet accurately reflects the original staging.\n\n### 2. Character & Subject Accuracy: 7/10\nFacial features, jawline, gaze, and expression capture the subject well. Key costume details, including the jewelry engravings and the forehead mark, are faithfully transferred.\n\n### 3. Manga Art Style Fidelity: 7/10\nExecution shows strong pen-and-ink technique, effective cross-hatching, clean screentone application, and appropriate manga-style visual accents.\n\n### 4. Detailed Feedback & Differences\n* **Background:** The sketch introduces subtle architectural line art, whereas the reference features an indistinct, warm-toned blur.\n* **Lighting/Effects:** The glowing forehead mark is translated into linework and Japanese sound effect text (*kirakira*) rather than pure luminance.\n* **Hair/Shading:** Hair volume is slightly more pronounced with defined line clusters, standard for the manga adaptation format.\n\n### 5. Overall Match Score: 71/100\n**Verdict:** APPROVED",
+    "timestamp": 1791603754.5055714
+  },
+  "shot_156": {
+    "shot_num": 156,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### 1. Composition Match: 7/10\nThe high-angle perspective, spatial arrangement, and foreground organic masses closely reflect the reference framing. The camera tilt is slightly shallower, exposing more background cave depth.\n\n### 2. Character & Subject Accuracy: 7/10\nCharacter placements, attire, and poses correspond well to the live-action plate. The female subject's reaching gesture and traditional garments are translated faithfully, with minor differences in torso twist and head tilt.\n\n### 3. Manga Art Style Fidelity: 7/10\nEffective use of clean linework, screentones, hatching, and onomatopoeia to convey depth and lighting without losing readable detail.\n\n### 4. Detailed Feedback & Differences:\n* **Lighting & Atmosphere:** The manga sketch introduces more ambient clarity and exposes a background tunnel entrance that is obscured in shadow in the original.\n* **Foreground Elements:** The large pod/vein structures in the foreground and margins match the reference silhouettes accurately.\n* **Character Posing:** The standing figure is slightly more upright and defined, while the falling figure captures the intended distress and motion.\n\n### 5. Overall Match Score: 71/100\n**Verdict:** APPROVED",
+    "timestamp": 1791603803.1058471
   }
 }

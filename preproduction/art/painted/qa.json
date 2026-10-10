@@ -1,0 +1,129 @@
+{
+  "SH010_v01.png": {
+    "frame": "SH010.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Subtle lens flare slightly compromises purely painterly feel",
+        "Minor scaling differences in central banner flag size"
+      ]
+    }
+  },
+  "SH050_v01.png": {
+    "frame": "SH050.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Leans more toward 2D line-art animation than painterly stylized CG",
+        "Brushwork is overly clean and lacks textured, visible strokes"
+      ]
+    }
+  },
+  "SH070_v01.png": {
+    "frame": "SH070.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Chariot perspective turned to profile instead of rear view",
+        "Added second seated figure altering original framing"
+      ]
+    }
+  },
+  "SH090_v01.png": {
+    "frame": "SH090.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Prominent line art leans more toward 2D illustration than painterly CG",
+        "Center focal point is slightly blown out by the VFX bloom"
+      ]
+    }
+  },
+  "SH130_v01.png": {
+    "frame": "SH130.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Colored rim lighting could be more prominent on forms",
+        "Line work leans slightly graphic rather than flat value blocks"
+      ]
+    }
+  },
+  "SH150_v01.png": {
+    "frame": "SH150.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Floating eye motifs from layout integrated into mandala border rather than beams",
+        "Slightly high line detail compared to flat value blocks"
+      ]
+    }
+  },
+  "SH170_v01.png": {
+    "frame": "SH170.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 5,
+      "keeps_layout": false,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Added seated Krishna figure not present in layout",
+        "Chariot extended to the right, altering framing and negative space"
+      ]
+    }
+  },
+  "SH180_v01.png": {
+    "frame": "SH180.jpg",
+    "model": "gemini-3.1-flash-image",
+    "qa": {
+      "score": 7,
+      "keeps_layout": true,
+      "painterly_not_photoreal": true,
+      "palette_matches_act": true,
+      "rim_light": true,
+      "characters_on_model": true,
+      "problems": [
+        "Added flanking chariots absent from blockout layout"
+      ]
+    }
+  }
+}

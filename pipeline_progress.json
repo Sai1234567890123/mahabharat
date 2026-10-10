@@ -1122,5 +1122,41 @@
     "verdict": "APPROVED",
     "review": "### 1. Composition Match: 7/10\nThe high-angle perspective, spatial arrangement, and foreground organic masses closely reflect the reference framing. The camera tilt is slightly shallower, exposing more background cave depth.\n\n### 2. Character & Subject Accuracy: 7/10\nCharacter placements, attire, and poses correspond well to the live-action plate. The female subject's reaching gesture and traditional garments are translated faithfully, with minor differences in torso twist and head tilt.\n\n### 3. Manga Art Style Fidelity: 7/10\nEffective use of clean linework, screentones, hatching, and onomatopoeia to convey depth and lighting without losing readable detail.\n\n### 4. Detailed Feedback & Differences:\n* **Lighting & Atmosphere:** The manga sketch introduces more ambient clarity and exposes a background tunnel entrance that is obscured in shadow in the original.\n* **Foreground Elements:** The large pod/vein structures in the foreground and margins match the reference silhouettes accurately.\n* **Character Posing:** The standing figure is slightly more upright and defined, while the falling figure captures the intended distress and motion.\n\n### 5. Overall Match Score: 71/100\n**Verdict:** APPROVED",
     "timestamp": 1791603803.1058471
+  },
+  "shot_157": {
+    "shot_num": 157,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### Evaluation\n\n1. **Composition Match:** 6/10  \nHigh-angle perspective, central tree trunk, and foreground framing silhouettes align well with the original layout.\n\n2. **Character & Subject Accuracy:** 6/10  \nBoth figures match their source positions and poses, with the sketch introducing an added mace in the male figure's hand.\n\n3. **Manga Art Style Fidelity:** 7/10  \nClean ink hatching, tone application, and stylized onomatopoeia translate the live-action frame effectively into manga conventions.\n\n4. **Detailed Feedback & Differences:**  \n- **Framing:** Dark foreground framing elements are retained accurately to preserve depth.  \n- **Character Detail:** Male warrior's pose is mirrored accurately, with added weapon detailing; female subject's posture and tree placement match the source layout.  \n- **Environment:** Ground texture and canopy elements translate cleanly into stylized manga linework.\n\n5. **Overall Match Score:** 66/100  \n**Verdict:** APPROVED",
+    "timestamp": 1791603881.2391453
+  },
+  "shot_158": {
+    "shot_num": 158,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### Evaluation\n\n**1. Composition Match:** 7/10  \nHigh-angle perspective and camera placement align well with the reference. Foreground rocky silhouettes successfully frame the central path and characters.\n\n**2. Character & Subject Accuracy:** 7/10  \nCharacter placement, costumes, and poses closely mirror the original. The female figure's blindfolded state and extended navigation gesture, along with the male figure's royal attire and crown, are accurately translated.\n\n**3. Manga Art Style Fidelity:** 7/10  \nEffective use of clean ink outlines, crosshatching, authentic screentones for shading, and integrated manga onomatopoeia sound effects.\n\n**4. Detailed Feedback & Differences:**  \n- **Lighting:** Manga sketch features higher contrast and a brighter path compared to the murky darkness of the live-action cave.  \n- **Foreground Elements:** The rock forms in the foreground are sharper and more stylized than the soft, out-of-focus framing shapes in the reference.  \n- **Linework:** Characters feature crisp outlines appropriate for print, slightly reducing the atmospheric depth seen in the original film shot.\n\n**5. Overall Match Score:** 71/100  \n**Verdict:** APPROVED",
+    "timestamp": 1791603962.520466
+  },
+  "shot_159": {
+    "shot_num": 159,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### 1. Composition Match: 7/10\nThe character staging, relative positioning, and overall framing closely mirror the source plate. The flowing drapes and central peacock feather motif align well with the original layout, with slight adjustments to accommodate manga dynamic framing.\n\n### 2. Character & Subject Accuracy: 7/10\nPoses, hand gestures (mudras/pranam), attire, crowns, and garlands accurately reflect Krishna and Arjuna. Linework faithfully translates costumes, though facial structures adopt stylized manga aesthetics rather than realistic likenesses.\n\n### 3. Manga Art Style Fidelity: 7/10\nStrong execution of manga conventions, including screentone shading, dynamic speed lines, cloud swirls, and Japanese onomatopoeia (*dodon* sound effects). Contrast between the light left aura and darker right celestial background translates effectively into black-and-white tonal balance.\n\n### 4. Detailed Feedback & Differences\n* **Aura and Background:** Ambient glow and cosmic backdrop are converted into high-energy speed lines and cross-hatching, increasing dramatic intensity.\n* **Onomatopoeia:** Stylized sound effect typography is added, typical for manga adaptations but absent in the live-action plate.\n* **Costume Detailing:** Fabric folds and armor edges are sharper and more articulated to suit inked linework.\n\n### 5. Overall Match Score: 71/100\n**Verdict:** APPROVED",
+    "timestamp": 1791604022.0310013
+  },
+  "shot_160": {
+    "shot_num": 160,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### Manga Keyframe Adaptation Review\n\n#### 1. Composition Match: 7/10\nThe framing, character positioning, and perspective closely follow the original reference. The placement of the prominent peacock feather, character postures, and trailing sashes align well with the source layout, though the sketch introduces dynamic manga speedlines along the edges.\n\n#### 2. Character & Subject Accuracy: 7/10\nCharacter poses, costuming, and ornamental details are rendered with good fidelity. Krishna's crown, draped garments, and Arjuna's prayerful stance match the live-action reference, with minor stylization adjustments typical of comic adaptations.\n\n#### 3. Manga Art Style Fidelity: 7/10\nThe artwork effectively integrates manga conventions, utilizing clean linework, screentone shading, selective spot color on the peacock feather, and dramatic sound effect lettering. \n\n#### 4. Detailed Feedback & Differences:\n- **Foreground Element:** The feather is rendered as a clean line-art object with selective cyan toning, contrasting with the soft, ethereal glow in the reference.\n- **Lighting & Background:** The original's divided celestial backdrop (gold versus cosmic cyan) is translated into dot screen textures and radiating action lines rather than ambient atmospheric color.\n- **Stylization:** Facial features and drapery have been converted into defined, graphic ink lines typical of serialized manga.\n\n#### 5. Overall Match Score: 71/100\n**Verdict:** APPROVED",
+    "timestamp": 1791604066.5922701
   }
 }

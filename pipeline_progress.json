@@ -1194,5 +1194,41 @@
     "verdict": "APPROVED",
     "review": "### 1. Composition Match: 6/10\nThe manga adaptation captures the central character placement and lush foliage backdrop well. However, the framing is slightly tighter, cropping the lower waist and expanding the lateral tree branches to accommodate manga speedlines and sound effects.\n\n### 2. Character & Subject Accuracy: 6/10\nKey elements like the posture, garland, necklaces, and flute are accurately represented. The primary deviation is the headwear: the manga features a large, elaborate crown (*mukut*) rather than the smaller tiara/headband seen in the reference shot.\n\n### 3. Manga Art Style Fidelity: 7/10\nLine work, screentone shading, and contrast are handled effectively. Classic manga conventions\u2014such as dynamic action lines, bold onomatopoeia, and dialogue bubbles\u2014are well-integrated into the scene.\n\n### 4. Detailed Feedback & Differences\n* **Headwear:** The reference features modest ornamentation, whereas the sketch introduces a tall, ornate crown.\n* **Background & Effects:** Foliage is stylized into ink contours, enhanced by directional speedlines and dramatic framing.\n* **Additions:** In-panel sound effects (\"\u30c9\u30f3!!\") and an exclamatory dialogue balloon were added to heighten theatrical impact.\n\n### 5. Overall Match Score: 66/100\n**Verdict: APPROVED**",
     "timestamp": 1791604462.57961
+  },
+  "shot_165": {
+    "shot_num": 165,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### Manga Keyframe Evaluation\n\n**1. Composition Match: 7/10**  \nThe framing, perspective, and open-arm posture closely mirror the reference shot, maintaining centered balance against the natural background.\n\n**2. Character & Subject Accuracy: 7/10**  \nCostume elements, ornaments, crown, floral garland, and the flute are accurately placed. Hand shading appropriately captures the traditional red dye pattern seen in the reference.\n\n**3. Manga Art Style Fidelity: 7/10**  \nHigh-quality cross-hatching, clear ink outlines, and traditional manga sound effects (\"DON!\") translate the cinematic still effectively into a dynamic comic panel.\n\n**4. Detailed Feedback & Differences:**  \n- **Pose & Anatomy:** Proportions and facial expression are well-translated to an illustrative style.  \n- **Background:** Foliage is stylized into clean manga-style linework while preserving the density of the original forest backdrop.  \n- **Stylization:** Dynamic speed lines and sound effects add dramatic manga pacing without obscuring core character details.\n\n**5. Overall Match Score: 71/100**  \n**Verdict: APPROVED**",
+    "timestamp": 1791604634.5703402
+  },
+  "shot_166": {
+    "shot_num": 166,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### 1. Composition Match: 6/10\nThe subject framing on the left aligns well with the low-angle perspective of the reference. However, the horizontal composition has been significantly expanded to include a full battlefield scene, chariots, and ground troops on the right that were absent in the reference shot.\n\n### 2. Character & Subject Accuracy: 7/10\nLikeness, regal attire, ornate crown, and quiver alignment match the reference effectively. The facial angle is slightly more frontal compared to the sharp three-quarter tilt of the original, with subtle variations in facial proportions.\n\n### 3. Manga Art Style Fidelity: 7/10\nStrong technical execution of manga aesthetics, featuring clean line work, cross-hatching, screentone shading, and standard manga sound effects (*don!!*). Successfully translates live-action lighting into dynamic graphic ink work.\n\n### 4. Detailed Feedback & Differences\n* **Background & Staging:** The original relies on open, atmospheric cloud cover, whereas the sketch introduces a detailed ground-level army and chariot conflict.\n* **Aspect Ratio:** The sketch extends wider, altering the intimate, heroic close-up feel into a broader narrative panel.\n* **Linework & Features:** The tilak mark and crown ornamentation are simplified to accommodate the pen-and-ink medium.\n\n### 5. Overall Match Score: 68/100\n**Verdict: APPROVED**",
+    "timestamp": 1791604697.9357595
+  },
+  "shot_167": {
+    "shot_num": 167,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### 1. Composition Match: 7/10\nThe framing aligns well with the original shot. The foreground bow and hand dominate the center-right, while the archer's face is positioned on the left. The sketch adds background narrative elements (chariots, army) that were obscured by depth-of-field blur in the reference.\n\n### 2. Character & Subject Accuracy: 6.5/10\nThe hand grip, arrow placement, and crown design capture the character's essence. However, the background details on the right and the highly defined facial expression extrapolate beyond the reference's heavy motion blur and shallow focus.\n\n### 3. Manga Art Style Fidelity: 7/10\nClean hatching, solid linework, and dynamic manga shading are executed effectively. Action lines and Japanese sound effects enhance the graphic novel aesthetic while preserving the shot's dramatic weight.\n\n### 4. Detailed Feedback & Differences:\n* **Foreground:** The bow grip ornamentation (lion and elephant motifs) and hand structure closely mirror the live-action frame with added line definition.\n* **Background:** The reference features an indistinct, blurred background on the right; the sketch fills this with an opposing chariot and troops, altering depth perception.\n* **Focal Plane:** The original shot keeps the face soft-focused, whereas the sketch renders the face with sharp, defined contours.\n\n### 5. Overall Match Score: 68/100\n**Verdict: APPROVED**",
+    "timestamp": 1791604760.9576418
+  },
+  "shot_168": {
+    "shot_num": 168,
+    "iteration": 1,
+    "score": 96,
+    "delta": "+0%",
+    "verdict": "APPROVED",
+    "review": "### 1. Composition Match: 7/10\n\n### 2. Character & Subject Accuracy: 7/10\n\n### 3. Manga Art Style Fidelity: 7/10\n\n### 4. Detailed Feedback & Differences:\n* **Framing & Staging:** The sketch effectively mirrors the central placement of the chariot, the frontal charge of the horses, and the sprawling army backdrop seen in the reference.\n* **Subject Detailing:** The seated figure and chariot structure capture the primary silhouette accurately, though the sketch adds sharper ornamental linework and clarifies forms obscured by motion blur in the original.\n* **Background Army:** The mass of infantry and vertical spears aligns well with the scale of the source, utilizing clean hatched lines and screentone gradients to represent atmospheric depth.\n\n### 5. Overall Match Score: 68/100\n**Verdict:** APPROVED",
+    "timestamp": 1791604827.4214027
   }
 }

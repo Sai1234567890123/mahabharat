@@ -38,8 +38,21 @@ To re-run everything: `BPY_PYTHON=/path/to/python-with-bpy scripts/render_all.sh
 | 7 | Motion: Veo 3.1 image-to-video or Wan 2.2 VACE video-to-video over the animatic | Vertex AI Veo, or Wan on a GCP GPU VM | GCP credits |
 | 8 | Composite FX on twos and impact frames over the moving shots; edit, sound, music | `compose.py` per frame, Natron or Blender compositor, DaVinci Resolve | |
 
-## What I need from you
+## Running the AI paint-over on your PC
 
-- A Gemini API key or Vertex AI access in this project's cloud environment, so the AI paint-over can run here (variable `GEMINI_API_KEY`, or a service account for Vertex).
+`scripts/paint_over.py` sends each concept frame to Nano Banana (`gemini-3.1-flash-image`) on your Vertex AI project with the style bible, act, cast and shot prompts, asks for a finished painterly keyframe that keeps the layout, and has `gemini-3.8-flash` score the result against the style bible.
+
+```
+cd "C:\Users\dharm\OneDrive\Desktop\claude projects\mahabharat-preproduction\scripts"
+pip install google-genai
+python paint_over.py --dry-run          # print the prompts only
+python paint_over.py                    # the 8 hero shots
+python paint_over.py --shot SH050 --takes 3
+```
+
+It uses your existing `gcloud auth application-default login` and defaults to project `aiautomationplatform`, location `us` (pass `--location global` if a model is reported as not found). Results land in `art/painted/SHxxx_vNN.png` with scores in `art/painted/qa.json`.
+
+## Still open
+
 - Blender open on your PC with the MCP server started, if you want the 3D scene built live in your Blender.
-- Your GCP credit amount and whether you have a local GPU, which decide whether training and video run on GCP VMs or at home.
+- Whether you have a local GPU, which decides whether LoRA training and Wan video run at home or on a GCP VM (the $300 credit covers a pilot-sized amount of both).

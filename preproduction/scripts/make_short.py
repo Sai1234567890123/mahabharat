@@ -109,19 +109,29 @@ def write_captions(segs, cap_dir):
     return tag
 
 
-def video_graph(segs, tag, fontfile):
-    parts = []
-    for i, s in enumerate(segs):
-        parts.append(
-            f"[{i}:v]crop={s['crop']},trim=0:{s['d']},setpts=PTS-STARTPTS,fps={FPS},split[a{i}][b{i}];"
-            f"[a{i}]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
-            f"boxblur=20:1,eq=brightness=-0.08:saturation=0.9[bg{i}];"
-            f"[b{i}]scale=1080:-2:flags=lanczos,eq=contrast=1.06:saturation=1.1[fg{i}];"
-            f"[bg{i}][fg{i}]overlay=(W-w)/2:(H-h)/2,"
-            f"drawtext=textfile='{fp(s['cap_file'])}':fontfile='{fp(fontfile)}':fontsize=64:"
-            f"fontcolor=white:borderw=4:bordercolor=black@0.7:x=(w-text_w)/2:y=200,"
-            f"drawtext=textfile='{fp(tag)}':fontfile='{fp(fontfile)}':fontsize=40:"
-            f"fontcolor=white@0.85:x=(w-text_w)/2:y=1640[v{i}]")
+def segment_chain(i, s, tag, fontfile, fit):
+    """One shot as a 9:16 video, with its captions."""
+    head = f"[{i}:v]crop={s['crop']},trim=0:{s['d']},setpts=PTS-STARTPTS,fps={FPS},"
+    if fit == "fill":
+        # crop-to-fill: the centre of the picture, scaled up to the frame
+        body = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,eq=saturation=1.05"
+    else:
+        # blur: the whole picture centred over a blurred copy of itself
+        body = (f"split[a{i}][b{i}];[a{i}]scale=1080:1920:force_original_aspect_ratio=increase,"
+                f"crop=1080:1920,boxblur=20:1,eq=brightness=-0.08:saturation=0.9[bg{i}];"
+                f"[b{i}]scale=1080:-2:flags=lanczos,eq=contrast=1.06:saturation=1.1[fg{i}];"
+                f"[bg{i}][fg{i}]overlay=(W-w)/2:(H-h)/2")
+    cap = (f"drawtext=textfile='{fp(s['cap_file'])}':fontfile='{fp(fontfile)}':fontsize=64:"
+           f"fontcolor=white:borderw=4:bordercolor=black@0.7:x=(w-text_w)/2:y=200,"
+           f"drawtext=textfile='{fp(tag)}':fontfile='{fp(fontfile)}':fontsize=40:"
+           f"fontcolor=white@0.85:x=(w-text_w)/2:y=1640[v{i}]")
+    if fit == "fill":
+        return head + body + "," + cap
+    return head + body + "," + cap
+
+
+def video_graph(segs, tag, fontfile, fit):
+    parts = [segment_chain(i, s, tag, fontfile, fit) for i, s in enumerate(segs)]
     prev, offset = "v0", 0.0
     for i in range(1, len(segs)):
         offset += segs[i - 1]["d"] - XF
@@ -201,6 +211,8 @@ def write_wav(path, mono):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=os.path.join(ROOT, "art", "shorts", "short_v01.mp4"))
+    ap.add_argument("--fit", choices=["blur", "fill"], default="blur",
+                    help="blur: whole picture over a blurred background; fill: crop to fill the frame")
     ap.add_argument("--dry-run", action="store_true", help="print the edit list, render nothing")
     a = ap.parse_args()
 
@@ -228,7 +240,7 @@ def main():
     for s in segs:
         cmd += ["-i", s["src"]]
     cmd += ["-i", wav]
-    graph = (video_graph(segs, tag, font())
+    graph = (video_graph(segs, tag, font(), a.fit)
              + f";[{n}:a]loudnorm=I=-14:TP=-1.5:LRA=11,atrim=0:{total:.3f}[aout]")
     cmd += ["-filter_complex", graph, "-map", "[vout]", "-map", "[aout]",
             "-c:v", "libx264", "-preset", "medium", "-crf", "18",

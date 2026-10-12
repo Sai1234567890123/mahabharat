@@ -49,3 +49,22 @@ Or run `npx --yes rea-agents@6.4.0 setup`, which detects installed agents and wr
 `rea mcp` started over stdio, reported server `rea` 6.4.0 and listed 170 tools
 (for example `inspect_web_page`, `capture_web_screenshot`, `capture_process_scenario`,
 `compare_process_captures`, `compare_artifacts`, `analyze_javascript_application`).
+
+## How this project uses REA
+
+`python3 tools/rea_qa.py` runs three local checks (no cloud calls, no credits) and exits non-zero on any problem.
+It writes screenshots and raw Evidence JSON to `qa/rea/`, which git ignores.
+
+| Check | REA tool | What it catches |
+|---|---|---|
+| `pages` | `capture-browser-scenario` | Broken image or video paths, 404s and JS errors on `index.html` and `motion_preview.html`, plus a screenshot of each page |
+| `pipeline` | `capture-process` | Hand edits to `data/shots.json`, `05` or `06` that the next `render_all.sh` would silently overwrite |
+| `handoff` | `inspect-artifact` + `compare_artifacts` | `video_handoff_pilot.zip` drifting from `video_handoff/` before it goes to Veo |
+
+Run it before a commit that touches the pages, `shots.json` or the handoff folder.
+
+Other REA tools worth using by hand from Claude Code:
+- `analyze_web_bundle` lists every backend call a page makes (it found `/api/reiterate` and `/api/compare` in `index.html`).
+- `compare_web_screenshots` gives a pixel diff of a page before and after a change.
+- `compare_process_captures` diffs two runs of any script (for example two `paint_over.py` runs) across output, exit code and files written.
+- `capture_process_scenario` with `filesystem_observation_paths` records exactly which files a Blender or ffmpeg run created.

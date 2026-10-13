@@ -23,7 +23,7 @@ Each hero character has a skin, a costume accent and an energy color. The energy
 
 | Character | Skin | Accent | Energy | Shape language |
 |---|---|---|---|---|
-| Krishna | Deep indigo-blue `#2E3F78` | Yellow silk `#E8B92F`, peacock teal `#1E8C8C` | White-gold with teal edge `#FFE9A8` | Circles: halo, chakra, peacock feather |
+| Krishna | Warm medium brown `#B07856` (changed from indigo-blue, 2026-10-13, to match the approved close-up face) | Yellow silk `#E8B92F`, peacock teal `#1E8C8C` | White-gold with teal edge `#FFE9A8` | Circles: halo, chakra, peacock feather |
 | Arjuna | Warm brown `#8A5A3C` | White and silver armor, blue sash | Electric blue `#6FC3FF` (son of Indra: lightning) | Tall arrow: vertical, narrow, taut |
 | Bhishma | Pale tan, white beard and hair | White and silver, gold palmyra standard | Silver-white with river aqua `#CDEFF2` (son of Ganga) | Pillar: tall rectangle, unmoving |
 | Duryodhana | Olive-brown `#7A5A3A` | Crimson and black gold `#9E1B2F` | Blood red `#D0213F` | Heavy wedge: broad shoulders, down-pointing |

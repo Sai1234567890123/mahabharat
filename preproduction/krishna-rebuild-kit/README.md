@@ -19,7 +19,7 @@ Status: the last hand-built version (v23) is an 8.7/10 draft. Known gaps are in 
 - Blender 5.2 (headless: `blender -b --python script.py -- args`)
 - The Rigify add-on (the rig script enables it)
 - Python 3 with numpy for the scripts that use it
-- For TRELLIS mesh generation only: a GPU VM (NVIDIA L4 or similar) with TRELLIS.2 installed. Stop the VM when not generating.
+- For TRELLIS mesh generation only: a GPU VM (NVIDIA L4 or similar) with TRELLIS.2 installed. Stop the VM when not generating. Read `GCP_GPU_GUIDE.md` first: it covers setup, costs, and the mistakes to avoid.
 
 ## Settings used for the approved version
 

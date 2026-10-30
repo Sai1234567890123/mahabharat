@@ -1,0 +1,90 @@
+{
+  "arjuna_chariot": {
+    "score": 84,
+    "problems": [
+      "Fine filigree details, minor contact shadow"
+    ],
+    "fix_prompt": ""
+  },
+  "dice_table": {
+    "score": 88,
+    "problems": [
+      "Asymmetrical medallion placement on table legs (front leg has medallions on two adjacent faces, while left and right legs lack medallions on their inward-facing sides)",
+      "Inconsistent grid pattern on the Pachisi/Chaupar board (top-left arm has an alternating green-white-green row, while the other three arms have solid green center columns)"
+    ],
+    "fix_prompt": "Ensure strict four-way rotational symmetry on the Chaupar game board grid so all four arms have identical green malachite and cream marble tile patterns, and add the missing gold kalash-and-red-enamel medallions to the visible inner-facing sides of the left and right malachite legs to match the front leg."
+  },
+  "ganesha_relief_wall": {
+    "score": 88,
+    "problems": [
+      "Asymmetrical dome arrangement with an extra fourth dome on the left instead of three",
+      "Redundant Ganesha relief in the left panel instead of a distinct deity",
+      "AI artifacts and malformed anatomy on the small attendant figures and upper friezes",
+      "Weak saffron and red accents compared to the style guide"
+    ],
+    "fix_prompt": "Make the rooftop domes symmetrical with one large central gold dome flanked by three smaller domes on each side. Replace the left standing Ganesha relief with a distinct deity like Kartikeya or Hanuman. Sharpen the small attendant figures and upper friezes to remove AI artifacts, and enhance the saffron and red accents on the carvings."
+  },
+  "garden_pavilion": {
+    "score": 88,
+    "problems": [
+      "Logical architecture artifact: the square pavilion has 5 columns instead of 4 (two extra rear columns instead of one at the back corner).",
+      "The kalash finial has organic green leaves and a real coconut rather than a solid polished gold architectural finial.",
+      "Heavy hanging marigold garlands obscure the carved marble friezes and create complex geometry that may reconstruct poorly in 3D."
+    ],
+    "fix_prompt": "Keep the white marble pavilion, gold dome, and green malachite columns on a pure white background. Fix the column layout so there are exactly 4 corner columns (one at the back corner instead of two). Replace the organic coconut and green leaves on top of the dome with a solid polished gold kalash finial spire. Reduce or tighten the hanging marigold garlands so the carved white marble friezes and column capitals are clearly visible for 3D reconstruction."
+  },
+  "hill_fort_gate": {
+    "score": 93,
+    "problems": [
+      "Gold relief figures in the upper saffron frieze (chariots, horses, and people) have melted, indistinct AI artifacts.",
+      "Intricate micro-carvings in the recessed corbeling above the door are slightly mushy and incoherent.",
+      "Left green malachite column is slightly warped and lacks crisp geometric symmetry compared to the right column."
+    ],
+    "fix_prompt": "Keep the exact architectural design, framing, and white background, but sharpen all carved details: replace the melted gold frieze figures with crisp, anatomically clear classical Indian relief sculptures of chariots, horses, and lions; clean up the mushy micro-carvings in the central corbeling into sharp geometric temple patterns; and straighten the left green malachite column to match the right column's symmetry."
+  },
+  "sabha_column_bay": {
+    "score": 88,
+    "problems": [
+      "Western Corinthian-style column capitals clash with ancient Indian architecture",
+      "Melted, mushy AI artifacts in the carved frieze figures and plinth reliefs",
+      "Thin hanging flower strings are difficult for clean 3D mesh reconstruction"
+    ],
+    "fix_prompt": "Replace the Corinthian capitals with traditional Indian lotus/purna-kalasha capitals, sharpen the carved marble frieze figures to remove AI mushiness, and thicken the hanging marigold garland attachments for cleaner 3D geometry while preserving the exact arch structure, green malachite columns, and pure white background."
+  },
+  "war_elephant": {
+    "score": 88,
+    "problems": [
+      "Howdah canopy has an excessive number of green malachite columns (twelve instead of four or eight) that misalign with the square marble base.",
+      "Shallow golden dome lacks the required bulbous profile and prominent kalash finial.",
+      "Cream marble howdah base is plain, lacking carved architectural friezes.",
+      "Front golden quiver is awkwardly fused into the corner of the marble base and saddle blanket without visible straps or mounts.",
+      "Arrow fletchings inside the quivers are slightly melted and indistinct."
+    ],
+    "fix_prompt": "Refine the howdah canopy on the war elephant to have exactly four corner green malachite columns aligned cleanly with the square cream marble base, topped with a more bulbous polished gold dome and prominent kalash finial. Add intricate ancient Indian carved relief friezes to the cream marble howdah walls. Properly mount the golden quivers to the sides of the marble box with ornate gold brackets, and sharpen the arrow fletchings."
+  },
+  "white_horse": {
+    "score": 96,
+    "problems": [
+      "Slightly muddy filigree detail on the saddle cloth and breastplate",
+      "Thin hanging bells and plume feathers may cause minor 3D reconstruction thickness issues"
+    ],
+    "fix_prompt": "Sharpen the gold filigree and malachite inlay details on the saddle cloth and harness, and slightly thicken the hanging bells and head plume for cleaner 3D mesh generation while preserving the exact white marble horse design."
+  },
+  "peacock_throne": {
+    "score": 89,
+    "problems": [
+      "Asymmetrical geometry on the lower backrest where green malachite panels and gold rays are unevenly placed.",
+      "Left lion armrest's hind legs intersect awkwardly into the red cushion instead of standing cleanly on the marble base.",
+      "The lions are rendered in a naturalistic Western style rather than traditional stylized ancient Indian sculpture (Simhasana/Yali)."
+    ],
+    "fix_prompt": "Make the lower backrest geometry and malachite inlays completely symmetrical. Place all four paws of the left lion armrest cleanly on the white marble base outside the red cushion. Restyle the lions into traditional stylized ancient Indian sculpted lions."
+  },
+  "dwaraka_tower": {
+    "score": 92,
+    "problems": [
+      "Main central tower is a curvilinear Nagara shikhara rather than a polished gold bulb dome as specified in the style guide",
+      "Minor AI-generated blurriness and indistinct shapes in the smallest carved relief figures and upper spire motifs"
+    ],
+    "fix_prompt": "Sharpen all miniature carved reliefs and elephant friezes to eliminate AI blurriness, and refine the smaller domes and main spire to incorporate more prominent polished gold bulbous dome elements while preserving the exact three-quarter view, white marble base, green malachite columns, and pure white background."
+  }
+}

@@ -139,7 +139,7 @@ def build(per_side):
                        "t": xf(-1.8 + i * 1.2, 4.2, 0, 0)})
 
     cameras = [
-        {"label": "KRK_CAM_Wide", "loc": xf(-660, -10, 30)[:3], "rot": [-2.5, 0.0, 0.0], "fov": 60,
+        {"label": "KRK_CAM_Wide", "loc": xf(-660, -10, 45)[:3], "rot": [-4.0, -15.0, 0.0], "fov": 60,
          "note": "Establishing: both hosts across the empty strip, low sun behind the Kaurava side"},
         {"label": "KRK_CAM_HeroChariot", "loc": xf(-7, -11, 1.4)[:3], "rot": [6.0, 57.0, 0.0], "fov": 50,
          "note": "Low hero angle on Arjuna's chariot alone in the middle ground (SH080)"},

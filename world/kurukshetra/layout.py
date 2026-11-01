@@ -26,14 +26,14 @@ SIDES = {
                     tents=["KRK_Tent_Red"], chariot="krk_duryodhana_chariot", tint="Red"),
 }
 
-STRIP_HALF = 200      # m: half-width of the empty middle ground
+STRIP_HALF = 90       # m: half-width of the empty middle ground (v3: hosts closer)
 FRONT = 1100          # m: width of each host's front (v2: narrower, deeper blocks)
 LANE_EVERY = 260      # m: chariot lane spacing along the front
 LANE_W = 24           # m
 SPACING = 1.4         # m between files (close order)
 RANK_GAP = 1.7        # m between ranks
-LINE_EVERY = 10       # ranks per line; lines are split by a 14 m gap
-CAMP_BACK = 900       # m: camp distance behind the front line
+LINE_EVERY = 10       # ranks per line; lines are split by a 4 m gap (v3: solid masses)
+CAMP_BACK = 120       # m: camp distance behind the rear line (v3: camps read in the wide shot)
 
 
 def xf(x, y, z=0.0, yaw=0.0, s=1.0):
@@ -65,13 +65,16 @@ def build(per_side):
             for r in range(ranks):
                 if placed >= per_side:
                     break
-                yy = sy * (STRIP_HALF + 6 + r * RANK_GAP + (r // LINE_EVERY) * 14)
+                if rng.random() < 0.04:  # gaps make the mass ragged, not a grid
+                    continue
+                ragged = 3 * math.sin(x / 53.0 + sy) + 1.0 * math.sin(x / 17.0)
+                yy = sy * (STRIP_HALF + 6 + ragged + r * RANK_GAP + (r // LINE_EVERY) * 4)
                 add(cfg["soldier"], f"KRK/{side}/Infantry",
-                    xf(x + rng.uniform(-0.35, 0.35), yy + rng.uniform(-0.3, 0.3), 0,
+                    xf(x + rng.uniform(-0.6, 0.6), yy + rng.uniform(-0.6, 0.6), 0,
                        yaw + rng.uniform(-6, 6), rng.uniform(0.95, 1.05)))
                 placed += 1
             x += step
-        depth = STRIP_HALF + 6 + ranks * RANK_GAP + (ranks // LINE_EVERY) * 14
+        depth = STRIP_HALF + 12 + ranks * RANK_GAP + (ranks // LINE_EVERY) * 4
 
         # banner line just in front of the infantry, and a second line behind it
         for i, bx in enumerate(range(-FRONT // 2, FRONT // 2 + 1, 25)):
@@ -97,16 +100,16 @@ def build(per_side):
 
         # camp behind the host
         cy0 = sy * (depth + CAMP_BACK)
-        for i in range(60):
+        for i in range(160):
             a = rng.uniform(0, math.tau)
-            r = rng.uniform(40, 260)
+            r = rng.uniform(20, 140)
             add(cfg["tents"][i % len(cfg["tents"])], f"KRK/{side}/Camp",
                 xf(math.cos(a) * r * 2.2, cy0 + math.sin(a) * r, 0, rng.choice([0, 90, 180, 270])))
         for i in range(24):
             add(["KRK_WeaponRack", "KRK_SpearStack", "KRK_ShieldStack", "KRK_FirePit"][i % 4], f"KRK/{side}/Camp",
                 xf(rng.uniform(-500, 500), cy0 + rng.uniform(-200, 200), 0, rng.uniform(0, 360)))
         for i in range(0, 1200, 10):  # palisade across the camp front
-            add("KRK_Palisade", f"KRK/{side}/Camp", xf(-600 + i, cy0 - sy * 300, 0, 0))
+            add("KRK_Palisade", f"KRK/{side}/Camp", xf(-600 + i, cy0 + sy * 170, 0, 0))  # behind the camp
         heroes.append({"mesh": "krk_war_tent", "label": f"KRK3D_{side}_CommandTent",
                        "folder": f"KRK/{side}/Camp", "t": xf(0, cy0, 0, yaw)})
 
@@ -136,7 +139,7 @@ def build(per_side):
                        "t": xf(-1.8 + i * 1.2, 4.2, 0, 0)})
 
     cameras = [
-        {"label": "KRK_CAM_Wide", "loc": xf(-430, -560, 75)[:3], "rot": [-7.5, 50.0, 0.0], "fov": 55,
+        {"label": "KRK_CAM_Wide", "loc": xf(-580, -8, 16)[:3], "rot": [-1.0, 0.0, 0.0], "fov": 62,
          "note": "Establishing: both hosts across the empty strip, low sun behind the Kaurava side"},
         {"label": "KRK_CAM_HeroChariot", "loc": xf(-7, -11, 1.4)[:3], "rot": [6.0, 57.0, 0.0], "fov": 50,
          "note": "Low hero angle on Arjuna's chariot alone in the middle ground (SH080)"},

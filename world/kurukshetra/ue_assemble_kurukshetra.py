@@ -198,6 +198,51 @@ def spawn_single(label, folder, mesh, t):
     return a
 
 
+def ground_material():
+    """v3: dusty ground with large patches and fine mottling instead of one flat colour."""
+    path = f"{MAT_DIR}/M_KRK_Ground"
+    if eal.does_asset_exist(path):
+        return eal.load_asset(path)
+    mel = unreal.MaterialEditingLibrary
+    mat = asset_tools.create_asset("M_KRK_Ground", MAT_DIR, unreal.Material, unreal.MaterialFactoryNew())
+
+    def const3(rgb, x, y):
+        e = mel.create_material_expression(mat, unreal.MaterialExpressionConstant3Vector, x, y)
+        e.set_editor_property("constant", unreal.LinearColor(rgb[0], rgb[1], rgb[2], 1))
+        return e
+
+    def noise(scale, x, y):
+        e = mel.create_material_expression(mat, unreal.MaterialExpressionNoise, x, y)
+        e.set_editor_property("scale", scale)
+        e.set_editor_property("output_min", 0.0)
+        e.set_editor_property("output_max", 1.0)
+        return e
+
+    light, dust, dark = const3((0.62, 0.48, 0.32), -900, 0), const3((0.45, 0.33, 0.21), -900, 150), \
+        const3((0.23, 0.17, 0.11), -900, 300)
+    big, fine = noise(0.0004, -900, 450), noise(0.03, -900, 600)
+    l1 = mel.create_material_expression(mat, unreal.MaterialExpressionLinearInterpolate, -500, 100)
+    mel.connect_material_expressions(light, "", l1, "A")
+    mel.connect_material_expressions(dust, "", l1, "B")
+    mel.connect_material_expressions(big, "", l1, "Alpha")
+    k = mel.create_material_expression(mat, unreal.MaterialExpressionConstant, -700, 700)
+    k.set_editor_property("r", 0.35)
+    m = mel.create_material_expression(mat, unreal.MaterialExpressionMultiply, -500, 600)
+    mel.connect_material_expressions(fine, "", m, "A")
+    mel.connect_material_expressions(k, "", m, "B")
+    l2 = mel.create_material_expression(mat, unreal.MaterialExpressionLinearInterpolate, -250, 200)
+    mel.connect_material_expressions(l1, "", l2, "A")
+    mel.connect_material_expressions(dark, "", l2, "B")
+    mel.connect_material_expressions(m, "", l2, "Alpha")
+    mel.connect_material_property(l2, "", unreal.MaterialProperty.MP_BASE_COLOR)
+    rough = mel.create_material_expression(mat, unreal.MaterialExpressionConstant, -250, 400)
+    rough.set_editor_property("r", 0.95)
+    mel.connect_material_property(rough, "", unreal.MaterialProperty.MP_ROUGHNESS)
+    mel.recompile_material(mat)
+    eal.save_loaded_asset(mat)
+    return mat
+
+
 def environment(L):
     sun_cfg = L["sun"]
     sun = actor_sub.spawn_actor_from_class(unreal.DirectionalLight, unreal.Vector(0, 0, 50000),
@@ -248,7 +293,8 @@ def main():
     clear_previous()
 
     if L["terrain"] in kit:
-        spawn_single("KRKP_Terrain", "KRK/Terrain", kit[L["terrain"]], [0, 0, 0, 0, 1])
+        ter = spawn_single("KRKP_Terrain", "KRK/Terrain", kit[L["terrain"]], [0, 0, 0, 0, 1])
+        ter.static_mesh_component.set_material(0, ground_material())
 
     with unreal.ScopedSlowTask(len(L["groups"]), "Placing Kurukshetra") as task:
         task.make_dialog(True)

@@ -341631,16 +341631,16 @@
   {
    "label": "KRK_CAM_Wide",
    "loc": [
-    -58000.0,
-    -800.0,
-    1600.0
+    -66000.0,
+    -1000.0,
+    3000.0
    ],
    "rot": [
-    -1.0,
+    -2.5,
     0.0,
     0.0
    ],
-   "fov": 62,
+   "fov": 60,
    "note": "Establishing: both hosts across the empty strip, low sun behind the Kaurava side"
   },
   {

@@ -266,6 +266,22 @@ def fire_pit():
             rot=(math.sin(a) * 1.2, math.cos(a) * 1.2, 0))
 
 
+def grass_tuft():
+    rng = random.Random(SEED + 7)
+    for i in range(9):
+        a = rng.uniform(0, math.tau)
+        h = rng.uniform(0.25, 0.55)
+        o = cyl(0.025, h, (math.cos(a) * 0.06, math.sin(a) * 0.06, h / 2), "MAT_Sandstone", verts=3, r2=0.0)
+        o.rotation_euler = (rng.uniform(-0.5, 0.5), rng.uniform(-0.5, 0.5), 0)
+
+
+def rock():
+    bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=1, radius=0.35, location=(0, 0, 0.12))
+    o = bpy.context.object
+    o.scale = (1.3, 0.9, 0.5)
+    mat(o, "MAT_Sandstone")
+
+
 ASSETS = [
     ("KRK_Terrain", "terrain", terrain),
     ("KRK_BannerPole_Saffron_Tall", "banner", lambda: banner_pole(9.0, "MAT_Saffron", 2.4, 3.2)),
@@ -281,6 +297,8 @@ ASSETS = [
     ("KRK_ShieldStack", "camp", shield_stack),
     ("KRK_FirePit", "camp", fire_pit),
     ("KRK_SoldierProxy_Pandava", "crowd", lambda: soldier_proxy("MAT_Saffron", "MAT_Gold", "bow")),
+    ("KRK_GrassTuft", "ground", grass_tuft),
+    ("KRK_Rock", "ground", rock),
     ("KRK_SoldierProxy_Kaurava", "crowd", lambda: soldier_proxy("MAT_Red", "MAT_Bronze", "spear")),
 ]
 

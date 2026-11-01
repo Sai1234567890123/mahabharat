@@ -208,7 +208,10 @@ def environment(L):
     lc.set_editor_property("intensity", 9.0)
     lc.set_light_color(unreal.LinearColor(1.0, 0.76, 0.48, 1))
     lc.set_editor_property("atmosphere_sun_light", True)
-    for cls, label in ((unreal.SkyAtmosphere, "KRK_ENV_Sky"), (unreal.SkyLight, "KRK_ENV_SkyLight")):
+    env = [(unreal.SkyAtmosphere, "KRK_ENV_Sky"), (unreal.SkyLight, "KRK_ENV_SkyLight")]
+    if sun_cfg.get("clouds") and hasattr(unreal, "VolumetricCloud"):
+        env.append((unreal.VolumetricCloud, "KRK_ENV_Clouds"))  # v2: dramatic sky
+    for cls, label in env:
         a = actor_sub.spawn_actor_from_class(cls, unreal.Vector(0, 0, 0))
         a.set_actor_label(label)
         a.set_folder_path("KRK/Env")
@@ -219,7 +222,7 @@ def environment(L):
     fog.set_folder_path("KRK/Env")
     fc = fog.get_component_by_class(unreal.ExponentialHeightFogComponent)
     fc.set_editor_property("fog_density", sun_cfg["fog_density"])
-    fc.set_editor_property("fog_height_falloff", 0.35)
+    fc.set_editor_property("fog_height_falloff", 0.12)
     fc.set_editor_property("fog_inscattering_luminance", unreal.LinearColor(0.71, 0.54, 0.35, 1))
     fc.set_editor_property("enable_volumetric_fog", True)
     fc.set_editor_property("volumetric_fog_albedo", unreal.Color(220, 180, 130, 255))

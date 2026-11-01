@@ -6,7 +6,7 @@ faces +Y (yaw 0); the Kaurava host stands at Y > 0 and faces -Y (yaw 180).
 The empty middle strip runs along X through the origin, and Arjuna's
 chariot stands at the origin, as in pilot shots SH080-SH090.
 
-Usage: python layout.py [--per-side 12000] [--out layout.json]
+Usage: python layout.py [--per-side 20000] [--out layout.json]
 """
 import argparse
 import json
@@ -27,7 +27,7 @@ SIDES = {
 }
 
 STRIP_HALF = 200      # m: half-width of the empty middle ground
-FRONT = 1600          # m: width of each host's front
+FRONT = 1100          # m: width of each host's front (v2: narrower, deeper blocks)
 LANE_EVERY = 260      # m: chariot lane spacing along the front
 LANE_W = 24           # m
 SPACING = 1.4         # m between files (close order)
@@ -110,6 +110,15 @@ def build(per_side):
         heroes.append({"mesh": "krk_war_tent", "label": f"KRK3D_{side}_CommandTent",
                        "folder": f"KRK/{side}/Camp", "t": xf(0, cy0, 0, yaw)})
 
+    # ground scatter (v2): dry grass and stones break up the flat plain
+    for i in range(9000):
+        if i % 3 == 0:
+            x, y = rng.uniform(-260, 260), rng.uniform(-STRIP_HALF, STRIP_HALF)  # near the strip
+        else:
+            x, y = rng.uniform(-1600, 1600), rng.uniform(-1300, 1300)
+        add("KRK_GrassTuft" if i % 4 else "KRK_Rock", "KRK/Ground",
+            xf(x, y, 0, rng.uniform(0, 360), rng.uniform(0.6, 1.8)))
+
     # hero pieces, fixed positions
     heroes += [
         {"mesh": "hst_arjuna_chariot", "label": "KRK3D_Arjuna_Chariot", "folder": "KRK/Heroes", "t": xf(0, 0, 0, 0)},
@@ -129,19 +138,19 @@ def build(per_side):
     cameras = [
         {"label": "KRK_CAM_Wide", "loc": xf(-430, -560, 75)[:3], "rot": [-7.5, 50.0, 0.0], "fov": 55,
          "note": "Establishing: both hosts across the empty strip, low sun behind the Kaurava side"},
-        {"label": "KRK_CAM_HeroChariot", "loc": xf(-9, -14, 1.6)[:3], "rot": [4.0, 58.0, 0.0], "fov": 40,
+        {"label": "KRK_CAM_HeroChariot", "loc": xf(-7, -11, 1.4)[:3], "rot": [6.0, 57.0, 0.0], "fov": 50,
          "note": "Low hero angle on Arjuna's chariot alone in the middle ground (SH080)"},
         {"label": "KRK_CAM_Bhishma", "loc": xf(-30, 30, 2.2)[:3], "rot": [2.0, 105.0, 0.0], "fov": 30,
          "note": "Across the field to Bhishma's car from Arjuna's side (SH030/SH100)"},
     ]
-    sun = {"pitch": -11.0, "yaw": -95.0, "color": "#FFC37A", "fog_color": "#B48A5A", "fog_density": 0.035}
+    sun = {"pitch": -11.0, "yaw": -95.0, "color": "#FFC37A", "fog_color": "#B48A5A", "fog_density": 0.008, "clouds": True}
     return {"world": "Kurukshetra", "seed": SEED, "per_side": per_side, "terrain": "KRK_Terrain",
             "groups": groups, "heroes": heroes, "cameras": cameras, "sun": sun}
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--per-side", type=int, default=12000)
+    ap.add_argument("--per-side", type=int, default=20000)
     ap.add_argument("--out", default="layout.json")
     a = ap.parse_args()
     data = build(a.per_side)

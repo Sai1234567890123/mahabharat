@@ -9,7 +9,8 @@ World 1 in the bible. Same method as Hastinapur (`world/ASSEMBLY_METHOD.md` on t
 | `ue_assemble_kurukshetra.py` | Runs in the Unreal editor. Imports the kit (Nanite on), finds the TRELLIS meshes already in `/Game`, places crowds as instanced components (one actor per group), heroes as single actors, plus sun, sky, dust fog and cameras. Re-running replaces only `KRKP_`, `KRK3D_`, `KRK_CAM_` and `KRK_ENV_` actors. |
 | `preview_kit.py`, `preview_layout.py` | Cycles CPU previews of the kit and of the layout from a check camera, for checking before Unreal. |
 | `checks/` | Preview images. |
+| `hero/` | The hero battle models built in Blender only (chariots, soldiers, war tents, banner, drum cart, wreck). See `hero/README.md`. |
 
-TRELLIS meshes that are not built yet (the `krk_*` ones) are skipped with a warning, so the level can be assembled now with the existing `hst_*` chariot, horse and elephant.
+The layout now uses the Blender hero models from `hero/` for soldiers, chariots, command tents, the ape standard and the drum cart. Copy the `build_hero.py` output folder next to the script as `hero_out/` (or pass it as the third argument) and the Unreal script imports it to `/Game/Kurukshetra/Hero`. Horses and elephants are still the existing `hst_*` TRELLIS meshes. `python layout.py --soldiers proxy` goes back to the flat stand-ins if 40,000 soldier models are too heavy for the PC.
 
-Note: the Unreal script has not been run yet. The first run on the PC may need small API fixes.
+The hero import path of the Unreal script has not been run on the PC yet. The first run may need small API fixes.

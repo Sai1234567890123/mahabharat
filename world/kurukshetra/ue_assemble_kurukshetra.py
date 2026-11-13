@@ -10,7 +10,12 @@ Follows world/ASSEMBLY_METHOD.md steps 5 to 7 for the Kurukshetra kit:
 
 Re-running replaces only actors whose label starts with KRKP_ or KRK3D_ or KRK_CAM_.
 
-In the editor:  py "<path>/ue_assemble_kurukshetra.py" "<kit_dir>" "<layout.json>"
+Hero battle models (hero/build_hero.py: chariots, soldiers, war tents, banner, drum cart) are
+imported from <hero_dir>/manifest.json into /Game/Kurukshetra/Hero when that folder exists. Their
+MAT_* slots get flat master materials M_KRKH_* built from the palette stored in that manifest.
+A hero model wins over a TRELLIS mesh of the same name. Add --reimport to import the FBXs again.
+
+In the editor:  py "<path>/ue_assemble_kurukshetra.py" "<kit_dir>" "<layout.json>" ["<hero_dir>"] [--reimport]
 """
 import json
 import math
@@ -19,9 +24,13 @@ import sys
 
 import unreal
 
-KIT_DIR, LAYOUT = (sys.argv[1:3] if len(sys.argv) >= 3 else
-                   (os.path.join(os.path.dirname(__file__), "kit"), os.path.join(os.path.dirname(__file__), "layout.json")))
+ARGS = [a for a in sys.argv[1:] if not a.startswith("--")]
+REIMPORT = "--reimport" in sys.argv
+HERE = os.path.dirname(__file__)
+KIT_DIR, LAYOUT = (ARGS[0:2] if len(ARGS) >= 2 else (os.path.join(HERE, "kit"), os.path.join(HERE, "layout.json")))
+HERO_DIR = ARGS[2] if len(ARGS) >= 3 else os.path.join(HERE, "hero_out")
 DEST = "/Game/Kurukshetra/Proc"
+HERO_DEST = "/Game/Kurukshetra/Hero"
 MAT_DIR = "/Game/Kurukshetra/Materials"
 # Master materials made by the Hastinapur assemble_proc.py are reused if they exist there.
 HST_MAT_DIRS = ["/Game/Hastinapur/Proc/Materials", "/Game/Hastinapur/Materials"]
@@ -43,28 +52,46 @@ def log(msg):
 
 
 # ------------------------------------------------------------ materials
+def make_material(name, rgb_linear, metallic, roughness):
+    """Flat master material: constant base colour, metallic and roughness."""
+    mat = asset_tools.create_asset(name, MAT_DIR, unreal.Material, unreal.MaterialFactoryNew())
+    mel = unreal.MaterialEditingLibrary
+    col = mel.create_material_expression(mat, unreal.MaterialExpressionConstant3Vector, -400, 0)
+    r, g, b = rgb_linear
+    col.set_editor_property("constant", unreal.LinearColor(r, g, b, 1))
+    mel.connect_material_property(col, "", unreal.MaterialProperty.MP_BASE_COLOR)
+    metal = mel.create_material_expression(mat, unreal.MaterialExpressionConstant, -400, 200)
+    metal.set_editor_property("r", metallic)
+    mel.connect_material_property(metal, "", unreal.MaterialProperty.MP_METALLIC)
+    rough = mel.create_material_expression(mat, unreal.MaterialExpressionConstant, -400, 300)
+    rough.set_editor_property("r", roughness)
+    mel.connect_material_property(rough, "", unreal.MaterialProperty.MP_ROUGHNESS)
+    mel.recompile_material(mat)
+    eal.save_loaded_asset(mat)
+    return mat
+
+
 def master_material(slot):
     for d in HST_MAT_DIRS + [MAT_DIR]:
         for name in (f"M_{slot}", slot):
             p = f"{d}/{name}"
             if eal.does_asset_exist(p):
                 return eal.load_asset(p)
-    # create a simple master: constant base colour, metallic for gold and bronze
-    mat = asset_tools.create_asset(f"M_{slot}", MAT_DIR, unreal.Material, unreal.MaterialFactoryNew())
-    mel = unreal.MaterialEditingLibrary
-    col = mel.create_material_expression(mat, unreal.MaterialExpressionConstant3Vector, -400, 0)
-    r, g, b = SLOT_COLOURS[slot]
-    col.set_editor_property("constant", unreal.LinearColor(r, g, b, 1))
-    mel.connect_material_property(col, "", unreal.MaterialProperty.MP_BASE_COLOR)
-    metal = mel.create_material_expression(mat, unreal.MaterialExpressionConstant, -400, 200)
-    metal.set_editor_property("r", 1.0 if slot in ("MAT_Gold", "MAT_Bronze") else 0.0)
-    mel.connect_material_property(metal, "", unreal.MaterialProperty.MP_METALLIC)
-    rough = mel.create_material_expression(mat, unreal.MaterialExpressionConstant, -400, 300)
-    rough.set_editor_property("r", 0.3 if slot in ("MAT_Gold", "MAT_Bronze") else 0.8)
-    mel.connect_material_property(rough, "", unreal.MaterialProperty.MP_ROUGHNESS)
-    mel.recompile_material(mat)
-    eal.save_loaded_asset(mat)
-    return mat
+    metal = slot in ("MAT_Gold", "MAT_Bronze")
+    return make_material(f"M_{slot}", SLOT_COLOURS[slot], 1.0 if metal else 0.0, 0.3 if metal else 0.8)
+
+
+def srgb_to_linear(c):
+    return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+
+
+def hero_material(slot, spec):
+    """Master for one hero palette slot. The manifest stores sRGB; Unreal wants linear."""
+    name = f"M_KRKH_{slot[4:]}"
+    p = f"{MAT_DIR}/{name}"
+    if eal.does_asset_exist(p):
+        return eal.load_asset(p)
+    return make_material(name, [srgb_to_linear(c) for c in spec["srgb"]], spec["metallic"], spec["roughness"])
 
 
 def tinted_instance(base_mat, tint):
@@ -87,18 +114,19 @@ def tinted_instance(base_mat, tint):
 
 
 # ------------------------------------------------------------ import
-def import_kit():
-    man = json.load(open(os.path.join(KIT_DIR, "manifest.json")))
+def import_set(src_dir, dest, material_for, what):
+    """Import every FBX in <src_dir>/manifest.json to <dest>; Nanite on; slots mapped by material_for(slot name)."""
+    man = json.load(open(os.path.join(src_dir, "manifest.json")))
     meshes = {}
     tasks = []
     for a in man["assets"]:
-        sm_path = f"{DEST}/SM_{a['name']}"
-        if eal.does_asset_exist(sm_path):
+        sm_path = f"{dest}/SM_{a['name']}"
+        if eal.does_asset_exist(sm_path) and not REIMPORT:
             meshes[a["name"]] = eal.load_asset(sm_path)
             continue
         t = unreal.AssetImportTask()
-        t.filename = os.path.join(KIT_DIR, a["file"])
-        t.destination_path = DEST
+        t.filename = os.path.join(src_dir, a["file"])
+        t.destination_path = dest
         t.automated = True
         t.replace_existing = True
         t.save = True
@@ -115,23 +143,46 @@ def import_kit():
     if tasks:
         asset_tools.import_asset_tasks([t for _, t in tasks])
     for name, _ in tasks:
-        meshes[name] = eal.load_asset(f"{DEST}/SM_{name}")
-    for name, sm in meshes.items():
+        meshes[name] = eal.load_asset(f"{dest}/SM_{name}")
+    for name, sm in list(meshes.items()):
         if sm is None:
             unreal.log_warning(f"[KRK] import failed: {name}")
+            del meshes[name]
             continue
         ns = sm.get_editor_property("nanite_settings")
         if not ns.enabled:
             ns.enabled = True
             sm.set_editor_property("nanite_settings", ns)
         for i, slot in enumerate(sm.static_materials):
-            sname = str(slot.material_slot_name)
-            key = next((k for k in SLOT_COLOURS if sname.startswith(k)), None)
-            if key:
-                sm.set_material(i, master_material(key))
+            mat = material_for(str(slot.material_slot_name), man)
+            if mat is not None:
+                sm.set_material(i, mat)
         eal.save_loaded_asset(sm)
-    log(f"kit ready: {len(meshes)} meshes")
+    log(f"{what} ready: {len(meshes)} meshes")
     return meshes
+
+
+def kit_slot(sname, man):
+    key = next((k for k in SLOT_COLOURS if sname.startswith(k)), None)
+    return master_material(key) if key else None
+
+
+def hero_slot(sname, man):
+    pal = man.get("materials", {})
+    # longest name first, so MAT_GoldDark is not taken for MAT_Gold
+    key = next((k for k in sorted(pal, key=len, reverse=True) if sname.startswith(k)), None)
+    return hero_material(key, pal[key]) if key else None
+
+
+def import_kit():
+    return import_set(KIT_DIR, DEST, kit_slot, "kit")
+
+
+def import_hero():
+    if not os.path.exists(os.path.join(HERO_DIR, "manifest.json")):
+        unreal.log_warning(f"[KRK] no hero models at {HERO_DIR}; using TRELLIS meshes and proxies only")
+        return {}
+    return import_set(HERO_DIR, HERO_DEST, hero_slot, "hero models")
 
 
 def find_trellis_meshes(names):
@@ -287,9 +338,11 @@ def cameras(L):
 def main():
     L = json.load(open(LAYOUT))
     kit = import_kit()
-    trellis_names = sorted({k.split("@")[0] for k in L["groups"] if not k.startswith("KRK_")} |
-                           {h["mesh"] for h in L["heroes"]})
+    hero = import_hero()
+    trellis_names = sorted(({k.split("@")[0] for k in L["groups"] if not k.startswith("KRK_")} |
+                            {h["mesh"] for h in L["heroes"]}) - set(hero))
     trellis = find_trellis_meshes(trellis_names)
+    trellis.update(hero)  # a hero model wins over a TRELLIS mesh of the same name
     clear_previous()
 
     if L["terrain"] in kit:

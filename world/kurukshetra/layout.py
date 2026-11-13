@@ -6,7 +6,10 @@ faces +Y (yaw 0); the Kaurava host stands at Y > 0 and faces -Y (yaw 180).
 The empty middle strip runs along X through the origin, and Arjuna's
 chariot stands at the origin, as in pilot shots SH080-SH090.
 
-Usage: python layout.py [--per-side 20000] [--out layout.json]
+Soldiers, chariots, command tents, the standard and the drum cart are the Blender hero models from
+hero/build_hero.py (krk_*). --soldiers proxy falls back to the flat kit proxies if the PC struggles.
+
+Usage: python layout.py [--per-side 20000] [--soldiers hero|proxy] [--wrecks 0] [--out layout.json]
 """
 import argparse
 import json
@@ -18,12 +21,14 @@ SEED = 1801
 
 # Sides: (sign of Y, yaw, soldier mesh, banner meshes, elephant tint, chariot)
 SIDES = {
-    "Pandava": dict(sy=-1, yaw=0.0, soldier="KRK_SoldierProxy_Pandava", soldier_final="krk_pandava_archer",
+    "Pandava": dict(sy=-1, yaw=0.0, proxy="KRK_SoldierProxy_Pandava", soldier="krk_pandava_archer",
                     banners=["KRK_BannerPole_Saffron_Tall", "KRK_BannerPole_Saffron_Short"],
-                    tents=["KRK_Tent_Saffron", "KRK_Tent_Marble"], chariot="hst_royal_chariot", tint="Saffron"),
-    "Kaurava": dict(sy=1, yaw=180.0, soldier="KRK_SoldierProxy_Kaurava", soldier_final="krk_kaurava_soldier",
+                    tents=["KRK_Tent_Saffron", "KRK_Tent_Marble"], chariot="krk_rank_chariot",
+                    war_tent="krk_war_tent", tint="Saffron"),
+    "Kaurava": dict(sy=1, yaw=180.0, proxy="KRK_SoldierProxy_Kaurava", soldier="krk_kaurava_soldier",
                     banners=["KRK_BannerPole_Red_Tall", "KRK_BannerPole_Red_Short"],
-                    tents=["KRK_Tent_Red"], chariot="krk_duryodhana_chariot", tint="Red"),
+                    tents=["KRK_Tent_Red"], chariot="krk_rank_chariot_red",
+                    war_tent="krk_war_tent_red", tint="Red"),
 }
 
 STRIP_HALF = 90       # m: half-width of the empty middle ground (v3: hosts closer)
@@ -34,19 +39,28 @@ SPACING = 1.4         # m between files (close order)
 RANK_GAP = 1.7        # m between ranks
 LINE_EVERY = 10       # ranks per line; lines are split by a 4 m gap (v3: solid masses)
 CAMP_BACK = 120       # m: camp distance behind the rear line (v3: camps read in the wide shot)
+FRONT_RANKS = 2       # ranks that use the second pose (spears levelled, bows drawn)
+YOKE_AHEAD = 4.25     # m: horse centre ahead of the chariot origin (yoke sits at 4.7 m)
+HORSE_X = [-1.125, -0.375, 0.375, 1.125]  # four abreast under the yoke collars
 
 
 def xf(x, y, z=0.0, yaw=0.0, s=1.0):
     return [round(x * M, 1), round(y * M, 1), round(z * M, 1), round(yaw, 2), round(s, 3)]
 
 
-def build(per_side):
+def build(per_side, soldiers="hero", wrecks=0):
     rng = random.Random(SEED)
     groups = {}  # mesh -> {"folder":..., "instances":[...]} for instanced crowds/props
     heroes = []  # single actors
 
     def add(mesh, folder, t):
         groups.setdefault(mesh, {"folder": folder, "instances": []})["instances"].append(t)
+
+    def team(x, y, yaw, folder):
+        """Four horses abreast under the yoke of a chariot standing at (x, y)."""
+        f = 1 if yaw == 0 else -1  # yaw 0 faces +Y, yaw 180 faces -Y
+        for hx in HORSE_X:
+            add("hst_white_horse", folder, xf(x + hx, y + f * YOKE_AHEAD, 0, yaw))
 
     for side, cfg in SIDES.items():
         sy, yaw = cfg["sy"], cfg["yaw"]
@@ -69,7 +83,8 @@ def build(per_side):
                     continue
                 ragged = 3 * math.sin(x / 53.0 + sy) + 1.0 * math.sin(x / 17.0)
                 yy = sy * (STRIP_HALF + 6 + ragged + r * RANK_GAP + (r // LINE_EVERY) * 4)
-                add(cfg["soldier"], f"KRK/{side}/Infantry",
+                mesh = cfg["proxy"] if soldiers == "proxy" else cfg["soldier"] + ("_b" if r < FRONT_RANKS else "")
+                add(mesh, f"KRK/{side}/Infantry",
                     xf(x + rng.uniform(-0.6, 0.6), yy + rng.uniform(-0.6, 0.6), 0,
                        yaw + rng.uniform(-6, 6), rng.uniform(0.95, 1.05)))
                 placed += 1
@@ -89,9 +104,7 @@ def build(per_side):
             for k in range(3):
                 cy = sy * (STRIP_HALF + 15 + k * 18)
                 add(cfg["chariot"], f"KRK/{side}/Chariots", xf(lx, cy, 0, yaw))
-                for h in range(4):
-                    add("hst_white_horse", f"KRK/{side}/Horses",
-                        xf(lx - 1.8 + h * 1.2, cy - sy * 4.2, 0, yaw))
+                team(lx, cy, yaw, f"KRK/{side}/Horses")
 
         # war elephants: a line behind the infantry
         for ex in range(-FRONT // 2 + 30, FRONT // 2, 55):
@@ -110,7 +123,7 @@ def build(per_side):
                 xf(rng.uniform(-500, 500), cy0 + rng.uniform(-200, 200), 0, rng.uniform(0, 360)))
         for i in range(0, 1200, 10):  # palisade across the camp front
             add("KRK_Palisade", f"KRK/{side}/Camp", xf(-600 + i, cy0 + sy * 170, 0, 0))  # behind the camp
-        heroes.append({"mesh": "krk_war_tent", "label": f"KRK3D_{side}_CommandTent",
+        heroes.append({"mesh": cfg["war_tent"], "label": f"KRK3D_{side}_CommandTent",
                        "folder": f"KRK/{side}/Camp", "t": xf(0, cy0, 0, yaw)})
 
     # ground scatter (v2): dry grass and stones break up the flat plain
@@ -122,21 +135,29 @@ def build(per_side):
         add("KRK_GrassTuft" if i % 4 else "KRK_Rock", "KRK/Ground",
             xf(x, y, 0, rng.uniform(0, 360), rng.uniform(0.6, 1.8)))
 
-    # hero pieces, fixed positions
+    # battle dressing (off for the pilot, which is set before the first arrow): wrecks in the middle ground
+    for i in range(wrecks):
+        add("krk_chariot_wreck", "KRK/Battle",
+            xf(rng.uniform(-300, 300), rng.uniform(-STRIP_HALF + 15, STRIP_HALF - 15), 0, rng.uniform(0, 360)))
+
+    # hero pieces, fixed positions (chariot origins are midway between the axles)
+    bhishma, duryodhana = (-40, STRIP_HALF + 12), (25, STRIP_HALF + 16)
     heroes += [
-        {"mesh": "hst_arjuna_chariot", "label": "KRK3D_Arjuna_Chariot", "folder": "KRK/Heroes", "t": xf(0, 0, 0, 0)},
-        {"mesh": "krk_ape_banner", "label": "KRK3D_Arjuna_ApeBanner", "folder": "KRK/Heroes",
-         "t": xf(0, -1.6, 0, 0, 1.4)},
+        {"mesh": "krk_arjuna_chariot", "label": "KRK3D_Arjuna_Chariot", "folder": "KRK/Heroes", "t": xf(0, 0, 0, 0)},
+        {"mesh": "krk_ape_banner", "label": "KRK3D_Pandava_ApeStandard", "folder": "KRK/Heroes",
+         "t": xf(-14, -(STRIP_HALF + 3), 0, 0)},
         {"mesh": "krk_bhishma_chariot", "label": "KRK3D_Bhishma_Chariot", "folder": "KRK/Heroes",
-         "t": xf(-40, STRIP_HALF + 12, 0, 180)},
+         "t": xf(*bhishma, 0, 180)},
         {"mesh": "krk_duryodhana_chariot", "label": "KRK3D_Duryodhana_Chariot", "folder": "KRK/Heroes",
-         "t": xf(25, STRIP_HALF + 16, 0, 180)},
+         "t": xf(*duryodhana, 0, 180)},
         {"mesh": "krk_war_drum_cart", "label": "KRK3D_Kaurava_DrumCart", "folder": "KRK/Heroes",
          "t": xf(-70, STRIP_HALF + 20, 0, 180)},
     ]
-    for i in range(4):
+    for i, hx in enumerate(HORSE_X):
         heroes.append({"mesh": "hst_white_horse", "label": f"KRK3D_Arjuna_Horse{i + 1}", "folder": "KRK/Heroes",
-                       "t": xf(-1.8 + i * 1.2, 4.2, 0, 0)})
+                       "t": xf(hx, YOKE_AHEAD, 0, 0)})
+    team(*bhishma, 180.0, "KRK/Kaurava/Horses")
+    team(*duryodhana, 180.0, "KRK/Kaurava/Horses")
 
     cameras = [
         {"label": "KRK_CAM_Wide", "loc": xf(-660, -10, 45)[:3], "rot": [-4.0, -15.0, 0.0], "fov": 60,
@@ -147,16 +168,18 @@ def build(per_side):
          "note": "Across the field to Bhishma's car from Arjuna's side (SH030/SH100)"},
     ]
     sun = {"pitch": -11.0, "yaw": -95.0, "color": "#FFC37A", "fog_color": "#B48A5A", "fog_density": 0.008, "clouds": True}
-    return {"world": "Kurukshetra", "seed": SEED, "per_side": per_side, "terrain": "KRK_Terrain",
+    return {"world": "Kurukshetra", "seed": SEED, "per_side": per_side, "soldiers": soldiers, "terrain": "KRK_Terrain",
             "groups": groups, "heroes": heroes, "cameras": cameras, "sun": sun}
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--per-side", type=int, default=20000)
+    ap.add_argument("--soldiers", choices=["hero", "proxy"], default="hero")
+    ap.add_argument("--wrecks", type=int, default=0, help="chariot wrecks in the middle ground (battle shots)")
     ap.add_argument("--out", default="layout.json")
     a = ap.parse_args()
-    data = build(a.per_side)
+    data = build(a.per_side, a.soldiers, a.wrecks)
     with open(a.out, "w") as f:
         json.dump(data, f, indent=1)
     n = sum(len(g["instances"]) for g in data["groups"].values())

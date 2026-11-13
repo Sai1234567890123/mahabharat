@@ -1,12 +1,16 @@
 import bpy, sys, os, json, math
 from mathutils import Vector
+# usage: python preview_layout.py <kit_dir> <layout.json> <out.png> <camera label> [hero_dir] [--no-standins]
 kit, layout, out, cam_label = sys.argv[1:5]
+extra = [a for a in sys.argv[5:] if not a.startswith("--")]
+dirs = [kit] + extra                      # the hero models folder (hero/build_hero.py output) is searched too
+STANDINS = "--no-standins" not in sys.argv  # grey boxes for meshes that only exist on the PC (horses, elephants)
 L = json.load(open(layout))
 bpy.ops.wm.read_factory_settings(use_empty=True)
 s = bpy.context.scene
 def imp(name):
-    p = os.path.join(kit, f"SM_{name}.fbx")
-    if not os.path.exists(p): return None
+    p = next((q for q in (os.path.join(d, f"SM_{name}.fbx") for d in dirs) if os.path.exists(q)), None)
+    if p is None: return None
     bpy.ops.import_scene.fbx(filepath=p)
     o = bpy.context.selected_objects[0]; o.hide_render = True; o.hide_viewport = True
     return o.data
@@ -15,6 +19,8 @@ def proxy_mesh(name):
     if name in proxy: return proxy[name]
     base = name.split("@")[0]
     me = imp(base)
+    if me is None and not STANDINS:
+        proxy[name] = None; return None
     if me is None:  # stand-in box sized like the real thing
         size = {"hst_white_horse": (0.6, 2.4, 1.7), "hst_war_elephant": (2.0, 4.5, 3.3), "krk_ape_banner": (0.4, 0.4, 12.0), "krk_war_tent": (10, 8, 6)}.get(base, (2.2, 3.5, 3.0))
         bpy.ops.mesh.primitive_cube_add(size=1); o = bpy.context.object
@@ -26,6 +32,7 @@ def proxy_mesh(name):
     proxy[name] = me; return me
 ter = imp(L["terrain"]); t = bpy.data.objects.new("terrain", ter); s.collection.objects.link(t)
 def place(me, tr):
+    if me is None: return
     o = bpy.data.objects.new("i", me); s.collection.objects.link(o)
     o.location = (tr[0] / 100, -tr[1] / 100, tr[2] / 100)
     o.rotation_euler = (0, 0, -math.radians(tr[3])); o.scale = (tr[4],) * 3
@@ -36,7 +43,8 @@ for h in L["heroes"]: place(proxy_mesh(h["mesh"]), h["t"])
 for m in bpy.data.materials:
     if m.use_nodes:
         b = m.node_tree.nodes.get("Principled BSDF")
-        if b: b.inputs["Base Color"].default_value = m.diffuse_color
+        if b and [round(c, 2) for c in b.inputs["Base Color"].default_value[:3]] == [0.8, 0.8, 0.8]:
+            b.inputs["Base Color"].default_value = m.diffuse_color   # imported hero materials keep their own colour
     else:
         m.use_nodes = True; m.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = m.diffuse_color
 c = [c for c in L["cameras"] if c["label"] == cam_label][0]
@@ -55,7 +63,8 @@ bg = w.node_tree.nodes["Background"]; bg.inputs[0].default_value = (0.75, 0.62, 
 vol = w.node_tree.nodes.new("ShaderNodeVolumePrincipled"); vol.inputs["Density"].default_value = 0.0012
 vol.inputs["Color"].default_value = (0.8, 0.62, 0.42, 1)
 
-s.render.engine = "CYCLES"; s.cycles.samples = 32; s.cycles.use_denoising = False
-s.render.resolution_x, s.render.resolution_y = 1280, 720
+s.render.engine = "CYCLES"; s.cycles.samples = 48
+s.cycles.use_denoising = True; s.view_settings.view_transform = "Standard"
+s.render.resolution_x, s.render.resolution_y = 1600, 900
 s.render.filepath = out
 bpy.ops.render.render(write_still=True)

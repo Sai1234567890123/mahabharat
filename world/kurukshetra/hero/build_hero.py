@@ -14,6 +14,7 @@ import bpy
 
 import assets as A
 import chariot as C
+import creatures as CR
 import hero_lib as H
 import render_check as RC
 
@@ -33,13 +34,26 @@ ASSETS = {
     "krk_war_tent_red": (lambda: A.war_tent("MAT_Crimson", "MAT_Bronze"), "camp", dict(az=-32, el=14, res=(1300, 1000))),
     "krk_war_drum_cart": (A.drum_cart, "hero", dict(az=-55, el=12, res=(1300, 1000))),
     "krk_chariot_wreck": (A.chariot_wreck, "battle", dict(az=-50, el=20, res=(1300, 1000))),
+    # batch 2 (13 Nov): animals, crews and battle props after concept images 24, 33, 34, 40 and 42
+    "krk_war_elephant": (lambda: CR.elephant("pandava", "walk"), "army", dict(az=-55, el=6, res=(1300, 1100))),
+    "krk_war_elephant_red": (lambda: CR.elephant("kaurava", "charge"), "army", dict(az=-55, el=6, res=(1300, 1100))),
+    "krk_horse_white": (lambda: CR.horse("MAT_White", "MAT_Gold", "MAT_Red"), "army", dict(az=-65, el=6, res=(1200, 1000))),
+    "krk_horse_team": (lambda: CR.horse_team("MAT_White", "MAT_Gold", "MAT_Red"), "hero", dict(az=-55, el=10, res=(1400, 1000))),
+    "krk_horse_team_dark": (lambda: CR.horse_team("MAT_Bay", "MAT_Bronze", "MAT_Crimson"), "army",
+                            dict(az=-55, el=10, res=(1400, 1000))),
+    "krk_kaurava_cavalry": (lambda: A.cavalry("kaurava"), "crowd", dict(az=-60, el=6, res=(1200, 1000))),
+    "krk_pandava_cavalry": (lambda: A.cavalry("pandava"), "crowd", dict(az=-60, el=6, res=(1200, 1000))),
+    "krk_conch": (A.conch, "prop", dict(az=-78, el=22, res=(1000, 800))),
+    "krk_gada": (A.gada, "prop", dict(az=-40, el=22, res=(1200, 800))),
+    "krk_great_bow": (A.great_bow, "prop", dict(az=-40, el=28, res=(1200, 800))),
+    "krk_arrow_cluster": (A.arrow_cluster, "battle", dict(az=-40, el=14, res=(1000, 800))),
 }
 
 
 # Chariots keep the origin midway between the axles (yoke at Blender y = -4.7, i.e. 4.7 m ahead in Unreal),
 # so the layout can stand the horses under the yoke and a rider on the seat.
 KEEP_ORIGIN = {"krk_arjuna_chariot", "krk_bhishma_chariot", "krk_duryodhana_chariot", "krk_rank_chariot",
-               "krk_rank_chariot_red"}
+               "krk_rank_chariot_red", "krk_horse_team", "krk_horse_team_dark"}
 
 
 def main():

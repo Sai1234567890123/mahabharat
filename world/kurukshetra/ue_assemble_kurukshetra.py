@@ -188,6 +188,8 @@ def import_hero():
 def find_trellis_meshes(names):
     """Locate already-imported TRELLIS meshes by name, anywhere under /Game."""
     found = {}
+    if not names:  # since hero batch 2 every mesh in the layout is a Blender model
+        return found
     want = {n.lower(): n for n in names}
     for path in eal.list_assets("/Game", recursive=True, include_folder=False):
         base = path.split("/")[-1].split(".")[0].lower()

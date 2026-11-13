@@ -47,6 +47,14 @@ for m in bpy.data.materials:
             b.inputs["Base Color"].default_value = m.diffuse_color   # imported hero materials keep their own colour
     else:
         m.use_nodes = True; m.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = m.diffuse_color
+for m in bpy.data.materials:  # dry ground: no mirror glare under the low sun
+    if m.name.startswith("MAT_Sandstone") and m.node_tree:
+        b = m.node_tree.nodes.get("Principled BSDF")
+        if b:
+            b.inputs["Roughness"].default_value = 1.0
+            b.inputs["Metallic"].default_value = 0.0
+            if "Specular IOR Level" in b.inputs:
+                b.inputs["Specular IOR Level"].default_value = 0.0
 c = [c for c in L["cameras"] if c["label"] == cam_label][0]
 cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); s.collection.objects.link(cam); s.camera = cam
 cam.location = (c["loc"][0] / 100, -c["loc"][1] / 100, c["loc"][2] / 100)

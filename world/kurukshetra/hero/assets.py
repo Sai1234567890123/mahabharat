@@ -83,7 +83,7 @@ def ape_banner(cloth="MAT_Saffron"):
 
 
 # ------------------------------------------------------------ soldiers
-def soldier(side="kaurava", pose="attention", seed=0):
+def soldier(side="kaurava", pose="attention", seed=0, legs="stand"):
     """Low-poly foot soldier, about 1.75 m, facing -Y. Skin, cloth and armour are separate fused shells."""
     kau = side == "kaurava"
     cloth, armour, trimc = ("MAT_Crimson", "MAT_Bronze", "MAT_Bronze") if kau else ("MAT_Saffron", "MAT_Gold", "MAT_Gold")
@@ -105,13 +105,16 @@ def soldier(side="kaurava", pose="attention", seed=0):
             r_el, r_hand = (0.30, 0.10, 1.40), (0.10, -0.10, 1.46)
     for sh, el, hand in (((0.20, 0, 1.44), r_el, r_hand), ((-0.20, 0, 1.44), l_el, l_hand)):
         skin += [("c", sh, el, 0.066, 0.055), ("c", el, hand, 0.054, 0.042), ("s", hand, (0.045, 0.055, 0.05))]
-    for sx, fy in ((-1, lf), (1, rf)):                      # shins and feet
-        skin += [("c", (sx * 0.10, fy * 0.5, 0.50), (sx * 0.10, fy, 0.09), 0.072, 0.05),
-                 ("s", (sx * 0.10, fy - 0.06, 0.04), (0.05, 0.11, 0.04))]
+    ride = legs == "ride"                                   # astride a horse: knees out and forward
+    knee = {sx: (sx * 0.31, -0.20, 0.66) if ride else (sx * 0.10, fy * 0.5, 0.50) for sx, fy in ((-1, lf), (1, rf))}
+    foot = {sx: (sx * 0.33, -0.12, 0.26) if ride else (sx * 0.10, fy, 0.09) for sx, fy in ((-1, lf), (1, rf))}
+    for sx in (-1, 1):                                      # shins and feet
+        skin += [("c", knee[sx], foot[sx], 0.072, 0.05),
+                 ("s", (foot[sx][0], foot[sx][1] - 0.06, foot[sx][2] - 0.05), (0.05, 0.11, 0.04))]
     body = blob(skin, voxel=0.022, smooth=2, mat="MAT_Skin")
     low = [("s", (0, 0, 0.95), (0.19, 0.14, 0.16))]         # dhoti: hips and thighs
-    for sx, fy in ((-1, lf), (1, rf)):
-        low.append(("c", (sx * 0.10, 0, 0.90), (sx * 0.10, fy * 0.5, 0.50), 0.095, 0.075))
+    for sx in (-1, 1):
+        low.append(("c", (sx * 0.10, 0, 0.90), knee[sx], 0.095, 0.075))
     low.append(("s", (0, -0.10, 0.80), (0.07, 0.03, 0.22)))  # front sash fall
     legs = blob(low, voxel=0.024, smooth=2, mat=cloth)
     top = [("s", (0, 0, 1.30), (0.19, 0.13, 0.20)), ("s", (0, 0, 1.12), (0.165, 0.12, 0.14)),
@@ -129,7 +132,7 @@ def soldier(side="kaurava", pose="attention", seed=0):
     parts.append(sphere(0.10, (0, 0.03, 1.62), "MAT_Black", scale=(0.97, 0.95, 1.05), seg=8))               # hair
     for sx in (-1, 1):                                                                                      # arm bands
         parts.append(lathe([(0.066, -0.02), (0.074, 0.0), (0.066, 0.02)], trimc, 8, T(sx * 0.215, 0, 1.33)))
-    if kau:                                                                                                 # armour skirt
+    if kau and not ride:                                                                                    # armour skirt
         parts.append(lathe([(0.20, 1.02), (0.235, 0.86), (0.245, 0.80), (0.225, 0.80), (0.19, 1.0)], armour, 12, S(1, 0.78, 1)))
         for k in range(12):
             a = k / 12 * math.tau
@@ -182,6 +185,18 @@ def soldier(side="kaurava", pose="attention", seed=0):
         parts.append(lathe([(0.0, 0.03), (0.10, 0.02), (0.12, 0.0), (0.0, 0.0)], armour, 10,
                            T(0, -0.125, 1.32) @ R(math.pi / 2, "X")))                                     # chest disc
     return join(parts, f"soldier_{side}_{pose}")
+
+
+def bowman(side="pandava", pose="advance", legs="stand"):
+    """The archer figure in either army's colours (the Kaurava one is the same bowman in crimson and bronze)."""
+    o = soldier("pandava", pose, legs=legs)
+    if side == "kaurava":
+        from hero_lib import M
+        names = [m.name for m in o.data.materials]
+        for src, dst in (("MAT_Saffron", "MAT_Crimson"), ("MAT_Gold", "MAT_Bronze"), ("MAT_Red", "MAT_Black")):
+            if src in names:
+                o.data.materials[names.index(src)] = M(dst)
+    return o
 
 
 # ------------------------------------------------------------ K06 war tent
@@ -383,10 +398,125 @@ def chariot_wreck():
     return o
 
 
-def rank_chariot(target_tris=30000, style="rank"):
+def rank_chariot(target_tris=30000, style="rank", crew=True):
+    """Lighter chariot for the army lines, with a driver on the footboard and a bowman on the archer's deck."""
     from hero_lib import tri_count
     o = C.build(style, light=True)
     n = tri_count(o)
     if n > target_tris:
         decimated(o, target_tris / n)
+    if crew:
+        side = "kaurava" if style == "rank_kaurava" else "pandava"
+        driver = bowman(side, "attention")
+        xform(driver, T(0, -0.95, 0.835))
+        archer = bowman(side, "advance")
+        xform(archer, T(0.05, 0.40, 1.06) @ R(-0.5, "Z"))
+        o = join([o, driver, archer], "rank_chariot")
     return o
+
+
+# ------------------------------------------------------------ batch 2: cavalry and battle props
+def cavalry(side="kaurava"):
+    """Mounted warrior: Kaurava lancer on a bay, Pandava horse-archer on a dun."""
+    import creatures as CR
+    if side == "kaurava":
+        h = CR.horse("MAT_Bay", "MAT_Bronze", "MAT_Crimson", pose="trot", tris=8000)
+        r = soldier("kaurava", "advance", legs="ride")
+    else:
+        h = CR.horse("MAT_Hide", "MAT_Gold", "MAT_Saffron", pose="trot", tris=8000)
+        r = bowman("pandava", "advance", legs="ride")
+    xform(r, T(0, 0.08, 0.70))
+    return join([h, r], f"cavalry_{side}")
+
+
+def _arrow(base, d, length=0.8, shaft="MAT_Wood"):
+    base, d = Vector(base), Vector(d).normalized()
+    end = base + d * length
+    out = [tube([base, end], 0.007, shaft, segs=4, smooth=False)]
+    m = T(*end) @ Vector((0, 0, 1)).rotation_difference(d).to_matrix().to_4x4()
+    for k in range(3):
+        f = box((0.002, 0.035, 0.12), (0, 0, 0), "MAT_White")
+        xform(f, m @ R(k * math.tau / 3, "Z") @ T(0, 0.018, -0.07))
+        out.append(f)
+    return out
+
+
+def arrow_cluster(n=14, seed=5):
+    """Arrows and a broken spear stuck in the ground, for the middle strip in battle shots."""
+    rng = random.Random(seed)
+    parts = []
+    for _ in range(n):
+        a, r = rng.uniform(0, math.tau), rng.uniform(0.05, 0.9)
+        d = (rng.uniform(-0.4, 0.4), rng.uniform(-0.9, -0.3), rng.uniform(0.6, 1.0))
+        parts += _arrow((r * math.cos(a), r * math.sin(a), -0.05), d)
+    parts.append(tube([(0.3, 0.2, -0.05), (0.42, -0.25, 1.25)], 0.017, "MAT_Wood", segs=5, smooth=False))
+    parts.append(lathe([(0.0, 0.07), (0.07, 0.065), (0.10, 0.03), (0.30, 0.0), (0.33, -0.02), (0.0, -0.02)],
+                       "MAT_Bronze", 14, T(-0.5, 0.35, 0.10) @ R(0.35, "X")))
+    return join(parts, "arrows")
+
+
+def conch():
+    """Krishna's conch Panchajanya, 0.34 m: white shell, spiral spire, gold mounts."""
+    prof = [(0.0, 0.165), (0.012, 0.155), (0.030, 0.132), (0.050, 0.105), (0.074, 0.070), (0.091, 0.030),
+            (0.095, 0.0), (0.086, -0.040), (0.062, -0.085), (0.038, -0.125), (0.020, -0.155), (0.0, -0.168)]
+    parts = [lathe(prof, "MAT_White", 28)]
+    hel = []
+    for i in range(60):                                                         # raised spiral on the spire
+        t = i / 59
+        z = 0.035 + 0.118 * t
+        r = 0.090 - 0.073 * t ** 0.9
+        a = t * math.tau * 3.4
+        hel.append((r * math.cos(a), r * math.sin(a), z))
+    parts.append(tube(hel, [0.011 - 0.007 * (i / 59) for i in range(60)], "MAT_White", segs=6, smooth=False))
+    parts.append(sphere(1.0, (0.088, 0.012, -0.050), "MAT_Cream", scale=(0.034, 0.066, 0.125), seg=14, rot=R(-0.20, "Y")))  # flared lip
+    parts.append(sphere(1.0, (0.104, 0.018, -0.050), "MAT_Red", scale=(0.016, 0.036, 0.095), seg=12, rot=R(-0.20, "Y")))   # aperture
+    parts.append(lathe([(0.0, 0.215), (0.008, 0.20), (0.02, 0.19), (0.012, 0.175), (0.026, 0.16), (0.034, 0.142),
+                        (0.030, 0.128), (0.0, 0.128)], "MAT_Gold", 16))        # spire cap
+    parts.append(lathe([(0.0, -0.20), (0.012, -0.19), (0.016, -0.175), (0.026, -0.16), (0.040, -0.125),
+                        (0.044, -0.112), (0.0, -0.112)], "MAT_Gold", 16))      # mouthpiece
+    for z, r in ((0.0, 0.097), (0.072, 0.075)):
+        parts.append(lathe([(r - 0.004, z - 0.012), (r + 0.006, z), (r - 0.004, z + 0.012)], "MAT_Gold", 28))
+    for k in range(12):
+        a = k / 12 * math.tau
+        parts.append(sphere(0.008, (0.103 * math.cos(a), 0.103 * math.sin(a), 0.0), "MAT_Gold", seg=6))
+    o = join(parts, "conch")
+    xform(o, T(0, 0, 0.10) @ R(math.radians(78), "X") @ R(math.radians(70), "Z"))    # on its side, mouth up
+    return o
+
+
+def gada():
+    """Bhima's mace, 1.35 m: ribbed gold head, banded shaft, red grip."""
+    parts = [tube([(0, 0, 0.06), (0, 0, 1.0)], [0.026, 0.03], "MAT_GoldDark", segs=10, smooth=False),
+             lathe([(0.0, 0.0), (0.045, 0.01), (0.055, 0.04), (0.03, 0.075), (0.026, 0.09), (0.0, 0.09)], "MAT_Gold", 14),
+             tube([(0, 0, 0.12), (0, 0, 0.40)], 0.031, "MAT_Red", segs=10, smooth=False)]
+    for z in (0.11, 0.41, 0.62, 0.84):
+        parts.append(lathe([(0.028, z - 0.015), (0.042, z), (0.028, z + 0.015)], "MAT_Gold", 14))
+    head = [(0.03, 0.92), (0.08, 0.95), (0.145, 1.02), (0.17, 1.10), (0.16, 1.18), (0.11, 1.25), (0.05, 1.29),
+            (0.035, 1.31), (0.0, 1.31)]
+    parts.append(lathe(head, "MAT_Gold", 24))
+    for k in range(10):                                                         # ribs
+        a = k / 10 * math.tau
+        pts = [((r + 0.006) * math.cos(a), (r + 0.006) * math.sin(a), z) for r, z in head[1:7]]
+        parts.append(tube(pts, [0.008, 0.016, 0.02, 0.02, 0.016, 0.008], "MAT_GoldDark", segs=6, per=3))
+    parts.append(lathe([(0.0, 1.30), (0.045, 1.31), (0.05, 1.335), (0.02, 1.36), (0.03, 1.38), (0.0, 1.43)],
+                       "MAT_Gold", 12))
+    o = join(parts, "gada")
+    xform(o, T(0, 0, 0.17) @ R(math.radians(90), "X"))                           # lying down, head toward -Y
+    return o
+
+
+def great_bow():
+    """Gandiva, 1.95 m recurve: gold limbs, red grip, scrolled tips, strung."""
+    c = Vector((0, 0, 1.0))
+    pts = [c + Vector((0, y, z)) for y, z in ((-0.20, 0.97), (-0.02, 0.86), (0.16, 0.55), (0.10, 0.20), (0.0, 0.0),
+                                              (0.10, -0.20), (0.16, -0.55), (-0.02, -0.86), (-0.20, -0.97))]
+    parts = [tube(pts, [0.008, 0.014, 0.022, 0.026, 0.030, 0.026, 0.022, 0.014, 0.008], "MAT_Gold", segs=8, per=6),
+             tube([c + Vector((0, 0.02, -0.11)), c, c + Vector((0, 0.02, 0.11))], 0.034, "MAT_Red", segs=8, per=3),
+             tube([pts[0], pts[-1]], 0.003, "MAT_White", segs=3, smooth=False)]
+    for z in (0.14, -0.14, 0.42, -0.42, 0.70, -0.70):
+        y = 0.07 + (0.08 if abs(z) > 0.3 else 0) - (0.10 if abs(z) > 0.6 else 0)
+        parts.append(sphere(0.034, (0, y, 1.0 + z), "MAT_GoldDark", scale=(1, 1, 0.45), seg=8))
+    o = join(parts, "bow")
+    xform(o, T(0, 0, 0.05) @ R(math.radians(-82), "Y") @ T(0, 0, -1.0))          # lying nearly flat
+    return o
+

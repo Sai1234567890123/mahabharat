@@ -7,8 +7,8 @@ faces +Y (yaw 0); the Kaurava host stands at Y > 0 and faces -Y (yaw 180).
 The empty middle strip runs along X through the origin, and Arjuna's
 chariot stands at the origin, as in pilot shots SH080-SH090.
 
-Soldiers, chariots, command tents, the standard and the drum cart are the Blender hero models from
-hero/build_hero.py (krk_*). --soldiers proxy falls back to the flat kit proxies if the PC struggles.
+Soldiers, chariots with crews and horse teams, war elephants, cavalry, command tents, the standard and
+the drum cart are the Blender hero models from hero/build_hero.py (krk_*); nothing needs TRELLIS. --soldiers proxy falls back to the flat kit proxies if the PC struggles.
 
 Usage: python layout.py [--per-side 20000] [--soldiers hero|proxy] [--wrecks 0] [--out layout.json]
 """
@@ -26,11 +26,13 @@ SIDES = {
     "Pandava": dict(sy=-1, yaw=0.0, proxy="KRK_SoldierProxy_Pandava", soldier="krk_pandava_archer",
                     banners=["KRK_BannerPole_Saffron_Tall", "KRK_BannerPole_Saffron_Short"],
                     tents=["KRK_Tent_Saffron", "KRK_Tent_Marble"], chariot="krk_rank_chariot",
-                    war_tent="krk_war_tent", tint="Saffron"),
+                    war_tent="krk_war_tent", team="krk_horse_team", elephant="krk_war_elephant",
+                    cavalry="krk_pandava_cavalry"),
     "Kaurava": dict(sy=1, yaw=180.0, proxy="KRK_SoldierProxy_Kaurava", soldier="krk_kaurava_soldier",
                     banners=["KRK_BannerPole_Red_Tall", "KRK_BannerPole_Red_Short"],
                     tents=["KRK_Tent_Red"], chariot="krk_rank_chariot_red",
-                    war_tent="krk_war_tent_red", tint="Red"),
+                    war_tent="krk_war_tent_red", team="krk_horse_team_dark", elephant="krk_war_elephant_red",
+                    cavalry="krk_kaurava_cavalry"),
 }
 
 STRIP_HALF = 90       # m: half-width of the empty middle ground (v3: hosts closer)
@@ -42,8 +44,8 @@ RANK_GAP = 1.7        # m between ranks
 LINE_EVERY = 10       # ranks per line; lines are split by a 4 m gap (v3: solid masses)
 CAMP_BACK = 120       # m: camp distance behind the rear line (v3: camps read in the wide shot)
 FRONT_RANKS = 2       # ranks that use the second pose (spears levelled, bows drawn)
-YOKE_AHEAD = 4.25     # m: horse centre ahead of the chariot origin (yoke sits at 4.7 m)
-HORSE_X = [-1.125, -0.375, 0.375, 1.125]  # four abreast under the yoke collars
+CAV_WING = 110        # m: width of each cavalry wing beyond the infantry front
+CAV_RANKS = 5
 
 
 HEIGHTS = None  # ground height grid written by build_kit.py (terrain_heights.json)
@@ -83,11 +85,9 @@ def build(per_side, soldiers="hero", wrecks=0):
     def add(mesh, folder, t):
         groups.setdefault(mesh, {"folder": folder, "instances": []})["instances"].append(t)
 
-    def team(x, y, yaw, folder):
-        """Four horses abreast under the yoke of a chariot standing at (x, y)."""
-        f = 1 if yaw == 0 else -1  # yaw 0 faces +Y, yaw 180 faces -Y
-        for hx in HORSE_X:
-            add("hst_white_horse", folder, xf(x + hx, y + f * YOKE_AHEAD, 0, yaw))
+    def team(mesh, x, y, yaw, folder):
+        """Team of four under the yoke. The team model shares the chariot's origin, so it takes its transform."""
+        add(mesh, folder, xf(x, y, 0, yaw))
 
     for side, cfg in SIDES.items():
         sy, yaw = cfg["sy"], cfg["yaw"]
@@ -131,12 +131,22 @@ def build(per_side, soldiers="hero", wrecks=0):
             for k in range(3):
                 cy = sy * (STRIP_HALF + 15 + k * 18)
                 add(cfg["chariot"], f"KRK/{side}/Chariots", xf(lx, cy, 0, yaw))
-                team(lx, cy, yaw, f"KRK/{side}/Horses")
+                team(cfg["team"], lx, cy, yaw, f"KRK/{side}/Horses")
 
         # war elephants: a line behind the infantry
         for ex in range(-FRONT // 2 + 30, FRONT // 2, 55):
-            add(f"hst_war_elephant@{cfg['tint']}", f"KRK/{side}/Elephants",
+            add(cfg["elephant"], f"KRK/{side}/Elephants",
                 xf(ex + rng.uniform(-6, 6), sy * (depth + 22 + rng.uniform(-3, 3)), 0, yaw + rng.uniform(-8, 8)))
+
+        # cavalry wings on both flanks, level with the front ranks
+        for wing in (-1, 1):
+            for r in range(CAV_RANKS):
+                cx = FRONT / 2 + 14
+                while cx < FRONT / 2 + 14 + CAV_WING:
+                    add(cfg["cavalry"], f"KRK/{side}/Cavalry",
+                        xf(wing * cx + rng.uniform(-0.5, 0.5), sy * (STRIP_HALF + 10 + r * 4.6 + rng.uniform(-0.6, 0.6)),
+                           0, yaw + rng.uniform(-5, 5), rng.uniform(0.96, 1.04)))
+                    cx += 2.6
 
         # camp behind the host
         cy0 = sy * (depth + CAMP_BACK)
@@ -166,6 +176,10 @@ def build(per_side, soldiers="hero", wrecks=0):
     for i in range(wrecks):
         add("krk_chariot_wreck", "KRK/Battle",
             xf(rng.uniform(-300, 300), rng.uniform(-STRIP_HALF + 15, STRIP_HALF - 15), 0, rng.uniform(0, 360)))
+    for i in range(wrecks * 12):
+        add("krk_arrow_cluster", "KRK/Battle",
+            xf(rng.uniform(-320, 320), rng.uniform(-STRIP_HALF + 5, STRIP_HALF - 5), 0, rng.uniform(0, 360),
+               rng.uniform(0.8, 1.3)))
 
     # hero pieces, fixed positions (chariot origins are midway between the axles)
     bhishma, duryodhana = (-40, STRIP_HALF + 12), (25, STRIP_HALF + 16)
@@ -180,17 +194,20 @@ def build(per_side, soldiers="hero", wrecks=0):
         {"mesh": "krk_war_drum_cart", "label": "KRK3D_Kaurava_DrumCart", "folder": "KRK/Heroes",
          "t": xf(-70, STRIP_HALF + 20, 0, 180)},
     ]
-    for i, hx in enumerate(HORSE_X):
-        heroes.append({"mesh": "hst_white_horse", "label": f"KRK3D_Arjuna_Horse{i + 1}", "folder": "KRK/Heroes",
-                       "t": xf(hx, YOKE_AHEAD, 0, 0)})
-    team(*bhishma, 180.0, "KRK/Kaurava/Horses")
-    team(*duryodhana, 180.0, "KRK/Kaurava/Horses")
+    heroes += [
+        {"mesh": "krk_horse_team", "label": "KRK3D_Arjuna_Team", "folder": "KRK/Heroes", "t": xf(0, 0, 0, 0)},
+        {"mesh": "krk_horse_team", "label": "KRK3D_Bhishma_Team", "folder": "KRK/Heroes", "t": xf(*bhishma, 0, 180)},
+        {"mesh": "krk_horse_team_dark", "label": "KRK3D_Duryodhana_Team", "folder": "KRK/Heroes",
+         "t": xf(*duryodhana, 0, 180)},
+    ]
 
     cameras = [
         {"label": "KRK_CAM_Wide", "loc": xf(-660, -10, 45)[:3], "rot": [-4.0, -15.0, 0.0], "fov": 60,
          "note": "Establishing: both hosts across the empty strip, low sun behind the Kaurava side"},
         {"label": "KRK_CAM_HeroChariot", "loc": xf(-7, -11, 1.4)[:3], "rot": [6.0, 57.0, 0.0], "fov": 50,
          "note": "Low hero angle on Arjuna's chariot alone in the middle ground (SH080)"},
+        {"label": "KRK_CAM_Battle", "loc": xf(-34, -128, 9)[:3], "rot": [-5.0, 74.0, 0.0], "fov": 58,
+         "note": "Over the Pandava front ranks: Arjuna's chariot alone in the strip, the Kaurava host beyond"},
         {"label": "KRK_CAM_Bhishma", "loc": xf(-30, 30, 2.2)[:3], "rot": [2.0, 105.0, 0.0], "fov": 30,
          "note": "Across the field to Bhishma's car from Arjuna's side (SH030/SH100)"},
     ]
@@ -203,7 +220,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--per-side", type=int, default=20000)
     ap.add_argument("--soldiers", choices=["hero", "proxy"], default="hero")
-    ap.add_argument("--wrecks", type=int, default=0, help="chariot wrecks in the middle ground (battle shots)")
+    ap.add_argument("--wrecks", type=int, default=0, help="chariot wrecks (and 12 arrow clusters each) in the middle ground, for battle shots")
     ap.add_argument("--out", default="layout.json")
     ap.add_argument("--heights", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "terrain_heights.json"))
     a = ap.parse_args()

@@ -255,18 +255,21 @@ def build(style="arjuna", light=False, umbrella=True, standard=True, pole=True, 
 
     if pole:
         # --- pole and yoke for four horses abreast
-        pole = [(0, FY, FW + 0.04), (0, -2.1, 0.74), (0, -3.4, 0.98), (0, -4.75, 1.22)]
+        YU = 0.24                                # yoke raised to ride on the necks of 1.55 m horses (creatures.horse)
+        pole = [(0, FY, FW + 0.04), (0, -2.1, 0.76), (0, -3.4, 1.08), (0, -4.75, 1.22 + YU)]
         parts.append(tube(pole, [0.06, 0.055, 0.05, 0.045], trim, segs=10, per=8))
-        for y, z in ((-2.1, 0.74), (-2.9, 0.88), (-3.7, 1.04)):
-            parts.append(lathe([(0.05, -0.03), (0.075, 0.0), (0.05, 0.03)], trim, 12, T(0, y, z) @ R(1.4, "X")))
-        yoke = [(-1.55, -4.62, 1.30), (-1.125, -4.72, 1.42), (-0.75, -4.70, 1.30), (-0.375, -4.76, 1.42), (0, -4.75, 1.26),
-                (0.375, -4.76, 1.42), (0.75, -4.70, 1.30), (1.125, -4.72, 1.42), (1.55, -4.62, 1.30)]
+        for y, z in ((-2.1, 0.76), (-2.9, 0.93), (-3.7, 1.17)):
+            parts.append(lathe([(0.05, -0.03), (0.075, 0.0), (0.05, 0.03)], trim, 12, T(0, y, z) @ R(1.35, "X")))
+        yoke = [(x, y, z + YU) for x, y, z in (
+            (-1.55, -4.62, 1.30), (-1.125, -4.72, 1.42), (-0.75, -4.70, 1.30), (-0.375, -4.76, 1.42), (0, -4.75, 1.26),
+            (0.375, -4.76, 1.42), (0.75, -4.70, 1.30), (1.125, -4.72, 1.42), (1.55, -4.62, 1.30))]
         parts.append(tube(yoke, 0.045, trim, segs=10, per=6))
         for x in (-1.55, 1.55):
-            parts.append(scroll((x, -4.62, 1.36), 0.10, 1.3, 0.03, trim, "XZ", flip=1 if x > 0 else -1, start=-1.2))
-        parts.append(lathe([(0.0, 0), (0.07, 0.02), (0.05, 0.10), (0.09, 0.16), (0.0, 0.30)], trim, 12, T(0, -4.75, 1.26)))
+            parts.append(scroll((x, -4.62, 1.36 + YU), 0.10, 1.3, 0.03, trim, "XZ", flip=1 if x > 0 else -1, start=-1.2))
+        parts.append(lathe([(0.0, 0), (0.07, 0.02), (0.05, 0.10), (0.09, 0.16), (0.0, 0.30)], trim, 12,
+                           T(0, -4.75, 1.26 + YU)))
         for x in (-1.125, -0.375, 0.375, 1.125):                                             # neck collars
-            arc = [(x + 0.24 * math.cos(a), -4.72, 1.34 - 0.36 * math.sin(a)) for a in
+            arc = [(x + 0.24 * math.cos(a), -4.72, 1.34 + YU - 0.36 * math.sin(a)) for a in
                    (math.radians(d) for d in range(0, 181, 20))]
             parts.append(tube(arc, 0.028, st["cushion"] if st["cushion"] != "MAT_Black" else "MAT_Crimson", segs=8, per=2))
     if as_parts:

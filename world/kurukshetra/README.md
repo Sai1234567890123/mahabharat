@@ -13,4 +13,6 @@ World 1 in the bible. Same method as Hastinapur (`world/ASSEMBLY_METHOD.md` on t
 
 The layout now uses the Blender hero models from `hero/` for soldiers, chariots, command tents, the ape standard and the drum cart. Copy the `build_hero.py` output folder next to the script as `hero_out/` (or pass it as the third argument) and the Unreal script imports it to `/Game/Kurukshetra/Hero`. Horses and elephants are still the existing `hst_*` TRELLIS meshes. `python layout.py --soldiers proxy` goes back to the flat stand-ins if 40,000 soldier models are too heavy for the PC.
 
+`build_kit.py` lifts the terrain until its lowest point is at Z=0, so the plain sits about 1 to 3 m above zero. It now also writes `terrain_heights.json`, and `layout.py` stands every instance, hero and camera on that ground. Before this fix (13 Nov) everything was placed at Z=0 and was sunk about 1.2 m into the ground at the field centre, grass and rocks included. If the terrain is ever changed, rebuild the kit and copy the new `terrain_heights.json` next to `layout.py`.
+
 The hero import path of the Unreal script has not been run on the PC yet. The first run may need small API fixes.

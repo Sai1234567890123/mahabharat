@@ -98,6 +98,23 @@ def flag(w, h, loc, m, wave=0.25, segs=12):
     return mat(o, m)
 
 
+def write_heights(o, out_dir, res=10):
+    """Ground height grid (cm) of the finished terrain, so layout.py can stand everything on the ground.
+
+    The terrain is shifted up until its lowest point is at Z=0, so the plain sits about 2 m above zero:
+    anything placed at Z=0 would be buried. Blender coordinates; Unreal Y is -Y."""
+    xs = [v.co.x for v in o.data.vertices]
+    ys = [v.co.y for v in o.data.vertices]
+    x0, y0 = min(xs), min(ys)
+    nx, ny = round((max(xs) - x0) / res) + 1, round((max(ys) - y0) / res) + 1
+    rows = [[0] * nx for _ in range(ny)]
+    for v in o.data.vertices:
+        rows[round((v.co.y - y0) / res)][round((v.co.x - x0) / res)] = round(v.co.z * 100)
+    with open(os.path.join(out_dir, "terrain_heights.json"), "w") as f:
+        json.dump({"res_m": res, "x0_m": round(x0, 3), "y0_m": round(y0, 3), "nx": nx, "ny": ny, "cm": rows}, f,
+                  separators=(",", ":"))
+
+
 def finish(name, out_dir, category, manifest):
     """Join everything in the scene into one mesh, ground it, export FBX."""
     objs = [o for o in bpy.context.scene.objects if o.type == "MESH"]
@@ -118,6 +135,8 @@ def finish(name, out_dir, category, manifest):
     bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
     bpy.ops.object.shade_smooth_by_angle(angle=math.radians(35))
     dims = [round(d, 2) for d in o.dimensions]
+    if category == "terrain":
+        write_heights(o, out_dir)
     path = os.path.join(out_dir, f"SM_{name}.fbx")
     bpy.ops.export_scene.fbx(
         filepath=path, use_selection=True, object_types={"MESH"},

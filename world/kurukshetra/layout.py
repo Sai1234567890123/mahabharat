@@ -1,7 +1,8 @@
 """Kurukshetra field layout: writes layout.json for ue_assemble_kurukshetra.py.
 
 Pure Python, fixed seed, so a rebuild is repeatable. All positions are in
-Unreal units (cm), Z up. Field axis: the Pandava host stands at Y < 0 and
+Unreal units (cm), Z up. Heights follow the terrain (terrain_heights.json from
+build_kit.py), so nothing is buried or floating. Field axis: the Pandava host stands at Y < 0 and
 faces +Y (yaw 0); the Kaurava host stands at Y > 0 and faces -Y (yaw 180).
 The empty middle strip runs along X through the origin, and Arjuna's
 chariot stands at the origin, as in pilot shots SH080-SH090.
@@ -14,6 +15,7 @@ Usage: python layout.py [--per-side 20000] [--soldiers hero|proxy] [--wrecks 0] 
 import argparse
 import json
 import math
+import os
 import random
 
 M = 100.0  # metres -> cm
@@ -44,8 +46,33 @@ YOKE_AHEAD = 4.25     # m: horse centre ahead of the chariot origin (yoke sits a
 HORSE_X = [-1.125, -0.375, 0.375, 1.125]  # four abreast under the yoke collars
 
 
+HEIGHTS = None  # ground height grid written by build_kit.py (terrain_heights.json)
+
+
+def load_heights(path):
+    global HEIGHTS
+    if os.path.exists(path):
+        HEIGHTS = json.load(open(path))
+    else:
+        print(f"WARNING: {path} not found, everything is placed at Z=0 and will sit below the ground")
+
+
+def ground(x, y):
+    """Terrain height in metres at Unreal (x, y) metres. The grid is in Blender coordinates (Y flipped)."""
+    if HEIGHTS is None:
+        return 0.0
+    h = HEIGHTS
+    fx = min(max((x - h["x0_m"]) / h["res_m"], 0), h["nx"] - 1.001)
+    fy = min(max((-y - h["y0_m"]) / h["res_m"], 0), h["ny"] - 1.001)
+    i, j = int(fx), int(fy)
+    u, v = fx - i, fy - j
+    c = h["cm"]
+    return ((c[j][i] * (1 - u) + c[j][i + 1] * u) * (1 - v) + (c[j + 1][i] * (1 - u) + c[j + 1][i + 1] * u) * v) / 100
+
+
 def xf(x, y, z=0.0, yaw=0.0, s=1.0):
-    return [round(x * M, 1), round(y * M, 1), round(z * M, 1), round(yaw, 2), round(s, 3)]
+    """Transform in Unreal units. z is the height above the ground at (x, y), not above zero."""
+    return [round(x * M, 1), round(y * M, 1), round((z + ground(x, y)) * M, 1), round(yaw, 2), round(s, 3)]
 
 
 def build(per_side, soldiers="hero", wrecks=0):
@@ -178,7 +205,9 @@ def main():
     ap.add_argument("--soldiers", choices=["hero", "proxy"], default="hero")
     ap.add_argument("--wrecks", type=int, default=0, help="chariot wrecks in the middle ground (battle shots)")
     ap.add_argument("--out", default="layout.json")
+    ap.add_argument("--heights", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "terrain_heights.json"))
     a = ap.parse_args()
+    load_heights(a.heights)
     data = build(a.per_side, a.soldiers, a.wrecks)
     with open(a.out, "w") as f:
         json.dump(data, f, indent=1)

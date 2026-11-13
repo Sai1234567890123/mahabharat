@@ -57,9 +57,9 @@ cam.data.angle = math.radians(c["fov"]); cam.data.clip_end = 10000
 sun = bpy.data.objects.new("sun", bpy.data.lights.new("sun", "SUN")); s.collection.objects.link(sun)
 sp, sy_ = math.radians(L["sun"]["pitch"]), math.radians(L["sun"]["yaw"])
 sd = Vector((math.cos(sp) * math.cos(sy_), -math.cos(sp) * math.sin(sy_), math.sin(sp)))
-sun.rotation_euler = sd.to_track_quat('-Z', 'Y').to_euler(); sun.data.energy = 4; sun.data.color = (1, 0.8, 0.55)
+sun.rotation_euler = sd.to_track_quat('-Z', 'Y').to_euler(); sun.data.energy = 2.6; sun.data.color = (1, 0.8, 0.55)
 w = bpy.data.worlds.new("w"); s.world = w; w.use_nodes = True
-bg = w.node_tree.nodes["Background"]; bg.inputs[0].default_value = (0.75, 0.62, 0.48, 1); bg.inputs[1].default_value = 1.0
+bg = w.node_tree.nodes["Background"]; bg.inputs[0].default_value = (0.75, 0.62, 0.48, 1); bg.inputs[1].default_value = 0.7
 vol = w.node_tree.nodes.new("ShaderNodeVolumePrincipled"); vol.inputs["Density"].default_value = 0.0012
 vol.inputs["Color"].default_value = (0.8, 0.62, 0.42, 1)
 

@@ -347129,7 +347129,7 @@
     0.0
    ],
    "fov": 60,
-   "note": "Establishing: both hosts across the empty strip, low sun behind the Kaurava side"
+   "note": "Establishing: both hosts across the empty strip"
   },
   {
    "label": "KRK_CAM_HeroChariot",
@@ -347178,11 +347178,13 @@
   }
  ],
  "sun": {
-  "pitch": -11.0,
-  "yaw": -95.0,
+  "pitch": -27.0,
+  "yaw": 18.0,
+  "intensity": 8.0,
+  "sky_intensity": 2.2,
   "color": "#FFC37A",
   "fog_color": "#B48A5A",
-  "fog_density": 0.008,
+  "fog_density": 0.006,
   "clouds": true
  }
 }

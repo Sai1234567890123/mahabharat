@@ -52,10 +52,14 @@ def log(msg):
 
 
 # ------------------------------------------------------------ materials
-def make_material(name, rgb_linear, metallic, roughness):
-    """Flat master material: constant base colour, metallic and roughness."""
-    mat = asset_tools.create_asset(name, MAT_DIR, unreal.Material, unreal.MaterialFactoryNew())
+def make_material(name, rgb_linear, metallic, roughness, existing=None):
+    """Flat master material: constant base colour, metallic and roughness. Rebuilds `existing` in place."""
     mel = unreal.MaterialEditingLibrary
+    if existing is not None:
+        mat = existing
+        mel.delete_all_material_expressions(mat)
+    else:
+        mat = asset_tools.create_asset(name, MAT_DIR, unreal.Material, unreal.MaterialFactoryNew())
     col = mel.create_material_expression(mat, unreal.MaterialExpressionConstant3Vector, -400, 0)
     r, g, b = rgb_linear
     col.set_editor_property("constant", unreal.LinearColor(r, g, b, 1))
@@ -81,6 +85,10 @@ def master_material(slot):
     return make_material(f"M_{slot}", SLOT_COLOURS[slot], 1.0 if metal else 0.0, 0.3 if metal else 0.8)
 
 
+HERO_METALLIC_MAX = 0.7
+_HERO_MATS_DONE = set()  # rebuilt once per --reimport run
+
+
 def srgb_to_linear(c):
     return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
 
@@ -89,9 +97,15 @@ def hero_material(slot, spec):
     """Master for one hero palette slot. The manifest stores sRGB; Unreal wants linear."""
     name = f"M_KRKH_{slot[4:]}"
     p = f"{MAT_DIR}/{name}"
-    if eal.does_asset_exist(p):
-        return eal.load_asset(p)
-    return make_material(name, [srgb_to_linear(c) for c in spec["srgb"]], spec["metallic"], spec["roughness"])
+    old = eal.load_asset(p) if eal.does_asset_exist(p) else None
+    if old is not None and (not REIMPORT or name in _HERO_MATS_DONE):
+        return old
+    _HERO_MATS_DONE.add(name)
+    # Full metal with a flat colour goes black wherever it reflects shadow, so hero metals are eased to 0.7
+    # and kept a little rough; the skylight then still tints them.
+    metallic = min(spec["metallic"], HERO_METALLIC_MAX)
+    rough = max(spec["roughness"], 0.38) if spec["metallic"] > 0.5 else spec["roughness"]
+    return make_material(name, [srgb_to_linear(c) for c in spec["srgb"]], metallic, rough, existing=old)
 
 
 def tinted_instance(base_mat, tint):
@@ -303,7 +317,7 @@ def environment(L):
     sun.set_actor_label("KRK_ENV_Sun")
     sun.set_folder_path("KRK/Env")
     lc = sun.get_component_by_class(unreal.DirectionalLightComponent)
-    lc.set_editor_property("intensity", 9.0)
+    lc.set_editor_property("intensity", sun_cfg.get("intensity", 9.0))
     lc.set_light_color(unreal.LinearColor(1.0, 0.76, 0.48, 1))
     lc.set_editor_property("atmosphere_sun_light", True)
     env = [(unreal.SkyAtmosphere, "KRK_ENV_Sky"), (unreal.SkyLight, "KRK_ENV_SkyLight")]
@@ -314,7 +328,10 @@ def environment(L):
         a.set_actor_label(label)
         a.set_folder_path("KRK/Env")
         if cls is unreal.SkyLight:
-            a.get_component_by_class(unreal.SkyLightComponent).set_editor_property("real_time_capture", True)
+            sk = a.get_component_by_class(unreal.SkyLightComponent)
+            sk.set_editor_property("real_time_capture", True)
+            sk.set_editor_property("intensity", sun_cfg.get("sky_intensity", 1.0))   # fill, so shadow sides read
+            sk.set_editor_property("lower_hemisphere_is_black", False)
     fog = actor_sub.spawn_actor_from_class(unreal.ExponentialHeightFog, unreal.Vector(0, 0, 0))
     fog.set_actor_label("KRK_ENV_DustFog")
     fog.set_folder_path("KRK/Env")

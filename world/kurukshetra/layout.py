@@ -203,7 +203,7 @@ def build(per_side, soldiers="hero", wrecks=0):
 
     cameras = [
         {"label": "KRK_CAM_Wide", "loc": xf(-660, -10, 45)[:3], "rot": [-4.0, -15.0, 0.0], "fov": 60,
-         "note": "Establishing: both hosts across the empty strip, low sun behind the Kaurava side"},
+         "note": "Establishing: both hosts across the empty strip"},
         {"label": "KRK_CAM_HeroChariot", "loc": xf(-7, -11, 1.4)[:3], "rot": [6.0, 57.0, 0.0], "fov": 50,
          "note": "Low hero angle on Arjuna's chariot alone in the middle ground (SH080)"},
         {"label": "KRK_CAM_Battle", "loc": xf(-34, -128, 9)[:3], "rot": [-5.0, 74.0, 0.0], "fov": 58,
@@ -211,7 +211,10 @@ def build(per_side, soldiers="hero", wrecks=0):
         {"label": "KRK_CAM_Bhishma", "loc": xf(-30, 30, 2.2)[:3], "rot": [2.0, 105.0, 0.0], "fov": 30,
          "note": "Across the field to Bhishma's car from Arjuna's side (SH030/SH100)"},
     ]
-    sun = {"pitch": -11.0, "yaw": -95.0, "color": "#FFC37A", "fog_color": "#B48A5A", "fog_density": 0.008, "clouds": True}
+    # v5: the sun was low and straight behind the Kaurava host (yaw -95, pitch -11), which left every model a
+    # black silhouette from the Pandava-side cameras. Now a higher three-quarter side light with sky fill.
+    sun = {"pitch": -27.0, "yaw": 18.0, "intensity": 8.0, "sky_intensity": 2.2, "color": "#FFC37A",
+           "fog_color": "#B48A5A", "fog_density": 0.006, "clouds": True}
     return {"world": "Kurukshetra", "seed": SEED, "per_side": per_side, "soldiers": soldiers, "terrain": "KRK_Terrain",
             "groups": groups, "heroes": heroes, "cameras": cameras, "sun": sun}
 

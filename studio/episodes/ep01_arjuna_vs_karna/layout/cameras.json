@@ -1,0 +1,482 @@
+{
+ "note": "Metres. X runs from Arjuna (negative) to Karna (positive), cameras sit on the -Y side, Z is up. 36 mm sensor width.",
+ "soldiers": 1848,
+ "shots": {
+  "A01": {
+   "card": "Extreme close-up, locked off, then a 6-frame snap zoom out",
+   "action": "A blue lightning arrowhead and a gold sun-fire arrowhead meet point to point in the center of a black frame and burst.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      0,
+      -1.6,
+      1.6
+     ],
+     "look_at": [
+      0,
+      0,
+      1.6
+     ],
+     "lens_mm": 100,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A02": {
+   "card": "Extreme wide, 24mm, eye level, slow push-in",
+   "action": "Two chariots face each other across a cleared ring of red earth while two halted armies watch.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      0,
+      -27,
+      1.7
+     ],
+     "look_at": [
+      0,
+      0,
+      4.2
+     ],
+     "lens_mm": 24,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A03": {
+   "card": "Medium close-up, 85mm, slight low angle, slow push-in",
+   "action": "Karna touches his bow to his forehead, then his eyes lift to screen left.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      9.05,
+      -4.5,
+      2.22
+     ],
+     "look_at": [
+      12.35,
+      0.0,
+      2.57
+     ],
+     "lens_mm": 85,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A04": {
+   "card": "Medium close-up, 85mm, mirror of A03, slow push-in",
+   "action": "Arjuna draws Gandiva and blue static crawls up the bow.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      -9.05,
+      -4.5,
+      2.22
+     ],
+     "look_at": [
+      -12.35,
+      0.0,
+      2.57
+     ],
+     "lens_mm": 85,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A05": {
+   "card": "Low tracking shot at wheel height, 18mm, fast dolly",
+   "action": "Krishna flicks the reins and the white horses surge forward.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      -5.2,
+      -2.9,
+      0.55
+     ],
+     "look_at": [
+      -9.4,
+      0.0,
+      1.45
+     ],
+     "lens_mm": 18,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A06": {
+   "card": "Arrow-cam: camera launches with the arrows, 35mm, then whip-pan",
+   "action": "Karna looses a fan of seven arrows in one draw.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      13.85,
+      -1.3,
+      3.32
+     ],
+     "look_at": [
+      -12.0,
+      0.2,
+      2.3
+     ],
+     "lens_mm": 35,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A07": {
+   "card": "Medium wide, 35mm, camera shake on each hit",
+   "action": "Arjuna's arrows split Karna's arrows in mid-air, one by one.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      -5.6,
+      -10.5,
+      2.1
+     ],
+     "look_at": [
+      -7.8,
+      0,
+      2.9
+     ],
+     "lens_mm": 35,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A08": {
+   "card": "Crane up from ground to high top-down, 24mm",
+   "action": "The sky fills with so many arrows that they blot out the sun.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      0,
+      -9,
+      44
+     ],
+     "look_at": [
+      0,
+      1.5,
+      0
+     ],
+     "lens_mm": 24,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A09": {
+   "card": "Split-screen two-shot, both 85mm close-ups, locked off",
+   "action": "In the arrow-darkness the two warriors, exhausted, look at each other.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      -8.75,
+      -1.9,
+      2.57
+     ],
+     "look_at": [
+      -12.35,
+      0.0,
+      2.69
+     ],
+     "lens_mm": 85,
+     "roll_deg": 0.0
+    },
+    {
+     "pos": [
+      8.75,
+      -1.9,
+      2.57
+     ],
+     "look_at": [
+      12.35,
+      0.0,
+      2.69
+     ],
+     "lens_mm": 85,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A10": {
+   "card": "Macro insert, 100mm, rack focus",
+   "action": "Karna draws a single arrow from a golden quiver; its head is a serpent's mouth and its eye opens.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      13.6,
+      -1.15,
+      3.17
+     ],
+     "look_at": [
+      12.53,
+      0.1,
+      3.01
+     ],
+     "lens_mm": 100,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A11": {
+   "card": "Low angle, 24mm, 90-degree orbit",
+   "action": "Karna draws the snake arrow to his ear and meteors fall from a red sky.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      10.85,
+      -2.5,
+      0.87
+     ],
+     "look_at": [
+      12.15,
+      0.0,
+      2.79
+     ],
+     "lens_mm": 24,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A12": {
+   "card": "Wide, 24mm, whip-pan following the arrow",
+   "action": "The snake arrow tears across the sky, splitting it with a line of fire.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      1.5,
+      -30,
+      1.6
+     ],
+     "look_at": [
+      0,
+      0,
+      6.0
+     ],
+     "lens_mm": 24,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A13": {
+   "card": "Low angle on the chariot floor, 18mm, then a hard drop",
+   "action": "Krishna presses his foot down and the chariot sinks a cubit into the earth; the horses kneel.",
+   "flag": "neg",
+   "cameras": [
+    {
+     "pos": [
+      -3.5,
+      -2.1,
+      1.85
+     ],
+     "look_at": [
+      -5.75,
+      0.0,
+      1.15
+     ],
+     "lens_mm": 18,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A14": {
+   "card": "Medium close-up, 50mm, speed ramp 100 to 10 to 100 percent",
+   "action": "The snake arrow strikes Arjuna's crown off instead of his head.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      -4.25,
+      -3.3,
+      2.37
+     ],
+     "look_at": [
+      -7.05,
+      0.0,
+      2.34
+     ],
+     "lens_mm": 50,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A15": {
+   "card": "Medium close-up, 85mm, slow push-in",
+   "action": "Arjuna rises and binds his hair with a white cloth.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      -2.65,
+      -2.8,
+      2.12
+     ],
+     "look_at": [
+      -6.85,
+      0.0,
+      2.14
+     ],
+     "lens_mm": 85,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A16": {
+   "card": "Low wide, 18mm, the horizon tilts",
+   "action": "Karna's left wheel sinks; he leaps down and heaves it, and the whole earth lifts a little.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      2.25,
+      -6.29,
+      0.45
+     ],
+     "look_at": [
+      7.65,
+      -1.14,
+      0.76
+     ],
+     "lens_mm": 18,
+     "roll_deg": 7.0
+    }
+   ]
+  },
+  "A17": {
+   "card": "Over-the-shoulder from Arjuna to Karna, 50mm, one 12-frame insert",
+   "action": "Karna raises a palm to ask Arjuna to wait; Krishna's look answers with a memory of Abhimanyu.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      -8.15,
+      -0.62,
+      2.48
+     ],
+     "look_at": [
+      1.85,
+      0.61,
+      1.3
+     ],
+     "lens_mm": 50,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A18": {
+   "card": "Wide, 35mm, slow tilt down",
+   "action": "Arjuna's razor arrow cuts Karna's gold banner and it falls across the sun.",
+   "flag": "drain",
+   "cameras": [
+    {
+     "pos": [
+      2.02,
+      -8.16,
+      4.39
+     ],
+     "look_at": [
+      7.5,
+      0.05,
+      5.38
+     ],
+     "lens_mm": 35,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A19": {
+   "card": "Wide to extreme close-up, one continuous push, 24mm to 135mm feel",
+   "action": "Arjuna draws the Anjalika and rings of lightning ripple out from Gandiva.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      -1.25,
+      -4.4,
+      1.82
+     ],
+     "look_at": [
+      -6.55,
+      0.0,
+      2.14
+     ],
+     "lens_mm": 50,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A20": {
+   "card": "Impact frames, then a locked wide silhouette",
+   "action": "The Anjalika flies; Karna's silhouette stands against the sun as the sun goes dark.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      0.65,
+      -11.24,
+      0.35
+     ],
+     "look_at": [
+      6.75,
+      -2.09,
+      1.35
+     ],
+     "lens_mm": 50,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A21": {
+   "card": "Wide, 24mm, crane up",
+   "action": "A column of light rises from where Karna fell and enters the sun.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      -7.5,
+      -30,
+      5.5
+     ],
+     "look_at": [
+      5.0,
+      0,
+      13.5
+     ],
+     "lens_mm": 24,
+     "roll_deg": 0.0
+    }
+   ]
+  },
+  "A22": {
+   "card": "Medium wide, 50mm, locked off, hold the final pose",
+   "action": "Arjuna lowers Gandiva and does not celebrate; Krishna watches the light.",
+   "flag": null,
+   "cameras": [
+    {
+     "pos": [
+      -9.05,
+      -6.6,
+      1.87
+     ],
+     "look_at": [
+      -4.95,
+      0.0,
+      2.07
+     ],
+     "lens_mm": 50,
+     "roll_deg": 0.0
+    }
+   ]
+  }
+ }
+}

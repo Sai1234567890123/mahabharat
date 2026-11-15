@@ -134,6 +134,7 @@ Painterly stylized animation, 2D effects on twos, no text, the characters do not
 
 ```
 Image-to-video, 5 seconds, from the attached still.
+0-2 frames: negative-flash cut (trailer rule: inverted flash as a cut), then back to color.
 0-1s: the foot presses down.
 1-2s: white-gold rings burst outward along the ground, a 2-frame white-gold impact frame.
 2-4s: the chariot drops, the white horses bend their knees and kneel.
@@ -194,6 +195,7 @@ Painterly stylized animation, 2D effects on twos, no text, the characters do not
 Image-to-video, 5 seconds, from the attached still.
 0-1s: the blue streak cuts the pole.
 1-4s: the banner falls slowly, crossing the sun; tilt down with it.
+Selective color: the rest of the frame drains to grey for 6 frames as the blue streak hits, only the gold banner keeps color (trailer rule: selective color on impact).
 Camera: Wide, 35mm, slow tilt down.
 Sound: A snap, then a huge gasp from the Kaurava army.
 Painterly stylized animation, 2D effects on twos, no text, the characters do not speak.

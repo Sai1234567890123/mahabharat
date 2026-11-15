@@ -37,6 +37,15 @@ Painterly stylized CG with hand-drawn 2D FX on twos, graphic impact frames, spee
 
 > Painterly stylized CG animation still, hand-painted textures with visible brushwork, flat value blocks, hard-edged shadows tinted burnt umber, strong colored rim light, atmospheric red dust haze in flat layers, matte-painted sky, cinematic anamorphic lens, 2.39:1 framing inside 16:9. Indian epic iconography. Original characters, original faces. No text, no logos, no watermarks. No photorealism, no plastic 3D look, no real actor likeness.
 
+## Trailer rules applied (from trailer-analysis/01-shot-analysis.md, section 9)
+
+- 3D owns form, space and camera; 2D owns energy, texture and emotion. Energy (lightning, arrows, sun-fire) is drawn in 2D.
+- Every impact gets 1 to 3 flat-color frames (black, white, the energy color). Applied: A07, A14, A20.
+- Negative-flash cut into the chariot press (A13). Selective color drain on the banner cut (A18).
+- Locked, symmetrical frames for the sacred (Krishna's foot, the light column, the final hold). Free, tumbling cameras only in the arrow storm.
+- Tiny figures against colossal sky and armies for scale (A02, A08).
+- Rhythm: the arrow-storm block should cut faster than the rest (next pass: split A06 to A12 into sub-second shots).
+
 ## Never
 
 - No real faces or actor likeness. Never attach a film or TV frame to a model; the trailer frames in `shots/` and `trailer-analysis/` are for timing study only.

@@ -193,7 +193,7 @@ Painterly stylized CG animation still, hand-painted textures with visible brushw
 
 Kurukshetra battlefield, late afternoon, trampled red earth, hot orange low sun in the west, burnt umber shadows, red dust haze in flat layers. Screen direction: Arjuna's side on the left, Karna's side on the right.
 
-Low angle at the gold chariot's floor, @krishna's bare foot about to press down, white horses ahead, white-gold light at his heel.
+Low angle at the gold chariot's floor, @krishna's bare foot about to press down, white horses ahead, white-gold light at his heel. Cut in on a 2-frame inverted negative flash.
 
 No text, no extra characters, 16:9.
 ```

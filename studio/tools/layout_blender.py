@@ -521,17 +521,17 @@ def shot_A05(st, c):
     return dict(cam=(-5.2, -2.9, 0.55), at=(-9.4, 0.0, 1.45), lens=18)
 
 def shot_A06(st, c):
-    base_duel(st, c, kar=("karna", "loosed"), arj=("arjuna", "draw"))
+    # first frame of the shot card: Karna at full draw, seven arrows nocked as a fan, the sun behind him.
+    base_duel(st, c, kar=("karna", "draw"), arj=("arjuna", "draw"))
     k = spot("karna", FAR)["warrior"]
+    rh, lh = k + Vector((0.06, 0.14, 1.56)), k + Vector((-0.70, -0.10, 1.46))     # his hands in the draw pose, facing -X
+    aim = (lh - rh).normalized()
     b = Build("PROP_fan")
-    o = k + Vector((-0.9, 0, 1.5))
-    for i in range(7):
-        ang = math.radians(-18 + i * 6)
-        d = Vector((-math.cos(ang), math.sin(ang) * 0.9, 0.10 + 0.02 * i))
-        p = o + d * (2.2 + 0.35 * (i % 3))
-        arrow(b, p - d * 0.95, p, "wood", r=0.014, head="e_gold")
+    for i in (-3, -2, -1, 1, 2, 3):
+        d = (aim + Vector((0, 0, math.tan(math.radians(6.5 * i))))).normalized()
+        arrow(b, rh, rh + d * 1.05, "wood", r=0.010, head="e_gold")
     b.done(c)
-    return dict(cam=k + Vector((1.5, -1.3, 2.25)), at=Vector((-FAR, 0.2, 2.3)), lens=35)
+    return dict(cam=k + Vector((-3.3, -3.4, 1.05)), at=head(k) + Vector((-0.55, 0, -0.12)), lens=35)
 
 def shot_A07(st, c):
     base_duel(st, c, arj=("arjuna", "loosed"), kar=("karna", "draw"))

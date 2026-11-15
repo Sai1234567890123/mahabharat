@@ -8,3 +8,6 @@ One line per generation: date, shot, model, prompt version, cost, verdict. Free 
 | 2026-11-15 | ep01 animatic.mp4 (90 s, 30 fps) | Playwright + ffmpeg, HTML/SVG | animatic v1 | $0 | drafted, waiting for sai |
 | 2026-11-15 | cast/karna/hero.png | gemini-2.5-flash-image | stage1 v1 | tokens out 1290 (about $0.039) | FAIL: gold earrings, no chest scars, framed dusty background, too flat. Design direction good |
 | 2026-11-15 | cast/arjuna/turnaround_front.png | gemini-2.5-flash-image | stage1 v1 | tokens out 1290 (about $0.039) | FAIL: cropped at knees, no diadem, two gold earrings. Face, hair, armor, Gandiva match SH170 |
+| 2026-11-15 | cast/karna/sheet.png | gemini-3.1-flash-image | sheets v1 (concept-art look) | tokens in 2567 out 1120 | pending review |
+| 2026-11-15 | cast/arjuna/sheet.png | gemini-3.1-flash-image | sheets v1 (concept-art look) | tokens in 2541 out 1120 | pending review |
+| 2026-11-15 | cast/krishna/sheet.png | gemini-3.1-flash-image | sheets v1 (concept-art look) | tokens in 2501 out 1120 | pending review |

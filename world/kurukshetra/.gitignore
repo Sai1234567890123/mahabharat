@@ -1,0 +1,6 @@
+kit/
+hero_out/
+*.fbx
+*.blend
+*.blend1
+__pycache__/

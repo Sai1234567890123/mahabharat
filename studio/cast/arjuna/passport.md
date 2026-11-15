@@ -1,20 +1,21 @@
-# @arjuna · passport v1 · LOCKED pending sai's approval of turnaround.png
+# @arjuna · passport v2 · DRAFT, needs sheet approved by sai
+
+Look source: `refs/concept/concept_05.jpeg` (sai: "5 is arjuna"), with `concept_42.jpeg` and `concept_06.jpeg` for the chariot. v1 (white scale armour, from SH170) is retired.
 
 ## Descriptor (paste verbatim, never shorten)
 
-Painterly stylized young Indian warrior-archer Arjuna, original face, 8.5 heads tall, tall narrow upright build like an arrow, warm brown skin #8A5A3C, sharp level dark brows, dark brown eyes, black curly shoulder-length hair, a gold diadem band with a single central gem on the brow #E8C15A, white and silver fish-scale armor on the torso #E9ECEF with gold trim, blue silk sash at the waist #2C5FA8, white dhoti, white wrist guards with gold bands, two quivers on the back, the great bow Gandiva taller than he is when strung, dark horn limbs #1E1B1A with gold-wrapped grip and curled gold tips, electric-blue lightning rim light #6FC3FF.
+Arjuna, Indian warrior-prince and archer in his thirties, dark warm brown skin, lean muscular build, sharp profile, thin upturned black moustache, clean jaw, black wavy hair to the nape, a tall tiered conical gold crown with a red gem at the brow and a winged gold ear-guard, gold hoop earrings, a sleeveless carved gold cuirass with black enamel inlay, a round gold shoulder guard, wide carved gold bracers, gold rings, a deep green silk sash with gold embroidery tied over a white dhoti, a gold quiver with green enamel on his back, the great bow Gandiva with black limbs wrapped in spiral gold bands and gold tips.
 
-- **Signature item:** Gandiva, dark horn with gold. Never without it.
-- **Tell:** switches the bow to his left hand before a decisive shot (Savyasachi, the ambidextrous archer).
-- **Fixed imperfection:** a single thin silver ring in the LEFT ear only. A ring in the right ear, or two rings, means a failed shot.
+- **Signature items:** the deep green sash and the tall tiered crown.
+- **Tell:** switches the bow to his left hand before a decisive shot.
+- **Drift check:** green sash over white dhoti, moustache, red gem on the crown. Orange cloth on Arjuna means a failed shot.
 - **Energy:** branching blue lightning with a white core, drawn in 2D.
 
 ## References
 
-- `ref_SH170_v09.png`: approved pilot frame (sai, 2026-10-10). Face, hair, armor and Gandiva come from here. Never regenerate.
-- `turnaround.png`: to be generated from the reference (5 views, grey background). Not made yet.
-- `crop-34.png`: three-quarter crop for video calls. Not made yet.
+- `../../refs/concept/concept_05.jpeg` (face, crown, armour), `concept_42.jpeg` (full figure on the chariot).
+- `sheet.png`: not made yet.
 
-## Variants (separate passports)
+## Variants
 
-- `@arjuna_bare` (`../arjuna_bare/passport.md`): after the snake arrow takes his diadem, shot SH14 onward.
+- `@arjuna_bare` (`../arjuna_bare/passport.md`): after the snake arrow takes his crown, A14 onward.

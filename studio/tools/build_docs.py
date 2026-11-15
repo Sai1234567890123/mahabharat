@@ -17,8 +17,8 @@ def descriptor(tag):
     txt = p.read_text()
     return re.search(r"## Descriptor.*?\n\n(.+?)\n", txt, re.S).group(1).strip()
 
-LOCATION = ("Kurukshetra battlefield, late afternoon, trampled red earth, hot orange low sun in the west, "
-            "burnt umber shadows, red dust haze in flat layers. Screen direction: Arjuna's side on the left, "
+LOCATION = ("Kurukshetra battlefield, late afternoon, trampled warm earth, low gold sun in the west, "
+            "soft warm-brown shadows, pale gold dust in soft layers, cream and soft blue sky. Screen direction: Arjuna's side on the left, "
             "Karna's side on the right.")
 
 t = 0
@@ -42,7 +42,7 @@ for s in d["shots"]:
         fp.append(f"Reference image: `studio/{s['ref']}`\n")
     fp.append("```\n" + "\n\n".join(parts) + "\n```\n")
     mp.append(f"## {s['id']}\n\n```\nImage-to-video, {max(5, s['dur'])} seconds, from the attached still.\n" + "\n".join(s["motion"]) +
-              f"\nCamera: {s['camera']}.\nSound: {s['sound']}\nPainterly stylized animation, 2D effects on twos, no text, the characters do not speak.\n```\n")
+              f"\nCamera: {s['camera']}.\nSound: {s['sound']}\nKeep the oil-painted look of the still. No text, the characters do not speak. Energy effects are added later in 2D, so keep arrows and light simple.\n```\n")
     t += s["dur"]
 md.append(f"\nTotal: {t} s.\n")
 (ep / "shots.md").write_text("\n".join(md))

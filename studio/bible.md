@@ -16,7 +16,7 @@ On the seventeenth afternoon of Kurukshetra, the two greatest archers alive, bro
 ## World
 
 - **Location:** Kurukshetra, a cleared ring of trampled red earth inside two halted armies. Afternoon sun low in the west, behind Karna.
-- **Light:** hot orange key from the low sun, burnt umber shadows, red dust haze in 3 to 5 flat layers.
+- **Light:** warm gold key from a low afternoon sun, soft warm-brown shadows, pale gold dust in soft layers; the sky turns orange only in act IV.
 - **Screen direction (locked):** Arjuna and Krishna on the LEFT facing right. Karna and Shalya on the RIGHT facing left. The sun sits behind Karna. Never cross the line.
 
 ## Engine
@@ -25,17 +25,19 @@ Two equal masters, each with one fatal debt the other cannot see: Karna is bound
 
 ## Tone
 
-Painterly stylized CG with hand-drawn 2D FX on twos, graphic impact frames, speed ramps and smash cuts (the series hybrid look in `trailer-analysis/03-build-plan.md`). Mythic and tragic, not gleeful. No dialogue except one optional line from Karna ("Partha, wait"). Music: war drums and a low drone, silence before each big release.
+Oil-painted realism from sai's concept art for every surface, with hand-drawn 2D energy FX on twos, graphic impact frames, speed ramps and smash cuts from the Eternal War analysis. Mythic and tragic, not gleeful. No dialogue except one optional line from Karna ("Partha, wait"). Music: war drums and a low drone, silence before each big release.
 
 ## Palette (60:30:10)
 
-- 60% dominant: sunset orange to burnt umber `#FF7A2E` / `#3A1A12`
-- 30% secondary: dust gold and bone white `#E8C15A` / `#F3EAD8`
-- 10% accent: the two energies, Arjuna electric blue `#6FC3FF`, Karna solar orange-gold `#FFB02E`. Krishna's divine moments add white-gold `#FFE9A8`.
+- 60% dominant: pale gold dust and warm earth `#E9CF9A` / `#B8743C` (paintings 34, 42), deepening to sunset orange `#E8792E` in act IV
+- 30% secondary: carved gold `#D9A21B` with black enamel `#14110E`, cream-and-blue sky `#F4E6C8` / `#A9C4DD`
+- 10% accent: Arjuna deep green silk `#1F5A3C` and electric blue energy `#6FC3FF`; Karna saffron `#E9982A` and solar gold energy `#FFB02E`; Krishna blue skin `#8C96C8` and white-gold light `#FFE9A8`
 
 ## Global style prompt (paste at the start of every image prompt)
 
-> Painterly stylized CG animation still, hand-painted textures with visible brushwork, flat value blocks, hard-edged shadows tinted burnt umber, strong colored rim light, atmospheric red dust haze in flat layers, matte-painted sky, cinematic anamorphic lens, 2.39:1 framing inside 16:9. Indian epic iconography. Original characters, original faces. No text, no logos, no watermarks. No photorealism, no plastic 3D look, no real actor likeness.
+> Classical academic oil painting of an Indian epic battle, richly detailed realist canvas, realistic anatomy and faces, visible oil brushwork and canvas weave, warm gold sunlight from a low sun, luminous sky of cream, peach and soft blue, pale gold battlefield dust in soft layers, deeply carved gold armour and chariots with black enamel inlay, saturated silk cloth, warm brown soft-edged shadows, cinematic wide lens, 2.39:1 framing inside 16:9. Original characters. No text, no logos, no watermarks, no captions. No flat cartoon, no cel shading, no vector look, no plastic 3D look, no real actor likeness.
+
+Look source (2026-11-15, sai): the paintings in `refs/concept/` (sai's own AI-generated concept art). Surfaces, costume and colour come from them. Camera, cutting, drawn energy FX and impact frames come from the Eternal War rules below. The older flat "painterly stylized CG" prompt and the v1 passports are retired.
 
 ## Trailer rules applied (from trailer-analysis/01-shot-analysis.md, section 9)
 

@@ -1,14 +1,13 @@
-# @arjuna_bare · passport v1 · variant of @arjuna
+# @arjuna_bare · passport v2 · variant of @arjuna
 
-Use from SH14 to the end. Source: Ganguli, Karna Parva (B08) line 11743, "Binding then his locks with a white cloth".
+Use from A14 to the end. Source: Ganguli, Karna Parva (B08) line 11743, "Binding then his locks with a white cloth".
 
 ## Descriptor (paste verbatim, never shorten)
 
-Same character as @arjuna, same face, NO diadem: the brow is bare, black curly shoulder-length hair tied back with a plain white cloth band, a few loose curls across the forehead, dust on the cheeks, white and silver fish-scale armor #E9ECEF with one scorched streak across the right shoulder, blue silk sash #2C5FA8, white wrist guards with gold bands, Gandiva dark horn #1E1B1A with gold, electric-blue lightning rim light #6FC3FF.
+Arjuna, same man and same face as the reference sheet, Indian warrior-prince and archer in his thirties, dark warm brown skin, thin upturned black moustache, NO crown: bare head, black wavy hair tied back with a plain white cloth band, loose strands across the forehead, dust and sweat on his face, the same sleeveless carved gold cuirass with black enamel inlay, one scorch mark across the right shoulder guard, wide gold bracers, deep green silk sash with gold embroidery over a white dhoti, the bow Gandiva with black limbs wrapped in spiral gold bands.
 
-- **Signature item:** Gandiva.
-- **Fixed imperfection:** single silver ring in the LEFT ear only (same as @arjuna). Any gold on the brow means a failed shot.
+- **Drift check:** any crown or gold on the head means a failed shot.
 
 ## References
 
-- Inherit `../arjuna/ref_SH170_v09.png` (its bare curly hair already matches this variant).
+- `../arjuna/sheet.png` once approved. This variant's own sheet is made from it.

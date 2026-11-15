@@ -1,6 +1,6 @@
-# @karna · passport v3 · wording chosen by sai 2026-11-15, sheet not yet generated
+# @karna · passport v3 · NOT USED. Sai saw sheet_v3.png on 2026-11-15 and said "keep old one"
 
-Sai chose "Update Karna, no earrings" on 2026-11-15. Not in use for shots until `sheet_v3.png` is generated (needs sai's go for the cost) and approved. Until then `passport.md` (v2) and `sheet.png` stay locked.
+Karna for the trailer is `passport.md` (v2) with `sheet.png`, both still locked. This file and `sheet_v3.png` are kept as an unused alternative only. Never paste this descriptor into a prompt and never attach `sheet_v3.png` as a reference.
 
 Why: sai sent 15 Karna reference pictures from Pinterest on 2026-11-15. Compared with our v2 sheet they agree on long flowing hair, a younger lean build, no heavy moustache, a red or crimson sash and a sorrowful face. The pictures guide this wording only. They are not in the repo and are never sent to an image model. Three of them are TV stills of a real actor and were not used at all.
 
@@ -24,8 +24,3 @@ Karna, Indian warrior-king and archer in his late thirties, dark warm brown skin
 | Earrings | none | none. Canon: given to Indra with the natural armour, Vana Parva (B03 lines 31717 to 31900) |
 
 Unchanged: crown, cuirass, back disc, bracers, dhoti, sandals, bow, the tell and the story facts in `passport.md`.
-
-## If approved
-
-- Run `python studio/tools/gen_sheets.py --project <id> --only karna_v3`. It writes `cast/karna/sheet_v3.png` and never touches the locked `sheet.png`.
-- After sai approves the new sheet, this file replaces `passport.md` and the old sheet is kept as `sheet.png` history, not deleted.

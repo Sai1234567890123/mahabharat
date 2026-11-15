@@ -21,6 +21,13 @@ JOBS = {
                   refs=["refs/concept/concept_46.jpeg", "refs/concept/concept_37.jpeg"],
                   brief="Use the references for this man's face, build, crown, armour style and bow. Costume exactly as described above: "
                         "saffron-orange dhoti, sun-face relief on the chest, no earrings."),
+    # draft look after sai's reference pictures (2026-11-15); run only with sai's go. Never overwrites the locked sheet.png
+    "karna_v3": dict(out="cast/karna/sheet_v3.png", passport="cast/karna/passport_v3_draft.md",
+                     refs=["refs/concept/concept_46.jpeg", "refs/concept/concept_37.jpeg"],
+                     brief="Use the references ONLY for the crown, the carved gold armour, the sun-face disc and the bow. Do NOT copy the "
+                           "face, moustache or heavy build from the references. Face, hair, beard and build exactly as described above: "
+                           "a leaner man in his late thirties with long flowing hair and a short trimmed beard, no moustache-only face, "
+                           "no earrings, a deep crimson sash over the left shoulder, saffron-orange dhoti."),
     "arjuna": dict(out="cast/arjuna/sheet.png", passport="cast/arjuna/passport.md",
                    refs=["refs/concept/concept_05.jpeg", "refs/concept/concept_42.jpeg"],
                    brief="Use the first reference for this man's face, crown, armour and bow; the second shows him small on his chariot. "

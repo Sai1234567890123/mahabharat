@@ -1,6 +1,6 @@
-# @karna · passport v3 · DRAFT, waiting on sai's choice (2026-11-15)
+# @karna · passport v3 · wording chosen by sai 2026-11-15, sheet not yet generated
 
-Not in use. `passport.md` (v2) and `sheet.png` stay locked until sai picks a change and approves a new sheet.
+Sai chose "Update Karna, no earrings" on 2026-11-15. Not in use for shots until `sheet_v3.png` is generated (needs sai's go for the cost) and approved. Until then `passport.md` (v2) and `sheet.png` stay locked.
 
 Why: sai sent 15 Karna reference pictures from Pinterest on 2026-11-15. Compared with our v2 sheet they agree on long flowing hair, a younger lean build, no heavy moustache, a red or crimson sash and a sorrowful face. The pictures guide this wording only. They are not in the repo and are never sent to an image model. Three of them are TV stills of a real actor and were not used at all.
 

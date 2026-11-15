@@ -15,3 +15,4 @@ One line per generation: date, shot, model, prompt version, cost, verdict. Free 
 
 Note 2026-11-15: web and Pinterest references are not model inputs. Their likeness and rights are unknown; only sai's own concept paintings are attached (folder law: approved refs are locked).
 - 2026-11-15 · no generation · sai sent 15 Karna reference pictures (Pinterest). Compared by eye with cast/karna/sheet.png; wording-only draft written to cast/karna/passport_v3_draft.md and job karna_v3 added to gen_sheets.py (dry-run only, $0). Reference pictures are not in the repo and not model inputs. Locked v2 passport and sheet unchanged; waiting on sai's choice.
+- 2026-11-15 · no generation · sai chose "Update Karna, no earrings": passport v3 wording accepted (cast/karna/passport_v3_draft.md). sheet_v3.png waits for sai's go on the cost (1 image).

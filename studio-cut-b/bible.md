@@ -76,7 +76,7 @@ Impact frames use three flat colors only: black, white and the energy color of w
 ## Folder map
 
 ```
-studio/
+studio-cut-b/
   bible.md      this file
   cast/         one passport per character (text + locked reference images)
   episodes/     one folder per episode: script, shot cards, prompts, animatic

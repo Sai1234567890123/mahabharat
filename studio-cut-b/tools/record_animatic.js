@@ -1,6 +1,6 @@
 // Record episodes/<ep>/animatic.html to animatic.mp4. No cost: Playwright + ffmpeg only.
-//   node studio/tools/record_animatic.js ep01            full video at 12 drawn frames a second
-//   node studio/tools/record_animatic.js ep01 sheet      one still per shot, for checking
+//   node studio-cut-b/tools/record_animatic.js ep01            full video at 12 drawn frames a second
+//   node studio-cut-b/tools/record_animatic.js ep01 sheet      one still per shot, for checking
 const { chromium } = require('playwright');
 const { spawn } = require('child_process');
 const path = require('path');

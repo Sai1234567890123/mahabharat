@@ -2,8 +2,8 @@
 """Build shots.md, prompts.md and script.md for an episode from shots.json.
 
 shots.json is the single source of truth. Edit it, then run:
-    python3 studio/tools/build_docs.py ep01
-Passport descriptors are read from studio/cast/<name>/passport.md and pasted
+    python3 studio-cut-b/tools/build_docs.py ep01
+Passport descriptors are read from studio-cut-b/cast/<name>/passport.md and pasted
 verbatim, so a prompt can never drift from the passport.
 """
 import json

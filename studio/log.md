@@ -11,3 +11,6 @@ One line per generation: date, shot, model, prompt version, cost, verdict. Free 
 | 2026-11-15 | cast/karna/sheet.png | gemini-3.1-flash-image | sheets v1 (concept-art look) | tokens in 2567 out 1120 | pending review |
 | 2026-11-15 | cast/arjuna/sheet.png | gemini-3.1-flash-image | sheets v1 (concept-art look) | tokens in 2541 out 1120 | pending review |
 | 2026-11-15 | cast/krishna/sheet.png | gemini-3.1-flash-image | sheets v1 (concept-art look) | tokens in 2501 out 1120 | pending review |
+| 2026-11-15 | cast/karna, cast/arjuna, cast/krishna sheet.png | gemini-3.1-flash-image | sheets v1 | 3 images, about $0.10 est. (billing not yet checked) | APPROVED by sai 2026-11-15 ("good ... approve it"). Sai also asked to compare against web reference images; not used as model input (see note) |
+
+Note 2026-11-15: web and Pinterest references are not model inputs. Their likeness and rights are unknown; only sai's own concept paintings are attached (folder law: approved refs are locked).

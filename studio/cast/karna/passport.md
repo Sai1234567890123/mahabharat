@@ -1,4 +1,4 @@
-# @karna · passport v2 · DRAFT, needs sheet approved by sai
+# @karna · passport v2 · LOCKED, sheet approved by sai 2026-11-15
 
 Look source: `refs/concept/concept_46.jpeg` (sai: "46 karna") for face, armour, bow and chariot; `concept_37.jpeg` for the sun-face disc, saffron dhoti and the wheel. The two paintings dress him differently, so this passport fixes one costume: saffron below, so he never reads as Arjuna (white and green) in a wide shot.
 
@@ -14,7 +14,7 @@ Karna, Indian warrior-king and archer in his forties, dark warm brown skin, broa
 ## References
 
 - `../../refs/concept/concept_46.jpeg`, `concept_37.jpeg`.
-- `sheet.png`: not made yet.
+- `sheet.png`: approved 2026-11-15 by sai ("good ... approve it"). Locked: never regenerate, rename or re-prompt. Output of gen_sheets.py v1.
 
 ## Story facts (canon, Ganguli B08)
 

@@ -1,4 +1,4 @@
-# @arjuna · passport v2 · DRAFT, needs sheet approved by sai
+# @arjuna · passport v2 · LOCKED, sheet approved by sai 2026-11-15
 
 Look source: `refs/concept/concept_05.jpeg` (sai: "5 is arjuna"), with `concept_42.jpeg` and `concept_06.jpeg` for the chariot. v1 (white scale armour, from SH170) is retired.
 
@@ -14,7 +14,7 @@ Arjuna, Indian warrior-prince and archer in his thirties, dark warm brown skin, 
 ## References
 
 - `../../refs/concept/concept_05.jpeg` (face, crown, armour), `concept_42.jpeg` (full figure on the chariot).
-- `sheet.png`: not made yet.
+- `sheet.png`: approved 2026-11-15 by sai ("good ... approve it"). Locked: never regenerate, rename or re-prompt. Output of gen_sheets.py v1.
 
 ## Variants
 

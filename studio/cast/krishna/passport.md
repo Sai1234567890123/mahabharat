@@ -1,4 +1,4 @@
-# @krishna · passport v2 (trailer look) · DRAFT, needs sheet approved by sai
+# @krishna · passport v2 (trailer look) · LOCKED, sheet approved by sai 2026-11-15
 
 Sai, 2026-11-15: "krishna blue" for this trailer, as in the concept paintings. The rigged 3D Krishna from October keeps its brown skin; that design lock is not changed by this file.
 
@@ -13,4 +13,4 @@ Krishna as charioteer, youthful, clean-shaven, soft lavender-blue skin, calm ova
 ## References
 
 - `../../refs/concept/concept_28.jpeg`, `concept_13.jpeg`.
-- `sheet.png`: not made yet. `ref_closeup_approved.png` is the older brown-skin face and is not used for this trailer.
+- `sheet.png`: approved 2026-11-15 by sai ("good ... approve it"). Locked: never regenerate, rename or re-prompt. Output of gen_sheets.py v1. `ref_closeup_approved.png` is the older brown-skin face and is not used for this trailer.

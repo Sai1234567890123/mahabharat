@@ -1,0 +1,279 @@
+{
+  "episode": "ep01",
+  "title": "Arjuna and Karna: the sinking wheel",
+  "length_s": 90,
+  "format": "16:9 frame, 2.39:1 letterbox, 24 fps",
+  "location": "@kurukshetra_d17",
+  "acts": {
+    "A": "The challenge (0 to 16 s)",
+    "B": "The arrow storm (16 to 40 s)",
+    "C": "The turn (40 to 64 s)",
+    "D": "The wheel (64 to 90 s)"
+  },
+  "shots": [
+    {
+      "id": "S01", "act": "A", "cut_s": 4, "gen_s": 5,
+      "cast": ["@arjuna", "@krishna", "@karna", "@shalya"],
+      "size": "extreme wide", "angle": "low, ground level", "lens": "24mm anamorphic", "move": "slow push in",
+      "action": "Two chariots roll toward each other across the empty plain.",
+      "sound": "Low wind. Two conches answer each other, far apart.",
+      "beat": "Two equals. Nobody else matters now.",
+      "start": "Symmetric extreme wide shot. Far left, a white and silver chariot with four white horses and an ape banner. Far right, a bronze and dark red chariot with four bay horses and a red standard, the low sun directly behind it. Empty ochre ground between them. Both chariots small in frame.",
+      "motion": [[0, 2, "both chariots roll slowly toward the centre, dust rising behind the wheels, banners streaming"], [2, 5, "camera pushes in slowly along the ground, the sun flares between the two cars"]],
+      "risk": "low", "impact": null
+    },
+    {
+      "id": "S02", "act": "A", "cut_s": 3, "gen_s": 4,
+      "cast": ["@arjuna", "@krishna"],
+      "size": "medium wide", "angle": "side on, eye level", "lens": "50mm", "move": "tracking left to right",
+      "action": "Arjuna's chariot runs left to right, Krishna calm at the reins.",
+      "sound": "Hooves, wheel rumble, cloth snapping.",
+      "beat": "The driver is calmer than the archer.",
+      "start": "Side view of the white and silver chariot moving left to right. @krishna stands in front holding the reins, relaxed. @arjuna stands behind him, bow Gandiva upright in his left hand, looking ahead. Ape banner above. Four white horses at a gallop, dust low.",
+      "motion": [[0, 2, "the horses gallop, the camera tracks with the chariot, the yellow cloth and the banner stream backward"], [2, 4, "Arjuna shifts his grip on the bow and sets his feet"]],
+      "risk": "medium (horse legs)", "impact": null
+    },
+    {
+      "id": "S03", "act": "A", "cut_s": 3, "gen_s": 4,
+      "cast": ["@karna", "@shalya"],
+      "size": "medium wide", "angle": "side on, eye level", "lens": "50mm", "move": "tracking right to left",
+      "action": "Karna's chariot runs right to left, the sun behind him.",
+      "sound": "Heavier hooves, a deeper wheel, one low drum.",
+      "beat": "The mirror image. Same skill, other side.",
+      "start": "Mirror of the previous shot. Side view of the bronze and dark red chariot moving right to left, the low sun directly behind @karna's head as a halo. @shalya drives in front, hunched. @karna stands behind him with the bow Vijaya upright in his left hand. Four bay horses at a gallop.",
+      "motion": [[0, 2, "the horses gallop, the camera tracks with the chariot, the red standard streams backward"], [2, 4, "Karna lifts his chin and glances up at the sun"]],
+      "risk": "medium (horse legs)", "impact": null
+    },
+    {
+      "id": "S04", "act": "A", "cut_s": 3, "gen_s": 4,
+      "cast": ["@arjuna"],
+      "size": "close up", "angle": "three quarter, slightly low", "lens": "85mm", "move": "locked, slight drift",
+      "action": "Arjuna closes his eyes for one breath, opens them and raises Gandiva.",
+      "sound": "Everything drops to one held breath. Then a bowstring creaks.",
+      "beat": "His tell. The fight starts in his head first.",
+      "start": "Close up of @arjuna from the chest up, three quarter view facing right, eyes closed, the scar through his left eyebrow clear, bow Gandiva held low at the edge of frame. Blue gem on the diadem unlit. Warm rim light from the right.",
+      "motion": [[0, 1.5, "he holds still with eyes closed, dust drifts past"], [1.5, 3, "his eyes open, the blue gem lights, thin blue lightning crawls along the bow as he raises it"], [3, 4, "he holds the raised bow"]],
+      "risk": "low", "impact": null
+    },
+    {
+      "id": "S05", "act": "A", "cut_s": 3, "gen_s": 4,
+      "cast": ["@karna"],
+      "size": "close up", "angle": "three quarter, slightly low", "lens": "85mm", "move": "locked, slight drift",
+      "action": "Karna looks up at the sun, and the sun medallion on his chest flares.",
+      "sound": "A low hum rises. One bell.",
+      "beat": "His tell. He asks the sun to watch.",
+      "start": "Close up of @karna from the chest up, three quarter view facing left, the sun low behind his shoulder, bare scarred earlobes visible, the twelve-rayed sun medallion dull gold on his chest, bow Vijaya held low.",
+      "motion": [[0, 1.5, "he lifts his eyes to the sun"], [1.5, 3, "the medallion flares solar orange, straight rays spread from it, he raises the iron bow"], [3, 4, "he holds the raised bow"]],
+      "risk": "low", "impact": null
+    },
+    {
+      "id": "S06", "act": "B", "cut_s": 4, "gen_s": 5,
+      "cast": ["@arjuna", "@karna"],
+      "size": "wide two shot", "angle": "side on, symmetric", "lens": "35mm anamorphic", "move": "locked",
+      "action": "Both archers draw and loose at the same instant.",
+      "sound": "Two bowstrings snap as one. A rising whistle.",
+      "beat": "Equal speed. Equal power.",
+      "start": "Perfectly symmetric wide shot. @arjuna on his chariot at the left edge at full draw facing right. @karna on his chariot at the right edge at full draw facing left. A long empty gap between them. Blue glow on the left arrowhead, orange glow on the right arrowhead.",
+      "motion": [[0, 2, "both hold the full draw, the glows build, dust lifts around both cars"], [2, 3, "both loose together, a blue streak and an orange streak cross the gap"], [3, 5, "both reach for the next arrow in one smooth move"]],
+      "risk": "medium (two characters)", "impact": null
+    },
+    {
+      "id": "S07", "act": "B", "cut_s": 3, "gen_s": 4,
+      "cast": [],
+      "size": "extreme close up", "angle": "side on", "lens": "macro 100mm", "move": "locked, speed ramp to slow",
+      "action": "The two arrows meet point to point in the middle of the field and burst.",
+      "sound": "Silence for half a second, then one crack like a struck anvil.",
+      "beat": "The first hit decides nothing.",
+      "start": "Extreme close up, side view, of two arrowheads a hand apart in mid air, one wrapped in thin blue lightning coming from the left, one wrapped in orange rays coming from the right. Blurred ochre dust behind.",
+      "motion": [[0, 1.5, "slow motion, the two points close the last gap"], [1.5, 2, "they touch, a flat white flash fills the frame"], [2, 4, "a ring of blue and orange sparks spreads outward and the splinters drift"]],
+      "risk": "low", "impact": "white"
+    },
+    {
+      "id": "S08", "act": "B", "cut_s": 4, "gen_s": 5,
+      "cast": ["@karna"],
+      "size": "medium", "angle": "low, from the front", "lens": "28mm", "move": "push in, then tilt up",
+      "action": "Karna looses a fire weapon: one arrow becomes a wall of flame.",
+      "sound": "A roar like a furnace door opening.",
+      "beat": "He raises the stakes first.",
+      "start": "Low angle from the front of @karna at full draw aiming over the camera, medallion blazing, the arrowhead a small ball of orange fire. Sun behind his head.",
+      "motion": [[0, 2, "the fire on the arrowhead grows, heat ripples the air"], [2, 3, "he looses, the arrow passes over the camera"], [3, 5, "camera tilts up to follow as the arrow fans into a wide rolling wall of orange flame"]],
+      "risk": "medium (fire shapes)", "impact": null
+    },
+    {
+      "id": "S09", "act": "B", "cut_s": 4, "gen_s": 5,
+      "cast": ["@arjuna", "@krishna"],
+      "size": "wide", "angle": "from behind Arjuna, over the shoulder", "lens": "28mm", "move": "locked, slight rise",
+      "action": "Arjuna answers with a rain weapon and the wall of flame goes out.",
+      "sound": "Thunder, then hard rain, then hiss and steam.",
+      "beat": "Whatever Karna sends, Arjuna has the answer.",
+      "start": "Over the shoulder of @arjuna from behind, @krishna low in front at the reins. Ahead, a wall of orange flame rolls toward them across the plain. Arjuna aims his bow up at the sky, the arrowhead glowing blue.",
+      "motion": [[0, 1.5, "he looses upward, a blue streak climbs into the sky"], [1.5, 3, "a dark cloud opens above the flames and sheets of blue-white rain fall"], [3, 5, "the flames collapse into a bank of white steam that rolls past the chariot"]],
+      "risk": "medium (weather change)", "impact": null
+    },
+    {
+      "id": "S10", "act": "B", "cut_s": 4, "gen_s": 5,
+      "cast": ["@arjuna", "@karna"],
+      "size": "extreme wide", "angle": "top down", "lens": "24mm", "move": "slow rotation",
+      "action": "From above, the two chariots circle each other, trading arrows.",
+      "sound": "Wheels grinding in a circle. Arrows hiss both ways.",
+      "beat": "The duel becomes a wheel. Hold that shape for later.",
+      "start": "Straight top-down view of the plain. Two chariots at opposite sides of a large circle of wheel ruts, a white one and a bronze one, both small. Lines of blue and orange arrows cross the circle between them. Long shadows.",
+      "motion": [[0, 5, "both chariots run clockwise around the circle, cutting the ruts deeper, blue and orange streaks crossing the centre, the camera turns slowly the other way"]],
+      "risk": "low", "impact": null
+    },
+    {
+      "id": "S11", "act": "B", "cut_s": 5, "gen_s": 6,
+      "cast": ["@arjuna", "@karna"],
+      "size": "medium, moving", "angle": "travelling with the arrows", "lens": "18mm", "move": "tumbling flight, speed ramps",
+      "action": "The camera flies with a stream of Arjuna's arrows as Karna cuts them down one after another.",
+      "sound": "A fast run of drum hits, one per arrow. Metal on metal.",
+      "beat": "The centrepiece. Speed, then a held pose.",
+      "start": "Camera in mid air just behind three blue-lit arrows flying to the right. Ahead and small, @karna on his chariot at full draw, medallion blazing. Speed lines on the dust.",
+      "motion": [[0, 2, "the camera flies forward with the arrows, rolling a quarter turn, Karna grows in frame"], [2, 4, "Karna looses three times very fast, each orange arrow splits one blue arrow in a burst of sparks"], [4, 6, "slow motion, the last blue arrow passes a hand from his face and he does not blink"]],
+      "risk": "high (fast action, keep one action per second)", "impact": "orange"
+    },
+    {
+      "id": "S12", "act": "C", "cut_s": 3, "gen_s": 4,
+      "cast": ["@arjuna"],
+      "size": "close up", "angle": "side on", "lens": "85mm", "move": "locked, hand-held shake on the hit",
+      "action": "An orange arrow cuts Arjuna's bowstring.",
+      "sound": "A single high snap. Then nothing.",
+      "beat": "First blood goes to Karna.",
+      "start": "Close up side view of @arjuna's hands and face at full draw on the bow Gandiva, the string taut and lit blue. An orange streak entering frame from the right.",
+      "motion": [[0, 1, "the orange streak crosses the frame"], [1, 2, "the bowstring snaps and whips back, the blue light on the bow goes out"], [2, 4, "Arjuna stares at the loose string, breathing hard"]],
+      "risk": "medium (string detail)", "impact": null
+    },
+    {
+      "id": "S13", "act": "C", "cut_s": 3, "gen_s": 4,
+      "cast": ["@krishna"],
+      "size": "medium close up", "angle": "from the front, eye level", "lens": "50mm", "move": "locked",
+      "action": "Krishna glances back over his shoulder, calm, and gives the smallest nod.",
+      "sound": "Wind. A soft flute note, the only one in the film.",
+      "beat": "Stillness is power. Keep going.",
+      "start": "Medium close up of @krishna from the front at the reins, facing camera, head turned slightly over his right shoulder, the peacock feather leaning, yellow cloth moving in the wind. Arjuna out of focus behind him.",
+      "motion": [[0, 2, "he looks back over his shoulder with a faint smile"], [2, 4, "one small nod, then he faces forward again"]],
+      "risk": "low", "impact": null
+    },
+    {
+      "id": "S14", "act": "C", "cut_s": 4, "gen_s": 5,
+      "cast": ["@karna"],
+      "size": "close up to medium", "angle": "three quarter", "lens": "50mm", "move": "slow pull back",
+      "action": "Karna draws one special arrow from a golden case. A fiery serpent coils along it.",
+      "sound": "A dry rattle. A hiss that rises in pitch.",
+      "beat": "The one weapon he has been saving.",
+      "start": "Close up of @karna holding a single long arrow upright in front of his face, its shaft dark, its head shaped like a hooded snake. Medallion glowing. His eyes on the arrow.",
+      "motion": [[0, 2, "orange-red fire runs up the arrow and takes the shape of a coiling serpent with a spread hood"], [2, 5, "the camera pulls back as he sets the arrow to the string and draws, the serpent's head aimed left"]],
+      "risk": "medium (serpent shape)", "impact": null
+    },
+    {
+      "id": "S15", "act": "C", "cut_s": 4, "gen_s": 5,
+      "cast": [],
+      "size": "wide", "angle": "side on, low", "lens": "24mm anamorphic", "move": "fast track right to left",
+      "action": "The serpent arrow crosses the field, burning a line through the dust.",
+      "sound": "A long rising scream of air. Drums stop.",
+      "beat": "Nothing can answer this one.",
+      "start": "Wide low side view of the empty plain. A blazing orange-red serpent of fire with a spread hood flies right to left, a long tail of flame behind it, the ground lit orange under it.",
+      "motion": [[0, 5, "the serpent flies fast right to left, the camera tracks with it, the dust parts in a V behind it, both armies light up orange in the distance"]],
+      "risk": "medium", "impact": null
+    },
+    {
+      "id": "S16", "act": "C", "cut_s": 4, "gen_s": 5,
+      "cast": ["@krishna", "@arjuna"],
+      "size": "medium wide", "angle": "low, from the front quarter", "lens": "28mm", "move": "locked, hard downward jolt",
+      "action": "Krishna presses his foot down. The chariot sinks a hand's depth into the earth and the horses kneel.",
+      "sound": "One deep thud, felt more than heard. Horses snort.",
+      "beat": "The driver saves the archer.",
+      "start": "Low front-quarter view of the white and silver chariot. @krishna at the reins presses his right foot down on the chariot floor, a soft white-gold glow under his foot. @arjuna stands behind him looking up at an orange glow coming from the right.",
+      "motion": [[0, 1.5, "the white-gold glow spreads under the wheels"], [1.5, 3, "the whole chariot drops a hand's depth into the ground with a ring of dust, the four white horses fold to their knees"], [3, 5, "Arjuna's head dips with the chariot as the orange light sweeps over the top of the frame"]],
+      "risk": "high (horses kneeling)", "impact": null
+    },
+    {
+      "id": "S17", "act": "C", "cut_s": 3, "gen_s": 4,
+      "cast": ["@arjuna"],
+      "size": "close up", "angle": "side on, slightly low", "lens": "85mm", "move": "locked, speed ramp to slow",
+      "action": "The serpent arrow misses his head and takes the diadem.",
+      "sound": "A bell struck once, very loud. Then ringing.",
+      "beat": "He should be dead. He has lost his crown instead.",
+      "start": "Close up side view of @arjuna's head and shoulders facing right, ducked low. A blazing orange serpent head arriving from the right, level with the gold diadem on his brow.",
+      "motion": [[0, 1.5, "slow motion, the serpent passes just above his hair and strikes the diadem"], [1.5, 2, "a flat three-colour flash: black, white and solar orange"], [2, 4, "the diadem spins away burning, his hair falls loose, a scorch mark smokes on his right shoulder plate"]],
+      "risk": "medium", "impact": "orange"
+    },
+    {
+      "id": "S18", "act": "C", "cut_s": 3, "gen_s": 4,
+      "cast": ["@arjuna_bare"],
+      "size": "medium", "angle": "low, from the front", "lens": "35mm", "move": "slow push in",
+      "action": "Arjuna rises bare-headed, ties a white cloth on his brow, and lightning climbs the restrung bow.",
+      "sound": "Ringing fades. Thunder rolls back in, closer.",
+      "beat": "The turn. He is angrier and calmer at once.",
+      "start": "Low front view of @arjuna_bare standing up straight on the chariot, a strip of white cloth already tied across his brow, hair loose, bow Gandiva in his left hand with a new string. Smoke drifting off his shoulder.",
+      "motion": [[0, 2, "he straightens to full height, the camera pushes in"], [2, 4, "blue lightning climbs the bow from the bottom tip to the top tip and stays lit"]],
+      "risk": "low (the cloth is already tied, no hand detail)", "impact": null
+    },
+    {
+      "id": "S19", "act": "D", "cut_s": 4, "gen_s": 5,
+      "cast": ["@karna", "@shalya"],
+      "size": "close up, then medium", "angle": "ground level", "lens": "24mm", "move": "locked, then tilt up",
+      "action": "Karna's left wheel sinks into the earth and the chariot lurches to a stop.",
+      "sound": "Wood groans. The wheel rumble stops dead.",
+      "beat": "The earth takes his wheel. The old curse arrives.",
+      "start": "Ground level close up of the left wheel of the bronze and dark red chariot, turning on hard ochre ground. Bay horses' legs blurred ahead of it.",
+      "motion": [[0, 2, "the ground under the wheel softens and the wheel sinks to the axle, throwing up dark earth"], [2, 3.5, "the chariot lurches and tilts to the left and stops"], [3.5, 5, "camera tilts up to Karna gripping the rail, looking down at the wheel"]],
+      "risk": "medium", "impact": null
+    },
+    {
+      "id": "S20", "act": "D", "cut_s": 4, "gen_s": 5,
+      "cast": ["@karna_ground"],
+      "size": "medium", "angle": "low, three quarter", "lens": "35mm", "move": "locked",
+      "action": "On foot, Karna strains to lift the wheel with both hands, then looks up at the sun.",
+      "sound": "His breathing. Far away, a conch.",
+      "beat": "The greatest archer alive, without a bow in his hands.",
+      "start": "Low three quarter view of @karna_ground crouched beside the sunken wheel, both hands under the rim, shoulders straining, the tilted chariot above him, the low sun behind.",
+      "motion": [[0, 3, "he heaves with his whole body, the wheel rises a finger's width and sinks back"], [3, 5, "he stops, and lifts his face to the sun, the medallion dim"]],
+      "risk": "medium (hands on the wheel, keep them still)", "impact": null
+    },
+    {
+      "id": "S21", "act": "D", "cut_s": 3, "gen_s": 4,
+      "cast": ["@arjuna_bare", "@krishna"],
+      "size": "medium", "angle": "side on", "lens": "50mm", "move": "locked",
+      "action": "Arjuna at full draw, eyes closed for one breath. Krishna nods once.",
+      "sound": "The bow creaks. One breath. No music.",
+      "beat": "His tell again. This time it costs him something.",
+      "start": "Side view of @arjuna_bare at full draw facing right, eyes closed, one broad crescent-headed arrow on the string lit blue. @krishna in front of him at the reins, looking ahead.",
+      "motion": [[0, 2, "he holds the draw with eyes closed, lightning crawling on the bow"], [2, 3, "Krishna gives one small nod"], [3, 4, "Arjuna's eyes open"]],
+      "risk": "low", "impact": null
+    },
+    {
+      "id": "S22", "act": "D", "cut_s": 3, "gen_s": 4,
+      "cast": ["@arjuna_bare"],
+      "size": "close up", "angle": "from the front, on the arrow", "lens": "85mm", "move": "locked, snap zoom out",
+      "action": "He looses. A blue impact frame.",
+      "sound": "The loudest bowstring in the film. Then a thunderclap.",
+      "beat": "The one shot that matters.",
+      "start": "Close up from the front, looking straight down the crescent-headed arrow at @arjuna_bare's right eye behind it, the string at his cheek, everything lit blue.",
+      "motion": [[0, 1.5, "his fingers open"], [1.5, 2, "a flat three-colour flash: black, white and electric blue, his silhouette frozen in the release pose"], [2, 4, "the camera snaps back to a medium shot, the bow still humming, a blue trail leaving frame right"]],
+      "risk": "low", "impact": "blue"
+    },
+    {
+      "id": "S23", "act": "D", "cut_s": 4, "gen_s": 5,
+      "cast": ["@karna_ground"],
+      "size": "wide", "angle": "side on, low", "lens": "24mm anamorphic", "move": "track with the arrow, then stop",
+      "action": "The arrow crosses the field. Karna turns to face it. White light.",
+      "sound": "The scream of the arrow, cut to total silence on the flash.",
+      "beat": "No wound. Only light.",
+      "start": "Wide low side view. A blue streak flying left to right across the plain. At the right, small, @karna_ground standing beside the tilted chariot, turned to face the streak, arms at his sides.",
+      "motion": [[0, 2.5, "the camera tracks with the blue streak, Karna grows in frame, he does not raise his arms"], [2.5, 3.5, "the streak reaches him and the whole frame goes to soft white"], [3.5, 5, "the white holds, with only his dark silhouette standing in it"]],
+      "risk": "low (the flash hides the contact)", "impact": "white"
+    },
+    {
+      "id": "S24", "act": "D", "cut_s": 8, "gen_s": 10,
+      "cast": ["@arjuna_bare", "@krishna"],
+      "size": "extreme wide", "angle": "low, behind Arjuna's chariot", "lens": "24mm anamorphic", "move": "very slow crane up",
+      "action": "A column of gold light rises from where Karna stood and enters the sun. Arjuna lowers his bow.",
+      "sound": "One long conch. Wind. The music bed resolves and stops.",
+      "beat": "The sun takes its son back. Nobody cheers.",
+      "start": "Extreme wide from behind the white and silver chariot, @arjuna_bare and @krishna small and dark in the foreground left, backs to camera. Far across the plain on the right, the tilted bronze chariot, and above it a thin column of gold light reaching up toward the low sun.",
+      "motion": [[0, 4, "the column of gold light rises and thins until it joins the sun, the sun brightens once"], [4, 7, "Arjuna slowly lowers the bow to his side, the blue light on it goes out"], [7, 10, "the camera rises very slowly, dust drifts across, hold"]],
+      "risk": "low", "impact": null
+    }
+  ]
+}

@@ -27,7 +27,9 @@ def style():
     return re.search(r"> (Painterly stylized CG animation still.+?)\n", (STUDIO / "bible.md").read_text(), re.S).group(1).strip()
 
 def call(project, prompt, ref=None):
-    tok = subprocess.run(["gcloud", "auth", "application-default", "print-access-token"], capture_output=True, text=True, check=True).stdout.strip()
+    import shutil
+    gcloud = shutil.which("gcloud") or shutil.which("gcloud.cmd") or "gcloud"  # Windows installs gcloud as gcloud.cmd
+    tok = subprocess.run([gcloud, "auth", "application-default", "print-access-token"], capture_output=True, text=True, check=True).stdout.strip()
     parts = [{"text": prompt}]
     if ref:
         parts.append({"inline_data": {"mime_type": "image/png", "data": base64.b64encode((STUDIO / ref).read_bytes()).decode()}})

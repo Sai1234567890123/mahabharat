@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Anjalika animatic</title>
+<style>
+  :root { --bg:#120b08; --ink:#f3ead8; --dim:#8a7a6a; --orange:#FF7A2E; --umber:#3A1A12; --gold:#E8C15A; --blue:#6FC3FF; --sun:#FFB02E; }
+  html,body { margin:0; background:var(--bg); color:var(--ink); font-family: Georgia, "Times New Roman", serif; }
+  #stage { width:1280px; height:720px; position:relative; overflow:hidden; background:var(--bg); }
+  #panel { position:absolute; left:40px; top:28px; width:1200px; height:502px; border-radius:4px; overflow:hidden; box-shadow:0 0 0 2px #2a1c14; }
+  #meta { position:absolute; left:40px; top:546px; width:1200px; display:flex; gap:24px; align-items:baseline; }
+  #sid { font-size:34px; color:var(--gold); letter-spacing:1px; min-width:96px; }
+  #dur { font-size:16px; color:var(--dim); min-width:70px; }
+  #act { font-size:15px; color:var(--orange); text-transform:uppercase; letter-spacing:2px; }
+  #action { position:absolute; left:40px; top:590px; width:1200px; font-size:20px; line-height:1.3; }
+  #camera { position:absolute; left:40px; top:620px; width:1200px; font-size:14px; color:var(--dim); font-family: Menlo, Consolas, monospace; }
+  #timeline { position:absolute; left:40px; top:656px; width:1200px; height:40px; }
+  .seg { position:absolute; top:8px; height:22px; border-right:2px solid var(--bg); box-sizing:border-box; font: 10px Menlo, Consolas, monospace; color:#000a; padding:5px 3px; overflow:hidden; opacity:.45; }
+  .seg.on { opacity:1; outline:2px solid var(--ink); z-index:2; }
+  #playhead { position:absolute; top:0; width:2px; height:40px; background:#fff; z-index:3; }
+  #clock { position:absolute; right:40px; top:552px; font: 16px Menlo, Consolas, monospace; color:var(--dim); }
+  #controls { position:absolute; left:40px; top:700px; font:11px Menlo,monospace; color:var(--dim); }
+  body.rec #controls { display:none; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <svg id="panel" viewBox="0 0 1200 502" xmlns="http://www.w3.org/2000/svg"></svg>
+  <div id="meta"><span id="sid"></span><span id="dur"></span><span id="act"></span></div>
+  <div id="clock"></div>
+  <div id="action"></div>
+  <div id="camera"></div>
+  <div id="timeline"><div id="playhead"></div></div>
+  <div id="controls">space: play/pause · arrows: previous/next shot · click the timeline to seek</div>
+</div>
+<script>
+// Shot data is a copy of shots.json (id, dur, action, camera, panel). Rebuild with tools/build_animatic_data.py if the cards change.
+const SHOTS = /*SHOTS*/[{"id": "A01", "dur": 4, "action": "A blue lightning arrowhead and a gold sun-fire arrowhead meet point to point in the center of a black frame and burst.", "camera": "Extreme close-up, locked off, then a 6-frame snap zoom out", "panel": "clash", "neg": false, "drain": false}, {"id": "A02", "dur": 5, "action": "Two chariots face each other across a cleared ring of red earth while two halted armies watch.", "camera": "Extreme wide, 24mm, eye level, slow push-in", "panel": "wide", "neg": false, "drain": false}, {"id": "A03", "dur": 4, "action": "Karna touches his bow to his forehead, then his eyes lift to screen left.", "camera": "Medium close-up, 85mm, slight low angle, slow push-in", "panel": "karna_mcu", "neg": false, "drain": false}, {"id": "A04", "dur": 4, "action": "Arjuna draws Gandiva and blue static crawls up the bow.", "camera": "Medium close-up, 85mm, mirror of A03, slow push-in", "panel": "arjuna_mcu", "neg": false, "drain": false}, {"id": "A05", "dur": 3, "action": "Krishna flicks the reins and the white horses surge forward.", "camera": "Low tracking shot at wheel height, 18mm, fast dolly", "panel": "horses", "neg": false, "drain": false}, {"id": "A06", "dur": 5, "action": "Karna looses a fan of seven arrows in one draw.", "camera": "Arrow-cam: camera launches with the arrows, 35mm, then whip-pan", "panel": "volley", "neg": false, "drain": false}, {"id": "A07", "dur": 4, "action": "Arjuna's arrows split Karna's arrows in mid-air, one by one.", "camera": "Medium wide, 35mm, camera shake on each hit", "panel": "counter", "neg": false, "drain": false}, {"id": "A08", "dur": 5, "action": "The sky fills with so many arrows that they blot out the sun.", "camera": "Crane up from ground to high top-down, 24mm", "panel": "net", "neg": false, "drain": false}, {"id": "A09", "dur": 4, "action": "In the arrow-darkness the two warriors, exhausted, look at each other.", "camera": "Split-screen two-shot, both 85mm close-ups, locked off", "panel": "split", "neg": false, "drain": false}, {"id": "A10", "dur": 4, "action": "Karna draws a single arrow from a golden quiver; its head is a serpent's mouth and its eye opens.", "camera": "Macro insert, 100mm, rack focus", "panel": "snake", "neg": false, "drain": false}, {"id": "A11", "dur": 4, "action": "Karna draws the snake arrow to his ear and meteors fall from a red sky.", "camera": "Low angle, 24mm, 90-degree orbit", "panel": "meteors", "neg": false, "drain": false}, {"id": "A12", "dur": 4, "action": "The snake arrow tears across the sky, splitting it with a line of fire.", "camera": "Wide, 24mm, whip-pan following the arrow", "panel": "line", "neg": false, "drain": false}, {"id": "A13", "dur": 4, "action": "Krishna presses his foot down and the chariot sinks a cubit into the earth; the horses kneel.", "camera": "Low angle on the chariot floor, 18mm, then a hard drop", "panel": "press", "neg": true, "drain": false}, {"id": "A14", "dur": 4, "action": "The snake arrow strikes Arjuna's diadem off instead of his head.", "camera": "Medium close-up, 50mm, speed ramp 100 to 10 to 100 percent", "panel": "diadem", "neg": false, "drain": false}, {"id": "A15", "dur": 3, "action": "Arjuna rises and binds his hair with a white cloth.", "camera": "Medium close-up, 85mm, slow push-in", "panel": "cloth", "neg": false, "drain": false}, {"id": "A16", "dur": 5, "action": "Karna's left wheel sinks; he leaps down and heaves it, and the whole earth lifts a little.", "camera": "Low wide, 18mm, the horizon tilts", "panel": "wheel", "neg": false, "drain": false}, {"id": "A17", "dur": 4, "action": "Karna raises a palm to ask Arjuna to wait; Krishna's look answers with a memory of Abhimanyu.", "camera": "Over-the-shoulder from Arjuna to Karna, 50mm, one 12-frame insert", "panel": "plea", "neg": false, "drain": false}, {"id": "A18", "dur": 4, "action": "Arjuna's razor arrow cuts Karna's gold banner and it falls across the sun.", "camera": "Wide, 35mm, slow tilt down", "panel": "banner", "neg": false, "drain": true}, {"id": "A19", "dur": 4, "action": "Arjuna draws the Anjalika and rings of lightning ripple out from Gandiva.", "camera": "Wide to extreme close-up, one continuous push, 24mm to 135mm feel", "panel": "anjalika", "neg": false, "drain": false}, {"id": "A20", "dur": 3, "action": "The Anjalika flies; Karna's silhouette stands against the sun as the sun goes dark.", "camera": "Impact frames, then a locked wide silhouette", "panel": "impact", "neg": false, "drain": false}, {"id": "A21", "dur": 5, "action": "A column of light rises from where Karna fell and enters the sun.", "camera": "Wide, 24mm, crane up", "panel": "light", "neg": false, "drain": false}, {"id": "A22", "dur": 4, "action": "Arjuna lowers Gandiva and does not celebrate; Krishna watches the light.", "camera": "Medium wide, 50mm, locked off, hold the final pose", "panel": "final", "neg": false, "drain": false}];
+const ACTS = /*ACTS*/[{"name": "I. Face-off", "from": "A01", "to": "A05"}, {"name": "II. The net of arrows", "from": "A06", "to": "A12"}, {"name": "III. Fate turns", "from": "A13", "to": "A17"}, {"name": "IV. The Anjalika", "from": "A18", "to": "A22"}];
+const W = 1200, H = 502;
+const C = { orange:'#FF7A2E', umber:'#3A1A12', gold:'#E8C15A', bone:'#F3EAD8', blue:'#6FC3FF', sun:'#FFB02E', white:'#FFE9A8', red:'#B3261E', dusk:'#2A3350', ink:'#1a0d08' };
+
+// ---------- helpers ----------
+const cl = (x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const ease = p => p<.5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2;           // in-out
+const back = p => { const c=1.7; return 1+(c+1)*Math.pow(p-1,3)+c*Math.pow(p-1,2); }; // overshoot
+const seg = (p,a,b)=>cl((p-a)/(b-a));
+const rnd = (i)=>{ const x=Math.sin(i*127.1)*43758.5453; return x-Math.floor(x); };
+function sky(top,bot){ return `<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${top}"/><stop offset="1" stop-color="${bot}"/></linearGradient></defs><rect width="${W}" height="${H}" fill="url(#g)"/>`; }
+function sun(x,y,r,col='#FFD27A',glow=C.sun){ return `<circle cx="${x}" cy="${y}" r="${r*1.5}" fill="${glow}" opacity=".25"/><circle cx="${x}" cy="${y}" r="${r}" fill="${col}"/>`; }
+function ground(y,col=C.umber){ return `<rect x="-200" y="${y}" width="${W+400}" height="${H}" fill="${col}"/>`; }
+function haze(y,col,op){ return `<rect x="-200" y="${y}" width="${W+400}" height="60" fill="${col}" opacity="${op}"/>`; }
+function army(y,x0,x1,col,h=14,seed=1){ let s=''; for(let x=x0;x<x1;x+=9){ const hh=h*(.7+.6*rnd(x+seed)); s+=`<rect x="${x}" y="${y-hh}" width="6" height="${hh}" fill="${col}"/><line x1="${x+3}" y1="${y-hh}" x2="${x+3}" y2="${y-hh-h*.9}" stroke="${col}" stroke-width="1.5"/>`; } return s; }
+// bow: arc. facing 1 = faces right
+function bow(x,y,h,facing,col,draw=0,stringCol='#ddd'){ const bx=x+facing*h*.18*(1-draw*.3); const sx=x-facing*h*.35*draw;
+  return `<path d="M ${x} ${y-h/2} Q ${bx+facing*h*.25} ${y} ${x} ${y+h/2}" fill="none" stroke="${col}" stroke-width="${h*.04}" stroke-linecap="round"/>
+          <polyline points="${x},${y-h/2} ${sx},${y} ${x},${y+h/2}" fill="none" stroke="${stringCol}" stroke-width="1.5"/>`; }
+// figure: simple silhouette standing; facing 1 right
+function figure(x,y,s,facing,body,head,opts={}){ const f=facing; let g='';
+  g+=`<path d="M ${x-s*.22} ${y} L ${x-s*.12} ${y-s*.9} L ${x+s*.12} ${y-s*.9} L ${x+s*.22} ${y} Z" fill="${body}"/>`; // dhoti/legs
+  g+=`<path d="M ${x-s*.2} ${y-s*.88} L ${x-s*.24} ${y-s*1.55} Q ${x} ${y-s*1.68} ${x+s*.24} ${y-s*1.55} L ${x+s*.2} ${y-s*.88} Z" fill="${opts.armor||body}"/>`; // torso
+  g+=`<circle cx="${x}" cy="${y-s*1.82}" r="${s*.17}" fill="${head}"/>`;
+  if(opts.crown) g+=`<rect x="${x-s*.15}" y="${y-s*2.02}" width="${s*.3}" height="${s*.07}" fill="${opts.crown}"/>`;
+  if(opts.rays) for(let i=-3;i<=3;i++) g+=`<line x1="${x+i*s*.04}" y1="${y-s*1.98}" x2="${x+i*s*.09}" y2="${y-s*2.22}" stroke="${opts.rays}" stroke-width="${s*.03}"/>`;
+  if(opts.feather) g+=`<path d="M ${x+s*.05} ${y-s*1.98} q ${s*.08} ${-s*.2} ${s*.02} ${-s*.38}" stroke="#1E8C8C" stroke-width="${s*.05}" fill="none"/>`;
+  if(opts.arm!==undefined){ const ax=x+f*s*.75, ay=y-s*1.45-opts.arm*s*.25; g+=`<line x1="${x+f*s*.15}" y1="${y-s*1.5}" x2="${ax}" y2="${ay}" stroke="${opts.armor||body}" stroke-width="${s*.12}" stroke-linecap="round"/>`; }
+  return g; }
+function chariot(x,y,s,facing,col,horse,opts={}){ const f=facing; let g='';
+  for(let i=0;i<4;i++){ const hx=x+f*(s*1.2+i*s*.12), hy=y-s*.35-i*2; g+=`<ellipse cx="${hx}" cy="${hy}" rx="${s*.38}" ry="${s*.16}" fill="${horse}"/><line x1="${hx+f*s*.25}" y1="${hy}" x2="${hx+f*s*.42}" y2="${hy-s*.3}" stroke="${horse}" stroke-width="${s*.1}"/>`;
+    const kneel=opts.kneel||0; g+=`<line x1="${hx-s*.2}" y1="${hy}" x2="${hx-s*.2}" y2="${y-kneel*s*.18}" stroke="${horse}" stroke-width="${s*.05}"/><line x1="${hx+s*.2}" y1="${hy}" x2="${hx+s*.2}" y2="${y-kneel*s*.18}" stroke="${horse}" stroke-width="${s*.05}"/>`; }
+  g+=`<path d="M ${x-s*.6} ${y-s*.35} L ${x+s*.6} ${y-s*.35} L ${x+s*.5} ${y-s*.95} L ${x-s*.5} ${y-s*.95} Z" fill="${col}"/>`;
+  g+=`<circle cx="${x}" cy="${y-s*.3}" r="${s*.32}" fill="none" stroke="${col}" stroke-width="${s*.07}"/>`;
+  if(opts.banner){ const bh=s*2.6; g+=`<line x1="${x-f*s*.4}" y1="${y-s*.9}" x2="${x-f*s*.4}" y2="${y-s*.9-bh}" stroke="${col}" stroke-width="${s*.05}"/><path d="M ${x-f*s*.4} ${y-s*.9-bh} l ${f*s*.7} ${s*.12} l ${-f*s*.7} ${s*.3} Z" fill="${opts.banner}"/>`; }
+  return g; }
+function arrow(x1,y1,x2,y2,col,w=3,glow=true){ return (glow?`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="${w*4}" opacity=".25" stroke-linecap="round"/>`:'')+`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/>`; }
+function bolt(x1,y1,x2,y2,seed,col=C.blue){ let pts=[], n=8; for(let i=0;i<=n;i++){ const t=i/n; const j=(i&&i<n)?(rnd(seed+i)-.5)*30:0; pts.push(`${x1+(x2-x1)*t+j},${y1+(y2-y1)*t+j*.5}`);} return `<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="5" opacity=".35"/><polyline points="${pts.join(' ')}" fill="none" stroke="#fff" stroke-width="1.6"/>`; }
+function star(x,y,r,col){ let p=[]; for(let i=0;i<16;i++){ const a=i*Math.PI/8, rr=i%2?r*.35:r; p.push(`${x+Math.cos(a)*rr},${y+Math.sin(a)*rr}`);} return `<polygon points="${p.join(' ')}" fill="${col}"/>`; }
+function rings(x,y,r,col,n=3,w=4){ let s=''; for(let i=0;i<n;i++){ const rr=r*(1-i*.22); if(rr>0) s+=`<circle cx="${x}" cy="${y}" r="${rr}" fill="none" stroke="${col}" stroke-width="${w}" opacity="${1-i*.25}"/>`; } return s; }
+function bust(x,y,s,facing,skin,armor,opts={}){ const f=facing; let g='';
+  g+=`<path d="M ${x-s*1.1} ${H+20} Q ${x-s*1.05} ${y+s*.9} ${x} ${y+s*.75} Q ${x+s*1.05} ${y+s*.9} ${x+s*1.1} ${H+20} Z" fill="${armor}"/>`;
+  g+=`<rect x="${x-s*.18}" y="${y+s*.3}" width="${s*.36}" height="${s*.5}" fill="${skin}"/>`;
+  g+=`<ellipse cx="${x}" cy="${y}" rx="${s*.42}" ry="${s*.52}" fill="${skin}"/>`;
+  g+=`<path d="M ${x+f*s*.38} ${y-s*.05} l ${f*s*.12} ${s*.12} l ${-f*s*.12} ${s*.02} Z" fill="${skin}"/>`; // nose
+  g+=`<path d="M ${x-s*.46} ${y-s*.05} Q ${x-s*.5} ${y-s*.7} ${x} ${y-s*.66} Q ${x+s*.5} ${y-s*.7} ${x+s*.46} ${y-s*.1} Q ${x-f*s*.1} ${y-s*.4} ${x-s*.46} ${y+s*.5} Z" fill="${opts.hair||'#120a06'}"/>`;
+  const eo=opts.eye===undefined?1:opts.eye; g+=`<ellipse cx="${x+f*s*.2}" cy="${y-s*.08}" rx="${s*.07}" ry="${s*.05*eo+0.5}" fill="#120a06"/>`;
+  if(opts.crown) g+=`<rect x="${x-s*.44}" y="${y-s*.62}" width="${s*.88}" height="${s*.12}" fill="${opts.crown}"/>`;
+  if(opts.rays) for(let i=-4;i<=4;i++) g+=`<line x1="${x+i*s*.1}" y1="${y-s*.62}" x2="${x+i*s*.2}" y2="${y-s*1.05}" stroke="${opts.rays}" stroke-width="${s*.06}"/>`;
+  if(opts.cloth) g+=`<rect x="${x-s*.46}" y="${y-s*.5}" width="${s*.92}" height="${s*.1}" fill="#f4f1ea"/>`;
+  if(opts.rim) g+=`<ellipse cx="${x}" cy="${y}" rx="${s*.44}" ry="${s*.54}" fill="none" stroke="${opts.rim}" stroke-width="3" stroke-dasharray="${s*1.4} ${s*2}" stroke-dashoffset="${f>0?-s*1.2:s*.4}"/>`;
+  return g; }
+const flash = (col,op=1)=>`<rect width="${W}" height="${H}" fill="${col}" opacity="${op}"/>`;
+const cam = (inner,sc=1,cx=W/2,cy=H/2,dx=0,dy=0,rot=0)=>`<g transform="translate(${cx+dx} ${cy+dy}) rotate(${rot}) scale(${sc}) translate(${-cx} ${-cy})">${inner}</g>`;
+function shake(p,hits,amp=8){ for(const h of hits){ const d=p-h; if(d>=0&&d<.03) return [(rnd(h*99+d*1000)-.5)*amp*2,(rnd(h*77+d*900)-.5)*amp*2]; } return [0,0]; }
+
+// ---------- panels: (p = 0..1 progress within the shot, dur seconds) ----------
+const P = {
+  clash(p){ let g=flash('#000'); const a=ease(seg(p,0,.5)); const gap=60*(1-a)+6;
+    if(p<.5){ g+=arrow(0,H/2,W/2-gap,H/2,C.blue,6)+`<polygon points="${W/2-gap},${H/2-14} ${W/2-gap+40},${H/2} ${W/2-gap},${H/2+14}" fill="#cfd8de"/>`+bolt(80,H/2-10,W/2-gap,H/2-4,3+Math.floor(p*20));
+      g+=arrow(W,H/2,W/2+gap,H/2,C.sun,6)+`<polygon points="${W/2+gap},${H/2-14} ${W/2+gap-40},${H/2} ${W/2+gap},${H/2+14}" fill="${C.gold}"/>`; }
+    if(p>=.5&&p<.56) g+=flash('#fff');
+    if(p>=.56){ const q=seg(p,.56,1), sc=1+back(q)*.0; g+=rings(W/2,H/2,40+q*520,C.blue,3,6)+rings(W/2,H/2,20+q*420,C.sun,3,6)+star(W/2,H/2,60*(1-q)+10,'#fff'); }
+    return g; },
+  wide(p){ const sc=1+.18*ease(p); let g=sky('#FF9A4A','#C2461C')+sun(900,300,120)+haze(260,'#FFB070',.35)+ground(340,'#7A2E16')+haze(330,'#E36A2E',.3);
+    g+=army(340,-60,330,'#4a1c10',16,1)+army(340,860,1300,'#4a1c10',16,7);
+    g+=`<ellipse cx="600" cy="400" rx="330" ry="46" fill="#9A3D1C"/>`;
+    g+=chariot(430,405,22,1,C.gold,'#f4efe6',{banner:'#E36A2E'})+figure(430,380,18,1,'#eee','#8A5A3C',{armor:'#dde3ea'});
+    g+=chariot(770,405,22,-1,C.gold,'#7a4a2a',{banner:C.gold})+figure(770,380,18,-1,'#8E1B24','#6E4630',{armor:'#C98A1E',rays:C.gold});
+    const d=(p*300)%1200; for(let i=0;i<14;i++) g+=`<circle cx="${(i*97+d)%1300-50}" cy="${360+rnd(i)*120}" r="${3+rnd(i+3)*6}" fill="#E8A070" opacity=".35"/>`;
+    return cam(g,sc,600,400); },
+  karna_mcu(p){ const sc=1+.08*p; let g=sky('#FF8A3A','#A3381A')+sun(720,190,190,'#FFD884');
+    const touch = p<.5 ? Math.sin(seg(p,0,.5)*Math.PI) : 0; const bx=560+touch*90;
+    g+=bust(720,230,140,-1,'#6E4630','#C98A1E',{crown:C.gold,rays:C.gold,eye:p<.5?.1:1,rim:C.sun,hair:'#120a06'});
+    g+=bow(bx,250,440,-1,'#EFE3C2',0,'#fff');
+    g+=`<g opacity=".55">${figure(140,520,120,-1,'#5a4a40','#7a6050',{armor:'#9aa0a6'})}</g>`;
+    return cam(g,sc,700,260); },
+  arjuna_mcu(p){ const sc=1+.08*p; const d=ease(seg(p,0,.75)); let g=sky('#FF9A4A','#B8421C');
+    g+=bust(470,230,140,1,'#8A5A3C','#E9ECEF',{crown:C.gold,rim:C.blue});
+    g+=bow(680,240,430,1,'#1E1B1A',d,'#bfe7ff');
+    const n=Math.floor(d*6); for(let i=0;i<n;i++) g+=bolt(690+i*6,460-i*60,700,400-i*60,i*13+Math.floor(p*24));
+    g+=`<g opacity=".6"><ellipse cx="1060" cy="520" rx="150" ry="190" fill="#C9A227"/><circle cx="1060" cy="330" r="70" fill="#120a06"/></g>`;
+    return cam(g,sc,500,260); },
+  horses(p){ const snap=p<.33?Math.sin(seg(p,0,.33)*Math.PI):0; let g=sky('#FF9A4A','#D2552A')+ground(300,'#7A2E16');
+    const run=ease(seg(p,.33,1)); const rot=run*720;
+    g+=`<g transform="translate(260 330) rotate(${rot})"><circle r="150" fill="none" stroke="${C.gold}" stroke-width="18"/>${[0,45,90,135].map(a=>`<line x1="-150" y1="0" x2="150" y2="0" stroke="${C.gold}" stroke-width="10" transform="rotate(${a})"/>`).join('')}<circle r="26" fill="${C.gold}"/></g>`;
+    for(let i=0;i<8;i++){ const ph=Math.sin(p*40+i)*run; g+=`<line x1="${620+i*70}" y1="160" x2="${620+i*70+ph*30}" y2="330" stroke="#f4efe6" stroke-width="16" stroke-linecap="round"/>`; }
+    g+=`<rect x="560" y="80" width="640" height="90" fill="#f4efe6"/>`;
+    g+=`<path d="M 0 ${60-snap*30} Q 300 ${20+snap*40} 620 110" stroke="#2a1508" stroke-width="5" fill="none"/>`;
+    for(let i=0;i<20;i++){ const x=(1200-((p*1600+i*90)%1300)); g+=`<circle cx="${x}" cy="${300+rnd(i)*190}" r="${8+rnd(i+1)*22}" fill="#C46A3E" opacity=".45"/>`; }
+    return g; },
+  volley(p){ let g=''; const rel=seg(p,.2,1); const pan=-ease(seg(p,.4,1))*700;
+    let s=sky('#FF8A3A','#A3381A')+sun(1000,180,150,'#FFD884')+ground(380,'#6A2812');
+    s+=figure(950,380,110,-1,'#8E1B24','#6E4630',{armor:'#C98A1E',rays:C.gold,arm:.2})+bow(860,200,240,-1,'#EFE3C2',p<.2?1:0);
+    for(let i=0;i<7;i++){ const a=(-30+i*10)*Math.PI/180; const L=rel*1600; const x0=860, y0=200; s+=arrow(x0+Math.cos(Math.PI+a)*(L-80),y0+Math.sin(Math.PI+a)*(L-80),x0+Math.cos(Math.PI+a)*L,y0+Math.sin(Math.PI+a)*L,C.sun,4); }
+    return cam(s,1+rel*.2,860-rel*500,220,-pan*.15,0); },
+  counter(p){ const hits=[.15,.28,.41,.54,.67,.8,.9]; const [dx,dy]=shake(p,hits,10); let g=sky('#FF9A4A','#B8421C')+ground(390,'#6A2812');
+    g+=figure(160,390,110,1,'#eee','#8A5A3C',{armor:'#dde3ea',crown:C.gold,arm:.2})+bow(250,210,230,1,'#1E1B1A',.6+.4*Math.sin(p*40)**2,'#bfe7ff');
+    hits.forEach((h,i)=>{ const y=120+i*32; const mx=520+i*60; if(p<h){ const q=seg(p,h-.15,h); g+=arrow(260+(mx-260)*q-60,y,260+(mx-260)*q,y,C.blue,3); g+=arrow(1250-(1250-mx)*q,y+4,1250-(1250-mx)*q+70,y+4,C.sun,3);} else if(p<h+.08) g+=star(mx,y,40*(1-seg(p,h,h+.08))+8,'#fff'); });
+    if(p>.9&&p<.93) g=flash('#000')+figure(600,430,140,1,'#fff','#fff')+`<rect x="0" y="240" width="1200" height="8" fill="${C.blue}"/>`;
+    return cam(g,1,600,250,dx,dy); },
+  net(p){ const up=ease(p); let g=sky('#C9672E','#5A2412');
+    g+=`<ellipse cx="600" cy="300" rx="${260-up*90}" ry="${160-up*60}" fill="#8A3418"/>`+army(300-160+up*60,200,1000,'#3a140a',10,3);
+    g+=chariot(520,300,14-up*5,1,C.gold,'#f4efe6')+chariot(680,300,14-up*5,-1,C.gold,'#7a4a2a');
+    const n=Math.floor(p*90); for(let i=0;i<n;i++){ const y=rnd(i)*H, x=rnd(i+5)*W, col=i%2?C.blue:C.sun; g+=arrow(x-60,y-20*(i%2?1:-1),x+60,y+20*(i%2?1:-1),col,2,false); }
+    g+=flash('#141C33',cl(p*1.3-.3)*.85);
+    return cam(g,1.25-up*.25,600,300); },
+  split(p){ const blink=Math.abs(p-.5)<.03?0.05:1; const blink2=Math.abs(p-.62)<.03?0.05:1; let g=`<rect width="600" height="${H}" fill="#0c1a2c"/><rect x="600" width="600" height="${H}" fill="#2c1206"/>`;
+    g+=bust(300,230,150,1,'#4a6a88','#7f9ab8',{eye:blink,rim:C.blue,hair:'#05080d'});
+    g+=bust(900,230,150,-1,'#9a5a2a','#C98A1E',{eye:blink2,rim:C.sun,hair:'#100604'});
+    g+=`<rect x="598" width="4" height="${H}" fill="#000"/>`;
+    for(let i=0;i<10;i++) g+=`<circle cx="${560+rnd(i)*80}" cy="${(H-((p*200+i*60)%H))}" r="3" fill="${i%2?C.blue:C.sun}"/>`;
+    return g; },
+  snake(p){ const up=ease(seg(p,0,.5)); const eye=seg(p,.55,.75); let g=`<rect width="${W}" height="${H}" fill="#2a1408"/>`;
+    g+=`<rect x="380" y="260" width="440" height="300" rx="30" fill="#B8862A"/><rect x="380" y="260" width="440" height="30" fill="#E8C15A"/>`;
+    for(let i=0;i<8;i++) g+=`<line x1="${420+i*50}" y1="260" x2="${420+i*50}" y2="${200-rnd(i)*20}" stroke="#d8c8a8" stroke-width="6"/>`;
+    const ay=260-up*200; g+=`<line x1="640" y1="${ay}" x2="640" y2="${ay+300}" stroke="#4a3a2a" stroke-width="10"/>`;
+    g+=`<path d="M 600 ${ay} Q 640 ${ay-120} 680 ${ay} Z" fill="#1d2a18"/><ellipse cx="652" cy="${ay-40}" rx="12" ry="${10*eye+0.5}" fill="#C7E04A"/>`;
+    g+=`<path d="M 700 ${ay+120} q 60 -10 90 30 l -10 70 q -50 10 -80 -20 Z" fill="#6E4630"/>`;
+    g+=`<rect width="${W}" height="${H}" fill="#000" opacity="${.35*(1-up)}"/>`;
+    return cam(g,1+.15*up,640,250); },
+  meteors(p){ const orb=(p-.5)*120; let g=sky('#7A0E0E','#2A0606');
+    for(let i=0;i<9;i++){ const t=(p*1.5+rnd(i))%1; const x=rnd(i+2)*W+orb, y=-60+t*(H+120); g+=arrow(x-30,y-90,x,y,'#FFD27A',3); }
+    g+=`<g transform="translate(${-orb} 0)">`+figure(600,560,240,-1,'#8E1B24','#6E4630',{armor:'#C98A1E',rays:C.gold,arm:.4})+bow(420,160,360,-1,'#EFE3C2',ease(p))+`<path d="M 640 140 L 380 160" stroke="#1d2a18" stroke-width="6"/></g>`;
+    g+=`<g opacity=".5">${figure(900+orb*.5,560,160,-1,'#3a2a20','#5a4a40')}</g>`;
+    return g; },
+  line(p){ const L=ease(p); let g=sky('#FF8A3A','#8A2A12')+ground(420,'#3A1A12')+army(420,0,1200,'#1a0a06',18,9);
+    const x=1250-L*1400; g+=`<path d="M 1250 120 L ${x} ${150+L*10}" stroke="#FFE9A8" stroke-width="8"/><path d="M 1250 120 L ${x} ${150+L*10}" stroke="${C.sun}" stroke-width="28" opacity=".35"/>`;
+    g+=`<path d="M 0 0 L ${W} 0 L ${W} 118 L ${x} ${148+L*10} L 0 148 Z" fill="#000" opacity="${.35*L}"/>`+star(x,150+L*10,30,'#fff');
+    return cam(g,1,600,250,(L-.5)*-120,0); },
+  press(p){ const foot=ease(seg(p,0,.25)); const drop=ease(seg(p,.5,.75)); const kneel=ease(seg(p,.6,1)); let g='';
+    if(p>.25&&p<.3) return flash('#FFE9A8');
+    g+=sky('#FFA050','#C2461C')+ground(360+drop*40,'#7A2E16');
+    if(p>.25){ const q=seg(p,.25,1); g+=rings(380,360+drop*40,60+q*700,'#FFE9A8',4,6); }
+    g+=chariot(380,380+drop*40,90,1,C.gold,'#f4efe6',{kneel});
+    g+=`<path d="M 300 ${120+foot*150} q 40 -20 120 0 l 10 40 q -80 10 -130 -5 Z" fill="#B07856"/><rect x="310" y="${-200+foot*150}" width="70" height="330" fill="#E8B92F"/>`;
+    return cam(g,1,600,250,0,drop*10); },
+  diadem(p){ const hit=p>.25; const sl=seg(p,.25,.75); const q=p<.75?sl*.35:.35+seg(p,.75,1)*.65; let g=sky('#FF9A4A','#B8421C');
+    g+=bust(480,260,150,1,'#8A5A3C','#E9ECEF',{crown:hit?null:C.gold,rim:C.blue});
+    if(!hit){ const t=seg(p,0,.25); g+=arrow(1250-t*700,-20+t*200,1250-t*700+140,-60+t*200,C.sun,6); }
+    else { const dx=480+q*700, dy=180-Math.sin(q*Math.PI)*160+q*360; g+=`<g transform="translate(${dx} ${dy}) rotate(${q*900})"><rect x="-66" y="-9" width="132" height="18" fill="${C.gold}"/><circle r="10" fill="#c33"/></g>`;
+      if(p<.32) g+=star(560,170,80,'#fff'); }
+    return g; },
+  cloth(p){ const rise=back(seg(p,0,.6)); let g=sky('#FF9A4A','#B8421C');
+    g+=bust(560,300-rise*60,160,1,'#8A5A3C','#E9ECEF',{cloth:true,rim:C.blue,eye:p>.6?1:.4});
+    if(p>.65) for(let i=0;i<3;i++) g+=bolt(420+i*30,470,470+i*40,380,i*9+Math.floor(p*30));
+    return cam(g,1+.06*p,560,250); },
+  wheel(p){ const heave=ease(seg(p,.1,1)); const tilt=heave*4; let g=sky('#FF8A3A','#A3381A')+sun(900,150,140,'#FFD884');
+    let s=ground(330,'#7A2E16')+chariot(820,370,70,-1,C.gold,'#7a4a2a');
+    s+=`<g transform="translate(0 ${-heave*14})"><circle cx="560" cy="420" r="120" fill="none" stroke="${C.gold}" stroke-width="16"/><rect x="380" y="430" width="360" height="120" fill="#5A1F0E"/></g>`;
+    s+=figure(470,470,130,1,'#8E1B24','#6E4630',{armor:'#C98A1E',rays:C.gold,arm:-.4});
+    for(let i=0;i<12;i++) s+=`<circle cx="${380+rnd(i)*380}" cy="${440-heave*30-rnd(i+4)*40}" r="${4+rnd(i)*8}" fill="#C46A3E" opacity="${heave*.6}"/>`;
+    g+=cam(s,1,600,400,0,0,-tilt); return g; },
+  plea(p){ if(p>.5&&p<.75){ let g=flash('#5A0A0A')+figure(600,470,150,1,'#000','#000')+`<circle cx="700" cy="250" r="110" fill="none" stroke="#000" stroke-width="22"/>`; return g; }
+    const palm=ease(seg(p,0,.45)); let g=sky('#FF8A3A','#A3381A')+sun(860,160,120,'#FFD884')+ground(360,'#7A2E16');
+    g+=`<circle cx="760" cy="420" r="70" fill="none" stroke="${C.gold}" stroke-width="10"/>`+figure(860,420,90,-1,'#8E1B24','#6E4630',{armor:'#C98A1E',rays:C.gold,arm:palm*1.6});
+    const tight=p>.75?seg(p,.75,1)*12:0; g+=`<path d="M -40 ${H+20} Q 40 ${120-tight} 260 ${150-tight} Q 420 180 470 ${H+20} Z" fill="#14100e"/><path d="M 140 130 q 70 -40 120 10" stroke="#f4f1ea" stroke-width="16" fill="none"/>`;
+    return g; },
+  banner(p){ const cut=p>.2; const fall=ease(seg(p,.2,1)); let g=sky('#FF8A3A','#A3381A')+sun(640,230,150,'#FFD884')+ground(420,'#5A1F0E')+army(420,0,1200,'#2a0f08',18,4);
+    g+=`<line x1="700" y1="${H}" x2="700" y2="${cut?260:40}" stroke="#7a5a2a" stroke-width="10"/>`;
+    g+=`<g transform="rotate(${fall*-75} 700 260)"><line x1="700" y1="260" x2="700" y2="40" stroke="#7a5a2a" stroke-width="10"/><path d="M 700 40 l -160 30 l 160 70 Z" fill="${C.gold}"/><path d="M 600 70 q 30 20 0 40 q -30 20 0 40" stroke="#8a6a20" stroke-width="5" fill="none"/></g>`;
+    if(!cut){ const t=seg(p,0,.2); g+=arrow(-60+t*760,260,-60+t*760+120,260,C.blue,5); } else if(p<.28) g+=star(700,260,50,'#fff');
+    return cam(g,1,600,250,0,-fall*40); },
+  anjalika(p){ const z=ease(seg(p,0,.75)); const sc=1+z*5.5; let g=sky('#B8421C','#2A0F08');
+    g+=rings(540,250,120+(p*400)%300,C.blue,3,4);
+    g+=figure(420,420,130,1,'#eee','#8A5A3C',{armor:'#dde3ea',arm:.3})+bow(520,250,260,1,'#1E1B1A',1,'#bfe7ff');
+    g+=`<line x1="430" y1="250" x2="640" y2="250" stroke="#ddd" stroke-width="4"/><path d="M 640 236 Q 664 250 640 264 Q 652 250 640 236" fill="#FFE9A8"/>`;
+    g+=star(650,250,8+z*14,'#fff')+bolt(520,130,540,370,Math.floor(p*24));
+    return cam(g,sc,650,250); },
+  impact(p){ if(p<.022) return flash('#000')+figure(260,470,170,1,'#fff','#fff')+[...Array(18)].map((_,i)=>`<line x1="400" y1="250" x2="${1200}" y2="${-200+i*50}" stroke="#fff" stroke-width="3"/>`).join('');
+    if(p<.045) return flash('#fff')+figure(260,470,170,1,'#000','#000');
+    if(p<.07) return flash(C.blue)+figure(260,470,170,1,'#fff','#fff');
+    const dim=ease(seg(p,.1,1)); const sunc=`rgb(${255-dim*120},${210-dim*170},${130-dim*110})`;
+    let g=sky(`rgb(${255-dim*150},${140-dim*110},${60-dim*45})`,'#1a0604')+sun(600,230,170,sunc,'#8a1a10')+ground(420,'#0e0503');
+    g+=figure(600,420,130,-1,'#000','#000',{rays:'#000',armor:'#000'});
+    return g; },
+  light(p){ const up=ease(p); let g=sky(`rgb(${80+up*120},${30+up*60},${40})`,'#140806')+sun(600,110,80,`rgb(${160+up*95},${60+up*150},${50+up*60})`)+ground(400,'#1a0a06');
+    g+=`<ellipse cx="560" cy="430" rx="70" ry="12" fill="#000"/><circle cx="700" cy="420" r="40" fill="none" stroke="#7a5a2a" stroke-width="6"/>`;
+    const top=430-up*330; g+=`<rect x="552" y="${top}" width="16" height="${430-top}" fill="#FFE9A8" opacity=".85"/><rect x="530" y="${top}" width="60" height="${430-top}" fill="#FFE9A8" opacity=".2"/>`;
+    g+=chariot(1000+up*200,420,40,1,'#6a5a3a','#5a3a2a');
+    return cam(g,1+.1*up,600,300,0,up*30); },
+  final(p){ const low=ease(seg(p,0,.5)); let g=sky('#FFB45A','#C2561C')+sun(1000,150,90,'#FFE9A8')+ground(420,'#6A2812');
+    g+=chariot(520,470,80,1,C.gold,'#f4efe6',{kneel:1});
+    g+=figure(470,400,120,1,'#eee','#8A5A3C',{armor:'#dde3ea'})+`<g transform="rotate(${low*70} 560 240)">${bow(560,240,300,1,'#1E1B1A',0,'#bfe7ff')}</g>`;
+    g+=figure(640,410,110,1,'#E8B92F','#B07856',{crown:C.gold,feather:true});
+    g+=`<rect width="${W}" height="${H}" fill="#FFE9A8" opacity=".08"/>`;
+    return g; }
+};
+
+// ---------- player ----------
+const TOTAL = SHOTS.reduce((a,s)=>a+s.dur,0);
+const starts=[]; { let t=0; for(const s of SHOTS){ starts.push(t); t+=s.dur; } }
+const actColor = ['#E8862A','#6FC3FF','#E8C15A','#FFB02E'];
+function actOf(i){ const id=SHOTS[i].id; for(let k=0;k<ACTS.length;k++){ const a=ACTS[k]; if(id>=a.from&&id<=a.to) return k; } return 0; }
+const tl=document.getElementById('timeline'); const segs=[];
+SHOTS.forEach((s,i)=>{ const d=document.createElement('div'); d.className='seg'; d.style.left=(starts[i]/TOTAL*1200)+'px'; d.style.width=(s.dur/TOTAL*1200)+'px'; d.style.background=actColor[actOf(i)]; d.textContent=s.id; d.onclick=()=>{ T=starts[i]; }; tl.appendChild(d); segs.push(d); });
+const $=id=>document.getElementById(id);
+function render(t){
+  t=Math.max(0,Math.min(TOTAL-1e-6,t)); let i=0; while(i<SHOTS.length-1&&t>=starts[i+1]) i++;
+  const s=SHOTS[i], p=(t-starts[i])/s.dur;
+  $('panel').innerHTML=(P[s.panel]||P.wide)(p,s.dur);
+  const dt=t-starts[i]; let f='';
+  if(s.neg&&dt<2/30) f='invert(1)';
+  if(s.drain&&p>.3&&p<.5) f='grayscale(1)';
+  $('panel').style.filter=f;
+  $('sid').textContent=s.id; $('dur').textContent=s.dur+' s'; $('act').textContent=ACTS[actOf(i)]?.name||'';
+  $('action').textContent=s.action; $('camera').textContent='CAMERA  '+s.camera;
+  const mm=Math.floor(t/60), ss=(t%60).toFixed(1).padStart(4,'0'); $('clock').textContent=`${mm}:${ss} / 1:30`;
+  segs.forEach((d,k)=>d.classList.toggle('on',k===i)); $('playhead').style.left=(t/TOTAL*1200)+'px';
+}
+window.render=render; window.TOTAL=TOTAL;
+let T=0, playing=!location.search.includes('rec'), last=null;
+if(!playing) document.body.classList.add('rec');
+function loop(ts){ if(last!==null&&playing){ T=(T+(ts-last)/1000)%TOTAL; } last=ts; render(T); requestAnimationFrame(loop); }
+if(playing) requestAnimationFrame(loop); else render(0);
+addEventListener('keydown',e=>{ if(e.code==='Space'){ playing=!playing; e.preventDefault(); }
+  if(e.code==='ArrowRight'){ const i=starts.findIndex(x=>x>T); T=i<0?0:starts[i]; }
+  if(e.code==='ArrowLeft'){ let i=starts.findLastIndex(x=>x<T-0.3); T=starts[Math.max(0,i)]; } });
+tl.addEventListener('click',e=>{ if(e.target===tl){ T=(e.offsetX/1200)*TOTAL; } });
+</script>
+</body>
+</html>

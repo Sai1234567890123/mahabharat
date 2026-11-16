@@ -53,7 +53,20 @@ OVERRIDE = {
             "The camera never follows the arrows and never leaves Karna."),
 }
 
+# Shots where the card's action line describes more than the first frame shows: the whole direction is replaced.
+FULL = {
+    "A16": ("Karna is already down on the ground behind his chariot, as in the first frame: his back is to the camera, both hands grip the rim "
+            "of the chariot's left wheel, which is sunk to its hub in the earth. He does not climb, jump or turn around. "
+            "Locked-off low wide camera, no cut, no pan, the framing of the first frame is held for the whole clip. "
+            "0-2s: he sets his feet and heaves upward with his whole back and both arms, shoulders and arms straining. "
+            "2-6s: the wheel does not come free; it rocks a little and settles back, the earth around the hub cracks and bulges, dust and grit "
+            "pour off the rim and drift across the frame, the chariot shudders and its banner sways. The four horses at the left shift and "
+            "toss their heads. The charioteer stays seated in front. No one else enters the frame. The wheel stays on its axle."),
+}
+
 def prompt_for(card):
+    if card["id"] in FULL:
+        return f"{FULL[card['id']]} {STYLE}"
     if card["id"] in OVERRIDE:
         return f"{card['action']} {OVERRIDE[card['id']]} {STYLE}"
     beats = " ".join(card["motion"])

@@ -22,3 +22,4 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 - 2026-11-15 · no generation, $0 · A06 layout restaged to the card's first frame (Karna at full draw, seven-arrow fan, sun behind). tools/gen_frames.py added for the paint-over step (recipes for A16 and A06 only); dry-run checked, nothing sent.
 | 2026-11-15 | episodes/ep01_arjuna_vs_karna/frames/A16_v1.png | gemini-3.1-flash-image | frame over layout, 4 refs | tokens in 5156 out 1120 | pending review |
 | 2026-11-15 | episodes/ep01_arjuna_vs_karna/frames/A06_v1.png | gemini-3.1-flash-image | frame over layout, 4 refs | tokens in 5125 out 1120 | pending review |
+| 2026-11-16 | cast/arjuna_bare/sheet_v2.png | gemini-3.1-flash-image | sheets v1 (concept-art look) | tokens in 2575 out 1120 | pending review |

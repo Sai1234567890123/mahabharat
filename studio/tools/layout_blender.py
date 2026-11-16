@@ -616,13 +616,13 @@ def shot_A15(st, c):
     a = spot("arjuna", -NEAR, 0.45)["warrior"]
     return dict(cam=a + Vector((4.2, -2.8, 1.5)), at=head(a) + Vector((0, 0, -0.1)), lens=85)
 
-KROLL = math.radians(12)     # Karna's chariot leans onto its sunk left wheel (the camera side)
+KROLL = math.radians(14)     # Karna's chariot leans onto its sunk left wheel (the camera side)
 
 def karna_down(st, c, pose, face, arj=("arjuna_bare", "draw"), kri="reins", cut=None):
     chariot(st, c, "arjuna", -NEAR, sink=0.45)
-    chariot(st, c, "karna", NEAR, sink=0.30, pitch=KROLL)
-    crews(st, c, -NEAR, NEAR, arj=arj, kri=kri, kar=None, shalya=True, asink=0.45, ksink=0.25, karna_banner=False)
-    K = spot("karna", NEAR, 0.25)
+    chariot(st, c, "karna", NEAR, sink=0.50, pitch=KROLL)
+    crews(st, c, -NEAR, NEAR, arj=arj, kri=kri, kar=None, shalya=True, asink=0.45, ksink=0.45, karna_banner=False)
+    K = spot("karna", NEAR, 0.45)
     banner(c, K["banner"], cut=cut)
     w = K["wheel"] + Vector((0, 0, -0.45))
     pos = Vector((w.x + (0.0 if pose == "heave" else -0.9), w.y - 0.95, 0.0))
@@ -630,7 +630,8 @@ def karna_down(st, c, pose, face, arj=("arjuna_bare", "draw"), kri="reins", cut=
 
 def shot_A16(st, c):
     _, w, pos = karna_down(st, c, "heave", math.radians(90))
-    return dict(cam=pos + Vector((-5.4, -4.2, 0.45)), at=w + Vector((0, 0, 0.5)), lens=18, roll=math.radians(7))
+    # close and low behind Karna, as in painting 37: his back and the sun disc toward the camera, horses running off screen left
+    return dict(cam=pos + Vector((-2.3, -3.3, 0.45)), at=w + Vector((-1.2, 0, 0.75)), lens=18, roll=math.radians(7))
 
 def shot_A17(st, c):
     _, w, pos = karna_down(st, c, "palm", math.pi)
@@ -640,7 +641,7 @@ def shot_A17(st, c):
 
 def shot_A18(st, c):
     _, w, pos = karna_down(st, c, "stand", math.pi, cut=0.55)
-    K = spot("karna", NEAR, 0.25)
+    K = spot("karna", NEAR, 0.45)
     top = K["banner"] + Vector((-1.2, -0.5, 5.2))
     cam = top - st.sun_dir * 10
     cam.z = max(cam.z, 0.7)

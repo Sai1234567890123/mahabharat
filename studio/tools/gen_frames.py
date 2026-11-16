@@ -29,13 +29,16 @@ LAYOUT_RULE = (
 # per-shot look references (sai's own paintings) and notes that the layout cannot carry
 SHOTS = {
     "A16": dict(look=["refs/concept/concept_37.jpeg", "refs/concept/concept_46.jpeg"],
-                note="Karna has leapt down from his chariot and stands on the ground beside it, seen from behind and to the side, back and "
-                     "shoulders straining, both hands gripping the rim of the chariot's OWN left wheel, the wheel still attached to the axle "
-                     "and all four wheels still on the chariot. That wheel has sunk into cracked red earth up to its hub, so the chariot body "
-                     "tilts a few degrees toward it. No loose wheel lies on the ground and no broken gold pieces lie around. "
-                     "The round gold sun-face disc on his back is toward the camera, as in the reference painting of him at the wheel. "
-                     "Shalya, a grey-bearded older charioteer, sits at the front holding the reins of four dun horses. The low sun is "
-                     "directly behind the chariot. The horizon is tilted a few degrees as in the layout. Dust pours off the wheel rim."),
+                note="Do NOT mirror or re-stage the layout: the four dun horses are at screen LEFT pulling toward the left, the chariot is "
+                     "in the middle, Karna is at the right of centre, the armies are far away at the right edge. "
+                     "Karna has leapt down and stands on the ground with his back to the camera, bent forward, both hands on the rim of the "
+                     "chariot's OWN left wheel, which is still on its axle. That wheel has sunk into cracked red earth up to its hub and the "
+                     "whole chariot leans toward it. He still wears his rounded gold crown and his full gold cuirass; the round gold sun-face "
+                     "disc is strapped on his back toward the camera, as in the reference painting of him at the wheel. "
+                     "Shalya, a grey-bearded older charioteer, sits at the front holding the reins. A plain gold banner on a pole stands on "
+                     "the chariot. Open empty battlefield around them: NO other chariot, NO elephant close by, NO building, NO city, NO palace. "
+                     "No loose wheel and no broken pieces on the ground. The low sun glows behind the chariot at the right. "
+                     "The horizon is tilted a few degrees as in the layout. Dust pours off the wheel rim."),
     "A06": dict(look=["refs/concept/concept_46.jpeg", "refs/concept/concept_34.jpeg"],
                 note="Karna stands on his chariot at full draw facing screen left, bare-eared. Seven arrows are nocked on one bowstring and "
                      "fan out from the bow hand, each shaft visibly angled apart from the others, not parallel. A thin orange-gold sun-fire runs "

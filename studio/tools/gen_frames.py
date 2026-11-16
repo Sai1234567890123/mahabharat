@@ -22,22 +22,26 @@ SHEETS = {"@arjuna": "cast/arjuna", "@arjuna_bare": "cast/arjuna_bare", "@karna"
 LAYOUT_RULE = (
     "IMAGE 1 is a rough 3D layout of this exact shot. Keep its camera angle, lens, horizon, composition, screen direction and the "
     "position and pose of every figure, chariot, horse, banner and the sun. Do NOT copy its look: the blocky mannequins, flat colours and "
-    "plain models are placeholders. Repaint everything as a finished painting. The layout chariots have no parasol; paint the chariots "
-    "richly carved as in the reference paintings.")
+    "plain models are placeholders. Repaint everything as a finished painting. The layout chariots have no parasol and no canopy: paint "
+    "NO parasol, NO canopy and NO awning on any chariot. Paint the chariots richly carved as in the reference paintings. "
+    "Karna has bare earlobes: NO earring on any figure, NO tilak on any forehead, NO extra jewellery on the head or ears.")
 
 # per-shot look references (sai's own paintings) and notes that the layout cannot carry
 SHOTS = {
     "A16": dict(look=["refs/concept/concept_37.jpeg", "refs/concept/concept_46.jpeg"],
-                note="Karna has leapt down from his chariot and stands on the ground at its sunken left wheel, back and shoulders straining, "
-                     "both hands gripping the wheel rim, the round gold sun-face disc on his back toward the camera as in the reference "
-                     "painting of him at the wheel. The wheel is buried to the hub in cracked red earth and the chariot leans toward it. "
+                note="Karna has leapt down from his chariot and stands on the ground beside it, seen from behind and to the side, back and "
+                     "shoulders straining, both hands gripping the rim of the chariot's OWN left wheel, the wheel still attached to the axle "
+                     "and all four wheels still on the chariot. That wheel has sunk into cracked red earth up to its hub, so the chariot body "
+                     "tilts a few degrees toward it. No loose wheel lies on the ground and no broken gold pieces lie around. "
+                     "The round gold sun-face disc on his back is toward the camera, as in the reference painting of him at the wheel. "
                      "Shalya, a grey-bearded older charioteer, sits at the front holding the reins of four dun horses. The low sun is "
                      "directly behind the chariot. The horizon is tilted a few degrees as in the layout. Dust pours off the wheel rim."),
     "A06": dict(look=["refs/concept/concept_46.jpeg", "refs/concept/concept_34.jpeg"],
-                note="Karna stands on his chariot at full draw facing screen left, seven arrows nocked together as a vertical fan on the "
-                     "one bowstring, a thin line of orange-gold sun-fire along each shaft, the low sun directly behind his bow hand. "
-                     "Shalya, a grey-bearded older charioteer, sits low in front of him with the reins. The Kaurava host stands far behind "
-                     "in pale gold dust. No arrow has been released yet."),
+                note="Karna stands on his chariot at full draw facing screen left, bare-eared. Seven arrows are nocked on one bowstring and "
+                     "fan out from the bow hand, each shaft visibly angled apart from the others, not parallel. A thin orange-gold sun-fire runs "
+                     "along every shaft. The low sun is directly behind his bow hand. Shalya, a grey-bearded older charioteer, sits low in front "
+                     "of him with the reins. The Kaurava host stands far behind in pale gold dust. No arrow has been released yet. "
+                     "No parasol above the chariot."),
 }
 
 def style():

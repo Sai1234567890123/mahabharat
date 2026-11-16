@@ -47,6 +47,13 @@ JOBS = {
                                  "as described above. Empty hands: he holds only the bow Gandiva in his left hand, with no shield at all. "
                                  "No earrings: bare ears, no gold on the ears or the head. Dust and sweat on the face, loose strands of hair "
                                  "across the forehead, a faint scorch mark on the gold right shoulder guard."),
+    # redo v3 (2026-11-16): the v2 still had earrings and a tilak. Writes a new file, never the old one.
+    "arjuna_bare_v3": dict(out="cast/arjuna_bare/sheet_v3.png", passport="cast/arjuna_bare/passport.md",
+                           refs=["cast/arjuna/sheet.png", "refs/concept/concept_05.jpeg"],
+                           brief="The first reference is the approved sheet of this same man. Same face, body and costume, but without the crown, "
+                                 "as described above. Bare ears: NO earrings of any kind. Plain forehead: NO tilak, NO red or white mark on the "
+                                 "forehead. Empty hands: he holds only the bow Gandiva in his left hand, with no shield at all. Dust and sweat on "
+                                 "the face, loose strands of hair across the forehead, a faint scorch mark on the gold right shoulder guard."),
 }
 
 def descriptor(path):

@@ -32,3 +32,4 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 | 2026-11-16 | cast/arjuna_bare/sheet_v4.png | gemini-3.1-flash-image | sheets v1 (concept-art look) | tokens in 2609 out 1120 | pending review |
 - 2026-11-16 · approval · sai: "approve Arjuna bare v4". cast/arjuna_bare/sheet_v4.png is the locked @arjuna_bare reference (about $0.07 est.). Known misses: no bowstring, empty quiver; shot prompts add them and also attach the crowned sheet.
 | 2026-11-16 | episodes/ep01_arjuna_vs_karna/frames/A16_v3.png | gemini-3.1-flash-image | frame over layout, 4 refs | tokens in 5323 out 1120 | pending review |
+| 2026-11-16 | episodes/ep01_arjuna_vs_karna/renders/A06_draft_v1.mp4 | veo-3.1-fast-generate-001 | draft, 6s 720p no sound, first frame A06_v2.png | about $0.48 at $0.08/s | pending review |

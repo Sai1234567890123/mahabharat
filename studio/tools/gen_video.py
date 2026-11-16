@@ -42,7 +42,20 @@ def post(project, model, method, body):
     except urllib.error.HTTPError as e:
         print("HTTP", e.code, e.read().decode(errors="replace")[:2000]); raise SystemExit(1)
 
+# Per-shot video direction that replaces the card's motion beats when the card asks for more than one clip can hold.
+# Flying arrows, energy and impact frames are drawn in code afterwards (plan step 6), so the clip only has to act the release.
+OVERRIDE = {
+    "A06": ("Locked-off camera, no pan, no cut, the framing of the first frame is held for the whole clip. "
+            "0-2s: Karna holds the bow at full draw, all seven arrows stay nocked on the string as a fan, his arm trembles with the strain, "
+            "the sun-fire along the shafts brightens. 2-3s: he releases; all seven arrows leave the bow together and fly out of frame "
+            "toward screen LEFT, arrowheads leading, in the direction he is aiming. 3-6s: the bowstring hums, dust blows back past him, "
+            "his cloth and hair settle, he stays in his stance looking left after the arrows. The charioteer in front flinches slightly. "
+            "The camera never follows the arrows and never leaves Karna."),
+}
+
 def prompt_for(card):
+    if card["id"] in OVERRIDE:
+        return f"{card['action']} {OVERRIDE[card['id']]} {STYLE}"
     beats = " ".join(card["motion"])
     return f"{card['action']} Camera: {card['camera']}. Timing: {beats} {STYLE}"
 

@@ -1,426 +1,426 @@
 {
-  "episode": "ep01_arjuna_vs_karna",
-  "title": "The Anjalika",
-  "runtime_s": 90,
-  "aspect": "16:9 with 2.39:1 letterbox",
-  "source": "Ganguli, Karna Parva (mahabharat-research/source/B08-karna.txt) lines 11579-12160",
-  "acts": [
-    {
-      "name": "I. Face-off",
-      "from": "A01",
-      "to": "A05"
-    },
-    {
-      "name": "II. The net of arrows",
-      "from": "A06",
-      "to": "A12"
-    },
-    {
-      "name": "III. Fate turns",
-      "from": "A13",
-      "to": "A17"
-    },
-    {
-      "name": "IV. The Anjalika",
-      "from": "A18",
-      "to": "A22"
-    }
-  ],
-  "shots": [
-    {
-      "id": "A01",
-      "dur": 4,
-      "chars": [],
-      "beat": "hook",
-      "panel": "clash",
-      "camera": "Extreme close-up, locked off, then a 6-frame snap zoom out",
-      "action": "A blue lightning arrowhead and a gold sun-fire arrowhead meet point to point in the center of a black frame and burst.",
-      "sound": "Silence, then one hard crack. No music.",
-      "frame": "Black frame. From the left, the tip of a steel arrowhead wrapped in blue lightning; from the right, the tip of a gold arrowhead wrapped in orange sun-fire. The two points almost touch at the exact center.",
-      "motion": [
-        "0-2s: both arrowheads tremble a hair apart, sparks drift.",
-        "2-3s: they touch; a 2-frame white impact frame.",
-        "3-4s: snap zoom out, the burst becomes blue and orange rings."
-      ],
-      "ref": ""
-    },
-    {
-      "id": "A02",
-      "dur": 5,
-      "chars": [
-        "@arjuna",
-        "@krishna",
-        "@karna"
-      ],
-      "beat": "setup",
-      "panel": "wide",
-      "camera": "Extreme wide, 24mm, eye level, slow push-in",
-      "action": "Two chariots face each other across a cleared ring of red earth while two halted armies watch.",
-      "sound": "Wind, a far drum heartbeat, banners snapping.",
-      "frame": "Extreme wide of Kurukshetra at late afternoon. A cleared ring of trampled warm earth. LEFT: a gold chariot with four white horses and a canopy and a green ape banner. RIGHT: a gold chariot with four dun horses and a gold sun-bright elephant-rope banner. Halted armies as flat silhouettes on both edges. A huge low sun behind the right chariot. Figures are 5 percent of frame height.",
-      "motion": [
-        "0-5s: slow push-in toward the gap between the chariots, dust drifts left to right, banners ripple."
-      ],
-      "ref": ""
-    },
-    {
-      "id": "A03",
-      "dur": 4,
-      "chars": [
-        "@karna"
-      ],
-      "beat": "setup",
-      "panel": "karna_mcu",
-      "camera": "Medium close-up, 85mm, slight low angle, slow push-in",
-      "action": "Karna touches his bow to his forehead, then his eyes lift to screen left.",
-      "sound": "A low drone enters. A single bell.",
-      "frame": "@karna on his chariot, facing screen left, bow Vijaya held upright before his face, the low sun directly behind his head like a halo, grey-bearded Shalya soft in the foreground at the reins.",
-      "motion": [
-        "0-2s: he touches the bow to his forehead, eyes closed.",
-        "2-4s: eyes open and lift to screen left, slow push-in."
-      ],
-      "ref": "cast/karna/crop-34.png"
-    },
-    {
-      "id": "A04",
-      "dur": 4,
-      "chars": [
-        "@arjuna",
-        "@krishna"
-      ],
-      "beat": "setup",
-      "panel": "arjuna_mcu",
-      "camera": "Medium close-up, 85mm, mirror of A03, slow push-in",
-      "action": "Arjuna draws Gandiva and blue static crawls up the bow.",
-      "sound": "Bowstring creak, electric crackle.",
-      "frame": "@arjuna on his chariot facing screen right, Gandiva held vertical at his side, @krishna soft in the foreground from behind with reins in hand, orange sky.",
-      "motion": [
-        "0-3s: he raises and draws Gandiva to the cheek, blue static crawls from grip to tips.",
-        "3-4s: hold, his eyes narrow."
-      ],
-      "ref": "cast/arjuna/crop-34.png"
-    },
-    {
-      "id": "A05",
-      "dur": 3,
-      "chars": [
-        "@krishna"
-      ],
-      "beat": "setup",
-      "panel": "horses",
-      "camera": "Low tracking shot at wheel height, 18mm, fast dolly",
-      "action": "Krishna flicks the reins and the white horses surge forward.",
-      "sound": "Reins crack, hooves, drums kick in at 120 BPM.",
-      "frame": "Ground-level view beside the gold chariot wheel, four white horses' legs in front, red dust, @krishna's hands and yellow cloth visible above.",
-      "motion": [
-        "0-1s: the reins snap.",
-        "1-3s: the horses surge, camera tracks with the wheel, dust kicks toward lens."
-      ],
-      "ref": ""
-    },
-    {
-      "id": "A06",
-      "dur": 5,
-      "chars": [
-        "@karna"
-      ],
-      "beat": "accident",
-      "panel": "volley",
-      "camera": "Arrow-cam: camera launches with the arrows, 35mm, then whip-pan",
-      "action": "Karna looses a fan of seven arrows in one draw.",
-      "sound": "Seven whistles layered, a whoosh past camera.",
-      "frame": "@karna at full draw facing screen left, seven arrows nocked as a fan, sun-fire along each shaft, the sun behind him.",
-      "motion": [
-        "0-1s: hold at full draw, anticipation.",
-        "1-2s: release; the camera rides beside one orange arrow toward screen left.",
-        "2-5s: the fan spreads across the sky, a whip-pan left."
-      ],
-      "ref": "cast/karna/crop-34.png"
-    },
-    {
-      "id": "A07",
-      "dur": 4,
-      "chars": [
-        "@arjuna"
-      ],
-      "beat": "reaction",
-      "panel": "counter",
-      "camera": "Medium wide, 35mm, camera shake on each hit",
-      "action": "Arjuna's arrows split Karna's arrows in mid-air, one by one.",
-      "sound": "Seven sharp metal clicks on the beat.",
-      "frame": "@arjuna firing at speed toward screen right, three blue arrows already in the air, the incoming orange arrows visible at the right edge.",
-      "motion": [
-        "0-4s: each blue arrow meets an orange one, each collision is a 2D spark star; one 2-frame impact frame (black, white, blue) on the last hit."
-      ],
-      "ref": "cast/arjuna/crop-34.png"
-    },
-    {
-      "id": "A08",
-      "dur": 5,
-      "chars": [],
-      "beat": "twist",
-      "panel": "net",
-      "camera": "Crane up from ground to high top-down, 24mm",
-      "action": "The sky fills with so many arrows that they blot out the sun.",
-      "sound": "A rising roar of wind and shafts, then sudden quiet.",
-      "frame": "High angle over the duel ring, both chariots small, the sky above them half covered by a dense dome of crossing blue and orange arrows, armies below raising shields.",
-      "motion": [
-        "0-5s: crane up; the arrow dome thickens until the sun is gone and the frame drops into blue dusk."
-      ],
-      "ref": ""
-    },
-    {
-      "id": "A09",
-      "dur": 4,
-      "chars": [
-        "@arjuna",
-        "@karna"
-      ],
-      "beat": "reaction",
-      "panel": "split",
-      "camera": "Split-screen two-shot, both 85mm close-ups, locked off",
-      "action": "In the arrow-darkness the two warriors, exhausted, look at each other.",
-      "sound": "Heavy breathing, one heartbeat, music drops out.",
-      "frame": "A vertical split frame: LEFT half @arjuna close-up facing right lit only by blue light; RIGHT half @karna close-up facing left lit only by orange light. Both sweating, dust on faces.",
-      "motion": [
-        "0-4s: almost still; a slow blink from each, sweat runs, embers drift between them."
-      ],
-      "ref": ""
-    },
-    {
-      "id": "A10",
-      "dur": 4,
-      "chars": [
-        "@karna"
-      ],
-      "beat": "setup",
-      "panel": "snake",
-      "camera": "Macro insert, 100mm, rack focus",
-      "action": "Karna draws a single arrow from a golden quiver; its head is a serpent's mouth and its eye opens.",
-      "sound": "A dry hiss under the drone.",
-      "frame": "Macro of a golden quiver packed with sandal dust, one arrow standing apart with a dark serpent-shaped head, @karna's fingers closing on its shaft.",
-      "motion": [
-        "0-2s: the fingers pull the arrow up, rack focus to the head.",
-        "2-4s: the serpent eye opens, green-gold."
-      ],
-      "ref": ""
-    },
-    {
-      "id": "A11",
-      "dur": 4,
-      "chars": [
-        "@karna"
-      ],
-      "beat": "setup",
-      "panel": "meteors",
-      "camera": "Low angle, 24mm, 90-degree orbit",
-      "action": "Karna draws the snake arrow to his ear and meteors fall from a red sky.",
-      "sound": "Thunder, a choir swell, Shalya's muffled voice (no words).",
-      "frame": "Low angle on @karna drawing the serpent-headed arrow to his ear, sky turned blood red, streaks of falling meteors, Shalya's shape behind him shaking his head.",
-      "motion": [
-        "0-4s: orbit 90 degrees around him as he reaches full draw; meteors streak down."
-      ],
-      "ref": "cast/karna/crop-34.png"
-    },
-    {
-      "id": "A12",
-      "dur": 4,
-      "chars": [],
-      "beat": "accident",
-      "panel": "line",
-      "camera": "Wide, 24mm, whip-pan following the arrow",
-      "action": "The snake arrow tears across the sky, splitting it with a line of fire.",
-      "sound": "A shriek like a hawk and a snake together.",
-      "frame": "Wide sky over the battlefield, a single blazing line of fire cutting it in two from right to left like a parting in hair, the arrow at its head.",
-      "motion": [
-        "0-4s: the line races right to left; whip-pan to follow; the sky darkens either side of the line."
-      ],
-      "ref": ""
-    },
-    {
-      "id": "A13",
-      "dur": 4,
-      "chars": [
-        "@krishna"
-      ],
-      "beat": "twist",
-      "panel": "press",
-      "camera": "Low angle on the chariot floor, 18mm, then a hard drop",
-      "action": "Krishna presses his foot down and the chariot sinks a cubit into the earth; the horses kneel.",
-      "sound": "A deep earth boom; the drums stop.",
-      "frame": "Low angle at the gold chariot's floor, @krishna's bare foot about to press down, white horses ahead, white-gold light at his heel. Cut in on a 2-frame inverted negative flash.",
-      "motion": [
-        "0-2 frames: negative-flash cut (trailer rule: inverted flash as a cut), then back to color.",
-        "0-1s: the foot presses down.",
-        "1-2s: white-gold rings burst outward along the ground, a 2-frame white-gold impact frame.",
-        "2-4s: the chariot drops, the white horses bend their knees and kneel."
-      ],
-      "ref": "cast/krishna/ref_closeup_approved.png",
-      "neg": true
-    },
-    {
-      "id": "A14",
-      "dur": 4,
-      "chars": [
-        "@arjuna"
-      ],
-      "beat": "accident",
-      "panel": "diadem",
-      "camera": "Medium close-up, 50mm, speed ramp 100 to 10 to 100 percent",
-      "action": "The snake arrow strikes Arjuna's crown off instead of his head.",
-      "sound": "Metal ring, slowed to a long tone.",
-      "frame": "@arjuna crouched low on the sunken chariot, looking up at screen right, the tall gold crown on his head, a streak of fire coming in at the top right.",
-      "motion": [
-        "0-1s: the fire streak hits the crown.",
-        "1-3s: slow motion: the crown spins away, his hair falls free.",
-        "3-4s: real speed, it lands in the dust."
-      ],
-      "ref": "cast/arjuna/crop-34.png"
-    },
-    {
-      "id": "A15",
-      "dur": 3,
-      "chars": [
-        "@arjuna_bare"
-      ],
-      "beat": "reaction",
-      "panel": "cloth",
-      "camera": "Medium close-up, 85mm, slow push-in",
-      "action": "Arjuna rises and binds his hair with a white cloth.",
-      "sound": "Cloth snap. A single deep drum.",
-      "frame": "@arjuna_bare rising into frame from below, both hands tying a white cloth around his hair, eyes fixed on screen right.",
-      "motion": [
-        "0-2s: he pulls the knot tight.",
-        "2-3s: he lifts his eyes; blue static flickers on his shoulder."
-      ],
-      "ref": "cast/arjuna/ref_SH170_v09.png"
-    },
-    {
-      "id": "A16",
-      "dur": 5,
-      "chars": [
-        "@karna"
-      ],
-      "beat": "twist",
-      "panel": "wheel",
-      "camera": "Low wide, 18mm, the horizon tilts",
-      "action": "Karna's left wheel sinks; he leaps down and heaves it, and the whole earth lifts a little.",
-      "sound": "Grinding earth, a strained roar.",
-      "frame": "Low wide: @karna standing on the ground beside his chariot, both arms gripping the sunken left wheel, the wheel half buried in cracked red earth, the sun behind him.",
-      "motion": [
-        "0-2s: he heaves, veins stand out.",
-        "2-5s: the ground around him lifts and the horizon tilts a few degrees, dust pours off the rim."
-      ],
-      "ref": "cast/karna/crop-34.png"
-    },
-    {
-      "id": "A17",
-      "dur": 4,
-      "chars": [
-        "@karna",
-        "@arjuna_bare",
-        "@krishna"
-      ],
-      "beat": "reaction",
-      "panel": "plea",
-      "camera": "Over-the-shoulder from Arjuna to Karna, 50mm, one 12-frame insert",
-      "action": "Karna raises a palm to ask Arjuna to wait; Krishna's look answers with a memory of Abhimanyu.",
-      "sound": "Karna (optional VO): \"Partha, wait.\" A child's distant battle cry under it.",
-      "frame": "Over @arjuna_bare's shoulder (left, soft) toward @karna (right), standing by the sunken wheel, one palm raised, the bow lowered.",
-      "motion": [
-        "0-2s: Karna's palm rises.",
-        "2-3s: a 12-frame red silhouette insert: a young boy raising a chariot wheel as a shield.",
-        "3-4s: back on Arjuna's shoulder; it tightens."
-      ],
-      "ref": "cast/karna/crop-34.png"
-    },
-    {
-      "id": "A18",
-      "dur": 4,
-      "chars": [],
-      "beat": "twist",
-      "panel": "banner",
-      "camera": "Wide, 35mm, slow tilt down",
-      "action": "Arjuna's razor arrow cuts Karna's gold banner and it falls across the sun.",
-      "sound": "A snap, then a huge gasp from the Kaurava army.",
-      "frame": "Wide: the tall gold elephant-rope banner on Karna's chariot against the sun, a blue streak entering from the left.",
-      "motion": [
-        "0-1s: the blue streak cuts the pole.",
-        "1-4s: the banner falls slowly, crossing the sun; tilt down with it.",
-        "Selective color: the rest of the frame drains to grey for 6 frames as the blue streak hits, only the gold banner keeps color (trailer rule: selective color on impact)."
-      ],
-      "ref": "",
-      "drain": true
-    },
-    {
-      "id": "A19",
-      "dur": 4,
-      "chars": [
-        "@arjuna_bare"
-      ],
-      "beat": "setup",
-      "panel": "anjalika",
-      "camera": "Wide to extreme close-up, one continuous push, 24mm to 135mm feel",
-      "action": "Arjuna draws the Anjalika and rings of lightning ripple out from Gandiva.",
-      "sound": "Everything goes silent except a rising tone.",
-      "frame": "@arjuna_bare on the sunken chariot drawing Gandiva with a huge crescent-headed arrow, the bow switched to his left hand, rings of blue lightning around the bow, the sky darkening.",
-      "motion": [
-        "0-3s: one continuous push from wide to the crescent arrowhead.",
-        "3-4s: hold on the arrowhead, it shines like a small sun."
-      ],
-      "ref": "cast/arjuna/ref_SH170_v09.png"
-    },
-    {
-      "id": "A20",
-      "dur": 3,
-      "chars": [
-        "@karna"
-      ],
-      "beat": "twist",
-      "panel": "impact",
-      "camera": "Impact frames, then a locked wide silhouette",
-      "action": "The Anjalika flies; Karna's silhouette stands against the sun as the sun goes dark.",
-      "sound": "A single thunder crack, then nothing.",
-      "frame": "Graphic impact frame: three flat colors only, black, white and blue; a white silhouette of an archer at left, radial speed lines toward the right.",
-      "motion": [
-        "0-0.2s: three impact frames.",
-        "0.2-3s: cut to Karna as a black silhouette against the sun; the sun dims to a dark red disc (no wound shown)."
-      ],
-      "ref": ""
-    },
-    {
-      "id": "A21",
-      "dur": 5,
-      "chars": [],
-      "beat": "reaction",
-      "panel": "light",
-      "camera": "Wide, 24mm, crane up",
-      "action": "A column of light rises from where Karna fell and enters the sun.",
-      "sound": "A low choir, wind.",
-      "frame": "Wide: the field at dusk, a still dark shape on the ground by a sunken chariot wheel, the dim red sun above, a thin gold light beginning to rise from the shape.",
-      "motion": [
-        "0-5s: crane up as the light climbs into the sun and the sun brightens again; Shalya's chariot without its banner turns away."
-      ],
-      "ref": ""
-    },
-    {
-      "id": "A22",
-      "dur": 4,
-      "chars": [
-        "@arjuna_bare",
-        "@krishna"
-      ],
-      "beat": "twist",
-      "panel": "final",
-      "camera": "Medium wide, 50mm, locked off, hold the final pose",
-      "action": "Arjuna lowers Gandiva and does not celebrate; Krishna watches the light.",
-      "sound": "One conch, far away. Music out.",
-      "frame": "@arjuna_bare standing on the sunken chariot, Gandiva lowered, @krishna at the reins beside him looking up at screen right, golden light on both faces.",
-      "motion": [
-        "0-2s: Gandiva lowers.",
-        "2-4s: hold; the final pose stays to the last frame."
-      ],
-      "ref": "cast/arjuna/ref_SH170_v09.png"
-    }
-  ]
+ "episode": "ep01_arjuna_vs_karna",
+ "title": "The Anjalika",
+ "runtime_s": 90,
+ "aspect": "16:9 with 2.39:1 letterbox",
+ "source": "Ganguli, Karna Parva (mahabharat-research/source/B08-karna.txt) lines 11579-12160",
+ "acts": [
+  {
+   "name": "I. Face-off",
+   "from": "A01",
+   "to": "A05"
+  },
+  {
+   "name": "II. The net of arrows",
+   "from": "A06",
+   "to": "A12"
+  },
+  {
+   "name": "III. Fate turns",
+   "from": "A13",
+   "to": "A17"
+  },
+  {
+   "name": "IV. The Anjalika",
+   "from": "A18",
+   "to": "A22"
+  }
+ ],
+ "shots": [
+  {
+   "id": "A01",
+   "dur": 4,
+   "chars": [],
+   "beat": "hook",
+   "panel": "clash",
+   "camera": "Extreme close-up, locked off, then a 6-frame snap zoom out",
+   "action": "A blue lightning arrowhead and a gold sun-fire arrowhead meet point to point in the center of a black frame and burst.",
+   "sound": "Silence, then one hard crack. No music.",
+   "frame": "Black frame. From the left, the tip of a steel arrowhead wrapped in blue lightning; from the right, the tip of a gold arrowhead wrapped in orange sun-fire. The two points almost touch at the exact center.",
+   "motion": [
+    "0-2s: both arrowheads tremble a hair apart, sparks drift.",
+    "2-3s: they touch; a 2-frame white impact frame.",
+    "3-4s: snap zoom out, the burst becomes blue and orange rings."
+   ],
+   "ref": ""
+  },
+  {
+   "id": "A02",
+   "dur": 5,
+   "chars": [
+    "@arjuna",
+    "@krishna",
+    "@karna"
+   ],
+   "beat": "setup",
+   "panel": "wide",
+   "camera": "Extreme wide, 24mm, eye level, slow push-in",
+   "action": "Two chariots face each other across a cleared ring of red earth while two halted armies watch.",
+   "sound": "Wind, a far drum heartbeat, banners snapping.",
+   "frame": "Extreme wide of Kurukshetra at late afternoon. A cleared ring of trampled warm earth. LEFT: a gold chariot with four white horses and a canopy and a green ape banner. RIGHT: a gold chariot with four dun horses and a gold sun-bright elephant-rope banner. Halted armies as flat silhouettes on both edges. A huge low sun behind the right chariot. Figures are 5 percent of frame height.",
+   "motion": [
+    "0-5s: slow push-in toward the gap between the chariots, dust drifts left to right, banners ripple."
+   ],
+   "ref": ""
+  },
+  {
+   "id": "A03",
+   "dur": 4,
+   "chars": [
+    "@karna"
+   ],
+   "beat": "setup",
+   "panel": "karna_mcu",
+   "camera": "Medium close-up, 85mm, slight low angle, slow push-in",
+   "action": "Karna touches his bow to his forehead, then his eyes lift to screen left.",
+   "sound": "A low drone enters. A single bell.",
+   "frame": "@karna on his chariot, facing screen left, bow Vijaya held upright before his face, the low sun directly behind his head like a halo, grey-bearded Shalya soft in the foreground at the reins.",
+   "motion": [
+    "0-2s: he touches the bow to his forehead, eyes closed.",
+    "2-4s: eyes open and lift to screen left, slow push-in."
+   ],
+   "ref": "cast/karna/crop-34.png"
+  },
+  {
+   "id": "A04",
+   "dur": 4,
+   "chars": [
+    "@arjuna",
+    "@krishna"
+   ],
+   "beat": "setup",
+   "panel": "arjuna_mcu",
+   "camera": "Medium close-up, 85mm, mirror of A03, slow push-in",
+   "action": "Arjuna draws Gandiva and blue static crawls up the bow.",
+   "sound": "Bowstring creak, electric crackle.",
+   "frame": "@arjuna on his chariot facing screen right, Gandiva held vertical at his side, @krishna soft in the foreground from behind with reins in hand, orange sky.",
+   "motion": [
+    "0-3s: he raises and draws Gandiva to the cheek, blue static crawls from grip to tips.",
+    "3-4s: hold, his eyes narrow."
+   ],
+   "ref": "cast/arjuna/crop-34.png"
+  },
+  {
+   "id": "A05",
+   "dur": 3,
+   "chars": [
+    "@krishna"
+   ],
+   "beat": "setup",
+   "panel": "horses",
+   "camera": "Low tracking shot at wheel height, 18mm, fast dolly",
+   "action": "Krishna flicks the reins and the white horses surge forward.",
+   "sound": "Reins crack, hooves, drums kick in at 120 BPM.",
+   "frame": "Ground-level view beside the gold chariot wheel, four white horses' legs in front, red dust, @krishna's hands and yellow cloth visible above.",
+   "motion": [
+    "0-1s: the reins snap.",
+    "1-3s: the horses surge, camera tracks with the wheel, dust kicks toward lens."
+   ],
+   "ref": ""
+  },
+  {
+   "id": "A06",
+   "dur": 5,
+   "chars": [
+    "@karna"
+   ],
+   "beat": "accident",
+   "panel": "volley",
+   "camera": "Arrow-cam: camera launches with the arrows, 35mm, then whip-pan",
+   "action": "Karna looses a fan of seven arrows in one draw.",
+   "sound": "Seven whistles layered, a whoosh past camera.",
+   "frame": "@karna at full draw facing screen left, seven arrows nocked as a fan, sun-fire along each shaft, the sun behind him.",
+   "motion": [
+    "0-1s: hold at full draw, anticipation.",
+    "1-2s: release; the camera rides beside one orange arrow toward screen left.",
+    "2-5s: the fan spreads across the sky, a whip-pan left."
+   ],
+   "ref": "cast/karna/crop-34.png"
+  },
+  {
+   "id": "A07",
+   "dur": 4,
+   "chars": [
+    "@arjuna"
+   ],
+   "beat": "reaction",
+   "panel": "counter",
+   "camera": "Medium wide, 35mm, camera shake on each hit",
+   "action": "Arjuna's arrows split Karna's arrows in mid-air, one by one.",
+   "sound": "Seven sharp metal clicks on the beat.",
+   "frame": "@arjuna firing at speed toward screen right, three blue arrows already in the air, the incoming orange arrows visible at the right edge.",
+   "motion": [
+    "0-4s: each blue arrow meets an orange one, each collision is a 2D spark star; one 2-frame impact frame (black, white, blue) on the last hit."
+   ],
+   "ref": "cast/arjuna/crop-34.png"
+  },
+  {
+   "id": "A08",
+   "dur": 5,
+   "chars": [],
+   "beat": "twist",
+   "panel": "net",
+   "camera": "Crane up from ground to high top-down, 24mm",
+   "action": "The sky fills with so many arrows that they blot out the sun.",
+   "sound": "A rising roar of wind and shafts, then sudden quiet.",
+   "frame": "High angle over the duel ring, both chariots small, the sky above them half covered by a dense dome of crossing blue and orange arrows, armies below raising shields.",
+   "motion": [
+    "0-5s: crane up; the arrow dome thickens until the sun is gone and the frame drops into blue dusk."
+   ],
+   "ref": ""
+  },
+  {
+   "id": "A09",
+   "dur": 4,
+   "chars": [
+    "@arjuna",
+    "@karna"
+   ],
+   "beat": "reaction",
+   "panel": "split",
+   "camera": "Split-screen two-shot, both 85mm close-ups, locked off",
+   "action": "In the arrow-darkness the two warriors, exhausted, look at each other.",
+   "sound": "Heavy breathing, one heartbeat, music drops out.",
+   "frame": "A vertical split frame: LEFT half @arjuna close-up facing right lit only by blue light; RIGHT half @karna close-up facing left lit only by orange light. Both sweating, dust on faces.",
+   "motion": [
+    "0-4s: almost still; a slow blink from each, sweat runs, embers drift between them."
+   ],
+   "ref": ""
+  },
+  {
+   "id": "A10",
+   "dur": 4,
+   "chars": [
+    "@karna"
+   ],
+   "beat": "setup",
+   "panel": "snake",
+   "camera": "Macro insert, 100mm, rack focus",
+   "action": "Karna draws a single arrow from a golden quiver; its head is a serpent's mouth and its eye opens.",
+   "sound": "A dry hiss under the drone.",
+   "frame": "Macro of a golden quiver packed with sandal dust, one arrow standing apart with a dark serpent-shaped head, @karna's fingers closing on its shaft.",
+   "motion": [
+    "0-2s: the fingers pull the arrow up, rack focus to the head.",
+    "2-4s: the serpent eye opens, green-gold."
+   ],
+   "ref": ""
+  },
+  {
+   "id": "A11",
+   "dur": 4,
+   "chars": [
+    "@karna"
+   ],
+   "beat": "setup",
+   "panel": "meteors",
+   "camera": "Low angle, 24mm, 90-degree orbit",
+   "action": "Karna draws the snake arrow to his ear and meteors fall from a red sky.",
+   "sound": "Thunder, a choir swell, Shalya's muffled voice (no words).",
+   "frame": "Low angle on @karna drawing the serpent-headed arrow to his ear, sky turned blood red, streaks of falling meteors, Shalya's shape behind him shaking his head.",
+   "motion": [
+    "0-4s: orbit 90 degrees around him as he reaches full draw; meteors streak down."
+   ],
+   "ref": "cast/karna/crop-34.png"
+  },
+  {
+   "id": "A12",
+   "dur": 4,
+   "chars": [],
+   "beat": "accident",
+   "panel": "line",
+   "camera": "Wide, 24mm, whip-pan following the arrow",
+   "action": "The snake arrow tears across the sky, splitting it with a line of fire.",
+   "sound": "A shriek like a hawk and a snake together.",
+   "frame": "Wide sky over the battlefield, a single blazing line of fire cutting it in two from right to left like a parting in hair, the arrow at its head.",
+   "motion": [
+    "0-4s: the line races right to left; whip-pan to follow; the sky darkens either side of the line."
+   ],
+   "ref": ""
+  },
+  {
+   "id": "A13",
+   "dur": 4,
+   "chars": [
+    "@krishna"
+   ],
+   "beat": "twist",
+   "panel": "press",
+   "camera": "Low angle on the chariot floor, 18mm, then a hard drop",
+   "action": "Krishna presses his foot down and the chariot sinks a cubit into the earth; the horses kneel.",
+   "sound": "A deep earth boom; the drums stop.",
+   "frame": "Low angle at the gold chariot's floor, @krishna's bare foot about to press down, white horses ahead, white-gold light at his heel. Cut in on a 2-frame inverted negative flash.",
+   "motion": [
+    "0-2 frames: negative-flash cut (trailer rule: inverted flash as a cut), then back to color.",
+    "0-1s: the foot presses down.",
+    "1-2s: white-gold rings burst outward along the ground, a 2-frame white-gold impact frame.",
+    "2-4s: the chariot drops, the white horses bend their knees and kneel."
+   ],
+   "ref": "cast/krishna/ref_closeup_approved.png",
+   "neg": true
+  },
+  {
+   "id": "A14",
+   "dur": 4,
+   "chars": [
+    "@arjuna"
+   ],
+   "beat": "accident",
+   "panel": "diadem",
+   "camera": "Medium close-up, 50mm, speed ramp 100 to 10 to 100 percent",
+   "action": "The snake arrow strikes Arjuna's crown off instead of his head.",
+   "sound": "Metal ring, slowed to a long tone.",
+   "frame": "@arjuna crouched low on the sunken chariot, looking up at screen right, the tall gold crown on his head, a streak of fire coming in at the top right.",
+   "motion": [
+    "0-1s: the fire streak hits the crown.",
+    "1-3s: slow motion: the crown spins away, his hair falls free.",
+    "3-4s: real speed, it lands in the dust."
+   ],
+   "ref": "cast/arjuna/crop-34.png"
+  },
+  {
+   "id": "A15",
+   "dur": 3,
+   "chars": [
+    "@arjuna_bare"
+   ],
+   "beat": "reaction",
+   "panel": "cloth",
+   "camera": "Medium close-up, 85mm, slow push-in",
+   "action": "Arjuna rises bare-headed, pushes his loose hair back from his face and lifts Gandiva again.",
+   "sound": "A breath. A single deep drum.",
+   "frame": "@arjuna_bare rising into frame from below, bare head, one hand pushing his loose hair back from his brow, the other lifting Gandiva, eyes fixed on screen right.",
+   "motion": [
+    "0-2s: he rises and pushes his loose hair back from his brow.",
+    "2-3s: he lifts Gandiva and his eyes; blue static flickers on his shoulder."
+   ],
+   "ref": "cast/arjuna/ref_SH170_v09.png"
+  },
+  {
+   "id": "A16",
+   "dur": 5,
+   "chars": [
+    "@karna"
+   ],
+   "beat": "twist",
+   "panel": "wheel",
+   "camera": "Low wide, 18mm, the horizon tilts",
+   "action": "Karna's left wheel sinks; he leaps down and heaves it, and the whole earth lifts a little.",
+   "sound": "Grinding earth, a strained roar.",
+   "frame": "Low wide: @karna standing on the ground beside his chariot, both arms gripping the sunken left wheel, the wheel half buried in cracked red earth, the sun behind him.",
+   "motion": [
+    "0-2s: he heaves, veins stand out.",
+    "2-5s: the ground around him lifts and the horizon tilts a few degrees, dust pours off the rim."
+   ],
+   "ref": "cast/karna/crop-34.png"
+  },
+  {
+   "id": "A17",
+   "dur": 4,
+   "chars": [
+    "@karna",
+    "@arjuna_bare",
+    "@krishna"
+   ],
+   "beat": "reaction",
+   "panel": "plea",
+   "camera": "Over-the-shoulder from Arjuna to Karna, 50mm, one 12-frame insert",
+   "action": "Karna raises a palm to ask Arjuna to wait; Krishna's look answers with a memory of Abhimanyu.",
+   "sound": "Karna (optional VO): \"Partha, wait.\" A child's distant battle cry under it.",
+   "frame": "Over @arjuna_bare's shoulder (left, soft) toward @karna (right), standing by the sunken wheel, one palm raised, the bow lowered.",
+   "motion": [
+    "0-2s: Karna's palm rises.",
+    "2-3s: a 12-frame red silhouette insert: a young boy raising a chariot wheel as a shield.",
+    "3-4s: back on Arjuna's shoulder; it tightens."
+   ],
+   "ref": "cast/karna/crop-34.png"
+  },
+  {
+   "id": "A18",
+   "dur": 4,
+   "chars": [],
+   "beat": "twist",
+   "panel": "banner",
+   "camera": "Wide, 35mm, slow tilt down",
+   "action": "Arjuna's razor arrow cuts Karna's gold banner and it falls across the sun.",
+   "sound": "A snap, then a huge gasp from the Kaurava army.",
+   "frame": "Wide: the tall gold elephant-rope banner on Karna's chariot against the sun, a blue streak entering from the left.",
+   "motion": [
+    "0-1s: the blue streak cuts the pole.",
+    "1-4s: the banner falls slowly, crossing the sun; tilt down with it.",
+    "Selective color: the rest of the frame drains to grey for 6 frames as the blue streak hits, only the gold banner keeps color (trailer rule: selective color on impact)."
+   ],
+   "ref": "",
+   "drain": true
+  },
+  {
+   "id": "A19",
+   "dur": 4,
+   "chars": [
+    "@arjuna_bare"
+   ],
+   "beat": "setup",
+   "panel": "anjalika",
+   "camera": "Wide to extreme close-up, one continuous push, 24mm to 135mm feel",
+   "action": "Arjuna draws the Anjalika and rings of lightning ripple out from Gandiva.",
+   "sound": "Everything goes silent except a rising tone.",
+   "frame": "@arjuna_bare on the sunken chariot drawing Gandiva with a huge crescent-headed arrow, the bow switched to his left hand, rings of blue lightning around the bow, the sky darkening.",
+   "motion": [
+    "0-3s: one continuous push from wide to the crescent arrowhead.",
+    "3-4s: hold on the arrowhead, it shines like a small sun."
+   ],
+   "ref": "cast/arjuna/ref_SH170_v09.png"
+  },
+  {
+   "id": "A20",
+   "dur": 3,
+   "chars": [
+    "@karna"
+   ],
+   "beat": "twist",
+   "panel": "impact",
+   "camera": "Impact frames, then a locked wide silhouette",
+   "action": "The Anjalika flies; Karna's silhouette stands against the sun as the sun goes dark.",
+   "sound": "A single thunder crack, then nothing.",
+   "frame": "Graphic impact frame: three flat colors only, black, white and blue; a white silhouette of an archer at left, radial speed lines toward the right.",
+   "motion": [
+    "0-0.2s: three impact frames.",
+    "0.2-3s: cut to Karna as a black silhouette against the sun; the sun dims to a dark red disc (no wound shown)."
+   ],
+   "ref": ""
+  },
+  {
+   "id": "A21",
+   "dur": 5,
+   "chars": [],
+   "beat": "reaction",
+   "panel": "light",
+   "camera": "Wide, 24mm, crane up",
+   "action": "A column of light rises from where Karna fell and enters the sun.",
+   "sound": "A low choir, wind.",
+   "frame": "Wide: the field at dusk, a still dark shape on the ground by a sunken chariot wheel, the dim red sun above, a thin gold light beginning to rise from the shape.",
+   "motion": [
+    "0-5s: crane up as the light climbs into the sun and the sun brightens again; Shalya's chariot without its banner turns away."
+   ],
+   "ref": ""
+  },
+  {
+   "id": "A22",
+   "dur": 4,
+   "chars": [
+    "@arjuna_bare",
+    "@krishna"
+   ],
+   "beat": "twist",
+   "panel": "final",
+   "camera": "Medium wide, 50mm, locked off, hold the final pose",
+   "action": "Arjuna lowers Gandiva and does not celebrate; Krishna watches the light.",
+   "sound": "One conch, far away. Music out.",
+   "frame": "@arjuna_bare standing on the sunken chariot, Gandiva lowered, @krishna at the reins beside him looking up at screen right, golden light on both faces.",
+   "motion": [
+    "0-2s: Gandiva lowers.",
+    "2-4s: hold; the final pose stays to the last frame."
+   ],
+   "ref": "cast/arjuna/ref_SH170_v09.png"
+  }
+ ]
 }

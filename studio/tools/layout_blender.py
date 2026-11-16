@@ -142,7 +142,7 @@ POSES = dict(
     press=dict(lh=(0.50, 0.16, 1.02), rh=(0.50, -0.16, 1.02), lean=0.42, drop=0.22, lf=(-0.15, 0.14, 0), rf=(0.42, -0.10, 0), reins=True),
     quiver=dict(lh=(0.45, 0.24, 1.20), rh=(-0.16, -0.10, 1.74), bow="held"),
     recoil=dict(lh=(0.25, 0.42, 1.15), rh=(-0.20, -0.45, 1.25), lean=-0.38, drop=0.12, bow="held", head=(0, 0, -0.2)),
-    bind=dict(lh=(-0.04, 0.17, 1.76), rh=(-0.04, -0.17, 1.76), head=(0, 0, -0.1)),
+    bind=dict(lh=(0.30, 0.26, 1.20), rh=(0.02, -0.16, 1.78), head=(0, 0, -0.1), bow="held"),   # one hand pushes his hair back, the other lifts the bow
     heave=dict(lh=(0.50, 0.26, 0.86), rh=(0.50, -0.26, 0.60), lean=0.75, drop=0.30, lf=(0.20, 0.16, 0), rf=(-0.55, -0.16, 0)),
     palm=dict(lh=(0.10, 0.34, 0.70), rh=(0.56, -0.16, 1.26), lean=0.15, drop=0.42, lf=(0.30, 0.14, 0), rf=(-0.40, -0.14, 0)),
     stand=dict(lh=(0.10, 0.38, 0.92), rh=(0.10, -0.38, 0.92)),
@@ -189,8 +189,8 @@ def figure(coll, who, pose, loc, face=0.0, name=None, scale=1.0):
         b.cyl(top - up * 0.03, top + up * 0.24, 0.125, 0.07, "gold", seg=12)
         b.cyl(top + Vector((0.08, 0.06, 0.10)), top + Vector((0.10, 0.10, 0.38)), 0.035, 0.01, "green")
     elif c["crown"] == "band":
-        b.ball(top - up * 0.04, 0.125, "hair")
-        b.cyl(head + up * 0.045, head + up * 0.085, 0.122, 0.122, "white", seg=14)
+        b.ball(top - up * 0.04, 0.125, "hair")                # bare head, loose hair, no cloth band (sai, 2026-11-16)
+        b.ball(head - Vector((0.07, 0, 0.02)), 0.12, "hair")
     if c.get("disc"):
         back = chest - fwd * 0.24 + up * 0.02
         b.cyl(back, back - fwd * 0.03, 0.26, 0.26, "gold", seg=20)

@@ -159,10 +159,10 @@ Keep the oil-painted look of the still. No text, the characters do not speak. En
 
 ```
 Image-to-video, 5 seconds, from the attached still.
-0-2s: he pulls the knot tight.
-2-3s: he lifts his eyes; blue static flickers on his shoulder.
+0-2s: he rises and pushes his loose hair back from his brow.
+2-3s: he lifts Gandiva and his eyes; blue static flickers on his shoulder.
 Camera: Medium close-up, 85mm, slow push-in.
-Sound: Cloth snap. A single deep drum.
+Sound: A breath. A single deep drum.
 Keep the oil-painted look of the still. No text, the characters do not speak. Energy effects are added later in 2D, so keep arrows and light simple.
 ```
 

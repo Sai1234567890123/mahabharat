@@ -27,7 +27,7 @@ Classical academic oil painting of an Indian epic battle, richly detailed realis
 
 Kurukshetra battlefield, late afternoon, trampled warm earth, low gold sun in the west, soft warm-brown shadows, pale gold dust in soft layers, cream and soft blue sky. Screen direction: Arjuna's side on the left, Karna's side on the right.
 
-Extreme wide of Kurukshetra at late afternoon. A cleared ring of trampled warm earth. LEFT: a gold chariot with four white horses and a canopy and a green ape banner. RIGHT: a gold chariot with four dun horses and a gold sun-bright elephant-rope banner. Halted armies as flat silhouettes on both edges. A huge low sun behind the right chariot. Figures are 5 percent of frame height.
+Extreme wide of Kurukshetra at late afternoon. A cleared ring of trampled warm earth. LEFT: a gold chariot with four white horses and a green ape banner, no canopy. RIGHT: a gold chariot with four dun horses and a gold sun-bright elephant-rope banner. Halted armies as flat silhouettes on both edges. A huge low sun behind the right chariot. Figures are 5 percent of frame height.
 
 No text, no extra characters, 16:9.
 ```

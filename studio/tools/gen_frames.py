@@ -47,6 +47,57 @@ SHOTS = {
                      "along every shaft. The low sun is directly behind his bow hand. Shalya, a grey-bearded older charioteer, sits low in front "
                      "of him with the reins. The Kaurava host stands far behind in pale gold dust. No arrow has been released yet. "
                      "No parasol above the chariot."),
+    # Act I batch. `cast` lists the sheets to attach when it differs from the card (tiny or off-frame figures get no sheet);
+    # `frame` replaces the card's frame line where the approved layout stages the shot differently from the card.
+    "A02": dict(look=["refs/concept/concept_42.jpeg", "refs/concept/concept_06.jpeg"], cast=[],
+                note="Extreme wide establishing view exactly as the layout. A broad EMPTY ring of trampled warm red-brown earth fills the "
+                     "lower half of the frame. At the LEFT, small, Arjuna's bright gold chariot with four white horses faces right; a green "
+                     "banner with a gold ape flies from a tall pole on it; a crowned archer in gold stands on it and a blue-skinned charioteer "
+                     "in yellow sits at the front. At the RIGHT, small, Karna's darker bronze and maroon chariot with four dun horses faces "
+                     "left; a gold banner flies from a tall pole on it; a crowned archer in gold with a saffron dhoti stands on it, a "
+                     "grey-bearded charioteer in front. The two chariots face each other across the empty ring and stand still. Behind each "
+                     "one a halted army stands in long ranks along the horizon with spears, banners and a few war towers, hazy in pale gold "
+                     "dust, with a clear gap of open horizon between the two armies in the middle. The huge low sun sits just above the "
+                     "horizon behind the right chariot and long shadows fall toward the camera. The figures are tiny, about 5 percent of the "
+                     "frame height: do NOT enlarge them, do NOT move the chariots closer together, do NOT add anything in the empty ring. "
+                     "Wide open late-afternoon sky. No parasol and no canopy on either chariot."),
+    "A03": dict(look=["refs/concept/concept_46.jpeg", "refs/concept/concept_37.jpeg"],
+                frame="@karna on his chariot in a three-quarter view facing screen left, lifting the bow Vijaya level in both hands to touch "
+                      "it to his forehead, the low sun directly behind his head like a halo.",
+                note="Medium close-up from a slightly low angle, as in the layout: Karna fills the centre of the frame from the waist up. "
+                     "Both arms are raised and hold the bow horizontally at brow height; the bow touches his forehead in a silent vow. "
+                     "His face is clearly visible in three-quarter profile turned to screen left, calm and grave, eyes closed. He wears his "
+                     "rounded gold crown and his full carved gold cuirass with the sun-face relief on the chest, a saffron-orange dhoti, "
+                     "bare earlobes. He carries NO shield: ignore the round gold shape behind his shoulder in the layout and paint only his "
+                     "armoured back and shoulder there. There is no arrow on the bow. The white disc of the low sun is directly behind his "
+                     "crown and rims his head and arms with light. A carved bronze lion figure of his chariot sits at the right, the gold "
+                     "banner pole rises at the far right edge. Far behind and below at the left the Kaurava host stands in ranks with spears "
+                     "and round shields, soft in pale gold dust. No charioteer and no other person is in this frame."),
+    "A04": dict(look=["refs/concept/concept_05.jpeg", "refs/concept/concept_06.jpeg"], cast=["@arjuna"],
+                frame="@arjuna on his chariot facing screen right at full draw, the bow Gandiva upright in his left hand, one arrow nocked, "
+                      "warm gold late-afternoon sky.",
+                note="Medium close-up as in the layout, the mirror of Karna's shot: Arjuna fills the centre of the frame from the waist up, "
+                     "seen from slightly behind his right shoulder, his face in clear profile to screen right, eyes fixed on his target. "
+                     "His left arm is straight out and holds Gandiva upright at the right of the frame; the bow's black limbs wrapped in "
+                     "spiral gold bands curve from the top edge of the frame to the bottom edge. His right hand has drawn the taut bowstring "
+                     "back to his cheek, the string clearly visible; one steel-tipped arrow lies across the bow and points to screen right. "
+                     "He wears his tall gold crown, the sleeveless carved gold cuirass with black enamel inlay, wide gold bracers and the "
+                     "deep green silk sash at his waist over a white dhoti. A bright gold lion figure of his own chariot sits at the left, a "
+                     "gold banner pole rises at the far left. Behind him the Pandava host stands in ranks in saffron and gold with tall "
+                     "pennants and a war tower, soft in pale gold dust. Krishna is NOT in this frame and no other person is close. "
+                     "No lightning, no sparks and no glow on the bow: that effect is added later. No shield."),
+    "A05": dict(look=["refs/concept/concept_06.jpeg", "refs/concept/concept_42.jpeg"], cast=["@krishna", "@arjuna"],
+                frame="Low angle close to the ground in front of the gold chariot: the four white horses fill the right half, @krishna at "
+                      "the reins and @arjuna standing behind him are small on the chariot at the left.",
+                note="Low wide view from near the ground, as in the layout. The four white horses, harnessed side by side with gold "
+                     "collars, gold tassels and maroon saddle cloths, are large at the right with their heads high, caught at the instant "
+                     "they begin to surge forward: muscles bunched, front hooves lifting, manes and tassels thrown back, red dust kicking up "
+                     "at their hooves. Exactly four horses, all white. Behind them at the left is Arjuna's gold chariot with tall spoked "
+                     "wheels and gold lion figures; a green banner with a gold ape flies from its pole. Krishna, blue-skinned, sits at the "
+                     "front of the chariot holding black reins that have just snapped taut; Arjuna in his tall gold crown stands behind him "
+                     "holding Gandiva. Both men are small in the frame, as in the layout. The Pandava host stands along the horizon in "
+                     "pale dust, the ground is open trampled red-brown earth, the sky is clear late afternoon. "
+                     "No parasol and no canopy on the chariot."),
 }
 
 def style():
@@ -54,8 +105,9 @@ def style():
     return m.group(1).strip()
 
 def build(sid, card):
-    cast = [c for c in card["chars"] if c in SHEETS]
-    refs = [f"{EP}/layout/{sid}.jpg"] + [f"{SHEETS[c]}/{SHEET_FILE[c]}" for c in cast] + SHOTS[sid]["look"]
+    recipe = SHOTS[sid]
+    cast = recipe.get("cast", [c for c in card["chars"] if c in SHEETS])
+    refs = [f"{EP}/layout/{sid}.jpg"] + [f"{SHEETS[c]}/{SHEET_FILE[c]}" for c in cast] + recipe["look"]
     n = 2
     lines = [style(), "", LAYOUT_RULE]
     for c in cast:
@@ -67,7 +119,7 @@ def build(sid, card):
     lines.append("")
     for c in cast:
         lines.append(descriptor(f"{SHEETS[c]}/passport.md"))
-    lines += ["", f"SHOT {sid}. Camera: {card['camera']}. {card['frame']}", SHOTS[sid]["note"], "",
+    lines += ["", f"SHOT {sid}. Camera: {card['camera']}. {recipe.get('frame', card['frame'])}", recipe["note"], "",
               "One single finished frame, 16:9. No text, no labels, no borders, no split screen, no mannequins, no 3D render look."]
     return refs, "\n".join(lines)
 

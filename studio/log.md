@@ -23,3 +23,6 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 | 2026-11-15 | episodes/ep01_arjuna_vs_karna/frames/A16_v1.png | gemini-3.1-flash-image | frame over layout, 4 refs | tokens in 5156 out 1120 | pending review |
 | 2026-11-15 | episodes/ep01_arjuna_vs_karna/frames/A06_v1.png | gemini-3.1-flash-image | frame over layout, 4 refs | tokens in 5125 out 1120 | pending review |
 | 2026-11-16 | cast/arjuna_bare/sheet_v2.png | gemini-3.1-flash-image | sheets v1 (concept-art look) | tokens in 2575 out 1120 | pending review |
+| 2026-11-16 | episodes/ep01_arjuna_vs_karna/frames/A06_v2.png | gemini-3.1-flash-image | frame over layout, 4 refs | tokens in 5196 out 1120 | pending review |
+| 2026-11-16 | episodes/ep01_arjuna_vs_karna/frames/A16_v2.png | gemini-3.1-flash-image | frame over layout, 4 refs | tokens in 5253 out 1120 | pending review |
+| 2026-11-16 | cast/arjuna_bare/sheet_v3.png | gemini-3.1-flash-image | sheets v1 (concept-art look) | tokens in 2585 out 1120 | pending review |

@@ -18,6 +18,8 @@ from gen_sheets import MODEL, STUDIO, call, descriptor      # same API call, sam
 
 EP = "episodes/ep01_arjuna_vs_karna"
 SHEETS = {"@arjuna": "cast/arjuna", "@arjuna_bare": "cast/arjuna_bare", "@karna": "cast/karna", "@krishna": "cast/krishna"}
+# the approved sheet file of each character (an approved file is never renamed)
+SHEET_FILE = {"@arjuna": "sheet.png", "@arjuna_bare": "sheet_v4.png", "@karna": "sheet.png", "@krishna": "sheet.png"}
 
 LAYOUT_RULE = (
     "IMAGE 1 is a rough 3D layout of this exact shot. Keep its camera angle, lens, horizon, composition, screen direction and the "
@@ -53,7 +55,7 @@ def style():
 
 def build(sid, card):
     cast = [c for c in card["chars"] if c in SHEETS]
-    refs = [f"{EP}/layout/{sid}.jpg"] + [f"{SHEETS[c]}/sheet.png" for c in cast] + SHOTS[sid]["look"]
+    refs = [f"{EP}/layout/{sid}.jpg"] + [f"{SHEETS[c]}/{SHEET_FILE[c]}" for c in cast] + SHOTS[sid]["look"]
     n = 2
     lines = [style(), "", LAYOUT_RULE]
     for c in cast:

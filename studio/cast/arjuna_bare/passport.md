@@ -1,4 +1,4 @@
-# @arjuna_bare · passport v3 · variant of @arjuna
+# @arjuna_bare · passport v3 · variant of @arjuna · LOCKED, sheet_v4.png approved by sai 2026-11-16
 
 Use from A14 to the end. Sai, 2026-11-16: "remove hair band of arjuna". He is bare-headed with loose hair and no cloth band. (Ganguli, Karna Parva B08 line 11743, has him bind his locks with a white cloth; this trailer leaves that out by sai's choice.)
 
@@ -10,5 +10,6 @@ Arjuna, same man and same face as the reference sheet, Indian warrior-prince and
 
 ## References
 
-- `../arjuna/sheet.png` (approved). This variant's own sheet is made from it.
+- `sheet_v4.png`: approved 2026-11-16 by sai ("approve Arjuna bare v4"). Locked: never regenerate, rename or re-prompt. It is the identity reference for his face, hair and costume from A14 on.
+- Known misses on that sheet: the bow has no string and the quiver is empty. Every shot prompt with @arjuna_bare therefore also attaches `../arjuna/sheet.png` and says "strung bow with a taut bowstring, quiver full of arrows".
 - `sheet.png` (shield), `sheet_v2.png` (earrings, tilak) and `sheet_v3.png` (cloth band) are earlier tries and are not used.

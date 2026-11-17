@@ -30,7 +30,8 @@ BODY = ("A character model sheet for a 3D modeller: ONE man, full body from the 
         "Flat, even, neutral studio light from the front: no dramatic shadows, no rim light, no glow, no dust. "
         "Pure plain white background, no floor line, no cast shadow, no scenery, no other people, no text, no labels, no border, "
         "no extra views in the same picture. Seen straight on at chest height with a long lens, almost no perspective. "
-        "Cloth hangs straight down and stays close to the body; nothing flies or billows.")
+        "Cloth hangs straight down and stays close to the body; nothing flies or billows. "
+        "Exactly ONE figure in the picture: no second figure, no second view, no dividing line.")
 
 def char_jobs(tag, name, sheet, passport, paint, back_ref, back_note):
     m = f"cast/{tag}/model"
@@ -50,10 +51,13 @@ def char_jobs(tag, name, sheet, passport, paint, back_ref, back_note):
     }
 
 JOBS = {}
-JOBS.update(char_jobs("karna", "Karna", "cast/karna/sheet.png", "cast/karna/passport.md", "refs/concept/concept_46.jpeg",
-                      ["refs/concept/concept_37.jpeg"],
-                      "IMAGE 3 is a reference painting that shows the round gold sun-face disc strapped on his back with black "
-                      "gold-studded leather straps: paint that disc flat on the middle of his back. He has bare earlobes, no earrings."))
+# sai, 2026-11-17: "remove shield of karna back side". Nothing is strapped on Karna's back any more (passport v2.1).
+NO_DISC = ("There is NOTHING on his back: NO round disc, NO shield, NO plate or wheel shape behind his shoulders, and nothing shows "
+           "behind his silhouette. If a reference image shows a round disc behind his shoulders, do NOT paint it. His gold cuirass wraps "
+           "the whole torso and its back is a plain carved gold back plate. He has bare earlobes, no earrings.")
+JOBS.update(char_jobs("karna", "Karna", "cast/karna/sheet.png", "cast/karna/passport.md", "refs/concept/concept_46.jpeg", [], NO_DISC))
+for _v in ("karna_front", "karna_side"):
+    JOBS[_v]["text"] += " " + NO_DISC
 JOBS["karna_bow"] = dict(
     out="cast/karna/model/bow_vijaya", refs=["cast/karna/sheet.png"], passport=None, aspect="3:4",
     text=("A prop model sheet for a 3D modeller: ONE object only, the great war bow Vijaya from IMAGE 1, shown alone with no person and "

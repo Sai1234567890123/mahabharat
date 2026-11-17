@@ -126,7 +126,7 @@ def ik(s, h, l1, l2, hint):
 COSTUME = dict(
     arjuna=dict(skin="skin", torso="gold", legs="white", sash="green", crown="tall", bow="black"),
     arjuna_bare=dict(skin="skin", torso="gold", legs="white", sash="green", crown="band", bow="black"),
-    karna=dict(skin="skin", torso="gold", legs="saffron", sash="black", crown="round", bow="black", disc=True),
+    karna=dict(skin="skin", torso="gold", legs="saffron", sash="black", crown="round", bow="black", disc=False)   # sai 2026-11-17: nothing on his back,
     krishna=dict(skin="blue", torso="gold", legs="crimson", sash="gold", crown="feather"),
     shalya=dict(skin="skin", torso="bronze", legs="grey", sash="black", crown="round", beard=True),
 )

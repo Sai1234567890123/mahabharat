@@ -146,8 +146,7 @@ MOMENT = {
               "still wearing his rounded gold crown and full gold cuirass, his face turned in profile toward screen LEFT, grim and "
               "exhausted. The sunken wheel is ATTACHED to the chariot on its axle at the chariot's side, its lower third buried in the "
               "earth; there is NO loose wheel standing apart from the chariot and no broken axle. He crouches right beside the chariot "
-              "body and grips the upper rim and spokes. A round gold sun-face disc is strapped flat on his BACK, it is not a shield on "
-              "his arm. Shalya, a grey-bearded older charioteer, sits at the front with the reins of four dun horses. A gold banner on a "
+              "body and grips the upper rim and spokes. There is nothing on his back: no disc and no shield. Shalya, a grey-bearded older charioteer, sits at the front with the reins of four dun horses. A gold banner on a "
               "tall pole stands on the chariot. The wheel stays on its axle. Open empty battlefield, the armies far away."),
         extra={
             "M": ("Low wide angle near the ground beside the wheel. This is a quiet, heavy moment: no energy effects on Karna at all, only "

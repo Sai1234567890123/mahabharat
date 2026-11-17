@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
 """Rig Karna for hand animation and pose him at full draw with the bow Vijaya. FREE, runs in the cloud (pip install bpy).
 
-  python studio/tools/blender/karna_rig.py WORK.blend BOW.glb OUT_DIR
+  python studio/tools/blender/karna_rig.py WORK.blend BOW.glb OUT_DIR [TAG]
 
   WORK.blend  made by karna_prepare.py (KARNA_body, 1.9 m, feet at z 0, front -Y, his left +X)
   BOW.glb     the TRELLIS.2 bow (string on +X, grip at -X, 1 unit tall)
 
-Writes, never overwriting:
-  OUT_DIR/karna_rigged.blend     Rigify control rig KARNA_rig, body skinned, the bow as KARNA_bow (rest pose)
-  OUT_DIR/karna_fulldraw.blend   the same file posed at full draw, for the Gate 4 previs
-  OUT_DIR/fulldraw_<view>.png and fulldraw_sheet.jpg   check renders
+Writes, never overwriting (TAG, for example _v2, is added to every name):
+  OUT_DIR/karna_rigged.blend     Rigify control rig KARNA_rig, body skinned; the bow KARNA_bow on its own rig
+                                 KARNA_bow_rig (grip, three bones per limb, a nock bone the string follows)
+  OUT_DIR/karna_fulldraw.blend   the same file posed at full draw, limbs bent, for the Gate 4 previs
+  OUT_DIR/fulldraw_<view>.png, fulldraw_sheet.jpg and fulldraw_hands.jpg   check renders
 
 Weights: Blender's bone-heat solver fails on fused TRELLIS meshes (the Krishna rebuild hit this too), so every vertex
-takes inverse-distance weights from its nearest deform bones, then the weights are smoothed along mesh edges.
+takes inverse-distance weights from its nearest deform bones, then the weights are smoothed along mesh edges. Two masks
+follow: arm bones may not pull the cuirass (inside the shoulder joint the arm weight goes to the chest and shoulder bones,
+so the gold edge stays put when the arm lifts), and finger bones may not pull the palm (behind the knuckles the finger
+weight goes to the hand bone, so the palm stays solid when the fingers curl).
 Joint positions were measured from slices of KARNA_body; they are constants below.
 """
 import math, os, pathlib, sys
@@ -23,13 +27,14 @@ import numpy as np
 from mathutils import Matrix, Vector
 
 argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
-if len(argv) != 3:
+if len(argv) not in (3, 4):
     raise SystemExit(__doc__)
-work, bow_glb, out_dir = (pathlib.Path(p).resolve() for p in argv)
+work, bow_glb, out_dir = (pathlib.Path(p).resolve() for p in argv[:3])
+TAG = argv[3] if len(argv) == 4 else ""
 out_dir.mkdir(parents=True, exist_ok=True)
-for name in ("karna_rigged.blend", "karna_fulldraw.blend", "fulldraw_sheet.jpg"):
-    if (out_dir / name).exists():
-        raise SystemExit(f"exists, not overwriting (folder law 1): {out_dir / name}")
+for name in ("karna_rigged", "karna_fulldraw"):
+    if (out_dir / f"{name}{TAG}.blend").exists():
+        raise SystemExit(f"exists, not overwriting (folder law 1): {out_dir / name}{TAG}.blend")
 
 # ---- joints of this body (metres; x = his left, -y = his front, z up) ----------------------------------------------
 SPINE = ["spine", "spine.001", "spine.002", "spine.003", "spine.004", "spine.005", "spine.006"]
@@ -146,6 +151,36 @@ for s0 in range(0, nv, 20000):
     idx = np.argpartition(d, 4, axis=1)[:, :4]
     wn = 1 / (np.take_along_axis(d, idx, 1) + 0.015) ** 2.5
     W[s0:s0 + 20000][np.arange(len(p))[:, None], idx] = wn / wn.sum(1, keepdims=True)
+
+
+def smoothstep(e0, e1, x):
+    t = np.clip((x - e0) / (e1 - e0), 0, 1)
+    return t * t * (3 - 2 * t)
+
+
+names = [b.name for b in defs]
+col = {n: i for i, n in enumerate(names)}
+ARM = np.array([any(k in n for k in ("upper_arm", "forearm", "hand", "f_", "thumb", "palm")) for n in names])
+FINGER = np.array([n.startswith(("DEF-f_", "DEF-palm")) for n in names])
+# shoulder mask: inside |x| 0.18 the arm bones let go; what they held goes to the chest and shoulder bones
+m = smoothstep(0.18, 0.25, np.abs(co[:, 0]))
+for side, sx in (("L", 1), ("R", -1)):
+    near = (co[:, 0] * sx > 0)
+    lost = (W[:, ARM] * (1 - m)[:, None]).sum(1) * near
+    W[np.ix_(near, ARM)] *= m[near, None]
+    W[:, col["DEF-spine.003"]] += lost * 0.6
+    W[:, col[f"DEF-shoulder.{side}"]] += lost * 0.4
+# palm mask: behind the knuckle line the finger bones let go; the hand bone takes it
+for side in ("L", "R"):
+    hb = rig.data.bones[f"DEF-hand.{side}"]
+    yhat = np.array(hb.matrix_local.col[1][:3])
+    knuckle = float(np.dot(np.array(rig.data.bones[f"DEF-f_middle.01.{side}"].head_local) - np.array(hb.head_local), yhat))
+    t = (co - np.array(hb.head_local)) @ yhat
+    fm = smoothstep(knuckle - 0.02, knuckle + 0.005, t)
+    hand_zone = (co[:, 0] * (1 if side == "L" else -1) > 0.36)
+    lost = (W[:, FINGER] * (1 - fm)[:, None]).sum(1) * hand_zone
+    W[np.ix_(hand_zone, FINGER)] *= fm[hand_zone, None]
+    W[:, col[f"DEF-hand.{side}"]] += lost
 ev = np.empty(len(body.data.edges) * 2, np.int32)
 body.data.edges.foreach_get("vertices", ev)
 ev = ev.reshape(-1, 2)
@@ -194,17 +229,94 @@ dec = bow.modifiers.new("dec", "DECIMATE")
 dec.ratio = 0.2
 bpy.ops.object.modifier_apply(modifier="dec")
 BOW_H = 1.70                                                         # a great bow, a little shorter than he is
-BOW_GRIP = Vector((-0.044, 0.0, 0.0)) * BOW_H                        # middle of the handle (z -0.04..0.04), bow space, scaled
-BOW_TIPS = [Vector((0.1035, 0.0, z)) * BOW_H for z in (0.40, -0.40)]  # where the string met the limbs
 bow.scale = (BOW_H,) * 3
-bow.rotation_euler = (0, 0, 0)
-bow.location = (0, 0, 0)
+select_only(bow)
+bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)   # bow space is now metres
+BOW_GRIP = Vector((-0.044, 0.0, 0.0)) * BOW_H                        # middle of the handle (z -0.04..0.04)
+STRING_X = 0.1035 * BOW_H
 print("bow faces", len(bow.data.polygons), flush=True)
+
+# bow rig: a grip bone, three bones down the middle of each limb, and a nock bone at the middle of the string
+bn = len(bow.data.vertices)
+bco = np.empty(bn * 3, np.float32)
+bow.data.vertices.foreach_get("co", bco)
+bco = bco.reshape(bn, 3)
+
+
+def limb_x(z):
+    """middle of the limb at height z (bow space, metres), from the mesh itself"""
+    sl = bco[(np.abs(bco[:, 2] - z) < 0.012) & (bco[:, 0] < STRING_X - 0.01)]
+    return float(np.median(sl[:, 0])) if len(sl) else float(BOW_GRIP.x)
+
+
+LIMB_Z = [0.045, 0.20, 0.34, 0.47]                                   # joints up a limb, as a share of the bow height
+bow_arm = bpy.data.objects.new("KARNA_bow_rig", bpy.data.armatures.new("KARNA_bow_rig"))
+scene.collection.objects.link(bow_arm)
+select_only(bow_arm)
+bpy.ops.object.mode_set(mode="EDIT")
+be = bow_arm.data.edit_bones
+grip = be.new("grip")
+grip.head, grip.tail = BOW_GRIP, BOW_GRIP + Vector((-0.08, 0, 0))   # points at the target
+for tag, sz in (("up", 1), ("lo", -1)):
+    parent = grip
+    for i in range(3):
+        z0, z1 = sz * LIMB_Z[i] * BOW_H, sz * LIMB_Z[i + 1] * BOW_H
+        e = be.new(f"limb_{tag}.{i + 1:02d}")
+        e.head, e.tail = Vector((limb_x(z0), 0, z0)), Vector((limb_x(z1), 0, z1))
+        e.parent, e.use_connect = parent, i > 0
+        parent = e
+nock = be.new("nock")
+nock.head, nock.tail, nock.parent = Vector((STRING_X, 0, 0)), Vector((STRING_X + 0.06, 0, 0)), grip
+bpy.ops.object.mode_set(mode="OBJECT")
+bdefs = [b for b in bow_arm.data.bones if b.name != "nock"]
+bh = np.array([list(b.head_local) for b in bdefs], np.float32)
+bt = np.array([list(b.tail_local) for b in bdefs], np.float32)
+bs = bt - bh
+rel = bco[:, None] - bh[None]
+tt = np.clip((rel * bs[None]).sum(2) / np.maximum((bs ** 2).sum(1), 1e-8)[None], 0, 1)
+bd = np.linalg.norm(rel - tt[..., None] * bs[None], axis=2)
+bw = 1 / (bd + 0.01) ** 4
+bw[:, 0] = np.where(np.abs(bco[:, 2]) < 0.035 * BOW_H, 1e6, 0.0)       # the handle is rigid on the grip bone
+bw /= bw.sum(1, keepdims=True)
+for i, b in enumerate(bdefs):
+    g = bow.vertex_groups.new(name=b.name)
+    for v in np.nonzero(bw[:, i] > 0.01)[0]:
+        g.add([int(v)], float(bw[v, i]), "REPLACE")
+bow.parent = bow_arm
+bow.modifiers.new("Armature", "ARMATURE").object = bow_arm
+
+
+def material(name, rgb, metal, rough):
+    m = bpy.data.materials.new(name)
+    m.use_nodes = True
+    p = m.node_tree.nodes["Principled BSDF"]
+    p.inputs["Base Color"].default_value = (*rgb, 1)
+    p.inputs["Metallic"].default_value = metal
+    p.inputs["Roughness"].default_value = rough
+    return m
+
+
+string_m = material("bowstring", (0.78, 0.70, 0.52), 0.0, 0.6)
+for tag, sz in (("top", 1), ("bottom", -1)):                          # the string: tip end rides the limb, other end the nock
+    a_, b_ = Vector((STRING_X, 0, sz * 0.385 * BOW_H)), Vector((STRING_X, 0, 0))
+    d = b_ - a_
+    bpy.ops.mesh.primitive_cylinder_add(vertices=10, radius=0.0028, depth=d.length, location=(a_ + b_) / 2)
+    st = bpy.context.object
+    st.name = f"KARNA_bowstring_{tag}"
+    st.data.materials.append(string_m)
+    select_only(st)
+    bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
+    gt, gn = st.vertex_groups.new(name=f"limb_{'up' if sz > 0 else 'lo'}.03"), st.vertex_groups.new(name="nock")
+    for v in st.data.vertices:
+        (gt if abs(v.co.z) > 0.1 else gn).add([v.index], 1.0, "REPLACE")
+    st.parent = bow_arm
+    st.modifiers.new("Armature", "ARMATURE").object = bow_arm
+print("bow rig: grip, 2 x 3 limb bones, nock", flush=True)
 
 rig.hide_render = True
 select_only(rig)
-bpy.ops.wm.save_as_mainfile(filepath=str(out_dir / "karna_rigged.blend"), relative_remap=True)
-print("saved", out_dir / "karna_rigged.blend", flush=True)
+bpy.ops.wm.save_as_mainfile(filepath=str(out_dir / f"karna_rigged{TAG}.blend"), relative_remap=True)
+print("saved", out_dir / f"karna_rigged{TAG}.blend", flush=True)
 
 # ---- 5. full-draw pose -----------------------------------------------------------------------------------------------------------
 # The arrow flies toward his left (+X). Bow arm straight out at shoulder height, draw hand anchored under the right jaw,
@@ -234,7 +346,7 @@ world_rotate("torso", "Z", -10)                                      # chest sta
 world_rotate("chest", "Y", -4)                                       # leans a touch away from the bow side
 world_rotate("head", "Z", 72)                                        # looks along the arrow to his left (about 62 deg net)
 ARROW = Vector((1.0, 0.0, -0.12)).normalized()                       # flight line, a little downhill from the anchor
-NOCK = Vector((0.03, -0.115, 1.62))                                  # string anchor at the side of his jaw, below the eye
+NOCK = Vector((-0.015, -0.105, 1.60))                                # string anchor at the corner of his jaw; his face stays clear toward the target
 BOW_WRIST = Vector((0.64, -0.06, 1.49))                              # bow arm almost straight at shoulder height
 DRAW_WRIST = NOCK - ARROW * 0.085                                    # the hooked fingers sit on the string, wrist behind it
 
@@ -272,17 +384,28 @@ for side, sign, angs in (("L", 1, (75, 85, 60)), ("R", -1, (40, 80, 60))):   # f
                 axis = pb[f"DEF-hand.{side}"].matrix.col[0].xyz.normalized()
                 world_rotate(n, axis, sign * ang)
 
-# bow into the left fist, limbs vertical, string side toward him (bow local -X turned to world +X)
-hand_def = pb["DEF-hand.L"] if "DEF-hand.L" in pb else pb["hand_ik.L"]
-hm = hand_def.matrix
+# bow into the left fist, limbs vertical, string side toward him (bow space -X turned to world +X)
+hm = pb["DEF-hand.L"].matrix
 grip_world = rig.matrix_world @ (hm.translation + hm.col[1].xyz * 0.075 + hm.col[2].xyz * 0.022)
 R = Matrix.Rotation(math.pi, 4, "Z") @ Matrix.Rotation(math.radians(-6), 4, "X")   # a slight cant, as archers hold it
-bow.matrix_world = Matrix.Translation(grip_world) @ R @ Matrix.Translation(-BOW_GRIP) @ Matrix.Diagonal((BOW_H, BOW_H, BOW_H, 1))
+bow_arm.matrix_world = Matrix.Translation(grip_world) @ R @ Matrix.Translation(-BOW_GRIP)
 bpy.context.view_layer.update()
-bow_m = Matrix.Translation(grip_world) @ R @ Matrix.Translation(-BOW_GRIP)
-tips = [bow_m @ t for t in BOW_TIPS]
-draw_def = pb["DEF-hand.R"] if "DEF-hand.R" in pb else pb["hand_ik.R"]
+# full draw: limbs bend toward him (bow space +X), more toward the tips; the nock comes back to the anchor
+bpb = bow_arm.pose.bones
+BEND = (4.0, 6.0, 7.0)
+for tag, sz in (("up", 1), ("lo", -1)):
+    for i, deg in enumerate(BEND):
+        b = bpb[f"limb_{tag}.{i + 1:02d}"]
+        piv = b.head.copy()
+        b.matrix = Matrix.Translation(piv) @ Matrix.Rotation(math.radians(sz * deg), 4, "Y") @ Matrix.Translation(-piv) @ b.matrix
+        bpy.context.view_layer.update()
+nm = bpb["nock"].matrix.copy()
+nm.translation = bow_arm.matrix_world.inverted() @ NOCK
+bpb["nock"].matrix = nm
+bpy.context.view_layer.update()
 nock = NOCK
+tip_up = bow_arm.matrix_world @ bpb["limb_up.03"].tail
+print("bow tip moved toward him by %.3f m" % ((bow_arm.matrix_world @ bow_arm.data.bones["limb_up.03"].tail_local) - tip_up).length, flush=True)
 
 
 def rod(name, a, b, r, mat):
@@ -295,21 +418,8 @@ def rod(name, a, b, r, mat):
     return o
 
 
-def material(name, rgb, metal, rough):
-    m = bpy.data.materials.new(name)
-    m.use_nodes = True
-    p = m.node_tree.nodes["Principled BSDF"]
-    p.inputs["Base Color"].default_value = (*rgb, 1)
-    p.inputs["Metallic"].default_value = metal
-    p.inputs["Roughness"].default_value = rough
-    return m
-
-
-string_m = material("bowstring", (0.78, 0.70, 0.52), 0.0, 0.6)
 shaft_m = material("arrow_shaft", (0.10, 0.07, 0.05), 0.0, 0.5)
 gold_m = material("arrow_gold", (0.95, 0.66, 0.24), 1.0, 0.3)
-rod("KARNA_bowstring_top", tips[0], nock, 0.0028, string_m)
-rod("KARNA_bowstring_bottom", nock, tips[1], 0.0028, string_m)
 rest_pt = grip_world + Vector((0, 0, 0.045))                        # the arrow rests on top of the fist
 aim = (rest_pt - nock).normalized()
 head_at = rest_pt + aim * 0.16
@@ -322,8 +432,8 @@ ah.data.materials.append(gold_m)
 print("bow hand", tuple(round(v, 3) for v in grip_world), "nock", tuple(round(v, 3) for v in nock),
       "draw length %.2f m" % (grip_world - nock).length, flush=True)
 
-bpy.ops.wm.save_as_mainfile(filepath=str(out_dir / "karna_fulldraw.blend"), relative_remap=True)
-print("saved", out_dir / "karna_fulldraw.blend", flush=True)
+bpy.ops.wm.save_as_mainfile(filepath=str(out_dir / f"karna_fulldraw{TAG}.blend"), relative_remap=True)
+print("saved", out_dir / f"karna_fulldraw{TAG}.blend", flush=True)
 
 # ---- 6. check renders (same light as turntable.py) ------------------------------------------------------------------------
 sc = scene
@@ -356,7 +466,7 @@ for label, ang in (("front", 0), ("target_side", 70), ("back34", 200), ("left_re
     a = math.radians(ang)
     cam.location = tgt + Vector((math.sin(a) * 4.6, -math.cos(a) * 4.6, 0.25))
     cam.rotation_euler = (tgt - cam.location).to_track_quat("-Z", "Y").to_euler()
-    sc.render.filepath = str(out_dir / f"fulldraw_{label}.png")
+    sc.render.filepath = str(out_dir / f"fulldraw{TAG}_{label}.png")
     bpy.ops.render.render(write_still=True)
     paths.append(sc.render.filepath)
 
@@ -365,5 +475,23 @@ ims = [Image.open(p).convert("RGB") for p in paths]
 sheet = Image.new("RGB", (sum(i.width for i in ims), ims[0].height))
 for k, im in enumerate(ims):
     sheet.paste(im, (k * im.width, 0))
-sheet.save(out_dir / "fulldraw_sheet.jpg", quality=88)
-print("wrote", out_dir / "fulldraw_sheet.jpg", flush=True)
+sheet.save(out_dir / f"fulldraw{TAG}_sheet.jpg", quality=88)
+print("wrote", out_dir / f"fulldraw{TAG}_sheet.jpg", flush=True)
+
+# close-ups: the bow hand, the draw hand at his jaw, the draw shoulder from behind
+sc.render.resolution_x, sc.render.resolution_y = 700, 700
+cam.data.lens = 85
+close = []
+for label, look, frm in (("bowhand", grip_world, Vector((0.25, -1.3, 0.10))),
+                         ("anchor", NOCK + Vector((-0.08, 0, 0.02)), Vector((-0.15, -1.3, 0.05))),
+                         ("shoulder", Vector((-0.22, 0.0, 1.50)), Vector((-0.75, 1.0, 0.25)))):
+    cam.location = look + frm
+    cam.rotation_euler = (look - cam.location).to_track_quat("-Z", "Y").to_euler()
+    sc.render.filepath = str(out_dir / f"fulldraw{TAG}_{label}.png")
+    bpy.ops.render.render(write_still=True)
+    close.append(Image.open(sc.render.filepath).convert("RGB"))
+row = Image.new("RGB", (sum(i.width for i in close), close[0].height))
+for k, im in enumerate(close):
+    row.paste(im, (k * im.width, 0))
+row.save(out_dir / f"fulldraw{TAG}_hands.jpg", quality=88)
+print("wrote", out_dir / f"fulldraw{TAG}_hands.jpg", flush=True)

@@ -154,6 +154,22 @@ a3 = (alpha * 0.95)[..., None]
 tex[..., :3] = np.clip(tex[..., :3] * (1 - a3) + sheet_rows * a3, 0, 1)
 print("texels changed", int((alpha > 0.01).sum()), "of", TW * TH, flush=True)
 
+# crack fill on the arms: the underside of the arm faces neither sheet, so its TRELLIS paint keeps thin dark cracks.
+# Any arm texel much darker than the median of its neighbourhood takes that median instead.
+from PIL import ImageFilter
+arm_mask = np.zeros((TH, TW), bool)
+am = arm > 0.3
+arm_mask[XY[am, 1].astype(int), XY[am, 0].astype(int)] = True
+rgb8 = Image.fromarray((np.clip(tex[..., :3], 0, 1) * 255).astype(np.uint8))
+med = np.asarray(rgb8.filter(ImageFilter.MedianFilter(9))).astype(np.float32) / 255
+lum = tex[..., :3] @ np.array([0.30, 0.59, 0.11], np.float32)
+mlum = med @ np.array([0.30, 0.59, 0.11], np.float32)
+crack = arm_mask & (lum < 0.80 * mlum)
+crack = np.asarray(Image.fromarray(crack.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(3))) > 0
+crack &= arm_mask
+tex[crack, :3] = med[crack]
+print("arm crack texels filled", int(crack.sum()), "of", int(arm_mask.sum()), "arm texels", flush=True)
+
 out = bpy.data.images.new(out_tex.stem, TW, TH, alpha=True)
 out.pixels.foreach_set(tex.reshape(-1))
 out.filepath_raw = str(out_tex)

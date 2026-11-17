@@ -43,7 +43,8 @@ SPINE_Y = [0.00, 0.00, 0.00, 0.00, 0.00, -0.005, -0.01, -0.01]
 SHOULDER = Vector((0.20, 0.0, 1.41))
 ELBOW = Vector((0.332, -0.02, 1.172))                             # a little behind the shoulder-wrist line: a clean IK bend
 WRIST = Vector((0.436, -0.06, 0.993))
-HAND_TIP = Vector((0.515, -0.111, 0.857))
+HAND_TIP = Vector((0.473, -0.110, 0.803))                         # 0.20 m hand toward the TRELLIS fingertips (z 0.72)
+HAND_K = (HAND_TIP - WRIST).length / 0.165                       # hand size against the first rig (radii were tuned there)
 HIP = Vector((0.095, 0.0, 0.98))
 KNEE = Vector((0.125, -0.01, 0.52))                               # a little in front of the hip-ankle line
 ANKLE = Vector((0.15, 0.045, 0.09))
@@ -131,6 +132,176 @@ rig = next(o for o in bpy.data.objects if o.type == "ARMATURE" and o is not meta
 rig.name = "KARNA_rig"
 meta.hide_viewport = meta.hide_render = True
 print("rig bones", len(rig.data.bones), flush=True)
+
+# ---- 2b. new hands -----------------------------------------------------------------------------------------------------------
+# TRELLIS made each hand one lump, so finger bones had nothing separate to bend. The lumps are cut off just past the wrist
+# (under the bracer edge) and each hand is rebuilt along the rig's own palm, finger and thumb bones: a skin-modifier tube
+# per bone chain, subdivided, then weighted segment by segment, so the fingers curl cleanly.
+bones = rig.data.bones
+bme = body.data
+# TRELLIS splits the mesh at every UV seam (about 7900 loose pieces), so a raised arm tore open along the seams.
+# Welding coincident vertices makes one connected skin; the UVs live on the face corners and are kept.
+bm = bmesh.new()
+bm.from_mesh(bme)
+n0 = len(bm.verts)
+bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=0.0005)
+bm.to_mesh(bme)
+print("welded seams:", n0, "->", len(bm.verts), "verts", flush=True)
+bm.free()
+tex_img = next(n.image for n in body.active_material.node_tree.nodes if n.type == "TEX_IMAGE" and "basecolor" in n.image.filepath)
+TW, TH = tex_img.size
+tpx = np.empty(TW * TH * 4, np.float32)
+tex_img.pixels.foreach_get(tpx)
+tpx = tpx.reshape(TH, TW, 4)
+bco = np.empty(len(bme.vertices) * 3, np.float32)
+bme.vertices.foreach_get("co", bco)
+bco = bco.reshape(-1, 3)
+cut = np.zeros(len(bco), bool)
+for side, sx in (("L", 1), ("R", -1)):
+    hb = bones[f"DEF-hand.{side}"]
+    yhat = np.array(hb.matrix_local.col[1][:3])
+    rel = bco - np.array(hb.head_local)
+    t = rel @ yhat
+    radial = np.linalg.norm(rel - t[:, None] * yhat[None], axis=1)
+    cut |= (t > 0.012) & (radial < 0.16) & (bco[:, 0] * sx > 0.36)
+lv = np.empty(len(bme.loops), np.int32)
+bme.loops.foreach_get("vertex_index", lv)
+luv = np.empty(len(bme.loops) * 2, np.float32)
+bme.uv_layers.active.data.foreach_get("uv", luv)
+luv = luv.reshape(-1, 2)
+on = cut[lv]
+samp = tpx[np.clip((luv[on, 1] * TH).astype(int), 0, TH - 1), np.clip((luv[on, 0] * TW).astype(int), 0, TW - 1), :3]
+skin_srgb = np.median(samp, axis=0)
+skin_lin = np.where(skin_srgb <= 0.04045, skin_srgb / 12.92, ((skin_srgb + 0.055) / 1.055) ** 2.4)
+bm = bmesh.new()
+bm.from_mesh(bme)
+bm.verts.ensure_lookup_table()
+bmesh.ops.delete(bm, geom=[bm.verts[int(i)] for i in np.nonzero(cut)[0]], context="VERTS")
+bm.to_mesh(bme)
+bm.free()
+print("cut the lump hands:", int(cut.sum()), "verts; skin colour", np.round(skin_srgb, 3), flush=True)
+
+skin_m = bpy.data.materials.new("KARNA_hand_skin")
+skin_m.use_nodes = True
+snt = skin_m.node_tree
+bsdf = snt.nodes["Principled BSDF"]
+bsdf.inputs["Roughness"].default_value = 0.62
+noise = snt.nodes.new("ShaderNodeTexNoise")
+noise.inputs["Scale"].default_value = 60.0
+ramp = snt.nodes.new("ShaderNodeValToRGB")                           # painted variation, a little darker in the creases
+ramp.color_ramp.elements[0].color = (*(skin_lin * 0.88), 1)
+ramp.color_ramp.elements[1].color = (*(skin_lin * 1.18), 1)
+snt.links.new(noise.outputs["Fac"], ramp.inputs["Fac"])
+snt.links.new(ramp.outputs["Color"], bsdf.inputs["Base Color"])
+
+FINGER_R = {"f_index": 1.0, "f_middle": 1.04, "f_ring": 0.96, "f_pinky": 0.84}
+
+
+def tube(name, pts, rads):
+    """one tapered finger: a skin-modifier tube along the points, subdivided"""
+    me_ = bpy.data.meshes.new(name)
+    me_.from_pydata([tuple(p_) for p_ in pts], [(i, i + 1) for i in range(len(pts) - 1)], [])
+    ob = bpy.data.objects.new(name, me_)
+    scene.collection.objects.link(ob)
+    ob.modifiers.new("skin", "SKIN")
+    for i, r in enumerate(rads):
+        sv = me_.skin_vertices[0].data[i]
+        sv.radius = (r, r)
+        sv.use_root = i == 0
+    ob.modifiers.new("sub", "SUBSURF").levels = 2
+    select_only(ob)
+    bpy.ops.object.modifier_apply(modifier="skin")
+    bpy.ops.object.modifier_apply(modifier="sub")
+    return ob
+
+
+def weigh(ob, bone_names, power=6):
+    """each vertex to its nearest one or two of the given bones, sharply, so each segment moves as a unit"""
+    bl = [bones[n] for n in bone_names]
+    hh = np.array([list(b.head_local) for b in bl], np.float32)
+    ht = np.array([list(b.tail_local) for b in bl], np.float32)
+    hs = ht - hh
+    n_ = len(ob.data.vertices)
+    c_ = np.empty(n_ * 3, np.float32)
+    ob.data.vertices.foreach_get("co", c_)
+    c_ = c_.reshape(-1, 3) @ np.array(ob.matrix_world.to_3x3()).T + np.array(ob.matrix_world.translation)
+    rel = c_[:, None] - hh[None]
+    tt = np.clip((rel * hs[None]).sum(2) / np.maximum((hs ** 2).sum(1), 1e-8)[None], 0, 1)
+    dd = np.linalg.norm(rel - tt[..., None] * hs[None], axis=2)
+    k = min(2, len(bl))
+    idx = np.argsort(dd, axis=1)[:, :k]
+    ww = 1 / (np.take_along_axis(dd, idx, 1) + 0.002) ** power
+    ww /= ww.sum(1, keepdims=True)
+    groups = {n: ob.vertex_groups.new(name=n) for n in bone_names}
+    for vi in range(n_):
+        for j in range(k):
+            if ww[vi, j] > 0.01:
+                groups[bone_names[idx[vi, j]]].add([vi], float(ww[vi, j]), "REPLACE")
+
+
+hands = []
+for side in ("L", "R"):
+    def h(n):
+        return Vector(bones[f"ORG-{n}.{side}"].head_local)
+
+    def tl(n):
+        return Vector(bones[f"ORG-{n}.{side}"].tail_local)
+
+    hb = bones[f"DEF-hand.{side}"]
+    wrist = Vector(hb.head_local)
+    knuck = [h(f"{f}.01") for f in FINGER_R]
+    kc = sum(knuck, Vector()) / 4
+    hy = (kc - wrist).normalized()                                   # along the palm
+    hx = knuck[3] - knuck[0]
+    hx = (hx - hy * hx.dot(hy)).normalized()                          # index to pinky
+    hz = hx.cross(hy)                                                 # through the palm
+    if hz.dot(h("thumb.02") - wrist) < 0:                             # palm side = thumb side
+        hz = -hz
+    plen = (kc - wrist).length
+    pw = (knuck[3] - knuck[0]).length + 0.026 * HAND_K                # palm a little wider than the knuckle row
+    parts = []
+    # palm: a rounded block from inside the bracer to the knuckles, thicker at the heel of the hand
+    bpy.ops.mesh.primitive_cube_add(size=1.0)
+    palm = bpy.context.object
+    palm.name = f"palm_{side}"
+    M = Matrix((hx, hy, hz)).transposed().to_4x4()
+    M.translation = wrist + hy * (plen * 0.45) + hz * (0.004 * HAND_K)
+    palm.matrix_world = M @ Matrix.Diagonal((pw, plen * 1.2, 0.029 * HAND_K, 1))
+    bv = palm.modifiers.new("bev", "BEVEL")
+    bv.width, bv.segments = 0.45, 3
+    bv.offset_type = "PERCENT"
+    bv.width_pct = 28
+    palm.modifiers.new("sub", "SUBSURF").levels = 2
+    select_only(palm)
+    bpy.ops.object.modifier_apply(modifier="bev")
+    bpy.ops.object.modifier_apply(modifier="sub")
+    bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
+    weigh(palm, [f"DEF-hand.{side}"] + [f"DEF-palm.0{k}.{side}" for k in range(1, 5)], power=3)
+    parts.append(palm)
+    # wrist collar: fills the cut opening under the bracer
+    w_ = tube(f"wrist_{side}", [wrist - hy * 0.03, wrist + hy * 0.012], [0.031, 0.029])
+    weigh(w_, [f"DEF-hand.{side}", f"DEF-forearm.01.{side}" if f"DEF-forearm.01.{side}" in bones else f"DEF-forearm.{side}"], power=3)
+    parts.append(w_)
+    for k, (f, sc_) in enumerate(FINGER_R.items()):
+        pts = [h(f"{f}.01") - hy * 0.012, h(f"{f}.02"), h(f"{f}.03"), tl(f"{f}.03")]
+        o = tube(f"{f}_{side}", pts, [r * sc_ * HAND_K * 1.15 for r in (0.0098, 0.0090, 0.0081, 0.0066)])
+        weigh(o, [f"DEF-{f}.01.{side}", f"DEF-{f}.02.{side}", f"DEF-{f}.03.{side}"])
+        parts.append(o)
+    o = tube(f"thumb_{side}", [h("thumb.01"), h("thumb.02"), h("thumb.03"), tl("thumb.03")],
+             [r * HAND_K * 1.1 for r in (0.0140, 0.0110, 0.0095, 0.0078)])
+    weigh(o, [f"DEF-thumb.01.{side}", f"DEF-thumb.02.{side}", f"DEF-thumb.03.{side}"])
+    parts.append(o)
+    select_only(*parts)
+    bpy.ops.object.join()
+    ho = bpy.context.object
+    ho.name = f"KARNA_hand.{side}"
+    bpy.ops.object.shade_smooth()
+    ho.data.materials.clear()
+    ho.data.materials.append(skin_m)
+    ho.parent = rig
+    ho.modifiers.new("Armature", "ARMATURE").object = rig
+    hands.append(ho)
+    print("new hand", side, len(ho.data.polygons), "faces", flush=True)
 
 # ---- 3. skin weights ---------------------------------------------------------------------------------------------------------
 defs = [b for b in rig.data.bones if b.name.startswith("DEF-")]
@@ -348,7 +519,7 @@ world_rotate("head", "Z", 72)                                        # looks alo
 ARROW = Vector((1.0, 0.0, -0.12)).normalized()                       # flight line, a little downhill from the anchor
 NOCK = Vector((-0.015, -0.105, 1.60))                                # string anchor at the corner of his jaw; his face stays clear toward the target
 BOW_WRIST = Vector((0.64, -0.06, 1.49))                              # bow arm almost straight at shoulder height
-DRAW_WRIST = NOCK - ARROW * 0.085                                    # the hooked fingers sit on the string, wrist behind it
+DRAW_WRIST = NOCK - ARROW * 0.085 * HAND_K                                    # the hooked fingers sit on the string, wrist behind it
 
 
 def orient_hand(ctrl, side, fwd, up):
@@ -386,7 +557,7 @@ for side, sign, angs in (("L", 1, (75, 85, 60)), ("R", -1, (40, 80, 60))):   # f
 
 # bow into the left fist, limbs vertical, string side toward him (bow space -X turned to world +X)
 hm = pb["DEF-hand.L"].matrix
-grip_world = rig.matrix_world @ (hm.translation + hm.col[1].xyz * 0.075 + hm.col[2].xyz * 0.022)
+grip_world = rig.matrix_world @ (hm.translation + hm.col[1].xyz * 0.075 * HAND_K + hm.col[2].xyz * 0.022 * HAND_K)
 R = Matrix.Rotation(math.pi, 4, "Z") @ Matrix.Rotation(math.radians(-6), 4, "X")   # a slight cant, as archers hold it
 bow_arm.matrix_world = Matrix.Translation(grip_world) @ R @ Matrix.Translation(-BOW_GRIP)
 bpy.context.view_layer.update()

@@ -370,6 +370,46 @@ for side in ("L", "R"):
     hands.append(ho)
     print("new hand", side, len(ho.data.polygons), "faces", flush=True)
 
+# bake the hand paint into a texture per hand, so it survives export (glTF, FBX, Unreal); the procedural paint stays
+# in the file as KARNA_hand_skin for later edits, the hands render from the baked image
+scene.render.engine = "CYCLES"
+scene.cycles.device = "CPU"
+scene.cycles.samples = 32
+for ho in hands:
+    select_only(ho)
+    bpy.ops.object.mode_set(mode="EDIT")
+    bpy.ops.mesh.select_all(action="SELECT")
+    bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.01)
+    bpy.ops.object.mode_set(mode="OBJECT")
+    side = ho.name.split(".")[-1]
+    img_path = out_dir / f"karna_hand_{side}{TAG}.png"
+    bake_img = bpy.data.images.new(img_path.stem, 1024, 1024)
+    bake_m = skin_m.copy()
+    bake_m.name = f"KARNA_hand_bake.{side}"
+    tn = bake_m.node_tree.nodes.new("ShaderNodeTexImage")
+    tn.image = bake_img
+    bake_m.node_tree.nodes.active = tn
+    ho.data.materials.clear()
+    ho.data.materials.append(bake_m)
+    bpy.ops.object.bake(type="DIFFUSE", pass_filter={"COLOR"}, margin=8)
+    bake_img.filepath_raw = str(img_path)
+    bake_img.file_format = "PNG"
+    bake_img.save()
+    bake_img.filepath = bpy.path.relpath(str(img_path))               # relative now; the save into OUT_DIR rebases it
+    # the baked material: image into a plain matte Principled
+    fin = bpy.data.materials.new(f"KARNA_hand.{side}")
+    fin.use_nodes = True
+    fb = fin.node_tree.nodes["Principled BSDF"]
+    fb.inputs["Roughness"].default_value = 0.78
+    ti = fin.node_tree.nodes.new("ShaderNodeTexImage")
+    ti.image = bake_img
+    fin.node_tree.links.new(ti.outputs["Color"], fb.inputs["Base Color"])
+    ho.data.materials.clear()
+    ho.data.materials.append(fin)
+    bpy.data.materials.remove(bake_m)
+    print("baked hand paint", side, "->", img_path.name, flush=True)
+skin_m.use_fake_user = True
+
 # ---- 3. skin weights ---------------------------------------------------------------------------------------------------------
 defs = [b for b in rig.data.bones if b.name.startswith("DEF-")]
 heads = np.array([list(b.head_local) for b in defs], np.float32)

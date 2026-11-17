@@ -20,3 +20,18 @@ on-demand). Needs sai's own approval line. One run at a time. The VM is stopped 
 
 Limits: a 60 minute ceiling from VM start to stop. Never a broad `pkill -f` over SSH (it killed its own session once); kill by PID.
 If setup is broken on the VM (missing package, gated model), stop the VM and report instead of repairing it at length.
+
+## Karna take 3 (17 Nov 2026, sai: "karna is not good, build a high quality 1536 model again")
+
+Re-running seed 1 on the same picture would give the same model, so take 3 changes the inputs and the export:
+
+- Inputs (free, already in the repo): `studio/cast/karna/model/trellis_in/karna_front_v3.png` (front_v2 upscaled 2x and
+  sharpened) and `karna_head_v1.png` (his head and crown close up, for a separate high-detail head that is joined in Blender).
+- `trellis_one.py` now takes seed, texture size and face target: `... 1536_cascade SEED 4096 1000000`.
+- Batch: `run_karna_v3.sh`, five models in priority order (body seed 2, head seed 2, body seed 3, head seed 3, body seed 4), each
+  saved as soon as it is done, log `~/trellis_out/batch_v3.log`. If the 60 minute ceiling comes first, stop after the model
+  that is running and keep what is done.
+
+Steps as above: start the VM, copy `trellis_one.py`, `run_karna_v3.sh` and the two PNGs (into `~/trellis_in/`), run
+`bash ~/run_karna_v3.sh` under `nohup`, copy every new GLB and `batch_v3.log` back into `studio/cast/karna/model/trellis_out/`,
+stop the VM and confirm TERMINATED, log minutes and cost. Estimate: about 45 minutes of VM time, about $0.25 at the spot rate.

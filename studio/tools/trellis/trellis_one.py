@@ -1,7 +1,8 @@
 """Runs ON the GPU VM. TRELLIS.2 on one prepared image -> one GLB. Based on preproduction/krishna-rebuild-kit/scripts/trellis_run_max.py.
 
-  python trellis_one.py INPUT_PNG OUT_STEM [1536_cascade|1024_cascade]
-Writes ~/trellis_out/OUT_STEM_<res>.glb. Never overwrites a file.
+  python trellis_one.py INPUT_PNG OUT_STEM [1536_cascade|1024_cascade] [SEED] [TEXTURE_SIZE] [DECIMATION_TARGET]
+Writes ~/trellis_out/OUT_STEM_<res>.glb (seed 1, the default) or OUT_STEM_<res>_s<SEED>.glb. Never overwrites a file.
+Defaults (seed 1, 2048 texture, 500k faces) are what the first Karna run used.
 """
 import gc, json, os, shutil, sys, time
 
@@ -12,8 +13,11 @@ from PIL import Image  # noqa: E402
 
 inp, stem = os.path.expanduser(sys.argv[1]), sys.argv[2]
 ptype = sys.argv[3] if len(sys.argv) > 3 else "1536_cascade"
+seed = int(sys.argv[4]) if len(sys.argv) > 4 else 1
+tex = int(sys.argv[5]) if len(sys.argv) > 5 else 2048
+dec = int(sys.argv[6]) if len(sys.argv) > 6 else 500000
 outdir = os.path.expanduser("~/trellis_out"); os.makedirs(outdir, exist_ok=True)
-out = os.path.join(outdir, f"{stem}_{ptype.split('_')[0]}.glb")
+out = os.path.join(outdir, f"{stem}_{ptype.split('_')[0]}" + (f"_s{seed}" if seed != 1 else "") + ".glb")
 if os.path.exists(out):
     sys.exit(f"exists, not overwriting: {out}")
 
@@ -32,13 +36,13 @@ import o_voxel  # noqa: E402
 
 pipe = Trellis2ImageTo3DPipeline.from_pretrained(local); pipe.cuda()
 t0 = time.time()
-mesh = pipe.run(Image.open(inp), pipeline_type=ptype, seed=1)[0]
-print(f"GENERATE_SECONDS {time.time() - t0:.1f}", flush=True)
+mesh = pipe.run(Image.open(inp), pipeline_type=ptype, seed=seed)[0]
+print(f"GENERATE_SECONDS {time.time() - t0:.1f} seed {seed} texture {tex} faces {dec}", flush=True)
 print("PEAK_VRAM_GB", round(torch.cuda.max_memory_allocated() / 1e9, 2), flush=True)
 del pipe; gc.collect(); torch.cuda.empty_cache()
 mesh.simplify(16777216); gc.collect(); torch.cuda.empty_cache()
 glb = o_voxel.postprocess.to_glb(vertices=mesh.vertices, faces=mesh.faces, attr_volume=mesh.attrs, coords=mesh.coords,
                                  attr_layout=mesh.layout, voxel_size=mesh.voxel_size, aabb=[[-0.5, -0.5, -0.5], [0.5, 0.5, 0.5]],
-                                 decimation_target=500000, texture_size=2048, remesh=True, remesh_band=1, remesh_project=0, verbose=True)
+                                 decimation_target=dec, texture_size=tex, remesh=True, remesh_band=1, remesh_project=0, verbose=True)
 glb.export(out, extension_webp=True)
 print("SAVED", out, os.path.getsize(out), flush=True)

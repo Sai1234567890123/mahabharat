@@ -15,8 +15,16 @@ ap.add_argument("--views", type=int, default=4); ap.add_argument("--samples", ty
 ap.add_argument("--size", type=int, default=900); ap.add_argument("--height", type=float, default=1.9)
 a = ap.parse_args(sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:])
 
-bpy.ops.wm.read_factory_settings(use_empty=True)
-bpy.ops.import_scene.gltf(filepath=a.glb)
+if a.glb.endswith(".blend"):                               # a work file: use its meshes, drop its rig helpers from view
+    bpy.ops.wm.open_mainfile(filepath=a.glb)
+    for o in list(bpy.context.scene.objects):
+        if o.type not in ("MESH", "ARMATURE"):
+            bpy.data.objects.remove(o)
+        elif o.type == "MESH" and (o.name.startswith("WGT") or o.hide_render):
+            bpy.data.objects.remove(o)
+else:
+    bpy.ops.wm.read_factory_settings(use_empty=True)
+    bpy.ops.import_scene.gltf(filepath=a.glb)
 objs = [o for o in bpy.context.scene.objects if o.type == "MESH"]
 pts = [o.matrix_world @ Vector(c) for o in objs for c in o.bound_box]
 lo = Vector((min(p.x for p in pts), min(p.y for p in pts), min(p.z for p in pts)))

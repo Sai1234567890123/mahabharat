@@ -19,7 +19,7 @@ with the cost. No automatic retries. Never overwrites a take. Every call is logg
   python studio/tools/gen_concepts.py --project cs-project-07zg2j2c                      (the six combined paintings)
   python studio/tools/gen_concepts.py --project cs-project-07zg2j2c --only M_volley --take 2
 """
-import argparse, base64, datetime, json, pathlib, sys
+import argparse, base64, datetime, json, pathlib, sys, time
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from gen_sheets import MODEL, STUDIO, call, descriptor      # same API call, same model
@@ -47,17 +47,20 @@ LOOK = {
           "hard-edged effect shapes, a simplified painted background. No soft gradients on the characters. Use the reference paintings "
           "only for the designs of the armour, the chariots and the battlefield; the rendering is as described here, not oil paint and "
           "not a 3D render."),
-    "M": ("LOOK: a finished frame from an animated feature film about gods at war. It combines three things. "
-          "(1) The characters and the world are stylized 3D with hand-painted oil-paint surfaces: visible brushwork on skin, gold and "
-          "cloth, painted light and painted shadow, a strong warm rim light, pale gold atmospheric dust and a matte-painted sky, in the "
-          "painting style, colour and level of carved gold detail of the reference paintings. The heroes are slightly larger than life. "
-          "(2) A confident dark ink contour line of varying thickness runs around the silhouettes of the heroes, chariots and horses, as "
-          "in hand-drawn action anime, and the camera angle is dramatic and foreshortened. "
-          "(3) Every energy and weapon effect is a hand-drawn 2D anime shape: flat, hard-edged, two or three tones, with ink outlines, "
-          "speed lines and sparks. Each divine weapon also appears at colossal scale in the sky as a translucent luminous form ringed by "
-          "fine sacred-geometry line art (mandala rings, lotus petals, sun rays). Karna's energy is orange-gold sun-fire; Arjuna's energy "
-          "is blue-white lightning. The painted characters stay sharp and fully readable in front of the effects. "
-          "Not a glossy plastic 3D render and not a video-game screenshot."),
+    # v2 of the combined look (2026-11-17): the v1 wording asked for ink contours on everything and the paintings came out as
+    # flat outlined comic illustrations. Ink and flat shapes now belong to the effects only; the figures are painted and lit.
+    "M": ("LOOK: a single film frame from a big-budget animated feature about gods at war, made as stylized 3D with hand-painted "
+          "surfaces. The image is cinematic and deep, never flat: strong directional light from a low sun, deep warm shadows, a bright "
+          "coloured rim light on every figure, volumetric dust and haze that separate foreground, midground and background, rich "
+          "saturated colour, a slightly soft background, a wide anamorphic lens. Skin, gold and cloth are painted with confident visible "
+          "brushwork like the reference oil paintings, with sculpted volume and carved gold detail that catches the light. The heroes are "
+          "larger than life, with powerful anatomy and intense expressions, in dynamic foreshortened poses seen from a dramatic low or "
+          "tilted camera. There are NO outlines around the characters, chariots or horses. "
+          "Only the energy and weapon effects are hand-drawn 2D anime shapes: hard-edged, two or three tones, glowing, with speed lines "
+          "and sparks, and they throw coloured light onto the painted figures. Each divine weapon also appears at colossal scale in the "
+          "sky as a translucent glowing form ringed by fine sacred-geometry line art (mandala rings, lotus petals, sun rays). Karna's "
+          "energy is orange-gold sun-fire; Arjuna's energy is blue-white lightning. "
+          "Not a comic book, not a storybook illustration, not flat colour, not cel shading, not a photo, not a glossy plastic render."),
 }
 
 MOMENT = {
@@ -75,10 +78,12 @@ MOMENT = {
                   "of fine line-art rays; each of the seven arrows trails a ribbon of sun-fire and the dust lifts off the ground around the chariot."),
             "C": ("Extreme low angle from in front of the bow: the seven arrowheads are huge in the foreground, Karna towers behind them, "
                   "speed lines radiate from his bow hand, the palette is black, orange and pale gold."),
-            "M": ("Low dramatic angle from in front of the chariot, slightly below the bow: the fan of seven arrows is large and close, Karna "
-                  "towers behind it. A flat hard-edged orange-gold sun-fire runs along every shaft and speed lines radiate from his bow hand. "
-                  "Behind him a colossal translucent golden sun disc with a calm carved sun face fills half the sky, ringed by turning "
-                  "circles of fine line-art rays. Dust lifts off the ground around the wheels."),
+            "M": ("Composition: the four dun horses are at the LEFT side of the frame and Karna stands right of centre, aiming over the "
+                  "horses' heads: his bow arm points at the LEFT edge of the frame and all the arrowheads point LEFT. Exactly seven arrows. "
+                  "Low dramatic angle from the ground at the left front of the chariot looking up at him, so he towers against the sky, his "
+                  "face fierce, muscles straining, cloth and hair blown back. A hard-edged orange-gold sun-fire runs along every shaft and "
+                  "lights his face and armour from the front. Behind him a colossal translucent golden sun disc with a calm carved sun face "
+                  "fills half the sky, ringed by turning circles of fine line-art rays. Dust and grit lift off the ground around the wheels."),
         }),
     "serpent": dict(
         refs=["cast/karna/sheet.png", "cast/arjuna/sheet.png", "cast/krishna/sheet.png", "refs/concept/concept_42.jpeg"],
@@ -99,7 +104,8 @@ MOMENT = {
                   "speed lines; the chariots and armies are near-silhouettes with a few flat colours."),
             "M": ("The arrow has become a colossal luminous serpent of orange-red fire, a hooded Naga hundreds of metres long with an open "
                   "mouth, drawn as a flat hard-edged 2D shape with an ink outline, coiling across the whole sky toward Arjuna's chariot. "
-                  "Rings of sacred-geometry line art turn around Karna's bow. The painted chariots and heroes are lit red from above."),
+                  "Rings of sacred-geometry line art turn around Karna's bow. Karna's bow is empty and its string still hums: there is NO "
+                  "second arrow on his bow. The painted chariots and heroes are lit red from above and rimmed with orange firelight."),
         }),
     "clash": dict(
         refs=["cast/arjuna/sheet.png", "cast/krishna/sheet.png", "refs/concept/concept_06.jpeg", "refs/concept/concept_05.jpeg"],
@@ -138,7 +144,10 @@ MOMENT = {
         base=("MOMENT: Karna has leapt down from his chariot and stands on the ground, both hands gripping the rim of the chariot's left "
               "wheel, which has sunk to its hub in cracked red earth; the whole chariot leans toward it. He heaves with his whole back, "
               "still wearing his rounded gold crown and full gold cuirass, his face turned in profile toward screen LEFT, grim and "
-              "exhausted. Shalya, a grey-bearded older charioteer, sits at the front with the reins of four dun horses. A gold banner on a "
+              "exhausted. The sunken wheel is ATTACHED to the chariot on its axle at the chariot's side, its lower third buried in the "
+              "earth; there is NO loose wheel standing apart from the chariot and no broken axle. He crouches right beside the chariot "
+              "body and grips the upper rim and spokes. A round gold sun-face disc is strapped flat on his BACK, it is not a shield on "
+              "his arm. Shalya, a grey-bearded older charioteer, sits at the front with the reins of four dun horses. A gold banner on a "
               "tall pole stands on the chariot. The wheel stays on its axle. Open empty battlefield, the armies far away."),
         extra={
             "M": ("Low wide angle near the ground beside the wheel. This is a quiet, heavy moment: no energy effects on Karna at all, only "
@@ -176,7 +185,9 @@ if __name__ == "__main__":
     ap.add_argument("--only", default=",".join(DEFAULT)); ap.add_argument("--take", type=int, default=1)
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
-    for job in a.only.split(","):
+    for i, job in enumerate(a.only.split(",")):
+        if i and not a.dry_run:
+            time.sleep(25)        # pacing only: the sixth call of the first run hit a 429 rate limit. This is not a retry.
         if job not in JOBS:
             print("unknown job", job, "| jobs:", JOBS); sys.exit(1)
         refs, prompt = build(job)

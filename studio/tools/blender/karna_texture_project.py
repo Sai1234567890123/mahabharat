@@ -63,7 +63,9 @@ vn = np.empty(len(me.vertices) * 3, np.float32); me.vertices.foreach_get("normal
 
 # only triangles in the head and torso box
 c3 = co[tv]                                                    # (T, 3, 3)
-keep = (np.abs(c3[..., 0]).min(1) < 0.30) & (c3[..., 2].max(1) > 0.95)
+torso_tri = (np.abs(c3[..., 0]).min(1) < 0.30) & (c3[..., 2].max(1) > 0.95)
+arm_tri = (np.abs(c3[..., 0]).max(1) > 0.17) & (np.abs(c3[..., 0]).min(1) < 0.60) & (c3[..., 2].min(1) > 0.80) & (c3[..., 2].max(1) < 1.60)
+keep = torso_tri | arm_tri
 tl, tv = tl[keep], tv[keep]
 P = uv[tl] * [TW, TH] - 0.5                                    # texel-centre space
 lo = np.floor(P.min(1)).astype(int); hi = np.ceil(P.max(1)).astype(int)
@@ -104,6 +106,8 @@ x, y, z = pos[:, 0], pos[:, 1], pos[:, 2]
 torso = smooth(0.0, 1.0, (0.215 - np.abs(x)) / 0.03) * smooth(0.0, 1.0, (z - 1.00) / 0.04)
 head = smooth(0.0, 1.0, (0.13 - np.abs(x)) / 0.03) * (z > 1.55)
 region = np.maximum(torso, head)
+# arms: upper arm and forearm skin only (the sheet's bracers and gold are left to the TRELLIS paint, which matches them)
+arm = smooth(0.17, 0.21, np.abs(x)) * smooth(0.58, 0.53, np.abs(x)) * smooth(0.80, 0.88, z) * smooth(1.58, 1.48, z)
 
 acc = np.zeros((TH, TW, 3), np.float32); wsum = np.zeros((TH, TW), np.float32)
 for path, sign in ((front_png, 1), (back_png, -1)):
@@ -111,6 +115,7 @@ for path, sign in ((front_png, 1), (back_png, -1)):
     u = cx + sign * x * s                                     # seen from behind, his left is on the sheet's left
     v = bot - z * s
     facing = smooth(0.30, 0.65, -sign * nor[:, 1])
+    facing_arm = smooth(-0.35, 0.10, -sign * nor[:, 1])           # the outside of the arm turns away from both sheets
     # depth test: nearest surface to this camera per sheet pixel
     ui, vi = np.clip(u.astype(int), 0, a.shape[1] - 1), np.clip(v.astype(int), 0, a.shape[0] - 1)
     depth = -sign * y                                         # larger = nearer the camera
@@ -121,12 +126,15 @@ for path, sign in ((front_png, 1), (back_png, -1)):
     u0 = np.clip(np.floor(u).astype(int), 0, a.shape[1] - 2); v0 = np.clip(np.floor(v).astype(int), 0, a.shape[0] - 2)
     fu = np.clip(u - u0, 0, 1)[:, None]; fv = np.clip(v - v0, 0, 1)[:, None]
     col = (a[v0, u0] * (1 - fu) + a[v0, u0 + 1] * fu) * (1 - fv) + (a[v0 + 1, u0] * (1 - fu) + a[v0 + 1, u0 + 1] * fu) * fv
-    w = region * facing * visible * fig[vi, ui]
+    r_, g_, b_ = col[:, 0], col[:, 1], col[:, 2]
+    skin = smooth(0.12, 0.20, r_) * smooth(0.30, 0.38, b_ / np.maximum(r_, 1e-4)) * smooth(0.82, 0.74, g_ / np.maximum(r_, 1e-4))
+    w_arm = arm * facing_arm * skin
+    w = np.maximum(region * facing, w_arm) * visible * fig[vi, ui]
     sel = w > 0.01
     px, py = XY[sel, 0].astype(int), XY[sel, 1].astype(int)
     np.add.at(acc, (py, px), col[sel] * w[sel, None])
     np.add.at(wsum, (py, px), w[sel])
-    print(path.name, "scale %.1f px/m" % s, "texels painted", int(sel.sum()), flush=True)
+    print(path.name, "scale %.1f px/m" % s, "texels painted", int(sel.sum()), "arm skin", int((w_arm * visible * fig[vi, ui] > 0.01).sum()), flush=True)
 
 have = wsum > 0
 mean = np.zeros_like(acc); mean[have] = acc[have] / wsum[have, None]

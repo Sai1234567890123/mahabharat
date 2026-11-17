@@ -65,3 +65,4 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 | 2026-11-17 | cast/karna/model/front_v2.png | gemini-3.1-flash-image | model sheet karna_front, 2 refs | tokens in 2820 out 1120 | pending review |
 | 2026-11-17 | cast/karna/model/back_v2.png | gemini-3.1-flash-image | model sheet karna_back, 2 refs | tokens in 2845 out 1120 | pending review |
 | 2026-11-17 | cast/karna/model/side_v2.png | gemini-3.1-flash-image | model sheet karna_side, 2 refs | tokens in 2848 out 1120 | pending review |
+- 2026-11-17 · review · cast/karna/model/*_v2.png (3 images, about $0.21). front_v2: PASS, one figure, A-pose, empty hands, nothing on his back, on model; this is the TRELLIS.2 input. back_v2: PASS, plain gold back plate, matches the front. side_v2: FAIL as a side view (the model painted a second front view); not needed for TRELLIS.2, the profile is settled in Blender.

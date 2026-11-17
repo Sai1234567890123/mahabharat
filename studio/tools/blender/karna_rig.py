@@ -181,18 +181,85 @@ bm.to_mesh(bme)
 bm.free()
 print("cut the lump hands:", int(cut.sum()), "verts; skin colour", np.round(skin_srgb, 3), flush=True)
 
+# hand paint (texture scales are across the hand's own box, Generated coordinates): the forearm's own skin colour, then painted variation so the new hands sit with the brushwork of the body
+arm_pick = np.zeros(len(bco), bool)
+for side, sx in (("L", 1), ("R", -1)):
+    hb = bones[f"DEF-hand.{side}"]
+    yhat = np.array(hb.matrix_local.col[1][:3])
+    rel = bco - np.array(hb.head_local)
+    t = rel @ yhat
+    radial = np.linalg.norm(rel - t[:, None] * yhat[None], axis=1)
+    arm_pick |= (t > -0.24) & (t < -0.13) & (radial < 0.08) & (bco[:, 0] * sx > 0.25)
+on = arm_pick[lv]
+fa = tpx[np.clip((luv[on, 1] * TH).astype(int), 0, TH - 1), np.clip((luv[on, 0] * TW).astype(int), 0, TW - 1), :3]
+rr, gg, bb_ = fa[:, 0], fa[:, 1], fa[:, 2]
+fa = fa[(rr > 0.15) & (bb_ / np.maximum(rr, 1e-4) > 0.33) & (gg / np.maximum(rr, 1e-4) < 0.78)]   # skin, not the gold bracer
+if len(fa) > 50:
+    skin_srgb = np.median(fa, axis=0)
+    skin_lin = np.where(skin_srgb <= 0.04045, skin_srgb / 12.92, ((skin_srgb + 0.055) / 1.055) ** 2.4)
+print("hand skin colour from the forearm", np.round(skin_srgb, 3), "from", len(fa), "texels", flush=True)
+
 skin_m = bpy.data.materials.new("KARNA_hand_skin")
 skin_m.use_nodes = True
 snt = skin_m.node_tree
-bsdf = snt.nodes["Principled BSDF"]
-bsdf.inputs["Roughness"].default_value = 0.62
-noise = snt.nodes.new("ShaderNodeTexNoise")
-noise.inputs["Scale"].default_value = 60.0
-ramp = snt.nodes.new("ShaderNodeValToRGB")                           # painted variation, a little darker in the creases
-ramp.color_ramp.elements[0].color = (*(skin_lin * 0.88), 1)
-ramp.color_ramp.elements[1].color = (*(skin_lin * 1.18), 1)
-snt.links.new(noise.outputs["Fac"], ramp.inputs["Fac"])
-snt.links.new(ramp.outputs["Color"], bsdf.inputs["Base Color"])
+N, Lk = snt.nodes, snt.links
+bsdf = N["Principled BSDF"]
+bsdf.inputs["Roughness"].default_value = 0.78                      # matte, like the painted body
+
+
+def node(kind, **inputs):
+    n = N.new(kind)
+    for k, v in inputs.items():
+        n.inputs[k].default_value = v
+    return n
+
+
+def mul(a, b, fac=1.0):
+    m = N.new("ShaderNodeMix")
+    m.data_type, m.blend_type = "RGBA", "MULTIPLY"
+    m.inputs[0].default_value = fac
+    Lk.new(a, m.inputs[6])
+    if isinstance(b, tuple):
+        m.inputs[7].default_value = b
+    else:
+        Lk.new(b, m.inputs[7])
+    return m.outputs[2]
+
+
+blot = node("ShaderNodeTexNoise", Scale=4.0, Detail=6.0)                       # warm and cool patches, as in the body paint
+tone = N.new("ShaderNodeValToRGB")
+tone.color_ramp.elements[0].color = (*(skin_lin * np.array([1.04, 0.92, 0.86]) * 0.90), 1)
+tone.color_ramp.elements[1].color = (*(skin_lin * np.array([0.97, 1.02, 1.06]) * 1.10), 1)
+Lk.new(blot.outputs["Fac"], tone.inputs["Fac"])
+stroke = node("ShaderNodeTexNoise", Scale=9.0, Detail=8.0, Roughness=0.7)       # painterly mottling
+sramp = N.new("ShaderNodeValToRGB")
+sramp.color_ramp.elements[0].color = (0.84, 0.84, 0.84, 1)
+sramp.color_ramp.elements[1].color = (1.10, 1.10, 1.10, 1)
+Lk.new(stroke.outputs["Fac"], sramp.inputs["Fac"])
+geo = N.new("ShaderNodeNewGeometry")                                         # painted form: lighter on knuckles, darker between fingers
+form = N.new("ShaderNodeValToRGB")
+form.color_ramp.elements[0].position, form.color_ramp.elements[1].position = 0.42, 0.58
+form.color_ramp.elements[0].color = (0.72, 0.68, 0.66, 1)
+form.color_ramp.elements[1].color = (1.12, 1.10, 1.08, 1)
+Lk.new(geo.outputs["Pointiness"], form.inputs["Fac"])
+ao = N.new("ShaderNodeAmbientOcclusion")
+ao.inputs["Distance"].default_value = 0.015
+c = mul(tone.outputs["Color"], sramp.outputs["Color"])
+c = mul(c, form.outputs["Color"])
+fleck = node("ShaderNodeTexNoise", Scale=11.0, Detail=2.0, Distortion=1.5)   # short dark strokes, like the body's brush marks
+tc = N.new("ShaderNodeTexCoord")
+mp = N.new("ShaderNodeMapping")
+mp.inputs["Scale"].default_value = (1.0, 1.0, 3.5)                          # stretched along the hand: strokes, not dots
+Lk.new(tc.outputs["Generated"], mp.inputs["Vector"])
+Lk.new(mp.outputs["Vector"], fleck.inputs["Vector"])
+framp = N.new("ShaderNodeValToRGB")
+framp.color_ramp.elements[0].position, framp.color_ramp.elements[1].position = 0.30, 0.42
+framp.color_ramp.elements[0].color = (0.62, 0.56, 0.54, 1)
+framp.color_ramp.elements[1].color = (1.0, 1.0, 1.0, 1)
+Lk.new(fleck.outputs["Fac"], framp.inputs["Fac"])
+c = mul(c, framp.outputs["Color"])
+c = mul(c, ao.outputs["Color"], fac=0.55)
+Lk.new(c, bsdf.inputs["Base Color"])
 
 FINGER_R = {"f_index": 1.0, "f_middle": 1.04, "f_ring": 0.96, "f_pinky": 0.84}
 

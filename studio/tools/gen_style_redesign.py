@@ -12,6 +12,7 @@ retries. Never overwrites a take. Every call is logged to studio/log.md.
   python studio/tools/gen_style_redesign.py --project cs-project-07zg2j2c --only heroes --dry-run
   python studio/tools/gen_style_redesign.py --project cs-project-07zg2j2c --only heroes          # take 1: 4 images, about $0.28
   python studio/tools/gen_style_redesign.py --project cs-project-07zg2j2c --only take2 --take 2  # take 2: 3 images, about $0.21
+  python studio/tools/gen_style_redesign.py --project cs-project-07zg2j2c --only arjuna_close_t3 --take 3   # 1 image, ~$0.07
 Output: cast/<character>/web/<view>_v<take>.png
 """
 import argparse, base64, datetime, json, pathlib, sys, time
@@ -79,6 +80,17 @@ JOBS.update({
                           text=f"{CLOSE2}\n\n{LOOK2}\n\n{COSTUME.format(name='Krishna')} {OTHER} {KRISHNA}"),
 })
 GROUPS["take2"] = ["karna_full_t2", "arjuna_close", "krishna_close"]
+
+# ---- take 3, Arjuna close-up only: take 2 copied Karna's face (heavy moustache, brows and jaw) from the style frame.
+# Run with --only arjuna_close_t3 --take 3 (1 image, about $0.07).
+ARJUNA_FACE = ("His FACE must be clearly a different man from the one in IMAGE 2: Arjuna is younger (early thirties) and leaner, "
+               "with a narrow oval face, high sharp cheekbones, a sharp straight profile, a clean narrow jaw, a THIN neat upturned "
+               "moustache (not thick, not bushy), lighter arched brows and a focused, alert look. Take his face from IMAGE 1, drawn in "
+               "the stylized way of IMAGE 2. From IMAGE 2 take ONLY the lighting, shading and painted background; do NOT copy that "
+               "man's face, moustache, brows, jaw, crown or armour.")
+JOBS["arjuna_close_t3"] = dict(out="cast/arjuna/web/close", refs=["cast/arjuna/sheet.png", STYLE_REF], name="Arjuna",
+                               passport="cast/arjuna/passport.md", aspect="16:9",
+                               text=f"{CLOSE2}\n\n{LOOK2}\n\n{ARJUNA_FACE}\n\n{COSTUME.format(name='Arjuna')}")
 # Shalya has no approved sheet or passport yet; he is designed after sai approves this look.
 
 if __name__ == "__main__":

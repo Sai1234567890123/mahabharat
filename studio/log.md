@@ -92,3 +92,4 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 | 2026-11-20 | cast/karna/web/close_v1.png | gemini-3.1-flash-image | web series redesign karna_close, 1 ref | tokens in 1609 out 1120 | pending review |
 | 2026-11-20 | cast/arjuna/web/full_v1.png | gemini-3.1-flash-image | web series redesign arjuna_full, 1 ref | tokens in 1537 out 1120 | pending review |
 | 2026-11-20 | cast/krishna/web/full_v1.png | gemini-3.1-flash-image | web series redesign krishna_full, 1 ref | tokens in 1527 out 1120 | pending review |
+| 2026-11-20 | cast/karna/web/full_v2.png | gemini-3.1-flash-image | web series redesign karna_full_t2, 2 refs | tokens in 2710 out 1120 | pending review |

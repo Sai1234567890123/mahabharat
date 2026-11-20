@@ -11,7 +11,11 @@ holds the bow grip's screen position per frame). Per frame:
   speed    thin speed lines at the frame edge while the camera rides with the arrows
   grain    light film grain, so the CG gradients do not band
 
-  python studio/tools/fx_a06_post.py RENDER_DIR OUT.mp4
+  python studio/tools/fx_a06_post.py RENDER_DIR OUT.mp4 [--look web]
+
+--look web (bible, "Web series look", 2026-11-20): before the grade a painted finish (smooth Kuwahara: soft value
+shapes, crisp silhouettes), the grade splits gold highlights from blue shadows instead of warming everything, and the
+glow on the sun-fire has a cream core with an orange rim (Karna's astra colours). Without it, the v1 to v3 look.
 """
 import json, math, pathlib, random, subprocess, sys
 
@@ -48,6 +52,63 @@ def glow(a, strength=0.38):
     near = np.asarray(small.filter(ImageFilter.GaussianBlur(2.5)).resize((w, h), Image.BILINEAR), np.float32) / 255
     tint = np.array([1.0, 0.62, 0.30], np.float32)
     return np.clip(a + (wide * 0.9 + near * 0.6) * tint * strength, 0, 1)
+
+
+def _box(I, r):
+    """mean over the (r+1)x(r+1) window ending at each pixel (edge padded), by integral image"""
+    P = np.pad(I.astype(np.float64), ((r + 1, 0), (r + 1, 0)) + ((0, 0),) * (I.ndim - 2), mode="edge")
+    S = P.cumsum(0).cumsum(1)                                          # float64: float32 sums lose the small means
+    return ((S[r + 1:, r + 1:] - S[:-r - 1, r + 1:] - S[r + 1:, :-r - 1] + S[:-r - 1, :-r - 1]) / (r + 1) ** 2).astype(np.float32)
+
+
+def paint(a, r, mix=0.75, q=8.0):
+    """painted finish, smooth Kuwahara: each pixel blends its four quadrant means, weighted toward the calmest one, so
+    flat areas become soft brush shapes while edges between them stay sharp"""
+    lum = a @ np.array([0.2126, 0.7152, 0.0722], np.float32)
+    m, ml = _box(a, r), _box(lum, r)
+    v = np.maximum(_box(lum * lum, r) - ml * ml, 0)
+    H, W = lum.shape
+    P = np.pad(m, ((r, r), (r, r), (0, 0)), mode="edge")
+    Pv = np.pad(v, ((r, r), (r, r)), mode="edge")
+    num, den = np.zeros_like(a), np.zeros((H, W, 1), np.float32)
+    for dy in (0, r):
+        for dx in (0, r):
+            wgt = 1.0 / (1.0 + (np.sqrt(Pv[r + dy:r + dy + H, r + dx:r + dx + W]) * 255) ** q * 1e-8)[..., None]
+            num += P[r + dy:r + dy + H, r + dx:r + dx + W] * wgt
+            den += wgt
+    return np.clip(a * (1 - mix) + (num / den) * mix, 0, 1)
+
+
+def grade_web(a):
+    """web series grade: gold highlights, blue shadows (bible: key #FFC27A, shadow #3E5A86), firmer contrast than the
+    hazy render"""
+    h, w = a.shape[:2]
+    a = a ** 1.18
+    a = np.clip((a - 0.42) * 1.24 + 0.42, 0, 1)
+    lum = a @ np.array([0.2126, 0.7152, 0.0722], np.float32)
+    sh = np.clip(1 - lum / 0.55, 0, 1)[..., None]                      # shadow weight
+    hi = np.clip((lum - 0.45) / 0.55, 0, 1)[..., None]                  # highlight weight
+    a = a + sh * np.array([-0.09, -0.02, 0.12], np.float32)             # shadows lean blue
+    a = a + hi * np.array([0.05, 0.005, -0.07], np.float32)             # highlights lean gold
+    lum = a @ np.array([0.2126, 0.7152, 0.0722], np.float32)
+    a = lum[..., None] + (a - lum[..., None]) * 1.18
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    r = np.sqrt(((xx - w / 2) / (w / 2)) ** 2 + ((yy - h / 2) / (h / 2)) ** 2)
+    a = a * (1 - 0.25 * np.clip(r - 0.55, 0, 1) ** 1.5)[..., None]
+    return np.clip(a, 0, 1)
+
+
+def glow_astra(a, strength=0.32):
+    """two-colour astra glow (Karna): a tight cream core and a wide orange rim around the brightest parts"""
+    h, w = a.shape[:2]
+    lum = a @ np.array([0.2126, 0.7152, 0.0722], np.float32)
+    hi = np.clip((lum - 0.90) / 0.10, 0, 1)
+    small = Image.fromarray((hi * 255).astype(np.uint8)).resize((w // 4, h // 4), Image.BILINEAR)
+    s = min(w, h) / 720
+    wide = np.asarray(small.filter(ImageFilter.GaussianBlur(11 * s)).resize((w, h), Image.BILINEAR), np.float32)[..., None] / 255
+    near = np.asarray(small.filter(ImageFilter.GaussianBlur(2.0 * s)).resize((w, h), Image.BILINEAR), np.float32)[..., None] / 255
+    core, rim = np.array([1.0, 0.945, 0.76], np.float32), np.array([1.0, 0.54, 0.12], np.float32)   # #FFF1C2, #FF8A1E
+    return np.clip(a + (wide * 1.1 * rim + near * 0.7 * core) * strength, 0, 1)
 
 
 def impact(a, k):
@@ -100,7 +161,13 @@ def speed_lines(a, t, n, seed, w, h):
 
 
 def main():
-    src, out = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
+    args = sys.argv[1:]
+    look = "classic"
+    if "--look" in args:
+        i = args.index("--look")
+        look = args[i + 1]
+        del args[i:i + 2]
+    src, out = pathlib.Path(args[0]), pathlib.Path(args[1])
     if out.exists():
         raise SystemExit(f"exists, not overwriting (folder law 1): {out}")
     fx = json.loads((src / "fx.json").read_text())
@@ -120,7 +187,10 @@ def main():
     for fp in frames:
         f = int(fp.stem)
         a = np.asarray(Image.open(fp).convert("RGB"), np.float32) / 255
-        a = glow(grade(a))
+        if look == "web":
+            a = glow_astra(grade_web(paint(a, max(2, round(min(w, h) / 360)))))
+        else:
+            a = glow(grade(a))
         if f in (R, R + 1):
             a = impact(a, f - R)
         elif f > R + 1:

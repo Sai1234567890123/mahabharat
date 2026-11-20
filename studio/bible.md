@@ -48,6 +48,18 @@ Look source (2026-11-15, sai): the paintings in `refs/concept/` (sai's own AI-ge
 - Tiny figures against colossal sky and armies for scale (A02, A08).
 - Rhythm: the arrow-storm block should cut faster than the rest (next pass: split A06 to A12 into sub-second shots).
 
+## Web series look (2026-11-20, from sai's three reference reels)
+
+sai: "i want this type of style in our web series". The reels are for study only (Never rules below apply): no frame, character or shot is copied, and nothing from them goes into a model.
+
+- **Painted 3D.** Figures stay 3D-rigged with real anatomy (no flat cartoon, no cel shading), but their surfaces read as painted: soft broad value shapes, a slight brush texture on cloth and skin, edges kept crisp on the silhouette and soft inside it.
+- **Painted backgrounds.** Skies and far fields are painted matte plates with visible brushwork (sai's own paintings in `refs/concept/` are the source), not photoreal skies. Mid ground is 3D, far ground is paint.
+- **Gold key, blue shadow.** Warm low-sun key (`#FFC27A`) against cool blue shadow and fill (`#3E5A86`, ambient `#7F93B8`). Shadows lean blue, not brown. This replaces "warm brown shadows" for the web series; the oil-painting stills keep their own palette.
+- **Two-colour astra glow.** Divine weapons glow in two colours: Karna sun-gold core with orange rim (`#FFF1C2` / `#FF8A1E`), Arjuna white core with lightning-blue rim (`#F2FAFF` / `#3FA9FF`). Glow and bloom only on energy, sun and fire, never on skin or armour.
+- **Energetic camera.** Fast push-ins, whip pans, rides alongside arrows, speed ramps into impacts. Locked frames stay for the sacred moments (rules above).
+- **Story close-ups.** Each episode needs quiet close-ups with dialogue (subtitled in the edit, never baked into frames) between the action beats.
+- **Formats.** Episodes 60 to 90 s. Every shot is framed for 16:9 with a 9:16 safe area (the subject stays inside the centre 9:16 band), and a vertical cut is made for Reels and Shorts.
+
 ## Never
 
 - No real faces or actor likeness. Never attach a film or TV frame to a model; the trailer frames in `shots/` and `trailer-analysis/` are for timing study only.

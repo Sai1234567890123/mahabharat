@@ -10,7 +10,8 @@ BILLED: one image per job (gemini-3.1-flash-image, about $0.07 each). Needs sai'
 retries. Never overwrites a take. Every call is logged to studio/log.md.
 
   python studio/tools/gen_style_redesign.py --project cs-project-07zg2j2c --only heroes --dry-run
-  python studio/tools/gen_style_redesign.py --project cs-project-07zg2j2c --only heroes          # 4 images, about $0.28
+  python studio/tools/gen_style_redesign.py --project cs-project-07zg2j2c --only heroes          # take 1: 4 images, about $0.28
+  python studio/tools/gen_style_redesign.py --project cs-project-07zg2j2c --only take2 --take 2  # take 2: 3 images, about $0.21
 Output: cast/<character>/web/<view>_v<take>.png
 """
 import argparse, base64, datetime, json, pathlib, sys, time
@@ -47,6 +48,37 @@ JOBS = {
                          aspect="3:4", text=f"{FULL}\n\n{LOOK}\n\n{SAME.format(name='Krishna')} {KRISHNA}"),
 }
 GROUPS = {"heroes": ["karna_full", "karna_close", "arjuna_full", "krishna_full"]}
+
+# ---- take 2 (sai, 2026-11-20: "yes"): the Karna close-up close_v1 is the style frame for the series. The old sheets are used
+# for costume only, not for faces, proportions or painting style. Run with --only take2 --take 2 (3 images, about $0.21).
+STYLE_REF = "cast/karna/web/close_v1.png"
+LOOK2 = ("Rendering: match IMAGE 2 exactly. It is the approved style frame of this series: stylized 3D animated-series character, "
+         "smooth sculpted forms with clean painted shading, a long angular face with sharp cheekbones, a strong brow and jaw and "
+         "a long straight nose, warm gold key light against cool blue-grey sky light, soft painted background. "
+         "Not a painting, not realistic: a premium stylized 3D series. No text, no logos, no watermark, no border.")
+COSTUME = ("Use IMAGE 1 ONLY for {name}'s costume, crown, ornaments, colours, hair and weapon. Do NOT copy the face shape, the body "
+           "proportions or the painting style of IMAGE 1: draw his face and body in the stylized way of IMAGE 2.")
+OTHER = ("IMAGE 2 shows a different man (Karna): take ONLY its rendering style and light from it, never his face, crown, "
+         "moustache, armour or colours.")
+CLOSE2 = ("A story close-up of ONE man: framed from the top of his crown to his upper chest, head and shoulders only, hands and "
+          "weapon out of frame, three-quarter view, eyes looking just past the camera, quiet and grave, lips closed. Shallow depth "
+          "of field, the background a soft painted wash of a dusty battlefield sky at golden hour.")
+FULL2 = ("ONE man, full body from the top of the crown to the feet, standing in a calm three-quarter front view, weight on one "
+         "leg, holding his bow low in one hand. Stylized heroic proportions: long legs, broad shoulders, large expressive hands with "
+         "long fingers. Soft painted backdrop with a soft floor shadow, no scenery, no other people.")
+JOBS.update({
+    "karna_full_t2": dict(out="cast/karna/web/full", refs=["cast/karna/sheet.png", STYLE_REF], name="Karna",
+                          passport="cast/karna/passport.md", aspect="3:4",
+                          text=f"{FULL2}\n\n{LOOK2}\n\nIMAGE 2 is this same man, Karna, in the series style: same face as IMAGE 2. "
+                               f"{COSTUME.format(name='Karna')} {KARNA}"),
+    "arjuna_close": dict(out="cast/arjuna/web/close", refs=["cast/arjuna/sheet.png", STYLE_REF], name="Arjuna",
+                         passport="cast/arjuna/passport.md", aspect="16:9",
+                         text=f"{CLOSE2}\n\n{LOOK2}\n\n{COSTUME.format(name='Arjuna')} {OTHER}"),
+    "krishna_close": dict(out="cast/krishna/web/close", refs=["cast/krishna/sheet.png", STYLE_REF], name="Krishna",
+                          passport="cast/krishna/passport.md", aspect="16:9",
+                          text=f"{CLOSE2}\n\n{LOOK2}\n\n{COSTUME.format(name='Krishna')} {OTHER} {KRISHNA}"),
+})
+GROUPS["take2"] = ["karna_full_t2", "arjuna_close", "krishna_close"]
 # Shalya has no approved sheet or passport yet; he is designed after sai approves this look.
 
 if __name__ == "__main__":
@@ -64,14 +96,16 @@ if __name__ == "__main__":
         out = STUDIO / rel
         if out.exists():
             print("exists, not overwriting (folder law 1):", rel); sys.exit(1)
+        refs = j.get("refs") or [j["ref"]]
         prompt = j["text"] + f"\n\n{descriptor(j['passport'])}"
         if a.dry_run:
-            print("---", name, "->", rel, "\nrefs:", [j["ref"]], "\n" + prompt, "\n"); continue
-        if not (STUDIO / j["ref"]).exists():
-            print("missing reference:", j["ref"]); sys.exit(1)
+            print("---", name, "->", rel, "\nrefs:", refs, "\n" + prompt, "\n"); continue
+        missing = [r for r in refs if not (STUDIO / r).exists()]
+        if missing:
+            print("missing reference:", missing); sys.exit(1)
         if i:
             time.sleep(25)        # pacing only, against the 429 rate limit. This is not a retry.
-        res = call(a.project, a.location, prompt, [j["ref"]], j["aspect"])
+        res = call(a.project, a.location, prompt, refs, j["aspect"])
         imgs = [p for c in res.get("candidates", []) for p in c.get("content", {}).get("parts", []) if "inlineData" in p]
         if not imgs:
             print("no image returned:", json.dumps(res)[:1500]); sys.exit(1)
@@ -79,5 +113,5 @@ if __name__ == "__main__":
         out.write_bytes(base64.b64decode(imgs[0]["inlineData"]["data"]))
         u = res.get("usageMetadata", {})
         with open(STUDIO / "log.md", "a") as f:
-            f.write(f"| {datetime.date.today()} | {rel} | {MODEL} | web series redesign {name}, 1 ref | tokens in {u.get('promptTokenCount')} out {u.get('candidatesTokenCount')} | pending review |\n")
+            f.write(f"| {datetime.date.today()} | {rel} | {MODEL} | web series redesign {name}, {len(refs)} refs | tokens in {u.get('promptTokenCount')} out {u.get('candidatesTokenCount')} | pending review |\n")
         print("wrote", rel, "usage", u)

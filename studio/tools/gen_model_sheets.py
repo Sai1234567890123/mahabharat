@@ -65,7 +65,23 @@ JOBS["karna_bow"] = dict(
           "bow with black limbs wrapped in spiral gold bands, gold winged fittings above and below the grip, curled gold tips, and one "
           "thin taut bowstring running straight from tip to tip. No arrow. Stylized 3D animated-film prop with hand-painted surfaces. "
           "Flat even neutral light, pure plain white background, no shadow, no text, no labels, no border, no second view."))
-GROUPS = {"karna": ["karna_front", "karna_back", "karna_side", "karna_bow"]}
+# Arjuna (sai, 2026-11-20: "generate 1536 model of arjuna using trellis"). Same recipe as Karna; no side view (the side prompt
+# paints a second front view, see log 2026-11-17). His gold quiver stays strapped on his back, as on the locked sheet.
+QUIVER = ("Keep his gold quiver with green enamel strapped on his back, full of arrows, its top showing above his right shoulder; "
+          "it is part of the costume and is NOT held. His hands hold nothing.")
+JOBS.update(char_jobs("arjuna", "Arjuna", "cast/arjuna/sheet.png", "cast/arjuna/passport.md", "refs/concept/concept_05.jpeg", [],
+                      "His gold quiver with green enamel, full of arrows, is strapped diagonally across his back; the back of the "
+                      "carved gold cuirass shows around it. The tiered crown seen from behind, black wavy hair to the nape."))
+JOBS["arjuna_front"]["text"] += " " + QUIVER
+del JOBS["arjuna_side"]
+JOBS["arjuna_bow"] = dict(
+    out="cast/arjuna/model/bow_gandiva", refs=["cast/arjuna/sheet.png"], passport=None, aspect="3:4",
+    text=("A prop model sheet for a 3D modeller: ONE object only, the great bow Gandiva from IMAGE 1, shown alone with no person and "
+          "no hand. The bow stands upright and is seen exactly from the side, whole in frame with a clear margin of white: a tall recurve "
+          "bow with black limbs wrapped in spiral gold bands, gold fittings above and below the grip, curled gold tips, and one "
+          "thin taut bowstring running straight from tip to tip. No arrow. Stylized 3D animated-film prop with hand-painted surfaces. "
+          "Flat even neutral light, pure plain white background, no shadow, no text, no labels, no border, no second view."))
+GROUPS = {"karna": ["karna_front", "karna_back", "karna_side", "karna_bow"], "arjuna": ["arjuna_front", "arjuna_back", "arjuna_bow"]}
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()

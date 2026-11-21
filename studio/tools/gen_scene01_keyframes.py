@@ -117,6 +117,29 @@ JOBS["s01_09_t2"] = dict(out=f"{OUT}/s01_09", refs=[STYLE, PLAIN], passport=None
         "gold. " + CHARIOT)
 GROUPS["retake2"] = ["s01_08_t2", "s01_09_t2"]
 
+# ---- take 3 (review of take 2, 2026-11-21): in 8 the crown still drifts from the locked style frame (a helmet with a side
+# rosette instead of the tall crown); in 9 the horses still flank the chariot (six of them). Fix 8 by giving only the style
+# frame and copying its head; fix 9 by turning it into a side view, where the yoke and pole cannot be misread.
+# Run with --only retake3 --take 3 (2 images, about $0.14).
+JOBS["s01_08_t3"] = karna("08", [STYLE],
+    "Shot 8, close-up, head and shoulders, Karna facing frame left. Copy his head from IMAGE 1 EXACTLY: the same crown "
+    "(same tall shape, same crest at the top, same ornament at the front), the same face, the same hair. Only the light, "
+    "the expression and the background change. The low sun lights exactly half his face warm gold; the other half falls "
+    "into deep cool blue shadow. A small, quiet smile at one corner of his mouth, eyes steady. Behind him, soft and out of "
+    "focus, the river bank and a painted dawn sky; no chariot, no horses, no other people.", ARMED)
+JOBS["s01_09_t3"] = dict(out=f"{OUT}/s01_09", refs=[STYLE, PLAIN], passport=None, costume=None,
+    text="Shot 9, extreme wide, locked camera, a clean SIDE VIEW. IMAGE 2 is sai's painting of this plain: take its red "
+         "trampled earth, its flat horizon and its painted dust and sky ONLY; do not copy its chariot, its white horses, its "
+         "people or its green banner. Here: at sunrise, small in the centre of the frame, ONE open gold war chariot (two big "
+         "wheels, no canopy, no parasol, no roof) seen exactly from the side, driving toward frame LEFT, where the sun disc "
+         "stands just above the horizon. EXACTLY FOUR DUN horses (sandy brown, dark manes, never white) gallop in front of the "
+         "chariot, on its left side in the frame, harnessed together in one row to its single pole; nothing beside or behind "
+         "the wheels. On the chariot: a tiny dark charioteer in front and a tiny dark archer standing behind him. A tall pole "
+         "rises from the back of the chariot with a gold banner bearing a dark coiled rope, drawn as a simple knot, never as a "
+         "letter or a number. Dust trails out behind the wheels to frame right, toward a far wall of pale gold dust where "
+         "two armies wait. Colossal sky, tiny chariot for scale.")
+GROUPS["retake3"] = ["s01_08_t3", "s01_09_t3"]
+
 def prompt_for(j):
     if j["passport"] is None:
         return f"{j['text']}\n\n{FRAME}\n\n{LOOK}"

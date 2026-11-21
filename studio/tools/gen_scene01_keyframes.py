@@ -97,6 +97,26 @@ JOBS = {
 }
 GROUPS = {"scene01": list(JOBS)}
 
+# ---- take 2 for shots 8 and 9 (review of v1, 2026-11-21): in 8 the crown drifted from the style frame and the chariot behind
+# had a canopy and a pale horse; in 9 the horses ran beside the chariot instead of in front of it and the banner was plain.
+# Run with --only retake2 --take 2 (2 images, about $0.14).
+CHARIOT = ("The chariot has NO canopy, NO parasol and NO roof: an open gold war car with two big wheels and a tall standard pole. "
+           "All four horses are DUN (sandy brown with dark manes), never white or grey.")
+JOBS["s01_08_t2"] = karna("08", [STYLE, BODY],
+    "Shot 8, close-up, head and shoulders, three-quarter view, Karna facing frame left. His crown is EXACTLY the crown of "
+    "IMAGE 1: same shape, same gold, same crest, nothing added behind his head (no halo, no ring, no disc behind it). The low "
+    "sun lights exactly half his face warm gold; the other half falls into deep cool blue shadow. A small, quiet smile at one "
+    "corner of his mouth, eyes steady. Behind him, soft and out of focus, the river bank, his chariot and a painted dawn sky. "
+    + CHARIOT, ARMED)
+JOBS["s01_09_t2"] = dict(out=f"{OUT}/s01_09", refs=[STYLE, PLAIN], passport=None, costume=None,
+    text=JOBS["s01_09"]["text"].replace(
+        "ONE gold war chariot drawn by four DUN horses (sandy brown, not white) rolls away",
+        "ONE gold war chariot rolls away") +
+        " The four horses run side by side IN FRONT of the chariot, harnessed to its pole and yoke, farther from the camera than "
+        "the chariot, pulling it away; no horse is beside or behind the wheels. The banner shows a clear dark coiled rope on "
+        "gold. " + CHARIOT)
+GROUPS["retake2"] = ["s01_08_t2", "s01_09_t2"]
+
 def prompt_for(j):
     if j["passport"] is None:
         return f"{j['text']}\n\n{FRAME}\n\n{LOOK}"

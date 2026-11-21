@@ -99,3 +99,12 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 | 2026-11-21 | cast/arjuna/web/close_v4.png | gemini-3.1-flash-image | web series redesign arjuna_close_t4, 2 refs | tokens in 2795 out 1120 | pending review |
 | 2026-11-21 | cast/arjuna/web/full_v4.png | gemini-3.1-flash-image | web series redesign arjuna_full_t4, 2 refs | tokens in 2795 out 1183 | pending review |
 - 2026-11-21 · approval · sai: "yes" to the series hero set: Karna close_v1 and full_v2, Arjuna close_v4 and full_v4 (silver-steel, deep blue), Krishna close_v2 (all in cast/<hero>/web/). These are the locked web series look references. Open: Arjuna's sandals (barefoot in full_v4).
+| 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_01_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_01, 2 refs | tokens in 2912 out 1120 | pending review |
+| 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_02_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_02, 2 refs | tokens in 2874 out 1120 | pending review |
+| 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_03_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_03, 1 refs | tokens in 1726 out 1120 | pending review |
+| 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_04_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_04, 2 refs | tokens in 2875 out 1120 | pending review |
+| 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_05_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_05, 2 refs | tokens in 2878 out 1120 | pending review |
+| 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_06_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_06, 2 refs | tokens in 2898 out 1120 | pending review |
+| 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_07_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_07, 2 refs | tokens in 2916 out 1120 | pending review |
+| 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_08_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_08, 2 refs | tokens in 2839 out 1120 | pending review |
+| 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_09_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_09, 2 refs | tokens in 2644 out 1120 | pending review |

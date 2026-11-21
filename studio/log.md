@@ -108,3 +108,5 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 | 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_07_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_07, 2 refs | tokens in 2916 out 1120 | pending review |
 | 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_08_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_08, 2 refs | tokens in 2839 out 1120 | pending review |
 | 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_09_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_09, 2 refs | tokens in 2644 out 1120 | pending review |
+| 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_08_v2.png | gemini-3.1-flash-image | scene 01 key frame s01_08_t2, 2 refs | tokens in 2925 out 1120 | pending review |
+| 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_09_v2.png | gemini-3.1-flash-image | scene 01 key frame s01_09_t2, 2 refs | tokens in 2730 out 1120 | pending review |

@@ -93,6 +93,17 @@ JOBS["arjuna_close_t3"] = dict(out="cast/arjuna/web/close", refs=["cast/arjuna/s
                                text=f"{CLOSE2}\n\n{LOOK2}\n\n{ARJUNA_FACE}\n\n{COSTUME.format(name='Arjuna')}")
 # Shalya has no approved sheet or passport yet; he is designed after sai approves this look.
 
+# ---- take 4 (sai, 2026-11-21: "Arjuna silver-steel, Karna gold"): Arjuna in his web series costume, cast/arjuna/passport_web.md.
+# Run with --only arjuna_t4 --take 4 (2 images, about $0.14).
+SILVER = ("COSTUME CHANGE from IMAGE 1: his armour, crown, shoulder guard, bracers and quiver are engraved SILVER-STEEL with thin "
+          "gold trim, NOT gold; his dhoti is DEEP BLUE with a thin gold border, NOT white; the deep green sash stays. Everything "
+          "else (crown shape, ear-guard, sash, bow Gandiva) as in IMAGE 1.")
+for _job, _frame, _aspect in (("arjuna_close_t4", CLOSE2, "16:9"), ("arjuna_full_t4", FULL2, "3:4")):
+    JOBS[_job] = dict(out="cast/arjuna/web/" + ("close" if "close" in _job else "full"),
+                      refs=["cast/arjuna/sheet.png", STYLE_REF], name="Arjuna", passport="cast/arjuna/passport_web.md",
+                      aspect=_aspect, text=f"{_frame}\n\n{LOOK2}\n\n{ARJUNA_FACE}\n\n{SILVER}")
+GROUPS["arjuna_t4"] = ["arjuna_close_t4", "arjuna_full_t4"]
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--project", required=True); ap.add_argument("--location", default="global")
@@ -127,3 +138,4 @@ if __name__ == "__main__":
         with open(STUDIO / "log.md", "a") as f:
             f.write(f"| {datetime.date.today()} | {rel} | {MODEL} | web series redesign {name}, {len(refs)} refs | tokens in {u.get('promptTokenCount')} out {u.get('candidatesTokenCount')} | pending review |\n")
         print("wrote", rel, "usage", u)
+

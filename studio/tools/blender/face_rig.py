@@ -14,6 +14,7 @@ Landmarks are per character (world metres, the character faces -Y). Karna's were
 depth profile along the face centre line and a front render. Never edits the input file (folder law 1).
 
   python face_rig.py <in.blend> <out.blend> [landmarks.json]
+  python face_rig.py <head.glb> <out.blend> landmarks.json      # a bare TRELLIS head (no rig): set "subdivide": 0 if dense
 """
 import json, math, pathlib, sys
 import bpy, bmesh
@@ -41,7 +42,12 @@ def blob(p, c, r):
 
 def build(src, dst, L):
     bpy.ops.wm.open_mainfile(filepath=src)
-    body, rig = bpy.data.objects[L["body"]], bpy.data.objects[L["rig"]]
+    if src.lower().endswith((".glb", ".gltf")):           # a bare TRELLIS head: import it, no armature yet
+        bpy.ops.wm.read_factory_settings(use_empty=True)
+        bpy.ops.import_scene.gltf(filepath=src)
+        mesh = max((o for o in bpy.data.objects if o.type == "MESH"), key=lambda o: len(o.data.vertices))
+        mesh.name = L["body"]
+    body, rig = bpy.data.objects[L["body"]], bpy.data.objects.get(L.get("rig") or "")
     mw, mwi = body.matrix_world.copy(), body.matrix_world.inverted()
     fb, m = L["face_box"], L["mouth"]
 
@@ -54,7 +60,8 @@ def build(src, dst, L):
         return abs(c.x) < fb["xmax"] and fb["zmin"] < c.z < fb["zmax"] and c.y < fb["ymax"]
     faces = [f for f in bm.faces if in_face(f)]
     edges = list({e for f in faces for e in f.edges})
-    bmesh.ops.subdivide_edges(bm, edges=edges, cuts=2, use_grid_fill=True, smooth=0.0)
+    if L.get("subdivide", 2):
+        bmesh.ops.subdivide_edges(bm, edges=edges, cuts=L.get("subdivide", 2), use_grid_fill=True, smooth=0.0)
     bm.faces.ensure_lookup_table()
     # cut along the mouth line: bisect the lip faces with the plane z = mouth z, then split the new edges inside the mouth
     lip_faces = [f for f in bm.faces if (lambda c: abs(c.x) < m["half_width"] + 0.01 and abs(c.z - m["z"]) < 0.008 and c.y < fb["ymax"])(mw @ f.calc_center_median())]
@@ -161,7 +168,10 @@ def build(src, dst, L):
         o.data.materials.append(mat)
         bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
         mwo = o.matrix_world.copy()
-        o.parent, o.parent_type, o.parent_bone = rig, "BONE", L["head_bone"]
+        if rig:
+            o.parent, o.parent_type, o.parent_bone = rig, "BONE", L["head_bone"]
+        else:
+            o.parent = body
         o.matrix_world = mwo
         return o
     hw = m["half_width"]

@@ -13,15 +13,18 @@ sc = bpy.context.scene
 for o in sc.objects:
     if o.name.startswith("WGT"):
         o.hide_render = True
+body = next(o for o in sc.objects if "face_rig" in o.keys())
+info = json.loads(body["face_rig"])
+mx, my, mz = info["mouth"]; cz = (mz + info["eyes_z"]) / 2 - 0.005      # aim between mouth and eyes
 cam = bpy.data.cameras.new("face_cam"); co = bpy.data.objects.new("face_cam", cam); sc.collection.objects.link(co)
-co.location = (0.25, -0.82, 1.64); co.rotation_euler = (math.radians(90), 0, math.radians(17)); cam.lens = 85
+co.location = (0.25, my - 0.71, cz); co.rotation_euler = (math.radians(90), 0, math.radians(19)); cam.lens = 85
 sc.camera = co
 for e, rz, rx in ((3.2, -35, 62), (0.9, 45, 75)):
     l = bpy.data.lights.new("face_key", "SUN"); l.energy = e; lo = bpy.data.objects.new("face_key", l); sc.collection.objects.link(lo)
     lo.rotation_euler = (math.radians(rx), 0, math.radians(rz))
 sc.render.engine = "CYCLES"; sc.cycles.samples = 24; sc.cycles.device = "CPU"
 sc.render.resolution_x = sc.render.resolution_y = 384
-keys = bpy.data.objects["KARNA_body"].data.shape_keys.key_blocks
+keys = body.data.shape_keys.key_blocks
 visemes = json.loads(pathlib.Path(blend).with_suffix(".visemes.json").read_text())
 
 def pose(mix):

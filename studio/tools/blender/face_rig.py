@@ -41,12 +41,18 @@ def blob(p, c, r):
     return smooth(1 - d)
 
 def build(src, dst, L):
-    bpy.ops.wm.open_mainfile(filepath=src)
-    if src.lower().endswith((".glb", ".gltf")):           # a bare TRELLIS head: import it, no armature yet
+    if not src.lower().endswith((".glb", ".gltf")):
+        bpy.ops.wm.open_mainfile(filepath=src)
+    else:           # a bare TRELLIS head: import it, no armature yet
         bpy.ops.wm.read_factory_settings(use_empty=True)
         bpy.ops.import_scene.gltf(filepath=src)
         mesh = max((o for o in bpy.data.objects if o.type == "MESH"), key=lambda o: len(o.data.vertices))
         mesh.name = L["body"]
+        k = L.get("scale", 1.0)                         # model units to metres, so the falloff radii below fit
+        mesh.parent = None
+        mesh.scale = mesh.scale * k
+        bpy.context.view_layer.objects.active = mesh; mesh.select_set(True)
+        bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)   # world = local, in metres
     body, rig = bpy.data.objects[L["body"]], bpy.data.objects.get(L.get("rig") or "")
     mw, mwi = body.matrix_world.copy(), body.matrix_world.inverted()
     fb, m = L["face_box"], L["mouth"]
@@ -175,8 +181,9 @@ def build(src, dst, L):
         o.matrix_world = mwo
         return o
     hw = m["half_width"]
-    ellipsoid("FACE_mouth_cavity", (0, m["y"] + 0.022, m["z"] - 0.004), (hw * 0.95, 0.02, 0.013), (0.09, 0.025, 0.02, 1))
-    ellipsoid("FACE_teeth_upper", (0, m["y"] + 0.0065, m["z"] + 0.0005), (hw * 0.62, 0.004, 0.0028), (0.82, 0.77, 0.66, 1), 0.35)
+    tb = m.get("teeth_back", 0.012)      # how far behind the front of the lips the teeth sit (0.0065 poked through thick lips)
+    ellipsoid("FACE_mouth_cavity", (0, m["y"] + tb + 0.016, m["z"] - 0.004), (hw * 0.95, 0.02, 0.013), (0.09, 0.025, 0.02, 1))
+    ellipsoid("FACE_teeth_upper", (0, m["y"] + tb, m["z"] + 0.001), (hw * 0.62, 0.004, 0.0028), (0.82, 0.77, 0.66, 1), 0.35)
 
     # ---- 4: Rhubarb Lip Sync mouth shapes as mixes of the keys
     visemes = {
@@ -191,6 +198,7 @@ def build(src, dst, L):
         "H": {"jaw_open": 0.4},                                     # L
     }
     pathlib.Path(dst).with_suffix(".visemes.json").write_text(json.dumps(visemes, indent=1))
+    body["face_rig"] = json.dumps(dict(mouth=[0, m["y"], m["z"]], eyes_z=L["eyes"]["z"], scale=L.get("scale", 1.0)))
     bpy.ops.wm.save_as_mainfile(filepath=dst, compress=True)
     print("saved", dst)
 

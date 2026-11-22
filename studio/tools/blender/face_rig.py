@@ -53,6 +53,15 @@ def build(src, dst, L):
         mesh.scale = mesh.scale * k
         bpy.context.view_layer.objects.active = mesh; mesh.select_set(True)
         bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)   # world = local, in metres
+        faces = L.get("faces")                          # optional: weld the UV-seam splits, then thin out to about FACES
+        if faces:
+            bm0 = bmesh.new(); bm0.from_mesh(mesh.data)
+            bmesh.ops.remove_doubles(bm0, verts=bm0.verts, dist=1e-6)
+            bm0.to_mesh(mesh.data); bm0.free()
+            if len(mesh.data.polygons) > faces:
+                dec = mesh.modifiers.new("decimate", "DECIMATE"); dec.ratio = faces / len(mesh.data.polygons)
+                bpy.ops.object.modifier_apply(modifier=dec.name)
+            print("head faces", len(mesh.data.polygons))
     body, rig = bpy.data.objects[L["body"]], bpy.data.objects.get(L.get("rig") or "")
     mw, mwi = body.matrix_world.copy(), body.matrix_world.inverted()
     fb, m = L["face_box"], L["mouth"]

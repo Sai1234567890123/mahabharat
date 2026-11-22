@@ -111,3 +111,4 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 | 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_08_v2.png | gemini-3.1-flash-image | scene 01 key frame s01_08_t2, 2 refs | tokens in 2925 out 1120 | pending review |
 | 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_09_v2.png | gemini-3.1-flash-image | scene 01 key frame s01_09_t2, 2 refs | tokens in 2730 out 1120 | pending review |
 | 2026-11-22 | episodes/ep01_arjuna_vs_karna/renders/talk_test_karna_v1.mp4 | veo-3.1-fast-generate-001 | talking test, 8s 720p with audio, first frame cast/karna/web/close_v1.png | about $0.80 at $0.10/s | pending review |
+| 2026-11-22 | cast/karna/model/rig/karna_face_v1.blend | Blender (cloud CPU, free) | face rig v1 on karna_rigged_v7: face subdivided, mouth cut open with cavity and teeth, 12 shape keys, Rhubarb visemes; checks karna_face_rig_v1_expressions.jpg and _lipsync_test.mp4 | free | pending review |

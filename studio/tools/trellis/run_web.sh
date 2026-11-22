@@ -11,6 +11,7 @@ cd ~/TRELLIS.2 && cp ~/trellis_one.py ./trellis_one.py
 export ATTN_BACKEND=xformers SPARSE_ATTN_BACKEND=xformers
 mkdir -p ~/trellis_out; LOG=~/trellis_out/batch_web.log
 run() {  # input stem seed
+  [ -f ~/trellis_in/$1.png ] || { echo "SKIP $1 (no input)" >> $LOG; return; }
   echo "START $2 seed $3 $(date -u +%H:%M:%S)" >> $LOG
   python trellis_one.py ~/trellis_in/$1.png "$2" 1536_cascade "$3" 4096 1000000 >> $LOG 2>&1
   echo "END $2 seed $3 $(date -u +%H:%M:%S)" >> $LOG

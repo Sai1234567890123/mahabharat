@@ -106,6 +106,9 @@ JOBS["karna_web_head"]["refs"] = ["cast/karna/web/close_v1.png"]        # his cl
 JOBS["karna_web_head"]["text"] = JOBS["karna_web_head"]["text"].replace(" IMAGE 2 is the series style frame: take only its rendering style.", "")
 for _h in ("karna", "arjuna", "krishna"):
     JOBS[f"{_h}_web_front"]["text"] += " The weapon and any reins in the description below are NOT in this picture: his hands are open and empty."
+# Karna's head take 1 came out as a six-view turnaround grid; take 2 insists on one single front view.
+JOBS["karna_web_head"]["text"] += (" ONE SINGLE FRONT VIEW ONLY: not a turnaround, not a grid, not several heads; exactly one head "
+                                   "filling the picture, seen from the front.")
 GROUPS["web"] = [f"{h}_web_{v}" for h in ("karna", "arjuna", "krishna") for v in ("front", "head")]
 
 if __name__ == "__main__":

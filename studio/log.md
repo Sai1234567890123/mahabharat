@@ -110,3 +110,4 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 | 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_09_v1.png | gemini-3.1-flash-image | scene 01 key frame s01_09, 2 refs | tokens in 2644 out 1120 | pending review |
 | 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_08_v2.png | gemini-3.1-flash-image | scene 01 key frame s01_08_t2, 2 refs | tokens in 2925 out 1120 | pending review |
 | 2026-11-21 | episodes/ep01_arjuna_vs_karna/keyframes/s01_09_v2.png | gemini-3.1-flash-image | scene 01 key frame s01_09_t2, 2 refs | tokens in 2730 out 1120 | pending review |
+| 2026-11-22 | episodes/ep01_arjuna_vs_karna/renders/talk_test_karna_v1.mp4 | veo-3.1-fast-generate-001 | talking test, 8s 720p with audio, first frame cast/karna/web/close_v1.png | about $0.80 at $0.10/s | pending review |

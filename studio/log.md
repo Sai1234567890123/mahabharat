@@ -120,3 +120,11 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 | 2026-11-22 | cast/arjuna/model/web_head_v1.png | gemini-3.1-flash-image | model sheet arjuna_web_head, 2 refs | tokens in 2679 out 1120 | pending review |
 | 2026-11-22 | cast/krishna/model/web_front_v1.png | gemini-3.1-flash-image | model sheet krishna_web_front, 3 refs | tokens in 3906 out 1120 | pending review |
 | 2026-11-22 | cast/krishna/model/web_head_v1.png | gemini-3.1-flash-image | model sheet krishna_web_head, 2 refs | tokens in 2610 out 1120 | pending review |
+| 2026-11-22 | cast/karna/model/web_head_v2.png | gemini-3.1-flash-image | model sheet karna_web_head, 1 refs | tokens in 1544 out 1120 | pending review |
+| 2026-11-22 | cast/arjuna/model/trellis_out/arjuna_web_front_1536.glb | TRELLIS.2-4B 1536, spot krk-trellis-l4 | from web_front_v1 | 39.5 MB | pending review |
+| 2026-11-22 | cast/arjuna/model/trellis_out/arjuna_web_head_1536.glb | TRELLIS.2-4B 1536, spot krk-trellis-l4 | from web_head_v1 | 36.4 MB | pending review |
+| 2026-11-22 | cast/krishna/model/trellis_out/krishna_web_front_1536.glb | TRELLIS.2-4B 1536, spot krk-trellis-l4 | from web_front_v1 | 42.0 MB | pending review |
+| 2026-11-22 | cast/krishna/model/trellis_out/krishna_web_head_1024.glb | TRELLIS.2-4B 1024 (1536 ran out of GPU memory in simplify, 42M faces) | from web_head_v1 | 42.3 MB | pending review |
+| 2026-11-22 | cast/karna/model/trellis_out/karna_web_front_1536.glb | TRELLIS.2-4B 1536, spot krk-trellis-l4 | from web_front_v1 | 36.9 MB | pending review |
+| 2026-11-22 | cast/karna/model/trellis_out/karna_web_head_1024.glb | TRELLIS.2-4B 1024 (1536 ran out of GPU memory) | from web_head_v2 | 39.1 MB | pending review |
+- 2026-11-22 · GPU VM · krk-trellis-l4 spot: 13:35:06-14:29:08 UTC (batch, VM-side shutdown ended it) and 14:29:38-14:49:33 UTC (head retries at 1024, VM-side deadline set first), 74 min total, about $0.34 at spot. Both heads at 1536 hit CUDA out of memory in CuMesh simplify; heads should use 1024 from now on. Log: cast/karna/model/trellis_out/batch_web.log.

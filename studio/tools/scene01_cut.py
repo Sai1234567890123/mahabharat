@@ -4,7 +4,7 @@
 Frames are drawings on twos (12 a second); the video plays at 24 fps. Spoken lines are upright, Karna's thoughts italic
 (a slanted serif, drawn by shearing the upright one), Shalya's line is named. The title card fades in after shot 9.
 
-  python studio/tools/scene01_cut.py <frames_dir> <out.mp4>
+  python studio/tools/scene01_cut.py <frames_dir> <out.mp4> [--audio <sound.wav>]   (scene01_sound.py makes the wav)
 """
 import pathlib, subprocess, sys, tempfile
 from PIL import Image, ImageDraw, ImageFont
@@ -58,6 +58,8 @@ with tempfile.TemporaryDirectory() as tmp:
         for s, fnt, y, col in (("SURYAPUTRA", big, H / 2 - 60 * H / 540, (236, 196, 110)), ("son of the sun", small, H / 2 + 28 * H / 540, (240, 228, 205))):
             w = d.textlength(s, font=fnt); d.text(((W - w) / 2, y), s, font=fnt, fill=(*col, int(255 * u)))
         Image.alpha_composite(im, lay).convert("RGB").save(tmp / f"{i:05d}.png"); i += 1
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", "12", "-i", str(tmp / "%05d.png"), "-r", "24",
-                    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "19", "-movflags", "+faststart", str(out)], check=True)
+    audio = sys.argv[sys.argv.index("--audio") + 1] if "--audio" in sys.argv else None
+    aud = ["-i", audio, "-c:a", "aac", "-b:a", "192k", "-shortest"] if audio else []
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", "12", "-i", str(tmp / "%05d.png"), *aud[:2], "-r", "24",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "19", *aud[2:], "-movflags", "+faststart", str(out)], check=True)
 print("wrote", out, i, "drawings")

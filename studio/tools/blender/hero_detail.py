@@ -10,7 +10,7 @@ The heroes are TRELLIS meshes with one baked 4K colour texture each (body, head)
 Skin and the steel zone are found per vertex from the texture (a colour test) and stored as mesh attributes the shader
 reads, so the masks follow the mesh when it bends.
 
-  python hero_detail.py <hero> <in.blend> <out.blend> [--steel] [--skin-sat 1.2] [--blue-skin]
+  python hero_detail.py <hero> <in.blend> <out.blend> [--steel] [--skin-sat 1.2] [--blue-skin] [--gold-lo 0.045]
 Check render next to <out>: _detail_checks.jpg (before on top, after below: face, torso, full figure).
 """
 import math, pathlib, sys
@@ -23,6 +23,7 @@ HERO, IN, OUT = args[:3]
 TAG = HERO.upper()
 STEEL = "--steel" in args
 BLUE = "--blue-skin" in args
+GOLD_LO = float(args[args.index("--gold-lo") + 1]) if "--gold-lo" in args else 0.07   # lowest gold hue (Krishna's crown is copper)
 SKIN_SAT = float(args[args.index("--skin-sat") + 1]) if "--skin-sat" in args else 1.0
 if pathlib.Path(OUT).exists():
     sys.exit(f"exists, not overwriting (folder law 1): {OUT}")
@@ -128,7 +129,7 @@ def detail_material(obj):
     hsv = node("ShaderNodeSeparateColor", mode="HSV"); L(col, hsv.inputs["Color"])
     H, S, V = hsv.outputs[0], hsv.outputs[1], hsv.outputs[2]
     skin = attr("skin"); notskin = math_("SUBTRACT", 1.0, skin, True)
-    gold = math_("MULTIPLY", math_("MULTIPLY", ramp(H, 0.055, 0.085), ramp(H, 0.2, 0.165)),
+    gold = math_("MULTIPLY", math_("MULTIPLY", ramp(H, GOLD_LO - 0.015, GOLD_LO + 0.015), ramp(H, 0.2, 0.165)),
                  math_("MULTIPLY", ramp(S, 0.33, 0.5), ramp(V, 0.18, 0.32)))
     gold = math_("MULTIPLY", gold, notskin)
     steel = math_("MULTIPLY", math_("MULTIPLY", ramp(S, 0.24, 0.12), ramp(V, 0.28, 0.45)), math_("MULTIPLY", attr("steel_zone"), notskin))

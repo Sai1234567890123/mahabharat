@@ -143,3 +143,8 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 - Shots 7 to 9 re-rendered (scene01_3d.py 7 8 9 --resume, about 70 min): Karna's elephant-rope standard on the chariot, maroon pennant, dun horses.
 - Sound track made in code (studio/tools/scene01_sound.py, numpy only): river, birds, tanpura drone, wades, hooves, wheels, wind, conch on the title. 48.5 s, about -16.6 LUFS, peak -1 dBTP. Voices slot in later with --voices (sai's recordings pending).
 - Cut with scene01_cut.py --audio: renders/scene01_suryaputra_3d_v2.mp4 (48.5 s, AAC 192k). v1 kept unchanged.
+
+## 2026-11-25 EP01 heroes: detail pass and moves library (free, cloud CPU)
+- sai: "all 3d models ... with epic detail and make all animations" for EP01. Plan and the 18 moves: episodes/ep01_arjuna_vs_karna/animation_plan.md.
+- hero_detail.py: gold and steel become real metal from the baked texture, engraving relief, skin with subsurface and pores, cloth sheen and weave, one subdivision on the body. New rigs (older ones untouched): karna_hero_v4, arjuna_hero_v4 (--steel), krishna_hero_v3 (--blue-skin --skin-sat 1.15 --gold-lo 0.04); before/after checks next to each.
+- moves_ep01.py: bow_salute, fan_release, exhausted, quiver_draw, bow_draw_ear, leap_down, heave, palm_wait, stand_tall, rapid_fire, head_hit, rise_hair_push, bow_lower, charioteer, reins_flick, foot_press, calm_look (+ bow_draw). moves_ep01_demo.py renders each on its hero; pose checks passed after fixes (salute fist, rapid-fire grip order, wheel, quiver arrow).

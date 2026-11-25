@@ -80,10 +80,10 @@ def wheel():
     gold = bpy.data.materials.new("wheel"); gold.use_nodes = True; b = gold.node_tree.nodes["Principled BSDF"]
     b.inputs["Base Color"].default_value = (0.7, 0.45, 0.12, 1); b.inputs["Metallic"].default_value = 0.8; b.inputs["Roughness"].default_value = 0.35
     w.data.materials.append(gold)
-    for i in range(8):
-        bpy.ops.mesh.primitive_cylinder_add(radius=0.025, depth=1.4, vertices=8, rotation=(0, math.pi / 8 * i, 0))
+    for i in range(8):                                                 # spokes in the wheel's own plane, before it is turned
+        bpy.ops.mesh.primitive_cylinder_add(radius=0.025, depth=1.4, vertices=8, rotation=(math.pi / 2, 0, math.pi / 8 * i))
         s = bpy.context.object; s.data.materials.append(gold); s.parent = w
-    w.rotation_euler = (math.pi / 2, 0, 0)
+    w.rotation_euler = (0, math.pi / 2, 0)                             # side on to him: he grips the near edge of the rim
     return w
 
 
@@ -92,10 +92,10 @@ FULL = ((2.7, -4.6, 1.35), (0, 0, 0.95), 38)
 FACE = ((0.75, -1.9, 1.7), (0, 0, 1.6), 55)
 ARCH = ((-1.2, -4.4, 1.45), (0.4, 0, 1.25), 38)                       # archers: from the front, the target to frame right
 CAMS = {"bow_salute": FACE, "exhausted": FACE, "quiver_draw": ((1.6, -3.0, 1.5), (0, 0, 1.25), 40), "calm_look": FACE,
-        "leap_down": ((4.2, -4.4, 1.9), (0, -0.8, 1.0), 32), "heave": ((2.6, -3.8, 1.1), (0, -0.4, 0.7), 36),
+        "leap_down": ((4.2, -4.4, 1.9), (0, -0.8, 1.0), 32), "heave": ((3.4, -0.9, 1.1), (0, -0.7, 0.65), 34),
         "palm_wait": ((1.4, -3.2, 1.45), (0, 0, 1.25), 40), "head_hit": FULL, "rise_hair_push": FULL,
         "bow_draw": ARCH, "bow_draw_ear": ARCH, "fan_release": ARCH, "rapid_fire": ARCH, "bow_lower": ARCH,
-        "stand_tall": ((0.6, -4.8, 0.6), (0, 0, 1.2), 34), "charioteer": FULL, "reins_flick": FULL, "foot_press": FULL}
+        "stand_tall": ((0.5, -3.3, 0.45), (0, 0, 1.2), 35), "charioteer": FULL, "reins_flick": FULL, "foot_press": FULL}
 DRAW = {"bow_draw": lambda t: t > 0.9, "bow_draw_ear": lambda t: t > 1.15, "fan_release": lambda t: 0.9 < t < 1.8,
         "rapid_fire": lambda t: 0.3 < (t % 0.7) / 0.7 < 0.8}
 
@@ -124,7 +124,14 @@ def clip(name, hero):
         h.key_all(f)
         if w is not None:
             from anim_lib import ease
-            w.location = (0, -0.62, 0.42 + 0.3 * ease(t, 0.8, 3.0)); w.keyframe_insert("location", frame=f)
+            w.location = (0, -1.2, 0.4 + 0.3 * ease(t, 0.8, 3.0)); w.keyframe_insert("location", frame=f)
+        if name == "quiver_draw":                                      # the arrow he pulls from the quiver, in his right fist
+            bpy.context.view_layer.update()
+            hb = h.pb["DEF-hand.R"]; a0 = h.rig.matrix_world @ hb.head; a1 = h.rig.matrix_world @ hb.tail
+            g = a1 + (a1 - a0).normalized() * 0.02; up = (h.rig.matrix_world @ h.pb["DEF-forearm.R"].head - g).normalized()
+            place_arrow(arrow, g + up * 0.25, g - up * 0.55, f)       # tail low behind the fist, head up past it
+            arrow.hide_render = t < 0.7; arrow.keyframe_insert("hide_render", frame=f)
+            continue
         if bow is not None:
             drawn = DRAW.get(name, lambda t: False)(t)
             if drawn:

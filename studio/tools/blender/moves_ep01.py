@@ -26,24 +26,30 @@ def blink(t, times, dur=0.18):
     return w
 
 
-def _bow_hand(h, pose):
-    arm(h, "L", *pose); h.fingers("L", 80, thumb=50)
+def _bow_hand(h, pose, palm=None):
+    """bow arm pose; palm (hero frame) turns the fist first, while the fingers are still open (palm_to needs that)"""
+    arm(h, "L", *pose)
+    if palm:
+        palm_to(h, "L", palm)
+    h.fingers("L", 80, thumb=50)
 
 
 # ---- Karna -----------------------------------------------------------------------------------------------------------------
-SALUTE_L = ((0.22, -0.85, -0.45), (-0.3, -0.5, 0.82), (-0.2, -0.3, 0.95))       # bow hand before the forehead
-SALUTE_R = ((0.22, -0.85, -0.5), (-0.4, -0.55, 0.72), (-0.35, -0.4, 0.85))      # other hand joins it, a little lower
+SALUTE_L = ((0.15, -0.25, -0.95), (-0.8, -0.55, 0.15), (-0.82, -0.55, 0.12))    # bow fist close before the chest, bow upright before his face
+SALUTE_R = ((0.2, -0.35, -0.9), (-0.7, -0.55, 0.45), (-0.75, -0.45, 0.45))      # other hand flat over his heart
 
 
 def bow_salute(h, t, look=-1):
     """A03, 4 s: lifts the bow to his forehead, eyes closed (0-2), then the eyes open and lift toward look (-1 his right)"""
     u = ease(t, 0.0, 1.0) * (1 - 0.35 * ease(t, 2.2, 3.2))             # the bow comes down a little as he looks up
-    _bow_hand(h, lerp(BOW_LOW, SALUTE_L, u))
-    arm(h, "R", *lerp(DOWN, SALUTE_R, ease(t, 0.15, 1.0) * (1 - ease(t, 2.4, 3.4))))
-    h.fingers("R", mix(20, 10, u), thumb=15)
-    palm_to(h, "R", (-1, 0, 0))                                        # palm flat against the bow
+    _bow_hand(h, lerp(BOW_LOW, SALUTE_L, u), palm=(0, 1, 0) if u > 0.5 else None)   # palm to the chest: the bow stands upright
+    r = ease(t, 0.15, 1.0) * (1 - ease(t, 2.4, 3.4))
+    arm(h, "R", *lerp(DOWN, SALUTE_R, r))
+    if r > 0.3:
+        palm_to(h, "R", (0, 1, 0))                                     # palm flat on his chest
+    h.fingers("R", 5, thumb=10)
     bow = ease(t, 0.6, 1.2) * (1 - ease(t, 2.0, 2.6))
-    h.turn("head", "X", 14 * bow - 9 * ease(t, 2.2, 3.4))             # bows into the bow, then the chin lifts
+    h.turn("head", "X", 18 * bow - 9 * ease(t, 2.2, 3.4))             # bows his forehead to the bow, then the chin lifts
     h.turn("head", "Z", 22 * look * ease(t, 2.3, 3.6), keep=True)
     h.turn("chest", "X", 5 * bow, keep=True)
     shut = ease(t, 0.7, 1.0) * (1 - ease(t, 2.0, 2.25))
@@ -175,7 +181,7 @@ def rapid_fire(h, t, period=0.7):
     """A07, loops: nock, draw and loose again and again, the aim stepping a little each shot to meet each arrow"""
     _stance(h, 1.0)
     k = int(t // period); p = (t % period) / period
-    _bow_hand(h, BOW_UP); palm_to(h, "L", (0, -1, 0))
+    _bow_hand(h, BOW_UP, palm=(0, -1, 0))
     if p < 0.3:
         r = lerp(LOOSE, SET, ease(p, 0.0, 0.3))
     elif p < 0.78:
@@ -204,9 +210,9 @@ def head_hit(h, t):
 
 def kneel(h, u):
     """down on the right knee (u 0..1): right foot back with the heel up, left foot forward, hips low"""
-    h.move("foot_ik.R", (0, 0.42 * u, 0)); h.turn("foot_ik.R", "X", -55 * u)
-    h.move("foot_ik.L", (0, -0.22 * u, 0))
-    h.move("torso", (0, 0.12 * u, -0.5 * u))
+    h.move("foot_ik.R", (-0.04 * u, 0.55 * u, 0.02 * u)); h.turn("foot_ik.R", "X", -60 * u)
+    h.move("foot_ik.L", (0.04 * u, -0.3 * u, 0))
+    h.move("torso", (0, 0.1 * u, -0.55 * u))
 
 
 HAIR_A = ((0.55, -0.6, 0.45), (-0.5, -0.45, 0.75), (-0.55, -0.3, 0.75))          # right hand at the forehead
@@ -275,7 +281,7 @@ def foot_press(h, t):
     h.keys(dict(brow_angry=0.2 * press, smile_L=0.12, smile_R=0.12))
 
 
-def calm_look(h, t, side=1, deg=35):
+def calm_look(h, t, side=1, deg=45):
     """A17, A22, 4 s: turns his head slowly to look (side +1 his left), a faint smile, one slow blink; reins held"""
     charioteer(h, t, sway=0.2)
     u = ease(t, 0.3, 1.8)

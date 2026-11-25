@@ -13,7 +13,7 @@ Follows story_scene_01_karna_dawn.md shot for shot (9 shots, 45 s), with the key
 Karna wears his crown and cuirass throughout: they are fused into the 3D model (sai's choice, 2026-11-25; a prayer-costume
 model can replace him later). Sun in the east = world -X; Karna faces it. Subtitles and the title card go on in the cut.
 
-  python scene01_3d.py <out_dir> [1 2 ...] [--preview | --still]
+  python scene01_3d.py <out_dir> [1 2 ...] [--preview | --still] [--resume]
 """
 import math, pathlib, random, sys
 import bpy
@@ -500,6 +500,7 @@ for k, fn in SHOTS.items():
     d.mkdir(parents=True, exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(OUT / f"s01_{k:02d}.blend"), compress=True)
     sc.render.filepath = str(d / "f_"); sc.render.image_settings.file_format = "PNG"
+    sc.render.use_overwrite = "--resume" not in sys.argv                  # --resume keeps frames already rendered
     print("rendering shot", k, n, "frames", flush=True)
     if STILL:
         for fr in (1, n // 2, n):

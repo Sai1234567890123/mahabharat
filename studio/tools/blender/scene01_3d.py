@@ -21,6 +21,7 @@ from mathutils import Vector, Quaternion
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from anim_lib import Hero, ease, track, mix
+import banners
 
 args = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
 PREVIEW = "--preview" in args or "--still" in args
@@ -386,9 +387,11 @@ def chariot_team(at, face_deg):
             m.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.75
     for m in ch.data.materials:
         if m and m.name.startswith("MAT_Saffron"):
-            m.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.75, 0.55, 0.12, 1)  # gold standard
+            m.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.36, 0.05, 0.06, 1)  # maroon pennant
     root = bpy.data.objects.new("team", None); bpy.context.scene.collection.objects.link(root)
     ch.parent = root; hs.parent = ch
+    std = banners.make("elephant_rope", height=7.0); std.parent = ch; std.location = (1.25, 2.9, 0.6)   # his standard, rear right
+    banners.animate(std, 1, 240)
     hs.location = (0, -(ch.dimensions.y * 0.5 + hs.dimensions.y * 0.5) + 4.5, 0)   # astride the pole
     root.location = at; root.rotation_euler = (0, 0, math.radians(face_deg))
     return root, ch, hs

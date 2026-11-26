@@ -42,13 +42,13 @@ The order of events in EP01 matches Ganguli exactly: the net of arrows, then the
 | A19 | Arjuna draws the Anjalika; rings of lightning | 12078-12107 | canon | The universe shakes and the Rishis cry "Peace be to the universe!" (12092-12094). Arjuna speaks a truth-vow before release (12096-12101). |
 | A20 | The Anjalika flies; Karna's silhouette; the sun goes dark | 12108-12125 | dramatised | Canon: afternoon; the head falls "like the sun of bloody disc dropped down from the Asta hills"; "the Karna-sun ... was at last caused to set". The silhouette keeps our no-gore rule. |
 | A21 | A column of light rises and enters the sun | 12130-12133 | canon | "From that body of the fallen Karna a light passing through the welkin penetrated the sun." |
-| A22 | Arjuna lowers Gandiva and does not celebrate; Krishna watches | 12133-12136 | **changed** | Text: "Krishna and Dhananjaya also, filled with delight, and losing no time, blew their conchs." See decision 1. |
+| A22 | Arjuna lowers Gandiva and does not celebrate; Krishna watches | 12133-12136 | **changed** | Text: "Krishna and Dhananjaya also, filled with delight, and losing no time, blew their conchs." sai chose on 2026-11-26 to keep the quiet ending as a deliberate reading; the conch stays far away. |
 
 The beats left out for a 90 s cut are: the weapon Karna had from Rama "no longer shone in him" (11883-11885), Karna railing at dharma (11887-11897), Krishna lifting the car back out (11797-11799), the duel of weapons with Agni, Varuna and Vayavya (12025-12035), and Karna's arrow to Arjuna's chest that makes Gandiva drop (12036-12048). None of these cuts change the meaning.
 
 ## Decisions for sai
 
-1. **A22, the ending.** Choose one:
+1. **A22, the ending.** **Decided 2026-11-26: keep the quiet ending (a).** The options were:
    - (a) **Keep "does not celebrate"** as a deliberate reading, and say so in the episode notes. This is the recommendation: the far conch already exists in the sound, and the stillness follows the "Show divinity through stillness" lesson in the research.
    - (b) **Follow the text.** Arjuna and Krishna raise Devadatta and Panchajanya and blow. The conch then comes from them, not from far away.
 2. **Shalya in A02, A06 and A16.** He is in the Karna passport as "grey-bearded, mid-ground only", but no Shalya asset exists. The proposal is a simple back-turned or silhouetted charioteer made by reusing the Krishna body under a new paint. This is free and done in Blender.
@@ -73,7 +73,7 @@ Look at every layout grab and render against this list. A "no" on any line means
 ## Sign-off
 
 - [ ] sai agrees with the verdicts above.
-- [ ] sai has chosen A22 (a) or (b).
+- [x] sai has chosen A22: (a), keep the quiet ending (2026-11-26).
 - [ ] sai has approved the Shalya proposal.
 
 Once these three are ticked, step 1 is done and step 2 (animatic lock) starts.

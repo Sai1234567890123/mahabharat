@@ -1,15 +1,16 @@
-# @krishna · passport v1 · LOCKED (design lock of 2026-10-13)
+# @krishna · passport v2 (trailer look) · LOCKED, sheet approved by sai 2026-11-15
 
-Full design lock: `preproduction/14-krishna-design-lock-prompts.md`. In this episode Krishna is the charioteer: mostly from behind or in profile, reins in hand.
+Sai, 2026-11-15: "krishna blue" for this trailer, as in the concept paintings. The rigged 3D Krishna from October keeps its brown skin; that design lock is not changed by this file.
 
 ## Descriptor (paste verbatim, never shorten)
 
-Painterly stylized Krishna, original face, same face as the reference, young adult, slim, warm medium brown skin #B07856, long oval face, almond brown eyes, calm faint smile, dark wavy shoulder-length hair, white U-shaped tilak with a red center line, simple tall gold crown with a single peacock feather rising from the front (teal #1E8C8C), yellow silk upper cloth #E8B92F trailing in the wind, yellow silk dhoti with gold border, pearl and gold necklaces, armlets, round gold earrings, one bright chest jewel, reins in both hands, white-gold divine rim light #FFE9A8.
+Krishna as charioteer, youthful, clean-shaven, soft lavender-blue skin, calm oval face with large dark eyes and a faint smile, black wavy hair to the shoulders, a tall gold crown with a fan of curled flame-shaped tiers and one peacock feather at the front left, a red and white tilak on the forehead, small gold earrings, carved gold shoulder armour and chest piece with crimson inlay and a round gold medallion, gold armlets and wide gold bracers, a crimson and gold dhoti, black leather reins in both hands.
 
 - **Signature item:** the peacock feather.
 - **Tell:** stillness. He moves least in every shot.
-- **Fixed imperfection:** the feather always leans slightly to his right.
+- **Drift check:** blue skin, peacock feather at the front left of the crown.
 
 ## References
 
-- `ref_closeup_approved.png` (approved close-up). Note: the older pilot frame SH170 shows Krishna blue-skinned; the brown skin above is the current lock.
+- `../../refs/concept/concept_28.jpeg`, `concept_13.jpeg`.
+- `sheet.png`: approved 2026-11-15 by sai ("good ... approve it"). Locked: never regenerate, rename or re-prompt. Output of gen_sheets.py v1. `ref_closeup_approved.png` is the older brown-skin face and is not used for this trailer.

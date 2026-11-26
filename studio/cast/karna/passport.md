@@ -1,24 +1,23 @@
-# @karna · passport v1 · DRAFT, needs a hero image approved by sai
+# @karna · passport v2.1 · LOCKED, sheet approved by sai 2026-11-15; back disc removed by sai 2026-11-17
 
-No Karna art exists in the project yet. The hero image below is the first paid step. Design follows `preproduction/02-style-bible.md` section 3 ("Karna: sun gold, energy solar orange, sunburst shape").
+Look source: `refs/concept/concept_46.jpeg` (sai: "46 karna") for face, armour, bow and chariot; `concept_37.jpeg` for the saffron dhoti and the wheel. The two paintings dress him differently, so this passport fixes one costume: saffron below, so he never reads as Arjuna (white and green) in a wide shot.
 
 ## Descriptor (paste verbatim, never shorten)
 
-Painterly stylized Indian warrior-archer Karna, original face, 8.5 heads tall, broad-shouldered but lean, a little older and heavier than Arjuna, dark warm brown skin #6E4630, strong square jaw, short black beard close to the jaw, long straight black hair falling past the shoulders, a gold crown with sun rays radiating upward like a sunburst #E8A317, forged gold-bronze breastplate with a sun disc at the center #C98A1E over a deep crimson silk sash #8E1B24, gold armlets, crimson dhoti, the bow Vijaya long and pale white-gold #EFE3C2 with a sun-disc grip, a golden quiver, solar orange-gold rim light #FFB02E.
+Karna, Indian warrior-king and archer in his forties, dark warm brown skin, broad heavy chest and thick arms, stern heavy brows, a thick black moustache with upturned ends, a rounded gold crown with a curled crest at the top and a sun disc at the front, bare earlobes with no earrings, a sleeveless carved gold cuirass that wraps the whole torso, with a radiant sun-face relief on the chest, black enamel inlay and a plain carved gold back plate, nothing strapped on his back, wide carved gold bracers, a black silk sash with gold stripes, a saffron-orange dhoti with black borders and thin gold stripes, black strap sandals, the bow Vijaya with black limbs wrapped in spiral gold bands and gold winged ornaments above and below the grip.
 
-- **Signature item:** the bow Vijaya, pale white-gold with a sun-disc grip.
+- **Signature items:** the sun face on the chest, the saffron dhoti.
 - **Tell:** touches the bow to his forehead, a salute to the sun, before every major shot.
-- **Fixed imperfection:** thin pale scar lines in a sunburst pattern on the upper chest where his natural golden armor was cut away, visible at the breastplate's collar, and bare earlobes with old scars (no earrings). Earrings on Karna, or no chest scars, means a failed shot.
-- **Energy:** solar orange-gold flares and sun rays, drawn as flat hard-edged wedges.
+- **Drift check:** saffron dhoti, sun-face relief, no earrings, nothing on his back. Green cloth, earrings, or any disc or shield on Karna's back means a failed shot.
+- **Change 2026-11-17:** sai asked to "remove shield of karna back side". The round sun-face disc on his back is gone from the descriptor. `sheet.png` stays the approved reference for face and costume; if it shows a disc behind the shoulders, prompts say not to paint it.
+- **Energy:** solar orange-gold flares, drawn in 2D.
 
 ## References
 
-- `hero.png`: not made yet (first paid step, see `../../episodes/ep01_arjuna_vs_karna/quote.md`).
-- `turnaround.png`, `crop-34.png`: after hero.png is approved.
+- `../../refs/concept/concept_46.jpeg`, `concept_37.jpeg`.
+- `sheet.png`: approved 2026-11-15 by sai ("good ... approve it"). Locked: never regenerate, rename or re-prompt. Output of gen_sheets.py v1.
 
 ## Story facts (canon, Ganguli B08)
 
-- Charioteer: Shalya, king of Madra (see @shalya in the shot cards: grey-bearded, silver armor, a mid-ground figure only).
-- Standard: the gold "elephant's rope" device, bright as the sun (line 12062).
-- Never aims an arrow twice (line 11686).
-- Left chariot wheel swallowed by the earth (line 11936).
+- Charioteer Shalya (grey-bearded, mid-ground only). Standard: the gold "elephant's rope" (line 12062). Never aims an arrow twice (line 11686). Left wheel swallowed by the earth (line 11936).
+- Chariot: carved gold with a griffin prow and maroon panels (paintings 46 and 37), dun horses (painting 34) so the two teams read apart.

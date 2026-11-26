@@ -17,22 +17,24 @@ def descriptor(tag):
     txt = p.read_text()
     return re.search(r"## Descriptor.*?\n\n(.+?)\n", txt, re.S).group(1).strip()
 
-LOCATION = ("Kurukshetra battlefield, late afternoon, trampled red earth, hot orange low sun in the west, "
-            "burnt umber shadows, red dust haze in flat layers. Screen direction: Arjuna's side on the left, "
+LOCATION = ("Kurukshetra battlefield, late afternoon, trampled warm earth, low gold sun in the west, "
+            "soft warm-brown shadows, pale gold dust in soft layers, cream and soft blue sky. Screen direction: Arjuna's side on the left, "
             "Karna's side on the right.")
 
 t = 0
 md = [f"# {d['title']}: shot cards ({d['runtime_s']} s, {len(d['shots'])} shots)\n",
       f"Source: {d['source']}. Aspect {d['aspect']}.\n",
       "Rules: one action per shot; hook readable with the sound off in the first 3 s; no text in frame; the last shot holds its pose to the last frame.\n",
-      "| Shot | In | Dur | Beat | Characters | Camera | The one action | Sound |", "|---|---|---|---|---|---|---|---|"]
+      "Grade (S/A/B/C) sets how much hand work a shot gets; Canon gives the Ganguli lines in B08-karna.txt and the verdict (see canon_check.md).\n",
+      "| Shot | In | Dur | Grade | Beat | Characters | Camera | The one action | Sound | Canon |", "|---|---|---|---|---|---|---|---|---|---|"]
 fp = [f"# {d['title']}: starting-frame prompts\n",
       "Each prompt = global style + passport descriptors verbatim + location + the calm starting picture. Attach the listed reference image. Generate nothing until sai approves the quote.\n"]
 mp = [f"# {d['title']}: motion prompts (image-to-video)\n",
       "The scene lives in the frame. These prompts are motion only: one action, one camera move, timed in beats. Render each at 5 to 8 s and trim to the card length in the edit.\n"]
 for s in d["shots"]:
     chars = ", ".join(s["chars"]) or "none"
-    md.append(f"| {s['id']} | {t//60}:{t%60:02d} | {s['dur']} s | {s['beat']} | {chars} | {s['camera']} | {s['action']} | {s['sound']} |")
+    cn = s.get("canon", {})
+    md.append(f"| {s['id']} | {t//60}:{t%60:02d} | {s['dur']} s | {s.get('grade', '')} | {s['beat']} | {chars} | {s['camera']} | {s['action']} | {s['sound']} | {cn.get('lines', '')} {cn.get('verdict', '')} |")
     parts = [style]
     for c in s["chars"]:
         parts.append(f"{c}: {descriptor(c)}")
@@ -42,7 +44,7 @@ for s in d["shots"]:
         fp.append(f"Reference image: `studio/{s['ref']}`\n")
     fp.append("```\n" + "\n\n".join(parts) + "\n```\n")
     mp.append(f"## {s['id']}\n\n```\nImage-to-video, {max(5, s['dur'])} seconds, from the attached still.\n" + "\n".join(s["motion"]) +
-              f"\nCamera: {s['camera']}.\nSound: {s['sound']}\nPainterly stylized animation, 2D effects on twos, no text, the characters do not speak.\n```\n")
+              f"\nCamera: {s['camera']}.\nSound: {s['sound']}\nKeep the oil-painted look of the still. No text, the characters do not speak. Energy effects are added later in 2D, so keep arrows and light simple.\n```\n")
     t += s["dur"]
 md.append(f"\nTotal: {t} s.\n")
 (ep / "shots.md").write_text("\n".join(md))

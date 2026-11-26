@@ -47,19 +47,19 @@ If time runs short, A07 and A13 drop to B before anything else is cut.
 
 Story order and episode numbers are in `series_plan.md`. The duel below was built first; it is released as the teaser and returns inside episode 21.
 
-| Step | Teaser / ep 21 "The Anjalika" |
-|---|---|
-| 1 Canon lock | Draft done (`episodes/ep01_arjuna_vs_karna/canon_check.md`), waiting for sai's sign-off |
-| 2 Animatic lock | HTML and Blender layout animatics exist; temp sound and timing freeze still to do |
-| 3 Style bible and colour script | Bible exists; key frames and colour script still to do |
-| 4 Shot grading | Proposed in `shots.json`, waiting for sai's approval |
-| 5 Asset repair | Hero rigs Arjuna v3, Krishna v2 and Karna v3 exist; hands, faces and repaint still to do; no Shalya asset yet |
-| 6 Environments | Kurukshetra battlefield in Blender; Unreal duel set in progress on sai's PC |
-| 7 Voice | Not started |
-| 8 Animation | Moves library and a moves demo exist; shots not started |
-| 9 FX | A06 volley proof only |
-| 10 Render | Story scene 01 rendered in Cycles on CPU; EEVEE not yet tested |
-| 11 Photography | Not started |
-| 12 Sound and release | Code-made sound for scene 01 only |
+| Step | Teaser / ep 21 "The Anjalika" | S1E01 "The Scribe" |
+|---|---|---|
+| 1 Canon lock | **Locked** (`episodes/ep01_arjuna_vs_karna/canon_check.md`; A22 quiet ending + Shalya approved) | **Locked** (`episodes/s1e01_the_scribe/canon_check.md`; Ganesha's tusk added, Shakuntala 1,3,7,10 locked) |
+| 2 Animatic lock | **Layout animatic + temp sound built** (`animatic_layout.mp4` 90 s via `ep01_sound.py`); timing freeze pending sai review | Opening scene `sc01/shots.json` drafted (12 shots, 72 s, `B01-adi.txt` 413-498) |
+| 3 Style bible and colour script | Bible exists; key frames and colour script still to do | Uses `bible.md`; hermitage colour script still to do |
+| 4 Shot grading | Proposed in `shots.json`, waiting for sai's approval | Proposed in `sc01/shots.json` (S/A/B/C), waiting for sai's approval |
+| 5 Asset repair | `arjuna_hero_v4`, `arjuna_bare_hero_v1`, `karna_hero_v4`, `krishna_hero_v3`, `shalya_hero_v1` built (`cast/shalya/`) | Draft passports added (`cast/vyasa/`, `cast/ganesha/`, `cast/brahma/`); sheets/rigs pending |
+| 6 Environments | Kurukshetra battlefield in Blender (`13,977` GN instances); Unreal duel set in progress on sai's PC | Vedic hermitage by river (`sc01/`) |
+| 7 Voice | Not started (Scene 01 Karna/Shalya 5 lines + A17 optional VO pending sai) | Not started (Brahma, Vyasa, Ganesha lines mapped in `sc01/shots.json`) |
+| 8 Animation | Moves library + `ep01_moves_demo_v1.mp4` (20 moves, 62.6 s) built; shot assembly next | Not started |
+| 9 FX | A06 volley proof (`A06_fx_proof_v1.mp4`) | Not started |
+| 10 Render | Story scene 01 rendered in Cycles on CPU; EEVEE tested in cloud (3.5 s/frame) | Not started |
+| 11 Photography | Not started | Not started |
+| 12 Sound and release | Code-made sound for Scene 01 (`scene01_sound.py`) and EP01 animatic (`ep01_sound.py`) | Not started |
 
 Update this table when a step changes state.

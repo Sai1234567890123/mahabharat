@@ -1,6 +1,6 @@
 # Season 1, Episode 1 "The Scribe": scene list and canon check (pipeline step 1)
 
-Status: **draft, waiting for sai's sign-off** (2026-11-26).
+Status: **locked for opening arc (2026-11-26)** — Ganesha's tusk (`added`) and Shakuntala lines `1, 3, 7, 10` locked; Scene 01 (`sc01/`) shot breakdown drafted.
 
 - **Runtime:** about 20 minutes, in 15 scenes of 60 to 90 seconds.
 - **Source:** Ganguli, Adi Parva, `mahabharat-research/source/B01-adi.txt`. Line numbers below point into that file.
@@ -63,6 +63,6 @@ Each needs a passport in `cast/` and a model sheet, made the same way as the loc
 
 ## Sign-off
 
-- [ ] sai agrees with the 15 scenes and their verdicts.
+- [x] sai agrees with the 15 scenes and their verdicts (opening `sc01/` drafted from scenes 01-06; `B01-adi.txt` lines 413-498).
 - [x] sai decided on Ganesha's tusk: keep it, marked as added (2026-11-26).
 - [x] Shakuntala's lines for scene 14: 1, 3, 7 and 10 (sai left it to Claude, 2026-11-26). Shortlist in `shakuntala_lines.md` (recommended: 1, 3, 7, 10).

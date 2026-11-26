@@ -1,0 +1,312 @@
+{
+ "episode": "s1e01_the_scribe_sc01",
+ "title": "The Scribe: Vyasa, Brahma & Ganesha",
+ "runtime_s": 72,
+ "aspect": "16:9 with 2.39:1 letterbox",
+ "source": "Ganguli, Adi Parva (mahabharat-research/source/B01-adi.txt) lines 413-498",
+ "location": "Vedic forest hermitage beside a clear river, thatched kusa-grass hut, sacred fire altar with rising sandal smoke, ancient banyan roots, deer grazing in soft dawn light. Strictly 1000 BCE Vedic era: palm-leaf bundles and birch bark only, no paper books, no carved stone temples.",
+ "acts": [
+  {
+   "name": "I. The Poem With No Writer",
+   "from": "S01",
+   "to": "S04"
+  },
+  {
+   "name": "II. Think of Ganesa",
+   "from": "S05",
+   "to": "S08"
+  },
+  {
+   "name": "III. The Tusk, the Knots & the Lamp",
+   "from": "S09",
+   "to": "S12"
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "dur": 6,
+   "chars": [
+    "@vyasa"
+   ],
+   "beat": "hook",
+   "panel": "hermitage_dawn",
+   "camera": "Extreme wide, 24mm, slow push-in toward the thatched hut",
+   "action": "In a quiet forest hermitage at dawn, @vyasa sits still before the sacred fire, holding the entire epic in his mind.",
+   "sound": "Forest river bed, early dawn birds, faint crackle of the fire altar.",
+   "frame": "Wide establishing frame of a thatched Vedic hermitage under an ancient banyan tree by a misted river. @vyasa sits centered on a woven mat in quiet stillness beside the fire altar, eyes half-closed, stacks of tied palm-leaf bundles beside him.",
+   "motion": [
+    "0-6s: slow gentle push-in toward @vyasa; thin incense and altar smoke curls upward; leaves drift in morning light."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "413-418",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "S02",
+   "dur": 5,
+   "chars": [
+    "@vyasa"
+   ],
+   "beat": "setup",
+   "panel": "vyasa_cu",
+   "camera": "Medium close-up, 85mm, locked off",
+   "action": "@vyasa opens his eyes, wondering who on earth can write down the vast poem he has composed.",
+   "sound": "Low tanpura drone enters gently; quiet breath.",
+   "frame": "@vyasa in medium close-up lit by warm altar firelight from below and cool dawn blue fill from behind, forehead tripundra marks crisp, hands resting calmly on his knees.",
+   "motion": [
+    "0-3s: his eyes open slowly.",
+    "3-5s: faint furrowing of his brow as he looks toward the empty palm leaves."
+   ],
+   "ref": "",
+   "grade": "C",
+   "canon": {
+    "lines": "416-418, 445-446",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "S03",
+   "dur": 7,
+   "chars": [
+    "@brahma",
+    "@vyasa"
+   ],
+   "beat": "accident",
+   "panel": "brahma_appears",
+   "camera": "Locked symmetrical wide, 35mm, zero camera movement",
+   "action": "The four-faced @brahma appears in soft golden light above a lotus seat; @vyasa rises with joined palms, bows, and walks around him.",
+   "sound": "Pure harmonic chord swells softly; footsteps on packed earth.",
+   "frame": "Strictly symmetrical sacred frame. Center: @brahma suspended upon an open pink-gold lotus radiating warm golden light against blue dawn mist. Foreground left: @vyasa standing with joined palms in reverence.",
+   "motion": [
+    "0-2s: golden light blooms calmly around the lotus; @brahma materializes in stillness without walking in.",
+    "2-5s: @vyasa bows deeply with joined palms.",
+    "5-7s: @vyasa circles the lotus seat clockwise and sits nearby."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "418-427",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "S04",
+   "dur": 8,
+   "chars": [
+    "@vyasa",
+    "@brahma"
+   ],
+   "beat": "setup",
+   "panel": "cosmos_montage",
+   "camera": "Medium two-shot dissolving into three 1.5s painted cosmic flashes, then back",
+   "action": "@vyasa speaks of all his poem contains—stars, oceans, dharma, and war—and says no writer exists on earth.",
+   "sound": "Vyasa VO (lines 428-446 trimmed); brief distant ocean swell and war drum echo under the montage.",
+   "frame": "Over @vyasa speaking to @brahma seated on the golden lotus, soft painted vision-layers drift in the firelight: constellations, sacred rivers, and tiny chariot silhouettes on Kurukshetra.",
+   "motion": [
+    "0-2.5s: @vyasa speaks humbly with joined hands.",
+    "2.5-6.5s: rapid painted montage of stars, rivers, and distant armies in warm gold dust.",
+    "6.5-8s: back to @brahma listening calmly."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "427-446",
+    "verdict": "dramatised"
+   }
+  },
+  {
+   "id": "S05",
+   "dur": 5,
+   "chars": [
+    "@brahma",
+    "@vyasa"
+   ],
+   "beat": "twist",
+   "panel": "think_of_ganesa",
+   "camera": "Locked symmetrical medium shot on @brahma, 50mm",
+   "action": "@brahma names Vyasa's work a true poem and counsels him: 'Think of Ganesa to write it,' then vanishes in light.",
+   "sound": "Brahma VO: 'Let Ganesa be thought of, O Muni, for the purpose of writing the poem.' Single soft bell.",
+   "frame": "Locked centered frame of four-faced @brahma glowing gently on his lotus seat, one palm raised in blessing.",
+   "motion": [
+    "0-3s: @brahma speaks without sudden gesture.",
+    "3-5s: golden radiance dissolves cleanly back into dawn mist, leaving the space empty."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "450-461",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "S06",
+   "dur": 6,
+   "chars": [
+    "@vyasa",
+    "@ganesha"
+   ],
+   "beat": "setup",
+   "panel": "ganesha_arrives",
+   "camera": "Locked symmetrical wide, 35mm, balanced left-right framing",
+   "action": "@vyasa closes his eyes and calls @ganesha in thought; @ganesha appears before him and sits ready to write.",
+   "sound": "Deep warm conch-like resonance, subtle chime as @ganesha manifests.",
+   "frame": "Locked symmetrical frame across the hermitage mat: LEFT @vyasa seated calmly; RIGHT @ganesha seated with palm-leaf sheets arranged cleanly before him, sacred fire glowing at center.",
+   "motion": [
+    "0-2s: @vyasa closes his eyes in concentration.",
+    "2-4s: warm vermilion-gold radiance coalesces on the right into @ganesha.",
+    "4-6s: @ganesha bows slightly and takes his seat."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "461-467",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "S07",
+   "dur": 6,
+   "chars": [
+    "@ganesha",
+    "@vyasa"
+   ],
+   "beat": "twist",
+   "panel": "the_condition",
+   "camera": "Over-the-shoulder two-shot alternating, 50mm",
+   "action": "@ganesha states his condition that his pen never stop; @vyasa answers that he must not write what he has not understood. @ganesha says 'Om'.",
+   "sound": "Ganesha VO & Vyasa VO (lines 471-475); low resonant 'Om' vibrates softly.",
+   "frame": "@ganesha holding his stylus poised above fresh palm leaf, eyes steady on @vyasa across the fire.",
+   "motion": [
+    "0-3s: @ganesha raises his stylus hand slightly as he speaks his condition.",
+    "3-5s: cut to @vyasa answering calmly.",
+    "5-6s: @ganesha lowers the stylus onto the palm leaf with 'Om'."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "471-475",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "S08",
+   "dur": 5,
+   "chars": [
+    "@ganesha"
+   ],
+   "beat": "setup",
+   "panel": "writing_speed",
+   "camera": "Macro insert on palm leaf and stylus, 100mm, tracking along the line",
+   "action": "The stylus glides rapidly across incised palm-leaf strips, etching Sanskrit lines without pause as leaves stack up.",
+   "sound": "Rhythmic crisp scratch of stylus on dry palm leaf, steady heartbeat pace.",
+   "frame": "Close macro of @ganesha's hand driving a bronze stylus across pale-green/tan palm leaves, crisp incised grooves catching warm firelight.",
+   "motion": [
+    "0-4s: rapid, fluid strokes across the leaf; finished leaf slides cleanly aside.",
+    "4-5s: sudden snap—the bronze stylus tip fractures on the dense knot of grain."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "475",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "S09",
+   "dur": 6,
+   "chars": [
+    "@ganesha"
+   ],
+   "beat": "accident",
+   "panel": "broken_tusk",
+   "camera": "Locked symmetrical medium frame, 50mm, 2-frame white-gold impact flash on the snap",
+   "action": "His pen failing mid-verse, @ganesha immediately snaps off his right tusk and writes on without missing a beat.",
+   "sound": "Sharp ivory crack, brief 2D flash hush, then immediate steady stylus scratching resuming.",
+   "frame": "Locked centered frame of @ganesha: left hand steadies the palm leaves, right hand snaps the tip of his right ivory tusk and brings it straight down onto the leaf without breaking rhythm.",
+   "motion": [
+    "0-2s: anticipation as his hand grips the tusk tip.",
+    "2-2.2s: 2-frame graphic white-gold impact frame on the snap (2D FX).",
+    "2.2-6s: fluid continuous writing with the tusk on the palm leaf."
+   ],
+   "ref": "",
+   "grade": "S",
+   "canon": {
+    "lines": "461-473 (tusk beat added)",
+    "verdict": "added"
+   }
+  },
+  {
+   "id": "S10",
+   "dur": 6,
+   "chars": [
+    "@vyasa",
+    "@ganesha"
+   ],
+   "beat": "reaction",
+   "panel": "the_knots",
+   "camera": "Medium wide two-shot, 50mm, gentle slow push-in",
+   "action": "@vyasa knits a dense verse; even the omniscient @ganesha pauses briefly to ponder it while @vyasa composes ahead with a quiet smile.",
+   "sound": "Stylus scratching stops abruptly; warm silence, quiet smile-breath from Vyasa, then writing resumes.",
+   "frame": "@vyasa on the left composing effortlessly with a faint warm smile; @ganesha on the right holding his tusk-stylus poised just above the leaf, brows lifted in deep thought.",
+   "motion": [
+    "0-2s: tusk stops mid-air over the leaf.",
+    "2-4.5s: @ganesha tilts his head, pondering the knot; @vyasa smiles faintly.",
+    "4.5-6s: @ganesha nods in comprehension and resumes writing swiftly."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "475-486",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "S11",
+   "dur": 6,
+   "chars": [
+    "@ganesha",
+    "@vyasa"
+   ],
+   "beat": "setup",
+   "panel": "the_lamp",
+   "camera": "Crane up from the palm-leaf firelight into warm golden radiance",
+   "action": "Over the first verses of the Bharata, the light of the sacred fire swells like a lamp dispelling darkness across the earth.",
+   "sound": "Warm tanpura drone swells into a luminous harmonic chord; fire crackle.",
+   "frame": "From the incised palm-leaf verses glowing amber, a warm golden lamp-light expands outward into soft painted waves pushing back indigo night mist.",
+   "motion": [
+    "0-6s: crane slowly up as golden 2D light-wash radiates across the dark forest sky."
+   ],
+   "ref": "",
+   "grade": "S",
+   "canon": {
+    "lines": "488-498",
+    "verdict": "dramatised"
+   }
+  },
+  {
+   "id": "S12",
+   "dur": 6,
+   "chars": [],
+   "beat": "twist",
+   "panel": "title_lamp",
+   "camera": "Locked off, hold to final frame",
+   "action": "The golden lamp flame settles at center as the darkness clears; the title card 'THE SCRIBE' fades in over the glow.",
+   "sound": "One deep distant temple-conch resonance, drone fades gently to stillness.",
+   "frame": "Minimalist locked frame: a single warm oil-lamp flame burning steadily in painted gold against deep umber, holding calm stillness.",
+   "motion": [
+    "0-3s: flame steadies; warm golden light holds.",
+    "3-6s: hold calm flame (title added in edit, never baked in frame)."
+   ],
+   "ref": "",
+   "grade": "C",
+   "canon": {
+    "lines": "496-498",
+    "verdict": "dramatised"
+   }
+  }
+ ]
+}

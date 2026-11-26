@@ -83,21 +83,50 @@ def frame(src, sid, i, n, rnd):
             im = Image.blend(im, Image.new("RGB", (W, H), "white"), 0.7)
     return im
 
+def load_font(size, bold=False):
+    candidates = (
+        ["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "C:/Windows/Fonts/arialbd.ttf", "C:/Windows/Fonts/segoeuib.ttf"]
+        if bold else
+        ["/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", "C:/Windows/Fonts/arial.ttf", "C:/Windows/Fonts/segoeui.ttf"]
+    )
+    for c in candidates:
+        if Path(c).exists():
+            return ImageFont.truetype(c, size)
+    return ImageFont.load_default()
+
+
+def find_still(layout_dir, sid):
+    for ext in (".png", ".jpg", ".jpeg"):
+        p = layout_dir / f"{sid}{ext}"
+        if p.exists():
+            return p
+    raise FileNotFoundError(f"Missing layout still for {sid} in {layout_dir}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--layout", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--audio", default=None)
+    ap.add_argument("--shots", default=None)
     a = ap.parse_args()
-    data = json.loads((EP / "shots.json").read_text())
-    acts = {s: act.get("title", act.get("name", "")) for act in data.get("acts", []) if isinstance(act, dict) for s in act.get("shots", [])}
-    font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 22)
-    small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
-    ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
-                           "-i", "-", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "20", "-movflags", "+faststart", a.out], stdin=subprocess.PIPE)
+    shots_path = Path(a.shots) if a.shots else (EP / "shots.json")
+    data = json.loads(shots_path.read_text())
+    font = load_font(22, bold=True)
+    small = load_font(18, bold=False)
+    cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-"]
+    if a.audio:
+        cmd += ["-i", a.audio]
+    cmd += ["-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "20"]
+    if a.audio:
+        cmd += ["-c:a", "aac", "-b:a", "192k", "-shortest"]
+    cmd += ["-movflags", "+faststart", a.out]
+    ff = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     rnd, total, clock = random.Random(3), 0, 0.0
+    layout_dir = Path(a.layout)
     for s in data["shots"]:
         sid, n = s["id"], int(round(s["dur"] * FPS))
-        src = Image.open(Path(a.layout) / f"{sid}.png").convert("RGB")
+        src = Image.open(find_still(layout_dir, sid)).convert("RGB")
         label = f"{sid}  {clock:04.1f}s  {s['dur']}s"
         text = s["action"] if len(s["action"]) < 92 else s["action"][:89] + "..."
         for i in range(n):
@@ -112,7 +141,9 @@ def main():
         total += n
         clock += s["dur"]
     ff.stdin.close()
-    ff.wait()
+    rc = ff.wait()
+    if rc != 0:
+        raise SystemExit(f"ffmpeg exited with code {rc}")
     print("frames", total, "seconds", total / FPS, "->", a.out)
 
 if __name__ == "__main__":

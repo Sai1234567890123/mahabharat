@@ -36,6 +36,19 @@ Steps as above: start the VM, copy `trellis_one.py`, `run_karna_v3.sh` and the t
 `bash ~/run_karna_v3.sh` under `nohup`, copy every new GLB and `batch_v3.log` back into `studio/cast/karna/model/trellis_out/`,
 stop the VM and confirm TERMINATED, log minutes and cost. Estimate: about 45 minutes of VM time, about $0.25 at the spot rate.
 
+## Arjuna (20 Nov 2026, sai: "generate 1536 model of arjuna using trellis")
+
+Arjuna has no model sheets yet; his locked `cast/arjuna/sheet.png` holds the bow, which TRELLIS.2 would fuse into his hand.
+So, as for Karna:
+
+1. BILLED, about $0.21: `python studio/tools/gen_model_sheets.py --project cs-project-07zg2j2c --only arjuna` paints
+   `cast/arjuna/model/front_v1.png` (A-pose, empty hands, quiver on his back), `back_v1.png` (Blender guide) and
+   `bow_gandiva_v1.png`. Review before step 2.
+2. Free: `prep_sharp.py` on front_v1 into `trellis_in/src_front_v1_up2x.png`, then `prep_input.py` on that into
+   `trellis_in/arjuna_front.png`, and `prep_input.py` on bow_gandiva_v1 into `trellis_in/arjuna_bow.png`.
+3. BILLED, about 35 to 45 min spot VM, about $0.20: steps 2 to 7 above with `run_arjuna.sh` (body seed 1, bow, body seeds 2
+   and 3), log `batch_arjuna.log`, GLBs into `studio/cast/arjuna/model/trellis_out/`. Stop the VM and confirm TERMINATED.
+
 ## Series-look heroes (22 Nov 2026, sai: "Yes, all three")
 
 3D models of the LOCKED web series hero set, each with a separate high-detail head for the face rig (`tools/blender/face_rig.py`).

@@ -1,6 +1,6 @@
 # EP01 "The Anjalika": canon check (pipeline step 1)
 
-Status: **draft, waiting for sai's sign-off** (2026-11-26).
+Status: **locked (2026-11-26)** — Step 1 complete; Step 2 layout animatic with temp sound built (`animatic_layout.mp4`).
 
 Every shot A01 to A22 was checked against the Ganguli translation of the Karna Parva,
 `mahabharat-research/source/B08-karna.txt`, lines 11555 to 12160. Line numbers below point into that file.
@@ -72,8 +72,8 @@ Look at every layout grab and render against this list. A "no" on any line means
 
 ## Sign-off
 
-- [ ] sai agrees with the verdicts above.
+- [x] sai agrees with the verdicts above (2026-11-26).
 - [x] sai has chosen A22: (a), keep the quiet ending (2026-11-26).
-- [ ] sai has approved the Shalya proposal.
+- [x] sai has approved the Shalya proposal (2026-11-26; Shalya v1 built in `studio/cast/shalya/model/rig/shalya_hero_v1.blend`).
 
-Once these three are ticked, step 1 is done and step 2 (animatic lock) starts.
+Step 1 is locked; Step 2 (`animatic_layout.mp4` with `studio/tools/ep01_sound.py` temp audio) is built for timing review.

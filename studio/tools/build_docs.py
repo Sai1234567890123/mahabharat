@@ -17,9 +17,10 @@ def descriptor(tag):
     txt = p.read_text()
     return re.search(r"## Descriptor.*?\n\n(.+?)\n", txt, re.S).group(1).strip()
 
-LOCATION = ("Kurukshetra battlefield, late afternoon, trampled warm earth, low gold sun in the west, "
-            "soft warm-brown shadows, pale gold dust in soft layers, cream and soft blue sky. Screen direction: Arjuna's side on the left, "
-            "Karna's side on the right.")
+DEFAULT_LOCATION = ("Kurukshetra battlefield, late afternoon, trampled warm earth, low gold sun in the west, "
+                    "soft warm-brown shadows, pale gold dust in soft layers, cream and soft blue sky. Screen direction: Arjuna's side on the left, "
+                    "Karna's side on the right.")
+LOCATION = d.get("location", DEFAULT_LOCATION)
 
 t = 0
 md = [f"# {d['title']}: shot cards ({d['runtime_s']} s, {len(d['shots'])} shots)\n",

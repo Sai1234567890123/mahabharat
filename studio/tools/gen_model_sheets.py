@@ -83,6 +83,50 @@ JOBS["arjuna_bow"] = dict(
           "Flat even neutral light, pure plain white background, no shadow, no text, no labels, no border, no second view."))
 GROUPS = {"karna": ["karna_front", "karna_back", "karna_side", "karna_bow"], "arjuna": ["arjuna_front", "arjuna_back", "arjuna_bow"]}
 
+# ---- series look (sai, 2026-11-22, "Yes, all three"): 3D models of the LOCKED web series hero set, so each hero can get a
+# face rig (tools/blender/face_rig.py). Per hero: a full-body A-pose front view (TRELLIS.2 body) and a head close-up front
+# view (a separate high-detail TRELLIS.2 head, the face that gets rigged, as done for Karna take 3 and Krishna).
+# Run with --only web (6 images, about $0.42). Output: cast/<hero>/model/web_front_v<take>.png and web_head_v<take>.png.
+STYLE_FRAME = "cast/karna/web/close_v1.png"
+WEB_LOOK = ("Look: EXACTLY the series look of the style frame: a stylized 3D animated-series character, smooth sculpted forms "
+            "with clean painted shading, a long angular face with sharp cheekbones; not a painting, not realistic.")
+WEB_BODY = BODY.replace("Look: a stylized 3D animated-film character, slightly larger than life with a powerful build, clean sculpted forms, and "
+                        "hand-painted surfaces with visible brushwork on skin, gold and cloth, as in the reference painting. ", WEB_LOOK + " ")
+WEB_HEAD = ("A head model sheet for a 3D modeller: ONE man's head, neck and the top of his shoulders, seen exactly from the front, "
+            "face square to the camera, centred, the whole crown in frame with a clear margin of white. Calm NEUTRAL face: eyes open "
+            "and looking straight into the camera, brows relaxed, mouth closed, lips relaxed, no smile. " + WEB_LOOK +
+            " Flat, even, neutral studio light from the front: no dramatic shadows, no rim light, no glow. Pure plain white "
+            "background, no scenery, no text, no labels, no border, exactly one view.")
+def web_jobs(tag, name, body_ref, face_ref, passport, note):
+    m = f"cast/{tag}/model"
+    who = (f"IMAGE 1 is the LOCKED series design of {name}: same face, same body, same costume, colours and ornaments, nothing "
+           f"added and nothing left out. ")
+    return {
+        f"{tag}_web_front": dict(out=f"{m}/web_front", refs=[body_ref, STYLE_FRAME], passport=passport, aspect="3:4",
+            text=f"{WEB_BODY}\n\nFRONT VIEW: he faces the camera exactly, chest square to the viewer.\n\n{who}"
+                 f"IMAGE 2 is the series style frame: take only its rendering style. {note}"),
+        f"{tag}_web_head": dict(out=f"{m}/web_head", refs=[face_ref, STYLE_FRAME], passport=passport, aspect="1:1",
+            text=f"{WEB_HEAD}\n\n{who}IMAGE 2 is the series style frame: take only its rendering style. {note}"),
+    }
+JOBS.update(web_jobs("karna", "Karna", "cast/karna/web/full_v2.png", "cast/karna/web/close_v1.png", "cast/karna/passport.md",
+    "Karna: bare earlobes with NO earrings, NO tilak, NO hair band, NOTHING on his back (no disc, no shield, no parasol)."))
+JOBS.update(web_jobs("arjuna", "Arjuna", "cast/arjuna/web/full_v4.png", "cast/arjuna/web/close_v4.png", "cast/arjuna/passport_web.md",
+    "Arjuna: silver-steel armour and crown with thin gold trim (never gold armour), deep green sash over a deep blue dhoti, a THIN "
+    "neat moustache, his silver quiver stays on his back but holds no bow."))
+JOBS.update(web_jobs("krishna", "Krishna", "cast/krishna/web/close_v2.png", "cast/krishna/web/close_v2.png", "cast/krishna/passport.md",
+    "Krishna: blue skin everywhere, as in IMAGE 1. IMAGE 1 shows only his upper body: below it he wears the crimson and gold "
+    "dhoti of his description, gold anklets and bare feet."))
+JOBS["krishna_web_front"]["refs"].insert(1, "cast/krishna/sheet.png")
+JOBS["krishna_web_front"]["text"] = JOBS["krishna_web_front"]["text"].replace("IMAGE 2 is the series style frame", "IMAGE 2 is his older sheet, ONLY for the costume below the chest (never its face, skin or style). IMAGE 3 is the series style frame")
+JOBS["karna_web_head"]["refs"] = ["cast/karna/web/close_v1.png"]        # his close-up IS the style frame
+JOBS["karna_web_head"]["text"] = JOBS["karna_web_head"]["text"].replace(" IMAGE 2 is the series style frame: take only its rendering style.", "")
+for _h in ("karna", "arjuna", "krishna"):
+    JOBS[f"{_h}_web_front"]["text"] += " The weapon and any reins in the description below are NOT in this picture: his hands are open and empty."
+# Karna's head take 1 came out as a six-view turnaround grid; take 2 insists on one single front view.
+JOBS["karna_web_head"]["text"] += (" ONE SINGLE FRONT VIEW ONLY: not a turnaround, not a grid, not several heads; exactly one head "
+                                   "filling the picture, seen from the front.")
+GROUPS["web"] = [f"{h}_web_{v}" for h in ("karna", "arjuna", "krishna") for v in ("front", "head")]
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--project", required=True); ap.add_argument("--location", default="global")

@@ -1,0 +1,33 @@
+{
+ "X": {},
+ "A": {
+  "mouth_press": 1.0
+ },
+ "B": {
+  "jaw_open": 0.2,
+  "mouth_wide": 0.35
+ },
+ "C": {
+  "jaw_open": 0.45,
+  "mouth_wide": 0.3
+ },
+ "D": {
+  "jaw_open": 0.9,
+  "mouth_wide": 0.1
+ },
+ "E": {
+  "jaw_open": 0.5,
+  "mouth_round": 0.5
+ },
+ "F": {
+  "jaw_open": 0.15,
+  "mouth_round": 1.0
+ },
+ "G": {
+  "jaw_open": 0.1,
+  "mouth_press": 0.5
+ },
+ "H": {
+  "jaw_open": 0.4
+ }
+}

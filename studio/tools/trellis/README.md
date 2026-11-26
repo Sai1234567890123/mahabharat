@@ -48,3 +48,17 @@ So, as for Karna:
    `trellis_in/arjuna_front.png`, and `prep_input.py` on bow_gandiva_v1 into `trellis_in/arjuna_bow.png`.
 3. BILLED, about 35 to 45 min spot VM, about $0.20: steps 2 to 7 above with `run_arjuna.sh` (body seed 1, bow, body seeds 2
    and 3), log `batch_arjuna.log`, GLBs into `studio/cast/arjuna/model/trellis_out/`. Stop the VM and confirm TERMINATED.
+
+## Series-look heroes (22 Nov 2026, sai: "Yes, all three")
+
+3D models of the LOCKED web series hero set, each with a separate high-detail head for the face rig (`tools/blender/face_rig.py`).
+
+1. BILLED, about $0.42: `python studio/tools/gen_model_sheets.py --project cs-project-07zg2j2c --only web` paints
+   `cast/<hero>/model/web_front_v1.png` and `web_head_v1.png` for karna, arjuna and krishna. Review before step 2.
+2. Free, per hero and view: `prep_sharp.py cast/<hero>/model/web_<view>_v1.png cast/<hero>/model/trellis_in/src_web_<view>_v1_up2x.png`,
+   then `prep_input.py` on that into `cast/<hero>/model/trellis_in/<hero>_web_<view>.png`.
+3. BILLED: start `krk-trellis-l4`, copy `trellis_one.py`, `run_web.sh` and the six PNGs into `~/trellis_in/`, run
+   `DEADLINE_MIN=100 nohup bash ~/run_web.sh &`. The script schedules `shutdown -h` on the VM itself before anything else,
+   so the VM stops by the deadline even if the PC sleeps. Six models at 1536, about 8 to 15 min each: 50 to 90 min,
+   about $0.45 on spot or about $1.30 on-demand. Copy back each GLB and `batch_web.log` into
+   `studio/cast/<hero>/model/trellis_out/`, confirm the VM is TERMINATED, log minutes and cost. Never delete the VM or disk.

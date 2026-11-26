@@ -18,7 +18,7 @@ Vyasa has made the whole epic in his mind and has no one to write it down. Brahm
 | 01 | The Poem With No Writer | Vyasa alone in his hermitage, the finished epic held in his mind, wondering how to teach it. | 413-418 | canon | "Having finished this greatest of narrations, he began to consider how he might teach it." |
 | 02 | Brahma Comes | Brahma appears. Vyasa stands with joined palms, has a seat brought, walks around him, and says "no writer of this work is to be found on earth". | 418-449 | canon | Vyasa's list of what the poem holds (Vedas, stars, war, rivers) can play as a fast montage over his words. |
 | 03 | "Think of Ganesa" | Brahma blesses the poem and tells Vyasa to call Ganesha, then leaves. | 450-461 | canon | |
-| 04 | The Condition | Vyasa thinks of Ganesha and he appears. Ganesha: "I will write, provided my pen do not for a moment cease." Vyasa: "Wherever there be anything thou dost not comprehend, cease to continue writing." Ganesha says "Om". | 461-473 | canon | The key scene of the episode. A locked, symmetrical sacred frame, as the style bible sets for divine moments. |
+| 04 | The Condition | Vyasa thinks of Ganesha and he appears. Ganesha: "I will write, provided my pen do not for a moment cease." Vyasa: "Wherever there be anything thou dost not comprehend, cease to continue writing." Ganesha says "Om". | 461-473 | canon + added | The tusk beat is **added** (sai, 2026-11-26): Ganesha breaks his tusk to keep writing. The key scene of the episode. A locked, symmetrical sacred frame, as the style bible sets for divine moments. |
 | 05 | The Knots | Vyasa dictates; now and then he knits a verse so tight that even Ganesha pauses to think, and Vyasa composes more while Ganesha thinks. | 473-483 | canon | "Even the omniscient Ganesa took a moment to consider." This is the episode's one light, warm beat. |
 | 06 | The Lamp | Over the first words of the story, the light of the poem spreads like a lamp through darkness. This is the title card. | 486-497 | dramatised | Ganguli compares the Bharata to collyrium for blind eyes, the sun, the full moon and a lamp. We stage the lamp image. |
 | 07 | The Hunter King | Vyasa begins the line of Puru: King Dushmanta rides out with his army and empties the forest with his hunt. | 8463-8598 (B01C068-B01C069) | canon | |
@@ -33,7 +33,7 @@ Vyasa has made the whole epic in his mind and has no one to write it down. Brahm
 
 ## Notes on things people expect but Ganguli does not have
 
-- **Ganesha breaking his tusk to write.** This is not in this text; it comes from later retellings. If sai wants it, it is marked **added**. The recommendation is to leave it out of scene 04, because the canon pen condition is already a strong image.
+- **Ganesha breaking his tusk to write.** This is not in this text; it comes from later retellings. **sai decided on 2026-11-26 to keep it.** In scene 04 it is marked **added**: when his pen fails mid-dictation, Ganesha breaks off his tusk and writes on with it, so the dictation never stops. This fits his own condition.
 - **The ring, the curse of Durvasa, and Shakuntala's forgetting.** These are from Kalidasa's play, not the Mahabharata. Here the king forgets nothing; he denies her on purpose. Do not add them.
 - **Ganesha's own presence in the epic.** The Ganesha passage is in the vulgate text that Ganguli translated. Some later critical editions leave it out, so a viewer may say "this is not in the Mahabharata". The answer is that it is in Ganguli, lines 461-483, which is our source.
 
@@ -64,5 +64,5 @@ Each needs a passport in `cast/` and a model sheet, made the same way as the loc
 ## Sign-off
 
 - [ ] sai agrees with the 15 scenes and their verdicts.
-- [ ] sai decides on Ganesha's tusk. The recommendation is to leave it out.
-- [ ] sai picks the three or four lines of Shakuntala's speech for scene 14. I can offer a shortlist.
+- [x] sai decided on Ganesha's tusk: keep it, marked as added (2026-11-26).
+- [x] Shakuntala's lines for scene 14: 1, 3, 7 and 10 (sai left it to Claude, 2026-11-26). Shortlist in `shakuntala_lines.md` (recommended: 1, 3, 7, 10).

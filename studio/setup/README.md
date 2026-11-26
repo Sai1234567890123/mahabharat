@@ -4,7 +4,7 @@ These are the tools the twelve-step pipeline in `../pipeline.md` uses. Everythin
 
 | Tool | Pipeline steps | Cloud container | sai's PC |
 |---|---|---|---|
-| Blender 5.2 (EEVEE, Cycles, Grease Pencil, compositor) | 2, 5, 6, 8, 9, 10, 11 | `bpy` 5.2.5 Python module | installed |
+| Blender 5.2 (EEVEE, Cycles, Grease Pencil, compositor) | 2, 5, 6, 8, 9, 10, 11 | `bpy` 5.3.0 Python module | installed 5.2: update to 5.3 to open the repo files without data loss |
 | EEVEE on the CPU (Mesa llvmpipe, no GPU) | 10 | works: about 3.5 s a frame at 960x540, 8 samples, default scene | GTX 1650 |
 | Krita | 3, 5, 6, 9 | not needed (painting is sai's) | `install_pc.ps1` |
 | Rhubarb Lip Sync 1.14 | 7 | installed | `install_pc.ps1` |

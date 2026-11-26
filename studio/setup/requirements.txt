@@ -1,6 +1,6 @@
 # Python packages for the studio tools (cloud and PC).
-# bpy is pinned to 5.2.x so files open in Blender 5.2 on sai's PC.
-bpy==5.2.5
+# bpy is pinned to 5.3.0: the repo's .blend files are saved by Blender 5.3 (Blender 5.2 warns "written by newer Blender" and may lose data).
+bpy==5.3.0
 numpy==2.5.3
 pillow==12.3.0
 scipy

@@ -42,7 +42,12 @@
     "2-3s: they touch; a 2-frame white impact frame.",
     "3-4s: snap zoom out, the burst becomes blue and orange rings."
    ],
-   "ref": ""
+   "ref": "",
+   "grade": "S",
+   "canon": {
+    "lines": "-",
+    "verdict": "added"
+   }
   },
   {
    "id": "A02",
@@ -61,7 +66,12 @@
    "motion": [
     "0-5s: slow push-in toward the gap between the chariots, dust drifts left to right, banners ripple."
    ],
-   "ref": ""
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "11598-11606, 11640-11644",
+    "verdict": "dramatised"
+   }
   },
   {
    "id": "A03",
@@ -79,7 +89,12 @@
     "0-2s: he touches the bow to his forehead, eyes closed.",
     "2-4s: eyes open and lift to screen left, slow push-in."
    ],
-   "ref": "cast/karna/crop-34.png"
+   "ref": "cast/karna/crop-34.png",
+   "grade": "C",
+   "canon": {
+    "lines": "-",
+    "verdict": "added"
+   }
   },
   {
    "id": "A04",
@@ -98,7 +113,12 @@
     "0-3s: he raises and draws Gandiva to the cheek, blue static crawls from grip to tips.",
     "3-4s: hold, his eyes narrow."
    ],
-   "ref": "cast/arjuna/crop-34.png"
+   "ref": "cast/arjuna/crop-34.png",
+   "grade": "A",
+   "canon": {
+    "lines": "11627-11633",
+    "verdict": "dramatised"
+   }
   },
   {
    "id": "A05",
@@ -116,7 +136,12 @@
     "0-1s: the reins snap.",
     "1-3s: the horses surge, camera tracks with the wheel, dust kicks toward lens."
    ],
-   "ref": ""
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "11697-11698 (white steeds)",
+    "verdict": "dramatised"
+   }
   },
   {
    "id": "A06",
@@ -135,7 +160,12 @@
     "1-2s: release; the camera rides beside one orange arrow toward screen left.",
     "2-5s: the fan spreads across the sky, a whip-pan left."
    ],
-   "ref": "cast/karna/crop-34.png"
+   "ref": "cast/karna/crop-34.png",
+   "grade": "S",
+   "canon": {
+    "lines": "11898-11899",
+    "verdict": "dramatised"
+   }
   },
   {
    "id": "A07",
@@ -152,7 +182,12 @@
    "motion": [
     "0-4s: each blue arrow meets an orange one, each collision is a 2D spark star; one 2-frame impact frame (black, white, blue) on the last hit."
    ],
-   "ref": "cast/arjuna/crop-34.png"
+   "ref": "cast/arjuna/crop-34.png",
+   "grade": "A",
+   "canon": {
+    "lines": "11604-11616, 11898-11904",
+    "verdict": "dramatised"
+   }
   },
   {
    "id": "A08",
@@ -167,7 +202,12 @@
    "motion": [
     "0-5s: crane up; the arrow dome thickens until the sun is gone and the frame drops into blue dusk."
    ],
-   "ref": ""
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "11627-11633",
+    "verdict": "canon"
+   }
   },
   {
    "id": "A09",
@@ -185,7 +225,12 @@
    "motion": [
     "0-4s: almost still; a slow blink from each, sweat runs, embers drift between them."
    ],
-   "ref": ""
+   "ref": "",
+   "grade": "C",
+   "canon": {
+    "lines": "11636-11641",
+    "verdict": "added"
+   }
   },
   {
    "id": "A10",
@@ -203,7 +248,12 @@
     "0-2s: the fingers pull the arrow up, rack focus to the head.",
     "2-4s: the serpent eye opens, green-gold."
    ],
-   "ref": ""
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "11669-11677, 11681",
+    "verdict": "dramatised"
+   }
   },
   {
    "id": "A11",
@@ -220,7 +270,12 @@
    "motion": [
     "0-4s: orbit 90 degrees around him as he reaches full draw; meteors streak down."
    ],
-   "ref": "cast/karna/crop-34.png"
+   "ref": "cast/karna/crop-34.png",
+   "grade": "A",
+   "canon": {
+    "lines": "11673-11680",
+    "verdict": "canon"
+   }
   },
   {
    "id": "A12",
@@ -235,7 +290,12 @@
    "motion": [
     "0-4s: the line races right to left; whip-pan to follow; the sky darkens either side of the line."
    ],
-   "ref": ""
+   "ref": "",
+   "grade": "S",
+   "canon": {
+    "lines": "11692-11695",
+    "verdict": "canon"
+   }
   },
   {
    "id": "A13",
@@ -256,7 +316,12 @@
     "2-4s: the chariot drops, the white horses bend their knees and kneel."
    ],
    "ref": "cast/krishna/ref_closeup_approved.png",
-   "neg": true
+   "neg": true,
+   "grade": "A",
+   "canon": {
+    "lines": "11695-11699",
+    "verdict": "canon"
+   }
   },
   {
    "id": "A14",
@@ -275,7 +340,12 @@
     "1-3s: slow motion: the crown spins away, his hair falls free.",
     "3-4s: real speed, it lands in the dust."
    ],
-   "ref": "cast/arjuna/crop-34.png"
+   "ref": "cast/arjuna/crop-34.png",
+   "grade": "S",
+   "canon": {
+    "lines": "11700-11756",
+    "verdict": "canon"
+   }
   },
   {
    "id": "A15",
@@ -293,7 +363,12 @@
     "0-2s: he rises and pushes his loose hair back from his brow.",
     "2-3s: he lifts Gandiva and his eyes; blue static flickers on his shoulder."
    ],
-   "ref": "cast/arjuna/ref_SH170_v09.png"
+   "ref": "cast/arjuna/ref_SH170_v09.png",
+   "grade": "B",
+   "canon": {
+    "lines": "11743",
+    "verdict": "dramatised"
+   }
   },
   {
    "id": "A16",
@@ -311,7 +386,12 @@
     "0-2s: he heaves, veins stand out.",
     "2-5s: the ground around him lifts and the horizon tilts a few degrees, dust pours off the rim."
    ],
-   "ref": "cast/karna/crop-34.png"
+   "ref": "cast/karna/crop-34.png",
+   "grade": "A",
+   "canon": {
+    "lines": "11876-11881, 11936-11941",
+    "verdict": "canon"
+   }
   },
   {
    "id": "A17",
@@ -332,7 +412,12 @@
     "2-3s: a 12-frame red silhouette insert: a young boy raising a chariot wheel as a shield.",
     "3-4s: back on Arjuna's shoulder; it tightens."
    ],
-   "ref": "cast/karna/crop-34.png"
+   "ref": "cast/karna/crop-34.png",
+   "grade": "B",
+   "canon": {
+    "lines": "11942-11999",
+    "verdict": "dramatised"
+   }
   },
   {
    "id": "A18",
@@ -350,7 +435,12 @@
     "Selective color: the rest of the frame drains to grey for 6 frames as the blue streak hits, only the gold banner keeps color (trailer rule: selective color on impact)."
    ],
    "ref": "",
-   "drain": true
+   "drain": true,
+   "grade": "B",
+   "canon": {
+    "lines": "12056-12075",
+    "verdict": "canon"
+   }
   },
   {
    "id": "A19",
@@ -368,7 +458,12 @@
     "0-3s: one continuous push from wide to the crescent arrowhead.",
     "3-4s: hold on the arrowhead, it shines like a small sun."
    ],
-   "ref": "cast/arjuna/ref_SH170_v09.png"
+   "ref": "cast/arjuna/ref_SH170_v09.png",
+   "grade": "S",
+   "canon": {
+    "lines": "12078-12107",
+    "verdict": "canon"
+   }
   },
   {
    "id": "A20",
@@ -386,7 +481,12 @@
     "0-0.2s: three impact frames.",
     "0.2-3s: cut to Karna as a black silhouette against the sun; the sun dims to a dark red disc (no wound shown)."
    ],
-   "ref": ""
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "12108-12125",
+    "verdict": "dramatised"
+   }
   },
   {
    "id": "A21",
@@ -401,7 +501,12 @@
    "motion": [
     "0-5s: crane up as the light climbs into the sun and the sun brightens again; Shalya's chariot without its banner turns away."
    ],
-   "ref": ""
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "12130-12133",
+    "verdict": "canon"
+   }
   },
   {
    "id": "A22",
@@ -420,7 +525,12 @@
     "0-2s: Gandiva lowers.",
     "2-4s: hold; the final pose stays to the last frame."
    ],
-   "ref": "cast/arjuna/ref_SH170_v09.png"
+   "ref": "cast/arjuna/ref_SH170_v09.png",
+   "grade": "C",
+   "canon": {
+    "lines": "12133-12136",
+    "verdict": "changed"
+   }
   }
  ]
 }

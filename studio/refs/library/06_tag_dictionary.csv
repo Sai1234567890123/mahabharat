@@ -1,0 +1,25 @@
+﻿tag_group,tag,meaning
+PRIMARY_CATEGORY,CHARACTER_DESIGN,"Faces, anatomy, costume, armour, silhouette"
+PRIMARY_CATEGORY,ENVIRONMENT,"Palaces, forests, cities, temples, battlefields"
+PRIMARY_CATEGORY,COMBAT_ANIMATION,"Attacks, dodges, impacts, weapon movement"
+PRIMARY_CATEGORY,LIGHTING,"Rim light, backlight, firelight, moonlight"
+PRIMARY_CATEGORY,VFX,"Particles, energy, fire, dust, lightning"
+PRIMARY_CATEGORY,CINEMATOGRAPHY,"Framing, angles, tracking, orbit, crane"
+PRIMARY_CATEGORY,FACIAL_ANIMATION,"Expressions, eyes, lip sync"
+PRIMARY_CATEGORY,CROWD_ARMIES,"Crowds, formations, marching, cavalry"
+PRIMARY_CATEGORY,VEHICLES_ANIMALS,"Chariots, horses, elephants"
+PRIMARY_CATEGORY,ART_DIRECTION,"Materials, painterly look, colour language"
+PRIMARY_CATEGORY,SCENE_DIRECTION,"Reveals, tension, entrances, emotional beats"
+PRIMARY_CATEGORY,EDITING_TRANSITIONS,"Cuts, match cuts, montage, pacing"
+CAMERA_MOVEMENT,STATIC,Camera remains fixed
+CAMERA_MOVEMENT,DOLLY_IN,Camera moves toward subject
+CAMERA_MOVEMENT,ORBIT,Camera moves around subject
+CAMERA_MOVEMENT,TRACKING,Camera follows subject
+CAMERA_MOVEMENT,CRANE_OR_AERIAL,Vertical or elevated camera move
+ACCESS_STATUS,ACCESSIBLE,Opens through normal permitted access
+ACCESS_STATUS,LOGIN_REQUIRED,Requires login; do not bypass
+ACCESS_STATUS,UNAVAILABLE,"Private, deleted, restricted or inaccessible"
+ANALYSIS_STATUS,PENDING,Not yet reviewed
+ANALYSIS_STATUS,NEEDS_VISUAL_INPUT,URL alone was insufficient
+ANALYSIS_STATUS,ANALYSED,Analysis card completed
+ANALYSIS_STATUS,APPROVED,Human reviewed and accepted

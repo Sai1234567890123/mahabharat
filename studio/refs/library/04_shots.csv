@@ -1,0 +1,2 @@
+﻿shot_id,episode,sequence,scene,duration_seconds,shot_description,character_ids,environment_id,concept_ids,camera_plan,animation_status,lighting_status,vfx_status,render_status,edit_status,priority,notes
+EP001_SEQ001_SH001,EP001,SEQ001,,5,,,,CON-0001,,NOT_STARTED,NOT_STARTED,NOT_STARTED,NOT_STARTED,NOT_STARTED,HIGH,

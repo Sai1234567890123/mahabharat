@@ -1,0 +1,8 @@
+# Python packages for the studio tools (cloud and PC).
+# bpy is pinned to 5.2.x so files open in Blender 5.2 on sai's PC.
+bpy==5.2.5
+numpy==2.5.3
+pillow==12.3.0
+scipy
+soundfile
+opentimelineio

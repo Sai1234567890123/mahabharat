@@ -2,11 +2,13 @@
 
 The article-style studio for Mahabharat battle shorts: direct on paper and in stills first, lock the characters with passports, draft cheap, approve before a final, log every generation. Read `bible.md` first.
 
+- `series_plan.md`: the whole series in story order, from Vyasa and Ganesha to Gandhari's curse (24 episodes of about 20 minutes, 7 seasons), with source chapters for each episode.
+- `setup/`: the tech stack and install scripts (cloud and PC). Start every cloud session with `bash studio/setup/install_cloud.sh`.
 - `pipeline.md`: the twelve steps every episode goes through, the shot grades, and where each episode stands. Start here.
 - `research/epic_film_pipelines.md`: the research behind the pipeline (how epic, mythological and animated films and series are made).
 - `bible.md`: the two folder laws, world, tone, palette, style prompt, never-list.
 - `cast/<tag>/passport.md`: one locked descriptor per character, pasted verbatim into every prompt. Variants are separate passports.
-- `episodes/ep01_arjuna_vs_karna/`: `shots.json` (source of truth, with each shot's grade and canon lines), `shots.md`, `canon_check.md`, `frame_prompts.md`, `motion_prompts.md`, `animatic.html`, `animatic.mp4`, `quote.md`.
+- `episodes/ep01_arjuna_vs_karna/` (now the teaser, and part of series episode 21): `shots.json` (source of truth, with each shot's grade and canon lines), `shots.md`, `canon_check.md`, `frame_prompts.md`, `motion_prompts.md`, `animatic.html`, `animatic.mp4`, `quote.md`.
 - `frames/`, `renders/`, `selects/`: empty until sai approves the quote.
 - `log.md`: every generation, including free ones.
 

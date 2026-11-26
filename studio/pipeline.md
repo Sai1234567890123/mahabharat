@@ -45,9 +45,9 @@ If time runs short, A07 and A13 drop to B before anything else is cut.
 
 ## Where each episode stands
 
-Story order and episode numbers are in `series_plan.md`. The duel below was built first; it is released as the teaser and returns as episode 43.
+Story order and episode numbers are in `series_plan.md`. The duel below was built first; it is released as the teaser and returns inside episode 21.
 
-| Step | Teaser / ep 43 "The Anjalika" |
+| Step | Teaser / ep 21 "The Anjalika" |
 |---|---|
 | 1 Canon lock | Draft done (`episodes/ep01_arjuna_vs_karna/canon_check.md`), waiting for sai's sign-off |
 | 2 Animatic lock | HTML and Blender layout animatics exist; temp sound and timing freeze still to do |

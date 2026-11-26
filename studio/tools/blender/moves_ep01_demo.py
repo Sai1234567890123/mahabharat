@@ -2,7 +2,7 @@
 
   python moves_ep01_demo.py <out_dir> [move or move_hero ...] [--still] [--resume]
 --still renders 3 small frames a clip for a pose check (contact sheet: still_sheet.jpg). Drawings on twos, 960x540.
-Rigs: the newest detail-pass rig of each hero (karna v4, arjuna v4, krishna v3), else the older one.
+Rigs: the newest detail-pass rig of each hero (karna v4, arjuna v4, krishna v3, arjuna_bare v1 from A14 on).
 """
 import math, pathlib, sys
 import bpy
@@ -25,7 +25,7 @@ FPS = 24
 
 
 def rig(hero):
-    for v in (4, 3, 2):
+    for v in (4, 3, 2, 1):
         p = CAST / f"{hero}/model/rig/{hero}_hero_v{v}.blend"
         if p.exists():
             return p
@@ -103,7 +103,7 @@ DRAW = {"bow_draw": lambda t: t > 0.9, "bow_draw_ear": lambda t: t > 1.15, "fan_
 def clip(name, hero):
     fn, dur, _, has_bow = moves_ep01.MOVES[name]
     sc, cam = stage()
-    tag = hero.upper()
+    tag = hero.split("_")[0].upper()                                   # arjuna_bare is the ARJUNA rig without the crown
     h = Hero.load(rig(hero), tag)
     bow = arrow = None
     if has_bow:

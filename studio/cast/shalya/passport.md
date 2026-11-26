@@ -17,4 +17,4 @@ Shalya, Karna's charioteer, an older Indian king with warm brown skin, an iron-g
 - **Known limits of v1:**
   - The turban and beard are simple shapes.
   - The face is Krishna's face shape, which is why he stays out of close-ups.
-  - The kit chariot's old driver has been cut out, but a few small leftover bits still float near the front rail.
+  - The kit chariot's old driver, his bow and the two lion figureheads in front of him are cut out; no leftover bits.

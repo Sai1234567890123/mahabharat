@@ -65,4 +65,4 @@ Each needs a passport in `cast/` and a model sheet, made the same way as the loc
 
 - [ ] sai agrees with the 15 scenes and their verdicts.
 - [x] sai decided on Ganesha's tusk: keep it, marked as added (2026-11-26).
-- [ ] sai picks the three or four lines of Shakuntala's speech for scene 14. Shortlist in `shakuntala_lines.md` (recommended: 1, 3, 7, 10).
+- [x] Shakuntala's lines for scene 14: 1, 3, 7 and 10 (sai left it to Claude, 2026-11-26). Shortlist in `shakuntala_lines.md` (recommended: 1, 3, 7, 10).

@@ -39,19 +39,24 @@ for m in ch.data.materials:
 hs.parent = ch; hs.location = (0, -(ch.dimensions.y * 0.5 + hs.dimensions.y * 0.5) + 4.5, 0)
 std = banners.make("elephant_rope", height=7.0); std.parent = ch; std.location = (1.25, 2.9, 0.6)
 
-# cut the kit's own driver (the loose parts standing at the front of the car)
+# cut the kit's own driver: every loose part on the front of the car (body, bow, reins, the two lion figureheads that hid the driver)
 bm = bmesh.new(); bm.from_mesh(ch.data); bm.verts.ensure_lookup_table()
-seed = [v for v in bm.verts if abs(v.co.x) < 0.8 and -1.6 < v.co.y < -0.4 and 0.95 < v.co.z < 2.8]
-part, stack = set(), list(seed)
-while stack:
-    v = stack.pop()
-    if v in part:
+seen, cut = set(), []
+for v0 in bm.verts:
+    if v0 in seen:
         continue
-    part.add(v); stack.extend(e.other_vert(v) for e in v.link_edges)
-if 0 < len(part) < 0.2 * len(bm.verts):
-    bmesh.ops.delete(bm, geom=list(part), context="VERTS"); print("cut kit driver verts", len(part))
-else:
-    print("kit driver not cut (connected to the car):", len(part), "of", len(bm.verts))
+    part, stack = [], [v0]
+    while stack:
+        v = stack.pop()
+        if v in seen:
+            continue
+        seen.add(v); part.append(v); stack.extend(e.other_vert(v) for e in v.link_edges)
+    xs = [v.co.x for v in part]; ys = [v.co.y for v in part]; zs = [v.co.z for v in part]
+    c = Vector((sum(xs), sum(ys), sum(zs))) / len(part)
+    size = max(max(xs) - min(xs), max(ys) - min(ys), max(zs) - min(zs))
+    if abs(c.x) < 1.2 and -2.2 < c.y < -0.3 and 0.9 < c.z < 3.0 and size < 2.2:
+        cut.extend(part)
+bmesh.ops.delete(bm, geom=cut, context="VERTS"); print("cut kit driver verts", len(cut))
 bm.to_mesh(ch.data); bm.free()
 
 h = Hero.load(STUDIO / "cast/shalya/model/rig/shalya_hero_v1.blend", "SHALYA", loc=(0, -1.0, 0.84), face=0)

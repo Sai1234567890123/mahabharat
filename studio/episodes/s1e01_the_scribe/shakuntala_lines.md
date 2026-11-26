@@ -31,7 +31,9 @@ Below are 10 candidates, quoted exactly from Ganguli with their line numbers. Th
 9. "A hundred horse-sacrifices had once been weighed against Truth, and Truth was found heavier than a hundred horse-sacrifices." (9266-9268)
 10. "Truth is God himself; Truth is the highest vow. Therefore, violate not thy pledge, O monarch! ... this son of mine shall rule the whole Earth surrounded by the four seas." (9269-9276)
 
-## Recommended set (about 25 seconds)
+## Chosen set (about 25 seconds)
+
+sai left the choice to Claude on 2026-11-26 ("u do what u think it right with reason"). The set below is now locked for scene 14.
 
 **1, 3, 7 and 10**, in that order.
 

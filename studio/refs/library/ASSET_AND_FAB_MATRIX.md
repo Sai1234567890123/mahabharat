@@ -14,15 +14,15 @@ Generated directly from `studio/refs/library/` CSVs, `studio/episodes/`, `studio
 | Asset ID | Name | Type | Status | Linked Shots | Linked Concepts | Strategy / Source |
 |---|---|---|---|---:|---:|---|
 | `AST-0024` | Arcane-Family Painterly Compositor & Kuwahara Grade | `SHADER_LOOKDEV` | `IN_PROGRESS` | 62 | 63 | CUSTOM_BLENDER_COMPOSITOR |
-| `AST-0021` | Kanwa / Vyasa Vedic Hermitage & Malini Riverbank | `ENVIRONMENT` | `ACQUISITION_TARGET` | 33 | 8 | FAB_TARGET (Ancient Trees, River Rocks, Thatch Foliage -> Blender repaint + CON-0060 parallax planes) |
-| `AST-0020` | Kurukshetra Battlefield & 14k Instanced Army | `ENVIRONMENT` | `IN_PROGRESS` | 23 | 7 | CUSTOM_BLENDER_GN + UNREAL_5_8_PLATE (in progress on sai PC) + FAB terrain/dust |
-| `AST-0017` | Divine Bows & Hero Arrows (Gandiva, Vijaya, Snake Arrow, Anjalika) | `PROP_WEAPON` | `IN_PROGRESS` | 20 | 12 | TRELLIS2_PROP (karna_bow_1536.glb) + CUSTOM_BLENDER bows.py |
-| `AST-0018` | Hermitage & Vedic Props (Palm-Leaf Manuscripts, Brass Stylus, Fire Altar, Diya, Kalash) | `PROP` | `PLANNED` | 18 | 8 | TRELLIS2_PROP (diya, kalash, lotus bowl) + CUSTOM_BLENDER (palm leaves/stylus) |
-| `AST-0016` | Vedic Gold War Chariots (Arjuna Ape-Banner / Karna Elephant-Rope / Dushmanta) | `VEHICLE` | `IN_PROGRESS` | 17 | 7 | CUSTOM_BLENDER + TRELLIS2_CARVED_TRIM (MIT) |
+| `AST-0021` | Kanwa / Vyasa Vedic Hermitage & Malini Riverbank | `ENVIRONMENT` | `IN_PROGRESS_CC0_ACQUIRED` | 33 | 8 | MahabharataWorld UE (Vrindavan banyan/banks) + PolyHaven CC0 nature/ganges_river_pebbles + FAB_TARGET (Ancient Trees/River) |
+| `AST-0020` | Kurukshetra Battlefield & 14k Instanced Army | `ENVIRONMENT` | `IN_PROGRESS` | 23 | 7 | CUSTOM_BLENDER_GN + MahabharataWorld UE (L_Kurukshetra) + PolyHaven CC0 dry_ground_01 & dusk HDRI |
+| `AST-0017` | Divine Bows & Hero Arrows (Gandiva, Vijaya, Snake Arrow, Anjalika) | `PROP_WEAPON` | `IN_PROGRESS` | 20 | 12 | TRELLIS2_PROP (karna_bow_1536.glb) + CUSTOM_BLENDER bows.py + MahabharataWorld UE |
+| `AST-0018` | Hermitage & Vedic Props (Palm-Leaf Manuscripts, Brass Stylus, Fire Altar, Diya, Kalash) | `PROP` | `ACQUIRED_NEEDS_PAINTERLY_REPAINT` | 18 | 8 | PolyHaven CC0 (brass_diya_lantern, brass_pot_01/02, brass_vase_01/03, stone_fire_pit) + NVIDIA SimReady OpenUSD + TRELLIS.2 |
+| `AST-0016` | Vedic Gold War Chariots (Arjuna Ape-Banner / Karna Elephant-Rope / Dushmanta) | `VEHICLE` | `IN_PROGRESS` | 17 | 7 | CUSTOM_BLENDER + MahabharataWorld UE + TRELLIS2_CARVED_TRIM |
 | `AST-0009` | King Dushmanta (Forest & Court Variants) | `CHARACTER` | `PLANNED` | 16 | 0 | CUSTOM_BLENDER (TRELLIS2 copper armor accents) |
 | `AST-0010` | Shakuntala (Hermitage & Infant Variant) | `CHARACTER` | `PLANNED` | 14 | 1 | CUSTOM_BLENDER (Bark-cloth + cotton, NO ring/crown) |
 | `AST-0023` | 2D Grease Pencil Astra & Combat FX Library | `VFX_LIBRARY` | `IN_PROGRESS` | 12 | 13 | CUSTOM_BLENDER_GP_V3 + FAB_TARGET (Optional Niagara sparks/dust for UE plates) |
-| `AST-0022` | Vedic Royal Court Hall (Hastinapur / Puru Sabha Kit) | `ENVIRONMENT` | `ACQUISITION_TARGET` | 10 | 17 | FAB_TARGET (Ancient Temple/Palace Columns, Courtyard, Lanterns) -> Vedic wooden/early sandstone adaptation |
+| `AST-0022` | Vedic Royal Court Hall (Hastinapur / Puru Sabha Kit) | `ENVIRONMENT` | `IN_PROGRESS` | 10 | 17 | MahabharataWorld UE (170 Hastinapur assets!) + FAB_TARGET (Courtyard/Wooden pillars for 1000 BCE S1E01 court) |
 | `AST-0006` | Rishi Vyasa | `CHARACTER` | `PLANNED` | 10 | 1 | CUSTOM_BLENDER (Original sculpt + Rigify) |
 | `AST-0003` | Karna Hero (Sun Armor & Kavacha) | `CHARACTER` | `IN_PROGRESS` | 9 | 3 | CUSTOM_BLENDER (Original + TRELLIS base) |
 | `AST-0012` | Young Bharata (Sarvadamana, age 6) | `CHARACTER` | `PLANNED` | 8 | 0 | CUSTOM_BLENDER |
@@ -31,7 +31,7 @@ Generated directly from `studio/refs/library/` CSVs, `studio/episodes/`, `studio
 | `AST-0014` | Hermitage Animals (Lion, Tiger, Deer) | `ANIMAL_CREATURE` | `ACQUISITION_TARGET` | 6 | 1 | FAB_TARGET (Big cat / deer rigged packs) -> Blender stylized fur |
 | `AST-0001` | Arjuna Hero (Armored) | `CHARACTER` | `IN_PROGRESS` | 5 | 3 | CUSTOM_BLENDER (Original + TRELLIS base) |
 | `AST-0015` | Noble Shakunta Vulture Pack (SSS Feather Kit) | `ANIMAL_CREATURE` | `ACQUISITION_TARGET` | 4 | 4 | FAB_TARGET (Raptor bird rig) + Blender Boids + CON-0030 SSS Feather Kit |
-| `AST-0013` | Vedic Chariot Horses (White & Dun Teams) | `ANIMAL_CREATURE` | `ACQUISITION_TARGET` | 4 | 1 | FAB_TARGET (Horse rig/anim Standard license) -> Blender repaint (NO stirrups/horned saddles) |
+| `AST-0013` | Vedic Chariot Horses (White & Dun Teams) | `ANIMAL_CREATURE` | `IN_PROGRESS` | 4 | 1 | MahabharataWorld UE + FAB_TARGET (Rigged Horse + Gallop/Kneel anim) -> strip stirrups |
 | `AST-0002` | Arjuna Hero (Bare-Headed / Crownless) | `CHARACTER` | `IN_PROGRESS` | 4 | 0 | CUSTOM_BLENDER |
 | `AST-0011` | Sage Kanwa | `CHARACTER` | `PLANNED` | 4 | 0 | CUSTOM_BLENDER (Modular sage base rig) |
 | `AST-0019` | Hero Crowns, Ornaments & Armour Trims (Kiritamukuta, Keyura, Mekhala) | `PROP_COSTUME` | `IN_PROGRESS` | 3 | 9 | TRELLIS2_PROP (high-detail reliefs) + BLENDER shader CON-0050 (REF-0017 patina) |
@@ -59,7 +59,15 @@ After closing **Batch 1 (`REF-0022`–`REF-0031`)** once browser quota resets, s
 - `VFX` (`42` catalogued) -> Grease Pencil impact & astral trail study for `AST-0023`
 - `FACIAL_ANIMATION` (`10` catalogued) -> Subtle close-up blinks/speech restraint for `A09`, `A22`, `S1E01 V12`
 
-## 5. Local Non-Committed Database & Shareable Export Paths
+## 5. Acquired & Existing Local 3D Assets (Ready on Disk)
+- **MahabharataWorld Unreal Project (`Documents/Unreal Projects/MahabharataWorld/Content`):** `315` files (`Hastinapur`: 170, `Kurukshetra`: 73, `Cities`: 72)
+- **Poly Haven CC0 (`MAHABHARATA_STUDIO/02_BLENDER/`):** `20` 2K `.blend` props & nature kits + `5` 2K PBR texture blends + `4` 2K dawn/dusk/storm HDRIs (`CC0 1.0`, commercially safe)
+- **NVIDIA SimReady Central (`MAHABHARATA_STUDIO/02_BLENDER/Props/NVIDIA_SimReady/`):** `12` curated OpenUSD clay/copper/decor/stool props (`CC BY 4.0` per `.metadata/LICENSE.txt` — attribute NVIDIA SimReady), compiled into `nvidia_simready_vedic_props.blend` via `import_usd_prop.py`
+- **NVIDIA Omniverse OpenUSD GitHub Samples (`03_UNREAL/NVIDIA_OpenUSD_Samples/`):** `14` OpenUSD sample scene/material files
+- **Epic Fab Marketplace (`fab.com` / `VaultCache/FabLibrary`):** Currently `0` downloaded listings (`listings_v1.db` empty) — requires interactive sign-in & EULA claim inside Epic account / UE 5.8 (`Window -> Fab`) for `FAB-01`..`FAB-06`.
+
+## 6. Local Non-Committed Database & Shareable Export Paths
 - **SQLite DB:** `C:\Users\dharm\OneDrive\Desktop\claude projects\MAHABHARATA_STUDIO\00_REFERENCE_LIBRARY\mahabharat_prod.db`
 - **Sanitized CSV (safe to share externally):** `C:\Users\dharm\OneDrive\Desktop\claude projects\MAHABHARATA_STUDIO\00_REFERENCE_LIBRARY\05_ORIGINAL_CONCEPTS\export_for_planning\mahabharat_sanitized_refs.csv`
+- **ChatGPT 9-Field Concept->Asset CSV:** `C:\Users\dharm\OneDrive\Desktop\claude projects\MAHABHARATA_STUDIO\00_REFERENCE_LIBRARY\05_ORIGINAL_CONCEPTS\export_for_planning\mahabharat_chatgpt_mapping_export.csv`
 - **Sanitized Production JSON Bundle:** `C:\Users\dharm\OneDrive\Desktop\claude projects\MAHABHARATA_STUDIO\00_REFERENCE_LIBRARY\05_ORIGINAL_CONCEPTS\export_for_planning\mahabharat_production_bundle_sanitized.json`

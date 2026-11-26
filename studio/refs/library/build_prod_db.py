@@ -161,12 +161,14 @@ CANONICAL_ASSETS = [
     # --- ANIMALS & CREATURES (FAB + BLENDER) ---
     {
         "asset_id": "AST-0013", "asset_name": "Vedic Chariot Horses (White & Dun Teams)", "asset_type": "ANIMAL_CREATURE",
-        "blender_file": "", "unreal_asset_path": "", "version": "v1", "dependencies": "",
+        "blender_file": "",
+        "unreal_asset_path": "/Game/Kurukshetra/Hero/SM_krk_horse_white; /Game/Kurukshetra/Hero/SM_krk_horse_team; /Game/Hastinapur/Trellis/hst_white_horse/SM_hst_white_horse",
+        "version": "v1", "dependencies": "",
         "rig_status": "NEEDED_GALLOP_KNEEL", "material_status": "NEEDS_PAINTERLY_COAT",
-        "optimization_status": "NOT_STARTED", "reuse_scope": "SERIES",
-        "source_or_license": "FAB_TARGET (Horse rig/anim Standard license) -> Blender repaint (NO stirrups/horned saddles)",
-        "status": "ACQUISITION_TARGET",
-        "notes": "Critical for EP01 A02/A05/A13 (kneeling beat!) & S1E01 H01-H03 hunt. Strip stirrups per Vedic canon.",
+        "optimization_status": "UNREAL_STATIC_PRESENT_NEED_RIG", "reuse_scope": "SERIES",
+        "source_or_license": "MahabharataWorld UE + FAB_TARGET (Rigged Horse + Gallop/Kneel anim) -> strip stirrups",
+        "status": "IN_PROGRESS",
+        "notes": "Static meshes exist in MahabharataWorld/Kurukshetra & Hastinapur; add rigged/animated Fab horse pack for A05/A13 kneeling beat.",
         "char_tags": [], "keywords": ["horse", "horses", "steed", "steeds", "hooves"],
     },
     {
@@ -193,10 +195,11 @@ CANONICAL_ASSETS = [
     {
         "asset_id": "AST-0016", "asset_name": "Vedic Gold War Chariots (Arjuna Ape-Banner / Karna Elephant-Rope / Dushmanta)", "asset_type": "VEHICLE",
         "blender_file": "studio/tools/blender/shalya_chariot_check.py",
-        "unreal_asset_path": "", "version": "v1", "dependencies": "studio/tools/blender/banners.py",
+        "unreal_asset_path": "/Game/Kurukshetra/Hero/SM_krk_arjuna_chariot; /Game/Kurukshetra/Hero/SM_krk_ape_banner; /Game/Hastinapur/Trellis/hst_arjuna_chariot/SM_hst_arjuna_chariot",
+        "version": "v1", "dependencies": "studio/tools/blender/banners.py",
         "rig_status": "RIGGED_WHEEL_SINK_VARIANT", "material_status": "CARVED_GOLD_BLACK_ENAMEL",
         "optimization_status": "SUB_100K_TRIS", "reuse_scope": "SERIES",
-        "source_or_license": "CUSTOM_BLENDER + TRELLIS2_CARVED_TRIM (MIT)",
+        "source_or_license": "CUSTOM_BLENDER + MahabharataWorld UE + TRELLIS2_CARVED_TRIM",
         "status": "IN_PROGRESS",
         "notes": "No canopy, no horned saddle/stirrups. Needs detachable left wheel + banner pole break rigid-joint for A16/A18.",
         "char_tags": [], "keywords": ["chariot", "chariots", "wheel", "banner", "kapi-dhvaja"],
@@ -204,22 +207,25 @@ CANONICAL_ASSETS = [
     {
         "asset_id": "AST-0017", "asset_name": "Divine Bows & Hero Arrows (Gandiva, Vijaya, Snake Arrow, Anjalika)", "asset_type": "PROP_WEAPON",
         "blender_file": "studio/tools/blender/bows.py",
-        "unreal_asset_path": "", "version": "v1", "dependencies": "studio/cast/karna/model/trellis_out/karna_bow_1536.glb",
+        "unreal_asset_path": "/Game/Kurukshetra/Hero/SM_krk_great_bow; /Game/Kurukshetra/Hero/SM_krk_arrow_cluster; /Game/Kurukshetra/Hero/SM_krk_gada",
+        "version": "v1", "dependencies": "studio/cast/karna/model/trellis_out/karna_bow_1536.glb",
         "rig_status": "BOW_FLEX_RIG_EYELID_SNAKE", "material_status": "CARVED_GOLD_AND_WOOD",
         "optimization_status": "HERO_MACRO_READY", "reuse_scope": "SERIES",
-        "source_or_license": "TRELLIS2_PROP (karna_bow_1536.glb) + CUSTOM_BLENDER bows.py",
+        "source_or_license": "TRELLIS2_PROP (karna_bow_1536.glb) + CUSTOM_BLENDER bows.py + MahabharataWorld UE",
         "status": "IN_PROGRESS",
         "notes": "Snake arrowhead needs eyelid shape key for EP01 A10 macro; Anjalika has large crescent blade head (A19).",
         "char_tags": [], "keywords": ["bow", "arrow", "arrows", "arrowhead", "arrowheads", "gandiva", "vijaya", "quiver", "anjalika", "serpent", "spear", "sword", "gada"],
     },
     {
         "asset_id": "AST-0018", "asset_name": "Hermitage & Vedic Props (Palm-Leaf Manuscripts, Brass Stylus, Fire Altar, Diya, Kalash)", "asset_type": "PROP",
-        "blender_file": "", "unreal_asset_path": "", "version": "v1", "dependencies": "",
-        "rig_status": "NOT_APPLICABLE", "material_status": "AGED_BRASS_PALM_BARK",
-        "optimization_status": "LOW_POLY", "reuse_scope": "SERIES",
-        "source_or_license": "TRELLIS2_PROP (diya, kalash, lotus bowl) + CUSTOM_BLENDER (palm leaves/stylus)",
-        "status": "PLANNED",
-        "notes": "Strict period lock: NO bound paper books or modern pottery. Reuses CON-0016 (diya) & CON-0062 (kalash/takia).",
+        "blender_file": "MAHABHARATA_STUDIO/02_BLENDER/Props/PolyHaven_CC0/brass_diya_lantern/brass_diya_lantern_2k.blend",
+        "unreal_asset_path": "/Game/Hastinapur/Trellis/hst_lamp_pillar/SM_hst_lamp_pillar; /Game/Kurukshetra/Hero/SM_krk_conch",
+        "version": "v1", "dependencies": "NVIDIA_SimReady + PolyHaven_CC0 (11 Vedic-adaptable .blend props)",
+        "rig_status": "NOT_APPLICABLE", "material_status": "PAINTERLY_REPAINT_NEEDED",
+        "optimization_status": "2K_LOW_VRAM_SAFE", "reuse_scope": "SERIES",
+        "source_or_license": "PolyHaven CC0 (brass_diya_lantern, brass_pot_01/02, brass_vase_01/03, stone_fire_pit) + NVIDIA SimReady OpenUSD + TRELLIS.2",
+        "status": "ACQUIRED_NEEDS_PAINTERLY_REPAINT",
+        "notes": "Downloaded CC0 brass diya, pots, stone fire pit, clay pots & carved wood plates + OpenUSD clay/copper props. Strictly NO paper books.",
         "char_tags": [], "keywords": ["palm leaf", "palm leaves", "palm-leaf", "stylus", "altar", "diya", "lamp", "kalash", "lotus", "torch", "mashal", "bolster", "water pot", "tusk", "water jar"],
     },
     {
@@ -237,36 +243,39 @@ CANONICAL_ASSETS = [
     {
         "asset_id": "AST-0020", "asset_name": "Kurukshetra Battlefield & 14k Instanced Army", "asset_type": "ENVIRONMENT",
         "blender_file": "studio/tools/blender/battlefield.py",
-        "unreal_asset_path": "/Game/Plates/Kurukshetra_Duel", "version": "v1",
-        "dependencies": "CON-0001, CON-0009, CON-0051",
+        "unreal_asset_path": "/Game/Kurukshetra/L_Kurukshetra; /Game/Kurukshetra/Proc/SM_KRK_Terrain", "version": "v1",
+        "dependencies": "CON-0001, CON-0009, CON-0051, PolyHaven aarfontein_dusk_2k.exr",
         "rig_status": "GEOMETRY_NODES_13977_INSTANCES", "material_status": "TRAMPLED_RED_EARTH_PAINTERLY",
         "optimization_status": "LOW_VRAM_4GB_READY", "reuse_scope": "SERIES_SEASONS_5_6",
-        "source_or_license": "CUSTOM_BLENDER_GN + UNREAL_5_8_PLATE (in progress on sai PC) + FAB terrain/dust",
+        "source_or_license": "CUSTOM_BLENDER_GN + MahabharataWorld UE (L_Kurukshetra) + PolyHaven CC0 dry_ground_01 & dusk HDRI",
         "status": "IN_PROGRESS",
-        "notes": "Far ground painted matte plates + mid GN army + UE 5.8 background plate only where parallax needed (GTX 1650 safe).",
+        "notes": "73 Unreal assets already in MahabharataWorld/Kurukshetra! Keep UE strictly for parallax sky/terrain plates on 4 GB GTX 1650.",
         "char_tags": [], "keywords": ["kurukshetra", "battlefield", "armies", "camp", "tent", "red earth"],
     },
     {
         "asset_id": "AST-0021", "asset_name": "Kanwa / Vyasa Vedic Hermitage & Malini Riverbank", "asset_type": "ENVIRONMENT",
         "blender_file": "studio/tools/blender/scene01_3d.py",
-        "unreal_asset_path": "/Game/Plates/Vedic_Hermitage", "version": "v1",
-        "dependencies": "CON-0025, CON-0040, CON-0058, CON-0060",
+        "unreal_asset_path": "/Game/Cities/Vrindavan/L_Vrindavan; /Game/Cities/Vrindavan/Kit/SM_Vrindavan_banyan; /Game/Cities/Vrindavan/Kit/SM_Vrindavan_banks",
+        "version": "v1",
+        "dependencies": "CON-0025, CON-0040, CON-0058, CON-0060, PolyHaven CC0 (root_cluster_01/02, ganges_river_pebbles, tree_small_02, fern_02)",
         "rig_status": "MODULAR_THATCH_HUT_BANYAN", "material_status": "PAINTERLY_FOLIAGE_RIVER",
-        "optimization_status": "MULTIPLANE_2_5D_HYBRID", "reuse_scope": "SERIES_ALL_ASHRAM_SCENES",
-        "source_or_license": "FAB_TARGET (Ancient Trees, River Rocks, Thatch Foliage -> Blender repaint + CON-0060 parallax planes)",
-        "status": "ACQUISITION_TARGET",
-        "notes": "Serves S1E01 sc01, sc02, sc03 AND all future Vana Parva/ashram episodes! Strictly NO stone temples/carved idols.",
+        "optimization_status": "2K_MULTIPLANE_4GB_SAFE", "reuse_scope": "SERIES_ALL_ASHRAM_SCENES",
+        "source_or_license": "MahabharataWorld UE (Vrindavan banyan/banks) + PolyHaven CC0 nature/ganges_river_pebbles + FAB_TARGET (Ancient Trees/River)",
+        "status": "IN_PROGRESS_CC0_ACQUIRED",
+        "notes": "Downloaded 9 CC0 2K nature .blends + 5 river/bark PBRs + dawn/sunrise HDRIs + Vrindavan banyan/bank UE meshes! Add Fab foliage next.",
         "char_tags": [], "keywords": ["hermitage", "forest", "malini", "banyan", "ashram", "grove", "waterfall", "yamuna", "riverbank", "thatched"],
     },
     {
         "asset_id": "AST-0022", "asset_name": "Vedic Royal Court Hall (Hastinapur / Puru Sabha Kit)", "asset_type": "ENVIRONMENT",
-        "blender_file": "", "unreal_asset_path": "/Game/Plates/Vedic_Sabha_Hall", "version": "v1",
+        "blender_file": "",
+        "unreal_asset_path": "/Game/Hastinapur/L_Hastinapur; /Game/Hastinapur/Proc/palace/SM_throne_hall; /Game/Hastinapur/Trellis/hst_sabha_column_bay/SM_hst_sabha_column_bay",
+        "version": "v1",
         "dependencies": "CON-0010, CON-0013, CON-0019, CON-0020, CON-0021, CON-0055",
         "rig_status": "MODULAR_WOOD_SANDSTONE_PILLARS", "material_status": "WARM_GOLD_SANDSTONE_PAINTERLY",
         "optimization_status": "MODULAR_KIT_4GB_SAFE", "reuse_scope": "SERIES",
-        "source_or_license": "FAB_TARGET (Ancient Temple/Palace Columns, Courtyard, Lanterns) -> Vedic wooden/early sandstone adaptation",
-        "status": "ACQUISITION_TARGET",
-        "notes": "S1E01 sc03 needs early 1000 BCE wood-pillar court (minimal stone carving). Reusable base later upgraded into grand Hastinapur Sabha.",
+        "source_or_license": "MahabharataWorld UE (170 Hastinapur assets!) + FAB_TARGET (Courtyard/Wooden pillars for 1000 BCE S1E01 court)",
+        "status": "IN_PROGRESS",
+        "notes": "MahabharataWorld has Hastinapur Sabha/Throne/Torana assets; for S1E01 sc03 Puru court simplify to Vedic wooden pillars + oil lamps.",
         "char_tags": [], "keywords": ["court", "palace", "sabha", "pillars", "throne", "rampart", "parapet", "temple", "citadel", "balcony"],
     },
     # --- LOOKDEV, SHADERS & 2D/3D FX LIBRARY ---
@@ -732,6 +741,55 @@ def build():
                 r.get("mahabharata_scene_idea", ""),
             ])
 
+    # ChatGPT-requested 9-field conversion mapping CSV for all concepts + analysed refs
+    mapping_csv = export_dir / "mahabharat_chatgpt_mapping_export.csv"
+    ref_lookup = {r["reference_id"]: r for r in refs}
+    with mapping_csv.open("w", newline="", encoding="utf-8-sig") as f:
+        w = csv.writer(f)
+        w.writerow([
+            "reference_id", "visual_category", "shot_concept", "required_asset",
+            "asset_source", "asset_status", "blender_task", "unreal_task", "episode_id",
+        ])
+        for c in concepts:
+            cid = c["concept_id"]
+            first_ref = (c.get("source_reference_ids") or "").split(",")[0].strip()
+            rinfo = ref_lookup.get(first_ref, {})
+            card = cards.get(first_ref, {})
+            linked_aids = [aid for aid, cids in concept_to_assets.items() if cid in cids]
+            src_summary = "; ".join(
+                next((a["source_or_license"] for a in CANONICAL_ASSETS if a["asset_id"] == aid), aid)
+                for aid in linked_aids[:3]
+            )
+            status_summary = "; ".join(
+                next((a["status"] for a in CANONICAL_ASSETS if a["asset_id"] == aid), "PLANNED")
+                for aid in linked_aids[:3]
+            )
+            w.writerow([
+                c.get("source_reference_ids", ""),
+                rinfo.get("primary_category", "SCENE_DIRECTION"),
+                f"{cid}: {c.get('concept_title','')} — {c.get('original_shot_description','')}",
+                ", ".join(linked_aids) + f" | {c.get('required_assets','')}",
+                src_summary,
+                status_summary,
+                card.get("blender_tasks", c.get("animation_requirements", "")),
+                card.get("unreal_tasks", c.get("lighting_plan", "")),
+                c.get("episode", ""),
+            ])
+
+    # Inspect downloaded manifests & existing MahabharataWorld Unreal project
+    ph_manifest_path = local_studio / "02_BLENDER" / "polyhaven_cc0_manifest.json"
+    nv_manifest_path = local_studio / "02_BLENDER" / "Props" / "nvidia_downloaded_manifest.json"
+    mw_content = pathlib.Path.home() / "Documents" / "Unreal Projects" / "MahabharataWorld" / "Content"
+
+    ph_manifest = json.loads(ph_manifest_path.read_text(encoding="utf-8")) if ph_manifest_path.exists() else {}
+    nv_manifest = json.loads(nv_manifest_path.read_text(encoding="utf-8")) if nv_manifest_path.exists() else {}
+    mw_counts = {}
+    if mw_content.exists():
+        for folder in ("Hastinapur", "Kurukshetra", "Cities"):
+            fp = mw_content / folder
+            if fp.exists():
+                mw_counts[folder] = sum(1 for x in fp.rglob("*") if x.is_file())
+
     export_bundle = {
         "project": "Mahabharat Painterly 3D Animated Web Series",
         "visual_direction": "Arcane-family Painted 3D (gold key #FFC27A, blue shadow #3E5A86) + Grease Pencil 2D FX",
@@ -744,7 +802,16 @@ def build():
             "concepts": len(concepts),
             "canonical_assets": len(CANONICAL_ASSETS),
             "scripted_shots": len(shots),
+            "polyhaven_cc0_models": len(ph_manifest.get("models", [])),
+            "polyhaven_cc0_textures": len(ph_manifest.get("textures", [])),
+            "polyhaven_cc0_hdris": len(ph_manifest.get("hdris", [])),
+            "nvidia_simready_props": len(nv_manifest.get("simready", [])),
+            "nvidia_omniverse_sample_files": len(nv_manifest.get("omniverse_github", [])),
+            "mahabharata_world_ue_files": sum(mw_counts.values()),
         },
+        "existing_unreal_mahabharata_world": mw_counts,
+        "downloaded_polyhaven_cc0": ph_manifest,
+        "downloaded_nvidia_simready_and_openusd": nv_manifest,
         "refs_by_category": dict(Counter(r.get("primary_category", "") for r in refs)),
         "assets": [
             {k: v for k, v in a.items() if k not in ("char_tags", "keywords")}
@@ -811,9 +878,17 @@ def build():
         "- `VFX` (`42` catalogued) -> Grease Pencil impact & astral trail study for `AST-0023`",
         "- `FACIAL_ANIMATION` (`10` catalogued) -> Subtle close-up blinks/speech restraint for `A09`, `A22`, `S1E01 V12`",
         "",
-        "## 5. Local Non-Committed Database & Shareable Export Paths",
+        "## 5. Acquired & Existing Local 3D Assets (Ready on Disk)",
+        f"- **MahabharataWorld Unreal Project (`Documents/Unreal Projects/MahabharataWorld/Content`):** `{sum(mw_counts.values())}` files (`Hastinapur`: {mw_counts.get('Hastinapur',0)}, `Kurukshetra`: {mw_counts.get('Kurukshetra',0)}, `Cities`: {mw_counts.get('Cities',0)})",
+        f"- **Poly Haven CC0 (`MAHABHARATA_STUDIO/02_BLENDER/`):** `{len(ph_manifest.get('models', []))}` 2K `.blend` props & nature kits + `{len(ph_manifest.get('textures', []))}` 2K PBR texture blends + `{len(ph_manifest.get('hdris', []))}` 2K dawn/dusk/storm HDRIs (`CC0 1.0`, commercially safe)",
+        f"- **NVIDIA SimReady Central (`MAHABHARATA_STUDIO/02_BLENDER/Props/NVIDIA_SimReady/`):** `{len(nv_manifest.get('simready', []))}` curated OpenUSD clay/copper/decor/stool props (`CC BY 4.0` per `.metadata/LICENSE.txt` — attribute NVIDIA SimReady), compiled into `nvidia_simready_vedic_props.blend` via `import_usd_prop.py`",
+        f"- **NVIDIA Omniverse OpenUSD GitHub Samples (`03_UNREAL/NVIDIA_OpenUSD_Samples/`):** `{len(nv_manifest.get('omniverse_github', []))}` OpenUSD sample scene/material files",
+        "- **Epic Fab Marketplace (`fab.com` / `VaultCache/FabLibrary`):** Currently `0` downloaded listings (`listings_v1.db` empty) — requires interactive sign-in & EULA claim inside Epic account / UE 5.8 (`Window -> Fab`) for `FAB-01`..`FAB-06`.",
+        "",
+        "## 6. Local Non-Committed Database & Shareable Export Paths",
         f"- **SQLite DB:** `{db_path}`",
         f"- **Sanitized CSV (safe to share externally):** `{sanitized_refs_csv}`",
+        f"- **ChatGPT 9-Field Concept->Asset CSV:** `{mapping_csv}`",
         f"- **Sanitized Production JSON Bundle:** `{bundle_json}`",
     ]
     (LIB_DIR / "ASSET_AND_FAB_MATRIX.md").write_text("\n".join(matrix_lines) + "\n", encoding="utf-8")

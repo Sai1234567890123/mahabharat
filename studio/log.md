@@ -159,3 +159,17 @@ Note 2026-11-15: web and Pinterest references are not model inputs. Their likene
 - **Full Saved Collection Completed (`189 / 189` Reels, `2026-11-26`):** Scrolled `prasannasaidharmana/saved/all-posts/` to bottom (`189` unique posts/Reels, `REF-0001`–`REF-0189`; `hi` collection confirmed empty). Verified Instagram Web does not expose the mobile-only `Suggested content -> Interested` route (`/your_activity/` only serves `Likes`, `Comments`, `Reposts`, `Story replies`, `Reviews` on Web).
 | 2026-11-28 | cast/karna/model/chariot_v1.png | gemini-3.1-flash-image | model sheet karna_chariot, 2 refs | tokens in 2505 out 1120 | pending review |
 - 2026-11-27 · GPU VM · Karna's chariot TRELLIS attempt (sai: "Yes"): inputs cast/karna/model/trellis_in/src_chariot_v1_up2x.png (prep_sharp 2x) and karna_chariot.png (prep_input, 1536 cut-out). krk-trellis-l4 spot started 19:58:43 UTC, preempted 19:59:37 UTC before any upload; VM-side shutdown had been set. About 1 min VM, under $0.01. No model. Waiting for sai: retry spot, on-demand, or later.
+| 2026-11-28 | cast/arjuna/model/chariot_v1.png | gemini-3.1-flash-image | model sheet arjuna_chariot, 2 refs | tokens in 2431 out 1120 | pending review |
+| 2026-11-28 | cast/kit/model/war_elephant_v1.png | gemini-3.1-flash-image | model sheet war_elephant, 2 refs | tokens in 2430 out 1120 | pending review |
+| 2026-11-28 | cast/kit/model/fire_altar_v1.png | gemini-3.1-flash-image | model sheet fire_altar, 1 refs | tokens in 1300 out 1120 | pending review |
+| 2026-11-28 | cast/kit/model/dice_board_v1.png | gemini-3.1-flash-image | model sheet dice_board, 2 refs | tokens in 2409 out 1120 | pending review |
+| 2026-11-28 | cast/bhishma/model/front_v1.png | gemini-3.1-flash-image | model sheet bhishma, 1 refs | tokens in 1487 out 1120 | pending review |
+| 2026-11-28 | cast/bhima/model/front_v1.png | gemini-3.1-flash-image | model sheet bhima, 1 refs | tokens in 1487 out 1120 | pending review |
+| 2026-11-28 | cast/yudhishthira/model/front_v1.png | gemini-3.1-flash-image | model sheet yudhishthira, 1 refs | tokens in 1491 out 1205 | pending review |
+| 2026-11-28 | cast/nakula/model/front_v1.png | gemini-3.1-flash-image | model sheet nakula, 1 refs | tokens in 1484 out 1120 | pending review |
+| 2026-11-28 | cast/sahadeva/model/front_v1.png | gemini-3.1-flash-image | model sheet sahadeva, 1 refs | tokens in 1483 out 1120 | pending review |
+| 2026-11-28 | cast/duryodhana/model/front_v1.png | gemini-3.1-flash-image | model sheet duryodhana, 2 refs | tokens in 2612 out 1120 | pending review |
+| 2026-11-28 | cast/shakuni/model/front_v1.png | gemini-3.1-flash-image | model sheet shakuni, 2 refs | tokens in 2613 out 1120 | pending review |
+| 2026-11-28 | cast/hanuman/model/front_v1.png | gemini-3.1-flash-image | model sheet hanuman, 1 refs | tokens in 1518 out 1152 | pending review |
+- 2026-11-27 · GPU VM · Karna's chariot second try: switched krk-trellis-l4 to on-demand (sai: "switch the chariot VM to on-demand and run it, max 60 min"); start failed ZONE_RESOURCE_POOL_EXHAUSTED (no L4 in us-central1-a), VM never ran, $0. Scheduling put back to spot. Chariot model still pending GPU capacity.
+- 2026-11-27 · review · picks v1 contact sheet cast/picks_v1_contact.jpg. Props (arjuna chariot, war elephant, fire altar, dice board) are clean single views. bhishma, bhima, yudhishthira, sahadeva came back as multi-view labelled turnaround sheets on grey (not TRELLIS-ready); nakula on grey; yudhishthira in red/orange instead of cream/blue, nakula in green instead of yellow/red.

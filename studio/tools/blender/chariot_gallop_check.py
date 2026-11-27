@@ -3,7 +3,7 @@
   EGL_PLATFORM=surfaceless python3 chariot_gallop_check.py <out.mp4|out.jpg> [--frames 48]
 A .jpg writes a 4x2 sheet of one stride (and the standing team with reins); an .mp4 renders a tracking shot.
 """
-import math, pathlib, subprocess, sys
+import math, pathlib, subprocess, sys, time
 import bpy
 from mathutils import Vector
 
@@ -25,12 +25,16 @@ sc.render.fps = FPS; sc.frame_start, sc.frame_end = 1, FRAMES
 ch, h, team, k, bow = karna_chariot.build(rigged=True, reins_on=True)
 rigs = [bpy.data.objects[n] for n in team["rigs"]]
 
+T0 = time.time()
 for f in range(1, FRAMES + 1):
     t = (f - 1) / FPS
+    if f % 8 == 1:
+        print(f"keying chariot and heroes, frame {f}, {time.time() - T0:.0f} s", flush=True)
     ch.location = (0, -SPEED * t, 0); ch.keyframe_insert("location", frame=f)
     h.reset(); moves_ep01.charioteer(h, t, sway=1.6); h.key_all(f)
     k.reset(); moves_ep01.stand_tall(k, t); k.turn("hips", "Y", 2.5 * math.sin(2 * math.pi * t / 0.48), keep=True); k.key_all(f)
 for i, r in enumerate(rigs):                                   # the four do not step in lockstep
+    print(f"keying horse {i}, {time.time() - T0:.0f} s", flush=True)
     horse_gaits.key(r, "gallop", 1, FRAMES, FPS, phase=(0.0, 0.07, 0.03, 0.11)[i])
 for fc in ch.animation_data.action.fcurves if hasattr(ch.animation_data.action, "fcurves") else []:
     for k in fc.keyframe_points:
@@ -38,7 +42,7 @@ for fc in ch.animation_data.action.fcurves if hasattr(ch.animation_data.action, 
 
 # ground with enough grain to read speed
 gm = bpy.data.materials.new("earth"); nt = gm.node_tree
-noise = nt.nodes.new("ShaderNodeTexNoise"); noise.inputs["Scale"].default_value = 1.2; noise.inputs["Detail"].default_value = 8
+noise = nt.nodes.new("ShaderNodeTexNoise"); noise.inputs["Scale"].default_value = 160; noise.inputs["Detail"].default_value = 8
 ramp = nt.nodes.new("ShaderNodeValToRGB")
 ramp.color_ramp.elements[0].color = (0.20, 0.10, 0.05, 1); ramp.color_ramp.elements[1].color = (0.42, 0.24, 0.12, 1)
 nt.links.new(noise.outputs["Fac"], ramp.inputs["Fac"]); nt.links.new(ramp.outputs["Color"], nt.nodes["Principled BSDF"].inputs["Base Color"])
@@ -49,7 +53,7 @@ sc.world = bpy.data.worlds.new("sky"); sc.world.color = (0.55, 0.62, 0.75)
 karna_chariot.cpu_render_settings(sc, 16)
 sc.render.resolution_x, sc.render.resolution_y = 960, 540
 cam = bpy.data.cameras.new("cam"); co = bpy.data.objects.new("cam", cam); sc.collection.objects.link(co); sc.camera = co
-co.parent = ch; pos, aim = Vector((-13.5, -4.2, 2.4)), Vector((0, -2.6, 1.4))   # tracking alongside, as A05
+co.parent = ch; pos, aim = Vector((-10.0, -3.6, 2.0)), Vector((0, -2.4, 1.6))   # tracking alongside, as A05
 co.location = pos; co.rotation_euler = (aim - pos).to_track_quat("-Z", "Y").to_euler(); cam.lens = 35
 
 tmp = OUT.with_suffix(""); tmp.mkdir(exist_ok=True)

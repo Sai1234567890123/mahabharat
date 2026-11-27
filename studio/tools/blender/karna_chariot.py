@@ -79,8 +79,11 @@ def build(rigged=True, reins_on=True, coat="dun", karna=True, bow_ratio=0.15, wi
         if with_bow:
             bow = Bow.vijaya(VIJAYA)
             k.reset(); moves.bow_draw(k, 1.6); bow.attach(k)
-        if bow and bow_ratio < 1:
-            d = bow.obj.modifiers.new("lod", "DECIMATE"); d.ratio = bow_ratio
+        if bow and bow_ratio < 1:                                   # apply it once: a live decimate re-runs on
+            d = bow.obj.modifiers.new("lod", "DECIMATE"); d.ratio = bow_ratio   # every pose update and stalls keying
+            with bpy.context.temp_override(object=bow.obj, active_object=bow.obj):
+                bpy.ops.object.modifier_move_to_index(modifier="lod", index=0)
+                bpy.ops.object.modifier_apply(modifier="lod")
         k.reset(); moves_ep01.stand_tall(k, 0.0); k.key_all(1)
     for hero in (h, k):
         if hero and not subsurf:                                    # the hero bodies' render subsurf costs ~5.5 GB each

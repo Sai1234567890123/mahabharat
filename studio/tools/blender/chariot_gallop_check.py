@@ -1,4 +1,4 @@
-"""A05 check: Karna's chariot at full gallop. Shalya drives, four rigged Hastinapur horses (dun) gallop, reins strung.
+"""A05 check: Karna's chariot at full gallop. Karna stands with the Vijaya bow, Shalya drives, four rigged Hastinapur horses (dun) gallop, reins strung.
 
   EGL_PLATFORM=surfaceless python3 chariot_gallop_check.py <out.mp4|out.jpg> [--frames 48]
 A .jpg writes a 4x2 sheet of one stride (and the standing team with reins); an .mp4 renders a tracking shot.
@@ -22,13 +22,14 @@ bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.preferences.addon_enable(module="rigify")
 sc = bpy.context.scene
 sc.render.fps = FPS; sc.frame_start, sc.frame_end = 1, FRAMES
-ch, h, team = karna_chariot.build(rigged=True, reins_on=True)
+ch, h, team, k, bow = karna_chariot.build(rigged=True, reins_on=True)
 rigs = [bpy.data.objects[n] for n in team["rigs"]]
 
 for f in range(1, FRAMES + 1):
     t = (f - 1) / FPS
     ch.location = (0, -SPEED * t, 0); ch.keyframe_insert("location", frame=f)
     h.reset(); moves_ep01.charioteer(h, t, sway=1.6); h.key_all(f)
+    k.reset(); moves_ep01.stand_tall(k, t); k.turn("hips", "Y", 2.5 * math.sin(2 * math.pi * t / 0.48), keep=True); k.key_all(f)
 for i, r in enumerate(rigs):                                   # the four do not step in lockstep
     horse_gaits.key(r, "gallop", 1, FRAMES, FPS, phase=(0.0, 0.07, 0.03, 0.11)[i])
 for fc in ch.animation_data.action.fcurves if hasattr(ch.animation_data.action, "fcurves") else []:
@@ -45,7 +46,7 @@ bpy.ops.mesh.primitive_plane_add(size=400); bpy.context.object.data.materials.ap
 sun = bpy.data.lights.new("sun", "SUN"); sun.energy = 4.5; sun.color = (1.0, 0.82, 0.62); sun.angle = 0.05
 so = bpy.data.objects.new("sun", sun); sc.collection.objects.link(so); so.rotation_euler = (math.radians(55), 0, math.radians(-60))
 sc.world = bpy.data.worlds.new("sky"); sc.world.color = (0.55, 0.62, 0.75)
-sc.render.engine = "BLENDER_EEVEE"; sc.eevee.taa_render_samples = 8
+karna_chariot.cpu_render_settings(sc, 16)
 sc.render.resolution_x, sc.render.resolution_y = 960, 540
 cam = bpy.data.cameras.new("cam"); co = bpy.data.objects.new("cam", cam); sc.collection.objects.link(co); sc.camera = co
 co.parent = ch; pos, aim = Vector((-13.5, -4.2, 2.4)), Vector((0, -2.6, 1.4))   # tracking alongside, as A05

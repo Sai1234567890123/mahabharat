@@ -1,7 +1,7 @@
 """Check render: Shalya driving Karna's chariot (dun team of Hastinapur TRELLIS horses, elephant's-rope standard), mid-ground, as in A02, A06, A16.
 
   EGL_PLATFORM=surfaceless python3 shalya_chariot_check.py <out.jpg>
-Scene from karna_chariot.build: kit driver cut out, Shalya at the reins (moves_ep01.charioteer), reins to each bit. EEVEE, 1280x720, three angles side by side.
+Scene from karna_chariot.build: kit driver cut out, Shalya at the reins (moves_ep01.charioteer), reins to each bit. Cycles CPU, 1280x720, three angles side by side.
 """
 import math, pathlib, sys
 import bpy
@@ -15,14 +15,14 @@ OUT = pathlib.Path(sys.argv[-1]).resolve()
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.preferences.addon_enable(module="rigify")
 sc = bpy.context.scene
-ch, h, team = karna_chariot.build(rigged=True, reins_on=True)       # rigged Hastinapur horses standing, reins strung
+ch, h, team, k, bow = karna_chariot.build(rigged=True, reins_on=True)       # rigged Hastinapur horses standing, reins strung
 
 gnd_mat = bpy.data.materials.new("earth"); gnd_mat.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.32, 0.16, 0.08, 1)
 bpy.ops.mesh.primitive_plane_add(size=200); bpy.context.object.data.materials.append(gnd_mat)
 sun = bpy.data.lights.new("sun", "SUN"); sun.energy = 4.5; sun.color = (1.0, 0.8, 0.6); sun.angle = 0.05
 so = bpy.data.objects.new("sun", sun); sc.collection.objects.link(so); so.rotation_euler = (math.radians(62), 0, math.radians(-120))
 sc.world = bpy.data.worlds.new("sky"); sc.world.color = (0.55, 0.62, 0.75)
-sc.render.engine = "BLENDER_EEVEE"; sc.eevee.taa_render_samples = 16
+karna_chariot.cpu_render_settings(sc, 24)
 sc.render.resolution_x, sc.render.resolution_y = 1280, 720
 cam = bpy.data.cameras.new("cam"); co = bpy.data.objects.new("cam", cam); sc.collection.objects.link(co); sc.camera = co
 shots = []

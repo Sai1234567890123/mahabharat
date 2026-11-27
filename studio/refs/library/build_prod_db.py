@@ -332,6 +332,26 @@ FAB_SHOPPING_TARGETS = [
      "Use ONLY for UE 5.8 background plates & terrain depth; keep heavy meshes out of 4 GB GTX 1650 hero scene."),
 ]
 
+# Directly inspected & verified $0 / Personal-Free Fab listings (2026-11-27 via Chrome Agent 1)
+FAB_VERIFIED_LISTINGS = [
+    ("Ancient Temple Jungle Roots", "AST-0021", "https://www.fab.com/listings/d30849f6-13cd-4e6f-9664-d7db13b5555f", "Free", "Standard License", "fbx, glb, gltf, usdz, ZBrush, UEFN"),
+    ("FREE Stylized Forest Sample | Stylized Trees & Foliage Pack", "AST-0021", "https://www.fab.com/listings/3c1a31b6-e523-4a0f-97d0-26b0db69b6bc", "Free", "Standard License", "Unreal Engine"),
+    ("Free Pack - Rocks Stylized", "AST-0021", "https://www.fab.com/listings/a0746c4b-428b-4556-b4c9-98f70c2a30d4", "Personal = Free (select Personal $0)", "Standard License", "Blender, UE, fbx, obj, usd, glb, gltf"),
+    ("Rock Sandstone", "AST-0020 / AST-0021", "https://www.fab.com/listings/66f241e5-43fa-47c0-a475-07b2d1391f7e", "Free", "Standard License", "fbx, glb, gltf, usdz, ZBrush"),
+    ("Ancient Temple Lintel", "AST-0022", "https://www.fab.com/listings/8d54fd6b-4d87-4bba-94d6-8078253a9dc7", "Free", "Standard License", "fbx, glb, gltf, usdz, ZBrush"),
+    ("Ancient Temple Stairs", "AST-0022", "https://www.fab.com/listings/3b79f3b7-a1f3-4dfa-b340-d09d75dd4651", "Free", "Standard License", "fbx, glb, gltf, usdz, ZBrush"),
+    ("Stylized Low Poly Ancient Temple - Game Ready with LODs", "AST-0022", "https://www.fab.com/listings/fb9e06f5-c921-48c6-baf1-7b83b7edcfda", "Free", "CC-BY (credit required)", "Unity, fbx, glb, obj"),
+    ("Lion Statue 3D Scan", "AST-0022", "https://www.fab.com/listings/1687bd29-0f25-47a7-90f5-43fb86b29b12", "Free", "Standard License", "fbx"),
+    ("Absorption FX", "AST-0023", "https://www.fab.com/listings/81550176-a90e-4e07-8817-c8d1a1d3884b", "Personal = -100% Free* (ends 2026-12-01 8:29 PM)", "Standard License", "Unreal Engine, UEFN Source"),
+    ("Perfect Fire VFX", "AST-0023", "https://www.fab.com/listings/d2136c01-8d35-403f-a637-146e8173bdb3", "Personal = Free (select Personal $0)", "Standard License", "Unreal Engine"),
+    ("The senses -scene Inspired by the Bhagavad Gita-", "AST-0013 / AST-0016", "https://www.fab.com/listings/7b6c9949-e849-4c4f-b725-219c6aa180b2", "Free", "Standard License", "Blender, gltf, glb, usdz"),
+    ("Stylized lowpoly HORSE", "AST-0013", "https://www.fab.com/listings/f59ac535-4432-4a38-802e-d951d3806456", "Free", "Standard License", "Blender, obj, fbx, glb"),
+    ("Leopard Hybrid_A1", "AST-0014", "https://www.fab.com/listings/d0e9ce8d-bdb9-412f-9740-6f528f56a2c1", "Personal = Free (select Personal $0)", "Standard License", "Blender, fbx"),
+    ("Animals FREE - Low Poly 3D Models Pack", "AST-0014", "https://www.fab.com/listings/0c8f3917-2461-4775-a853-b995bb93bac5", "Free", "Standard License", "Blender, UE, fbx, glb, obj"),
+    ("King_Demon_Vulture", "AST-0015", "https://www.fab.com/listings/60141af9-a9ce-48db-ac9c-6044fe47985e", "Free", "Standard License (Note: Gen AI = Yes)", "fbx"),
+    ("Cartoon Yellow Canary: Rigged Stylized Bird", "AST-0015", "https://www.fab.com/listings/6f93aa0a-f450-440f-897a-9389d05c34d5", "Personal = Free (select Personal $0)", "Standard License", "Unreal Engine, Blender, fbx, obj"),
+]
+
 
 def init_schema(conn: sqlite3.Connection):
     """Create the 8-table + extension production schema cleanly."""
@@ -822,6 +842,10 @@ def build():
             dict(zip(["target_id", "asset_id", "target", "search_terms", "episodes_served", "license_rule", "adaptation_notes"], row))
             for row in FAB_SHOPPING_TARGETS
         ],
+        "fab_verified_free_listings": [
+            dict(zip(["title", "asset_id", "url", "price_tier", "license", "formats"], row))
+            for row in FAB_VERIFIED_LISTINGS
+        ],
         "concepts_sample_top15": concepts[:15],
         "shots_summary": [
             {k: s[k] for k in ("shot_id", "episode_id", "sequence_id", "duration_seconds", "grade", "beat", "description")}
@@ -867,6 +891,16 @@ def build():
     ]
     for tid, aid, tgt, search, eps, lic, adapt in FAB_SHOPPING_TARGETS:
         matrix_lines.append(f"| `{tid}` | `{aid}` | {search} | {eps} | {adapt} |")
+
+    matrix_lines += [
+        "",
+        "### 3B. Verified $0 Free / Personal-Free Fab Listings (Inspected 2026-11-27 — Ready to Claim After Epic Sign-In)",
+        "",
+        "| Listing | Asset | Price Tier ($0 Only) | License | Formats | URL |",
+        "|---|---|---|---|---|---|",
+    ]
+    for title, aid, url, tier, lic, fmts in FAB_VERIFIED_LISTINGS:
+        matrix_lines.append(f"| {title} | `{aid}` | {tier} | {lic} | {fmts} | {url} |")
 
     matrix_lines += [
         "",

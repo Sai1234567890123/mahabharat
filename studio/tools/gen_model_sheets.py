@@ -87,6 +87,61 @@ JOBS["karna_chariot_side"] = dict(out="cast/karna/model/chariot_side", refs=["ca
                                   + " IMAGE 1 is the approved three-quarter view of this very chariot: paint the same object.")
 GROUPS["chariot"] = ["karna_chariot", "karna_chariot_side"]
 
+# ---- concept-art picks (sai, 2026-11-27: "Follow ur picks generate 3d assets"). One design sheet per asset; sai approves each
+# sheet before TRELLIS. Refs are sai's own paintings, copied from the PC folder into refs/concept/concept_NN.jpeg.
+PROP = ("A prop model sheet for a 3D modeller: ONE object only, {what}, alone, with no people{extra}. Seen from the front-left at "
+        "three-quarters, slightly from above, whole in frame with a clear margin of white. Ancient Indian, hand-made: no glass, no "
+        "machined metal, no stirrups, no modern shapes. Stylized 3D animated-film prop with hand-painted surfaces, as in the reference "
+        "painting. Flat even neutral light, pure plain white background, no shadow, no scenery, no text, no labels, no border, no "
+        "second view.")
+FROM_PAINT = (" IMAGE 1 is sai's own concept painting: take the costume, colours and painted style from it, but paint ONLY this one "
+              "figure, newly posed as described, never copying any other figure or the background.")
+
+def pick_char(tag, refs, who, man=True):
+    body = BODY if man else BODY.replace("ONE man", "ONE figure").replace("He stands", "The figure stands").replace("He holds", "The figure holds")
+    return dict(out=f"cast/{tag}/model/front", refs=refs, passport=None, aspect="3:4", text=body + " " + who + FROM_PAINT)
+
+PICKS = {
+    "arjuna_chariot": dict(out="cast/arjuna/model/chariot", refs=["refs/concept/concept_42.jpeg", "refs/concept/concept_06.jpeg"],
+        passport=None, aspect="4:3", text=PROP.format(what="the war chariot of Arjuna from IMAGE 1 and IMAGE 2: a two-wheeled gold car "
+        "with a domed gold canopy on four posts, very large gold spoked wheels, carved gold sides, a single draught pole with a plain "
+        "yoke, and a tall flagstaff at the back carrying a green banner with the image of the ape Hanuman", extra=", no horses")),
+    "war_elephant": dict(out="cast/kit/model/war_elephant", refs=["refs/concept/concept_24.jpeg", "refs/concept/concept_36.jpeg"],
+        passport=None, aspect="4:3", text=PROP.format(what="a war elephant from IMAGE 1 and IMAGE 2, standing calmly on all four legs: "
+        "a large Indian elephant with long tusks, a quilted red-and-gold caparison and forehead plate, bells on chains, and a "
+        "wooden howdah with low carved rails on its back", extra=", no rider, no mahout, no weapons, no blood")),
+    "fire_altar": dict(out="cast/kit/model/fire_altar", refs=["refs/concept/concept_10.jpeg"], passport=None, aspect="4:3",
+        text=PROP.format(what="a Vedic fire altar (homa kunda): a square stepped altar of fired brick and earth, three low steps "
+        "narrowing upward to a square fire pit, small heaps of samidh firewood and a ghee ladle beside it, a clay pot, no carvings",
+        extra=", no flames and no smoke (they are added later)")),
+    "dice_board": dict(out="cast/kit/model/dice_board", refs=["refs/concept/concept_53.jpeg", "refs/concept/concept_50.jpeg"],
+        passport=None, aspect="4:3", text=PROP.format(what="the dice game set from IMAGE 1 and IMAGE 2: a low square board of dark wood "
+        "with a cross-shaped playing track inlaid in ivory squares, a few long four-sided dice beside it and small cone-shaped pieces",
+        extra=", no hands")),
+    "bhishma": pick_char("bhishma", ["refs/concept/concept_35.jpeg"], "He is Bhishma, the grandsire: a tall old warrior with a long white "
+        "beard and white hair, all in white cloth and white-silver armour, a simple white crown band, a strong straight back."),
+    "bhima": pick_char("bhima", ["refs/concept/concept_26.jpeg"], "He is Bhima: the biggest and strongest of the five brothers, very "
+        "broad chest and thick arms, short beard, a gold crown, a saffron-orange dhoti with a green sash, gold armlets."),
+    "yudhishthira": pick_char("yudhishthira", ["refs/concept/concept_26.jpeg"], "He is Yudhishthira, the eldest brother and a king of "
+        "dharma: a calm, dignified man of medium build with a short neat beard, a tall gold crown, a cream dhoti with a royal-blue sash."),
+    "nakula": pick_char("nakula", ["refs/concept/concept_26.jpeg"], "He is Nakula, the most handsome of the brothers: young, slim and "
+        "athletic, clean-shaven, a gold crown, a yellow dhoti with a red sash, gold armlets."),
+    "sahadeva": pick_char("sahadeva", ["refs/concept/concept_26.jpeg"], "He is Sahadeva, the youngest brother, wise and quiet: young, "
+        "slim, clean-shaven, a gold crown, a green dhoti with a yellow sash, gold armlets."),
+    "duryodhana": pick_char("duryodhana", ["refs/concept/concept_50.jpeg", "refs/concept/concept_53.jpeg"], "He is Duryodhana, the "
+        "eldest Kaurava prince: tall, heavy-shouldered and proud, a thick moustache, a tall gold crown, crimson-red dhoti and sash with "
+        "gold borders, gold armour plates on chest and arms."),
+    "shakuni": pick_char("shakuni", ["refs/concept/concept_50.jpeg", "refs/concept/concept_53.jpeg"], "He is Shakuni, the king of "
+        "Gandhara: a thin, older man with a sly face, a pointed grey beard, a small dark turban with a gold band, a dark green robe "
+        "and shawl, a slight limp in his stance."),
+    "hanuman": pick_char("hanuman", ["refs/concept/concept_47.jpeg"], "He is Hanuman, the aged mighty vanara (monkey-god): a powerful "
+        "body covered in short golden-brown fur, a monkey face with a kind wise expression, a long tail curving down beside him to "
+        "the ground, a simple gold crown, gold armlets and a short red loincloth. He is NOT a statue or idol: a living character.",
+        man=False),
+}
+JOBS.update(PICKS)
+GROUPS["picks"] = list(PICKS)
+
 
 # ---- series look (sai, 2026-11-22, "Yes, all three"): 3D models of the LOCKED web series hero set, so each hero can get a
 # face rig (tools/blender/face_rig.py). Per hero: a full-body A-pose front view (TRELLIS.2 body) and a head close-up front

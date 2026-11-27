@@ -66,6 +66,27 @@ JOBS["karna_bow"] = dict(
           "thin taut bowstring running straight from tip to tip. No arrow. Stylized 3D animated-film prop with hand-painted surfaces. "
           "Flat even neutral light, pure plain white background, no shadow, no text, no labels, no border, no second view."))
 GROUPS = {"karna": ["karna_front", "karna_back", "karna_side", "karna_bow"]}
+# Karna's own chariot (sai, 2026-11-27 "Yes"): replaces the kit rank chariot in A02, A05, A06, A16. Gold car with lion-griffin
+# figures at the front and maroon panels with gold scrollwork (paintings 46 and 37). Car only: no horses, no people, no flag.
+CHARIOT = ("A prop model sheet for a 3D modeller: ONE object only, the war chariot of Karna, alone, with no horses, no people, no "
+           "driver, no flag and no weapons. Seen from the front-left at three-quarters, slightly from above, the whole chariot in frame "
+           "with a clear margin of white. It is a two-wheeled open war car: a box with a raised front rail and low side rails, the "
+           "floor about knee high. Two very large wheels, taller than a man's chest, with a gold rim, a black-and-gold inlaid felloe and "
+           "many turned gold spokes, as in IMAGE 2. Its outer panels are deep maroon with raised gold scrollwork; every edge, rail and "
+           "post is carved gold. At the front corners stand two crouching gold lion-griffin figures facing forward, as in IMAGE 1, "
+           "and a single straight draught pole runs forward from the middle of the floor with a plain wooden yoke bar across its tip. "
+           "Ancient Indian, hand-made, no stirrups, no seat backs, no glass, no machined metal. Stylized 3D animated-film prop with "
+           "hand-painted surfaces. Flat even neutral light, pure plain white background, no shadow, no text, no labels, no border, no "
+           "second view.")
+JOBS["karna_chariot"] = dict(out="cast/karna/model/chariot", refs=["refs/concept/concept_46.jpeg", "refs/concept/concept_37.jpeg"],
+                             passport=None, aspect="4:3", text=CHARIOT)
+JOBS["karna_chariot_side"] = dict(out="cast/karna/model/chariot_side", refs=["cast/karna/model/chariot_v{take}.png", "refs/concept/concept_37.jpeg"],
+                                  passport=None, aspect="4:3",
+                                  text=CHARIOT.replace("Seen from the front-left at three-quarters, slightly from above",
+                                                       "Seen exactly from the left side, at the height of the floor")
+                                  + " IMAGE 1 is the approved three-quarter view of this very chariot: paint the same object.")
+GROUPS["chariot"] = ["karna_chariot", "karna_chariot_side"]
+
 
 # ---- series look (sai, 2026-11-22, "Yes, all three"): 3D models of the LOCKED web series hero set, so each hero can get a
 # face rig (tools/blender/face_rig.py). Per hero: a full-body A-pose front view (TRELLIS.2 body) and a head close-up front

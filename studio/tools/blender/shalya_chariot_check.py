@@ -1,4 +1,4 @@
-"""Check render: Shalya driving Karna's chariot (dun team, elephant's-rope standard), mid-ground, as in A02, A06, A16.
+"""Check render: Shalya driving Karna's chariot (dun team of Hastinapur TRELLIS horses, elephant's-rope standard), mid-ground, as in A02, A06, A16.
 
   EGL_PLATFORM=surfaceless python3 shalya_chariot_check.py <out.jpg>
 The kit chariot carries a generic driver; it is cut out and Shalya stands in his place, reins in both hands
@@ -11,7 +11,7 @@ from mathutils import Vector
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from anim_lib import Hero                     # noqa: E402
-import banners, moves_ep01                     # noqa: E402
+import banners, horse_team, moves_ep01         # noqa: E402
 
 STUDIO = HERE.parent.parent
 KIT = pathlib.Path("/mnt/project-files/kurukshetra/hero/blend")
@@ -29,14 +29,11 @@ def append_kit(name):
     return dst.objects[0]
 
 
-ch = append_kit("krk_rank_chariot"); hs = append_kit("krk_horse_team_dark")
-for m in hs.data.materials:                                              # Karna's dun team (passport choice)
-    if m and m.name.startswith("MAT_Bay"):
-        m.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.22, 0.13, 0.05, 1)
+ch = append_kit("krk_rank_chariot")
+horse_team.make(ch, coat="dun", name="karna_team")                       # Hastinapur TRELLIS horse, dun (passport choice)
 for m in ch.data.materials:
     if m and m.name.startswith("MAT_Saffron"):
         m.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.36, 0.05, 0.06, 1)
-hs.parent = ch; hs.location = (0, -(ch.dimensions.y * 0.5 + hs.dimensions.y * 0.5) + 4.5, 0)
 std = banners.make("elephant_rope", height=7.0); std.parent = ch; std.location = (1.25, 2.9, 0.6)
 
 # cut the kit's own driver: every loose part on the front of the car (body, bow, reins, the two lion figureheads that hid the driver)
@@ -71,7 +68,7 @@ sc.render.engine = "BLENDER_EEVEE"; sc.eevee.taa_render_samples = 16
 sc.render.resolution_x, sc.render.resolution_y = 1280, 720
 cam = bpy.data.cameras.new("cam"); co = bpy.data.objects.new("cam", cam); sc.collection.objects.link(co); sc.camera = co
 shots = []
-for name, pos, aim, lens in (("mid_front34", (-9, -12, 3.0), (0, -1.5, 1.6), 50),
+for name, pos, aim, lens in (("mid_front34", (-10, -14, 3.0), (0, -2.6, 1.5), 45),
                              ("mid_back34", (8, 9, 3.2), (0, -1.0, 1.8), 50),
                              ("close_driver", (-3.0, -4.2, 2.6), (0, -1.0, 2.0), 45)):
     co.location = pos; co.rotation_euler = (Vector(aim) - Vector(pos)).to_track_quat("-Z", "Y").to_euler(); cam.lens = lens

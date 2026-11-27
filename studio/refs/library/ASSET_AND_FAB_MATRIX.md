@@ -3,9 +3,9 @@
 Generated directly from `studio/refs/library/` CSVs, `studio/episodes/`, `studio/cast/`, and `studio/tools/blender/`.
 
 ## 1. Current Verified Counts
-- **Catalogued Instagram References (`01_references.csv`):** `266` (`21` deeply frame-analysed, `239` pending with category/subject tags already populated)
-- **Extracted Visual Techniques:** `21` (from `REF-0001`–`REF-0021`)
-- **Original Scene Concepts (`03_concepts.csv`):** `63`
+- **Catalogued Instagram References (`01_references.csv`):** `266` (`25` deeply frame-analysed, `235` pending with category/subject tags already populated)
+- **Extracted Visual Techniques:** `25` (from `REF-0001`–`REF-0021`)
+- **Original Scene Concepts (`03_concepts.csv`):** `75`
 - **Canonical Reusable Assets (`05_assets.csv`):** `24`
 - **Scripted Shots Linked (`04_shots.csv`):** `62` (`22` EP01 Teaser + `40` S1E01 sc01–sc03)
 
@@ -13,28 +13,28 @@ Generated directly from `studio/refs/library/` CSVs, `studio/episodes/`, `studio
 
 | Asset ID | Name | Type | Status | Linked Shots | Linked Concepts | Strategy / Source |
 |---|---|---|---|---:|---:|---|
-| `AST-0024` | Arcane-Family Painterly Compositor & Kuwahara Grade | `SHADER_LOOKDEV` | `IN_PROGRESS` | 62 | 63 | CUSTOM_BLENDER_COMPOSITOR |
-| `AST-0021` | Kanwa / Vyasa Vedic Hermitage & Malini Riverbank | `ENVIRONMENT` | `IN_PROGRESS_CC0_ACQUIRED` | 33 | 8 | MahabharataWorld UE (Vrindavan banyan/banks) + PolyHaven CC0 nature/ganges_river_pebbles + FAB_TARGET (Ancient Trees/River) |
-| `AST-0020` | Kurukshetra Battlefield & 14k Instanced Army | `ENVIRONMENT` | `IN_PROGRESS` | 23 | 7 | CUSTOM_BLENDER_GN + MahabharataWorld UE (L_Kurukshetra) + PolyHaven CC0 dry_ground_01 & dusk HDRI |
-| `AST-0017` | Divine Bows & Hero Arrows (Gandiva, Vijaya, Snake Arrow, Anjalika) | `PROP_WEAPON` | `IN_PROGRESS` | 20 | 12 | TRELLIS2_PROP (karna_bow_1536.glb) + CUSTOM_BLENDER bows.py + MahabharataWorld UE |
-| `AST-0018` | Hermitage & Vedic Props (Palm-Leaf Manuscripts, Brass Stylus, Fire Altar, Diya, Kalash) | `PROP` | `ACQUIRED_NEEDS_PAINTERLY_REPAINT` | 18 | 8 | PolyHaven CC0 (brass_diya_lantern, brass_pot_01/02, brass_vase_01/03, stone_fire_pit) + NVIDIA SimReady OpenUSD + TRELLIS.2 |
-| `AST-0016` | Vedic Gold War Chariots (Arjuna Ape-Banner / Karna Elephant-Rope / Dushmanta) | `VEHICLE` | `IN_PROGRESS` | 17 | 7 | CUSTOM_BLENDER + MahabharataWorld UE + TRELLIS2_CARVED_TRIM |
+| `AST-0024` | Arcane-Family Painterly Compositor & Kuwahara Grade | `SHADER_LOOKDEV` | `IN_PROGRESS` | 62 | 75 | CUSTOM_BLENDER_COMPOSITOR |
+| `AST-0021` | Kanwa / Vyasa Vedic Hermitage & Malini Riverbank | `ENVIRONMENT` | `IN_PROGRESS_CC0_ACQUIRED` | 33 | 11 | MahabharataWorld UE (Vrindavan banyan/banks) + PolyHaven CC0 nature/ganges_river_pebbles + FAB_TARGET (Ancient Trees/River) |
+| `AST-0020` | Kurukshetra Battlefield & 14k Instanced Army | `ENVIRONMENT` | `IN_PROGRESS` | 23 | 8 | CUSTOM_BLENDER_GN + MahabharataWorld UE (L_Kurukshetra) + PolyHaven CC0 dry_ground_01 & dusk HDRI |
+| `AST-0017` | Divine Bows & Hero Arrows (Gandiva, Vijaya, Snake Arrow, Anjalika) | `PROP_WEAPON` | `IN_PROGRESS` | 20 | 14 | TRELLIS2_PROP (karna_bow_1536.glb) + CUSTOM_BLENDER bows.py + MahabharataWorld UE |
+| `AST-0018` | Hermitage & Vedic Props (Palm-Leaf Manuscripts, Brass Stylus, Fire Altar, Diya, Kalash) | `PROP` | `ACQUIRED_NEEDS_PAINTERLY_REPAINT` | 18 | 9 | PolyHaven CC0 (brass_diya_lantern, brass_pot_01/02, brass_vase_01/03, stone_fire_pit) + NVIDIA SimReady OpenUSD + TRELLIS.2 |
+| `AST-0016` | Vedic Gold War Chariots (Arjuna Ape-Banner / Karna Elephant-Rope / Dushmanta) | `VEHICLE` | `IN_PROGRESS` | 17 | 9 | CUSTOM_BLENDER + MahabharataWorld UE + TRELLIS2_CARVED_TRIM |
 | `AST-0009` | King Dushmanta (Forest & Court Variants) | `CHARACTER` | `PLANNED` | 16 | 0 | CUSTOM_BLENDER (TRELLIS2 copper armor accents) |
 | `AST-0010` | Shakuntala (Hermitage & Infant Variant) | `CHARACTER` | `PLANNED` | 14 | 1 | CUSTOM_BLENDER (Bark-cloth + cotton, NO ring/crown) |
-| `AST-0023` | 2D Grease Pencil Astra & Combat FX Library | `VFX_LIBRARY` | `IN_PROGRESS` | 12 | 13 | CUSTOM_BLENDER_GP_V3 + FAB_TARGET (Optional Niagara sparks/dust for UE plates) |
-| `AST-0022` | Vedic Royal Court Hall (Hastinapur / Puru Sabha Kit) | `ENVIRONMENT` | `IN_PROGRESS` | 10 | 17 | MahabharataWorld UE (170 Hastinapur assets!) + FAB_TARGET (Courtyard/Wooden pillars for 1000 BCE S1E01 court) |
+| `AST-0023` | 2D Grease Pencil Astra & Combat FX Library | `VFX_LIBRARY` | `IN_PROGRESS` | 12 | 14 | CUSTOM_BLENDER_GP_V3 + FAB_TARGET (Optional Niagara sparks/dust for UE plates) |
+| `AST-0022` | Vedic Royal Court Hall (Hastinapur / Puru Sabha Kit) | `ENVIRONMENT` | `IN_PROGRESS` | 10 | 18 | MahabharataWorld UE (170 Hastinapur assets!) + FAB_TARGET (Courtyard/Wooden pillars for 1000 BCE S1E01 court) |
 | `AST-0006` | Rishi Vyasa | `CHARACTER` | `PLANNED` | 10 | 1 | CUSTOM_BLENDER (Original sculpt + Rigify) |
 | `AST-0003` | Karna Hero (Sun Armor & Kavacha) | `CHARACTER` | `IN_PROGRESS` | 9 | 3 | CUSTOM_BLENDER (Original + TRELLIS base) |
 | `AST-0012` | Young Bharata (Sarvadamana, age 6) | `CHARACTER` | `PLANNED` | 8 | 0 | CUSTOM_BLENDER |
 | `AST-0007` | Lord Ganesha (Scribe) | `CHARACTER` | `PLANNED` | 7 | 0 | CUSTOM_BLENDER (Special anatomy: trunk + 4 arms + snap tusk) |
-| `AST-0004` | Krishna Hero (Charioteer / Sovereign) | `CHARACTER` | `IN_PROGRESS` | 6 | 3 | CUSTOM_BLENDER (Original) |
+| `AST-0004` | Krishna Hero (Charioteer / Sovereign) | `CHARACTER` | `IN_PROGRESS` | 6 | 4 | CUSTOM_BLENDER (Original) |
 | `AST-0014` | Hermitage Animals (Lion, Tiger, Deer) | `ANIMAL_CREATURE` | `ACQUISITION_TARGET` | 6 | 1 | FAB_TARGET (Big cat / deer rigged packs) -> Blender stylized fur |
 | `AST-0001` | Arjuna Hero (Armored) | `CHARACTER` | `IN_PROGRESS` | 5 | 3 | CUSTOM_BLENDER (Original + TRELLIS base) |
-| `AST-0015` | Noble Shakunta Vulture Pack (SSS Feather Kit) | `ANIMAL_CREATURE` | `ACQUISITION_TARGET` | 4 | 4 | FAB_TARGET (Raptor bird rig) + Blender Boids + CON-0030 SSS Feather Kit |
+| `AST-0015` | Noble Shakunta Vulture Pack (SSS Feather Kit) | `ANIMAL_CREATURE` | `ACQUISITION_TARGET` | 4 | 5 | FAB_TARGET (Raptor bird rig) + Blender Boids + CON-0030 SSS Feather Kit |
 | `AST-0013` | Vedic Chariot Horses (White & Dun Teams) | `ANIMAL_CREATURE` | `IN_PROGRESS` | 4 | 1 | MahabharataWorld UE + FAB_TARGET (Rigged Horse + Gallop/Kneel anim) -> strip stirrups |
 | `AST-0002` | Arjuna Hero (Bare-Headed / Crownless) | `CHARACTER` | `IN_PROGRESS` | 4 | 0 | CUSTOM_BLENDER |
 | `AST-0011` | Sage Kanwa | `CHARACTER` | `PLANNED` | 4 | 0 | CUSTOM_BLENDER (Modular sage base rig) |
-| `AST-0019` | Hero Crowns, Ornaments & Armour Trims (Kiritamukuta, Keyura, Mekhala) | `PROP_COSTUME` | `IN_PROGRESS` | 3 | 9 | TRELLIS2_PROP (high-detail reliefs) + BLENDER shader CON-0050 (REF-0017 patina) |
+| `AST-0019` | Hero Crowns, Ornaments & Armour Trims (Kiritamukuta, Keyura, Mekhala) | `PROP_COSTUME` | `IN_PROGRESS` | 3 | 10 | TRELLIS2_PROP (high-detail reliefs) + BLENDER shader CON-0050 (REF-0017 patina) |
 | `AST-0005` | Shalya Hero (Madraka King / Charioteer) | `CHARACTER` | `IN_PROGRESS` | 3 | 0 | CUSTOM_BLENDER (shalya_build.py) |
 | `AST-0008` | Lord Brahma (Four-Faced) | `CHARACTER` | `PLANNED` | 3 | 0 | CUSTOM_BLENDER + LOTUS_SEAT_TRELLIS2 |
 

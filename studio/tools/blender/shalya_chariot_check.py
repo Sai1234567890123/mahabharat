@@ -1,63 +1,21 @@
 """Check render: Shalya driving Karna's chariot (dun team of Hastinapur TRELLIS horses, elephant's-rope standard), mid-ground, as in A02, A06, A16.
 
   EGL_PLATFORM=surfaceless python3 shalya_chariot_check.py <out.jpg>
-The kit chariot carries a generic driver; it is cut out and Shalya stands in his place, reins in both hands
-(moves_ep01.charioteer). EEVEE, 1280x720, three angles side by side.
+Scene from karna_chariot.build: kit driver cut out, Shalya at the reins (moves_ep01.charioteer), reins to each bit. EEVEE, 1280x720, three angles side by side.
 """
 import math, pathlib, sys
-import bpy, bmesh
+import bpy
 from mathutils import Vector
 
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from anim_lib import Hero                     # noqa: E402
-import banners, horse_team, moves_ep01         # noqa: E402
+import karna_chariot                          # noqa: E402
 
-STUDIO = HERE.parent.parent
-KIT = pathlib.Path("/mnt/project-files/kurukshetra/hero/blend")
 OUT = pathlib.Path(sys.argv[-1]).resolve()
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.preferences.addon_enable(module="rigify")
 sc = bpy.context.scene
-
-
-def append_kit(name):
-    with bpy.data.libraries.load(str(KIT / f"SM_{name}.blend"), link=False) as (src, dst):
-        dst.objects = list(src.objects)
-    for o in dst.objects:
-        sc.collection.objects.link(o)
-    return dst.objects[0]
-
-
-ch = append_kit("krk_rank_chariot")
-horse_team.make(ch, coat="dun", name="karna_team")                       # Hastinapur TRELLIS horse, dun (passport choice)
-for m in ch.data.materials:
-    if m and m.name.startswith("MAT_Saffron"):
-        m.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.36, 0.05, 0.06, 1)
-std = banners.make("elephant_rope", height=7.0); std.parent = ch; std.location = (1.25, 2.9, 0.6)
-
-# cut the kit's own driver: every loose part on the front of the car (body, bow, reins, the two lion figureheads that hid the driver)
-bm = bmesh.new(); bm.from_mesh(ch.data); bm.verts.ensure_lookup_table()
-seen, cut = set(), []
-for v0 in bm.verts:
-    if v0 in seen:
-        continue
-    part, stack = [], [v0]
-    while stack:
-        v = stack.pop()
-        if v in seen:
-            continue
-        seen.add(v); part.append(v); stack.extend(e.other_vert(v) for e in v.link_edges)
-    xs = [v.co.x for v in part]; ys = [v.co.y for v in part]; zs = [v.co.z for v in part]
-    c = Vector((sum(xs), sum(ys), sum(zs))) / len(part)
-    size = max(max(xs) - min(xs), max(ys) - min(ys), max(zs) - min(zs))
-    if abs(c.x) < 1.2 and -2.2 < c.y < -0.3 and 0.9 < c.z < 3.0 and size < 2.2:
-        cut.extend(part)
-bmesh.ops.delete(bm, geom=cut, context="VERTS"); print("cut kit driver verts", len(cut))
-bm.to_mesh(ch.data); bm.free()
-
-h = Hero.load(STUDIO / "cast/shalya/model/rig/shalya_hero_v1.blend", "SHALYA", loc=(0, -1.0, 0.84), face=0)
-h.reset(); moves_ep01.charioteer(h, 0.4); h.key_all(1)
+ch, h, team = karna_chariot.build(rigged=True, reins_on=True)       # rigged Hastinapur horses standing, reins strung
 
 gnd_mat = bpy.data.materials.new("earth"); gnd_mat.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.32, 0.16, 0.08, 1)
 bpy.ops.mesh.primitive_plane_add(size=200); bpy.context.object.data.materials.append(gnd_mat)

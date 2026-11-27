@@ -3,16 +3,20 @@
     import horse_team
     team = horse_team.make(chariot_obj, coat="dun")     # Karna (passport: dun horses so the teams read apart)
     team = horse_team.make(chariot_obj, coat="white")   # the horse as painted
+    team = horse_team.make(chariot_obj, rigged=True)    # 90k-triangle rigged horses (horse_rig.py); team["rigs"] for gaits
 
 Four horses abreast, heads toward the chariot's front (-Y), sharing one mesh, so a team costs one horse of memory.
+rigged=True uses studio/assets/hastinapur/hst_white_horse_rig.blend (build it with horse_rig.py); animate the
+rigs with horse_gaits.key and add reins with reins.add.
 Placed for the kit chariot krk_rank_chariot (pole tip at y -4.84). The horse is a static statue: fine for standing
-and rolling shots (A02, A16); A05's gallop needs a rig. The coat recolour only touches pale, unsaturated texels,
+and rolling shots (A02, A16); for A05's gallop use rigged=True. The coat recolour only touches pale, unsaturated texels,
 so the gold bridle, bells, green plume and brocade saddle-cloth keep their paint.
 """
 import pathlib
 import bpy
 
 GLB = pathlib.Path(__file__).resolve().parents[2] / "assets/hastinapur/hst_white_horse.glb"
+RIG = GLB.with_name("hst_white_horse_rig.blend")
 COATS = {"white": None, "dun": (0.62, 0.40, 0.17), "bay": (0.45, 0.22, 0.10), "black": (0.12, 0.11, 0.11)}
 X = (-1.27, -0.45, 0.45, 1.27)     # the pole runs between the two middle horses
 Y = -4.3                          # horse centre in chariot space: rumps just ahead of the car, noses past the pole tip
@@ -56,11 +60,36 @@ def _recoat(mat, coat):
     return m
 
 
-def make(chariot, coat="dun", name="team"):
-    """Four horses parented to `chariot`; returns the empty that holds them."""
-    me = _horse_mesh(coat)
+def _rigged_horse(coat, name):
+    with bpy.data.libraries.load(str(RIG), link=False) as (src, dst):
+        dst.objects = ["HORSE_rig", "HORSE_body"]
+    rig, body = dst.objects
+    for o in dst.objects:
+        bpy.context.scene.collection.objects.link(o)
+    rig.name, body.name = f"{name}_rig", f"{name}_body"
+    shared = _mesh_cache.get(("rig", coat))
+    if shared:
+        old = body.data; body.data = shared; bpy.data.meshes.remove(old)
+    else:
+        if COATS[coat]:
+            body.data.materials[0] = _recoat(body.data.materials[0], coat)
+        _mesh_cache[("rig", coat)] = body.data
+    return rig
+
+
+def make(chariot, coat="dun", name="team", rigged=False):
+    """Four horses parented to `chariot`; returns the empty that holds them (rigs in root["rigs"] when rigged)."""
     root = bpy.data.objects.new(f"{name}_{coat}", None); bpy.context.scene.collection.objects.link(root)
     root.parent = chariot
+    if rigged:
+        rigs = []
+        for i, x in enumerate(X):
+            r = _rigged_horse(coat, f"{name}_{i}"); r.parent = root
+            r.location = (x, Y + (0.06 if i % 2 else -0.04), 0); r.rotation_euler = (0, 0, (-1) ** i * 0.03)
+            rigs.append(r)
+        root["rigs"] = [r.name for r in rigs]
+        return root
+    me = _horse_mesh(coat)
     for i, x in enumerate(X):
         o = bpy.data.objects.new(f"{name}_{coat}_{i}", me); bpy.context.scene.collection.objects.link(o)
         o.parent = root; o.location = (x, Y + (0.06 if i % 2 else -0.04), 0)   # a little stagger so they don't read as clones

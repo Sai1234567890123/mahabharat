@@ -1,0 +1,236 @@
+{
+ "episode": "s1e01_the_scribe_sc02",
+ "title": "The Scribe: The Hunter King (Scenes 07\u201309)",
+ "runtime_s": 72,
+ "aspect": "16:9 with 2.39:1 letterbox",
+ "source": "Ganguli, Adi Parva (mahabharat-research/source/B01-adi.txt) lines 8463-8800",
+ "location": "Dense Vedic forest. Scene 07: open forest road churned by chariot wheels, dust, herds fleeing. Scene 08: river Malini bank, shallow clear water over white stones, ancient trees, a low thatched hermitage gate. Scene 09: sunlit hermitage interior, sacred fire altar, tall trees with flowers and fruit, deer, calm river sound.",
+ "acts": [
+  {
+   "name": "IV. The Hunter King",
+   "from": "H01",
+   "to": "H04"
+  },
+  {
+   "name": "V. Kanwa's Hermitage",
+   "from": "H05",
+   "to": "H07"
+  },
+  {
+   "name": "VI. The Maiden",
+   "from": "H08",
+   "to": "H10"
+  }
+ ],
+ "shots": [
+  {
+   "id": "H01",
+   "dur": 7,
+   "chars": ["@dushmanta"],
+   "beat": "hook",
+   "panel": "royal_hunt_wide",
+   "camera": "Extreme wide, 24mm, low angle, slow pull-back as army flows past",
+   "action": "King @dushmanta rides at the head of a vast royal army — chariots, elephants, horses, foot soldiers — sweeping into a dense forest.",
+   "sound": "Thunder of hooves, chariot wheels on packed earth, distant elephant calls, war drums.",
+   "frame": "Low wide frame: forest silhouettes against bright sky. @dushmanta stands in a golden chariot at center, bow in hand. Dust clouds rise behind ranks of chariots and elephants stretching to the horizon. No stirrups, no saddles with horns.",
+   "motion": [
+    "0-4s: slow pull-back as the vast army streams past the camera.",
+    "4-7s: @dushmanta turns to scan the forest ahead, one hand raised to signal the hunt."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "8463-8530",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "H02",
+   "dur": 6,
+   "chars": ["@dushmanta"],
+   "beat": "setup",
+   "panel": "forest_emptied",
+   "camera": "Medium wide, 50mm, handheld energy, quick pan left-to-right",
+   "action": "The hunt empties the forest: deer scatter in all directions, birds burst from the canopy, the earth trembles under a thousand chariots.",
+   "sound": "Rushing wind, animal cries, sudden silence after the stampede.",
+   "frame": "Forest in chaos: deer leaping right, birds erupting from treetops, dust and broken branches. @dushmanta's chariot visible at left, wheels raising a golden dust trail.",
+   "motion": [
+    "0-3s: quick pan tracks fleeing deer; army edge visible at screen-left.",
+    "3-6s: birds scatter upward; dust settles to eerie quiet."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "8530-8598",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "H03",
+   "dur": 6,
+   "chars": ["@dushmanta"],
+   "beat": "setup",
+   "panel": "malini_river",
+   "camera": "Wide, 35mm, slow push toward river bank",
+   "action": "Alone with only his minister and priest, @dushmanta reaches the river Malini: clear water over white stones, forest flowers on the bank, the sound of the hermitage's sacred fire.",
+   "sound": "River water over stones, birdsong, distant sacred fire crackle. Army sounds fade behind.",
+   "frame": "Wide shot of the Malini river: white stones in clear shallow water, tall trees with flowers and vines arching over the bank. @dushmanta and two attendants dismount at the edge of the frame.",
+   "motion": [
+    "0-4s: slow push toward the river as @dushmanta steps down from the chariot.",
+    "4-6s: he pauses, hearing the hermitage's sacred fire and sensing the sanctity of the place."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "8600-8660",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "H04",
+   "dur": 5,
+   "chars": ["@dushmanta"],
+   "beat": "setup",
+   "panel": "hermitage_gate",
+   "camera": "Medium, 50mm, locked, then slow push through the gate",
+   "action": "@dushmanta walks through the hermitage gate into Kanwa's forest retreat, leaving his weapons at the threshold.",
+   "sound": "Gentle wind in sacred grove, bees on flowers, the fire altar's soft crackle inside.",
+   "frame": "Low thatched gate of the hermitage framed by flowering trees. @dushmanta leans his bow against the gate post and walks in. His minister and priest follow.",
+   "motion": [
+    "0-2s: @dushmanta sets his bow at the gate with respect.",
+    "2-5s: slow push through the gate into the sunlit grove."
+   ],
+   "ref": "",
+   "grade": "C",
+   "canon": {
+    "lines": "8660-8744",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "H05",
+   "dur": 6,
+   "chars": ["@dushmanta"],
+   "beat": "accident",
+   "panel": "hermitage_empty",
+   "camera": "Slow wide pan, 35mm, left to right across the empty hermitage",
+   "action": "@dushmanta looks around Kanwa's hermitage and finds it empty: fire burning, palm leaves set out, but no sage.",
+   "sound": "Sacred fire crackle, wind through banana leaves, bees, the river. No human voice.",
+   "frame": "Wide interior of the hermitage: a burning altar, stacks of bark-cloth and palm leaves, simple water pots. No people. Sunlight dapples through the forest canopy overhead.",
+   "motion": [
+    "0-4s: slow pan reveals the whole hermitage — fire, altar, huts — but no inhabitants.",
+    "4-6s: @dushmanta turns slowly, puzzled, then calls out."
+   ],
+   "ref": "",
+   "grade": "C",
+   "canon": {
+    "lines": "8745-8760",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "H06",
+   "dur": 7,
+   "chars": ["@shakuntala", "@dushmanta"],
+   "beat": "twist",
+   "panel": "shakuntala_appears",
+   "camera": "Medium, 50mm, locked two-shot; she enters frame from behind a flowering tree",
+   "action": "@shakuntala comes out from behind a flowering tree, greets @dushmanta with the proper hermitage welcome, and says her father Kanwa has gone to gather fruit.",
+   "sound": "Soft footsteps on forest floor, gentle voice, river in background.",
+   "frame": "@shakuntala in bark-cloth and simple cotton with forest flowers in her hair, emerging from dappled shade into warm sunlight. She holds a water pot and greets the king with joined palms, calm and unafraid. No jewellery beyond what a hermitage gives.",
+   "motion": [
+    "0-3s: @shakuntala steps from behind a flowering tree; she pauses, sees the guest, and greets him calmly.",
+    "3-7s: she speaks, gesturing toward the absent guru's hut, then offers water."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "8760-8800",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "H07",
+   "dur": 5,
+   "chars": ["@dushmanta", "@shakuntala"],
+   "beat": "reaction",
+   "panel": "king_struck",
+   "camera": "Close-up on @dushmanta, 85mm, locked",
+   "action": "@dushmanta is struck by @shakuntala's beauty and composure; he looks at her with quiet wonder.",
+   "sound": "Silence except for the river; the tanpura drone returns softly.",
+   "frame": "Close-up of @dushmanta's face: surprised admiration, not lust. His hand tightens slightly on his quiver strap. Warm dappled forest light on his face.",
+   "motion": [
+    "0-5s: his gaze stays on @shakuntala as she looks away modestly; a faint breeze moves the flowers in her hair."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "8798-8800",
+    "verdict": "dramatised"
+   }
+  },
+  {
+   "id": "H08",
+   "dur": 6,
+   "chars": ["@dushmanta", "@shakuntala"],
+   "beat": "setup",
+   "panel": "who_are_you",
+   "camera": "Medium two-shot, 50mm, slight push-in",
+   "action": "@dushmanta asks @shakuntala who she is and whose daughter. She answers openly: Kanwa the sage is her father, though she was born of Viswamitra and the apsara Menaka.",
+   "sound": "Her clear voice, the fire behind them, light river sound.",
+   "frame": "Medium two-shot by the fire altar: @dushmanta kneeling on the ground as a respectful guest, @shakuntala standing with her water pot, speaking plainly and without shame.",
+   "motion": [
+    "0-3s: @dushmanta asks; she meets his gaze steadily.",
+    "3-6s: she answers, gesturing first toward the guru's hut, then toward the river."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "8800-8820",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "H09",
+   "dur": 7,
+   "chars": [],
+   "beat": "setup",
+   "panel": "menaka_flashback",
+   "camera": "Painterly flash series: three painted panels, 2.4s each",
+   "action": "Painted flashback: Viswamitra's blazing tapas on a mountain peak; Indra watches in fear from his throne and sends the apsara Menaka to break the penance; Menaka is born into the air above a river bank and lays her baby daughter on the warm grass before vanishing.",
+   "sound": "Ethereal shimmer, wind on a mountain peak, then silence as the baby is left alone.",
+   "frame": "Three separate painted still panels dissolving between: (1) Viswamitra seated on a Himalayan peak, body radiating gold tapas-fire against a violet sky; (2) Menaka dancing before Viswamitra in soft dawn mist, an apsara draped in white silk; (3) tiny baby on riverbank grass, Menaka's silk trailing away into air. Never a love scene — keep it chaste and stylized as a painted memory, not live action.",
+   "motion": [
+    "0-2.4s: first painted panel holds with slow colour bloom.",
+    "2.4-4.8s: dissolve to second panel; Menaka's silk moves gently.",
+    "4.8-7s: dissolve to third panel; the river flows past the sleeping child."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "8830-8900",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "H10",
+   "dur": 5,
+   "chars": ["@shakuntala", "@dushmanta"],
+   "beat": "reaction",
+   "panel": "shakuntala_resolute",
+   "camera": "Medium close-up on @shakuntala, 85mm, locked",
+   "action": "@shakuntala finishes her story calmly, unashamed of her parentage — a great sage's daughter and an apsara's child, raised in the hermitage.",
+   "sound": "Her voice quiet and steady; river; end of flashback shimmer fades.",
+   "frame": "Medium close-up of @shakuntala's face in warm afternoon forest light: direct gaze, composure, no apology in her expression. Her bark-cloth robe and flower-decorated hair in sharp focus against soft green.",
+   "motion": [
+    "0-5s: she holds eye contact with @dushmanta as she finishes her last word; a slight proud lift of her chin."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "8900-8919",
+    "verdict": "canon"
+   }
+  }
+ ]
+}

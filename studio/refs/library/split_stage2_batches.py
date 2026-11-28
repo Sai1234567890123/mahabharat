@@ -71,12 +71,14 @@ def main() -> None:
     parser.add_argument("--input", type=Path, default=Path(__file__).parent / "triage_229.csv")
     parser.add_argument("--out-dir", type=Path, default=Path(__file__).parent / "stage2_batches")
     parser.add_argument("--min-score", type=int, default=3)
-    parser.add_argument("--tags", type=str, default="LOOK,STAGING,FX,STORY")
+    parser.add_argument("--tags", type=str, default=None)
     parser.add_argument("--mode", choices=["instagram", "fab"], default="instagram")
     parser.add_argument("--dry-run", action="store_true", help="Print split summary without writing files.")
     args = parser.parse_args()
 
-    allowed_tags = {t.strip().upper() for t in args.tags.split(",") if t.strip()}
+    default_tags = "LOOK,STAGING,FX,STORY" if args.mode == "instagram" else ""
+    raw_tags = default_tags if args.tags is None else args.tags
+    allowed_tags = {t.strip().upper() for t in raw_tags.split(",") if t.strip()}
     items = load_candidates(args.input, args.min_score, allowed_tags)
     mid = (len(items) + 1) // 2
     batch1, batch2 = items[:mid], items[mid:]

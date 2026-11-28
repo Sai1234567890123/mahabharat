@@ -1,0 +1,411 @@
+{
+ "episode": "s1e01_the_scribe_sc03",
+ "title": "The Scribe: The Promise, the Boy & the Voice From Heaven (Scenes 11\u201315)",
+ "runtime_s": 108,
+ "aspect": "16:9 with 2.39:1 letterbox",
+ "source": "Ganguli, Adi Parva (mahabharat-research/source/B01-adi.txt) lines 8900-9330",
+ "location": "Scene 11: Malini riverbank, morning light, vultures in tall trees. Scene 12: hermitage clearing, afternoon. Scene 13: same hermitage, years later \u2014 same thatched huts, now with claw-marks on tree trunks and a boy-sized handprint in the mud. Scenes 14\u201315: a royal court hall, Vedic era: wooden pillars, oil lamps, courtiers, no stone carving.",
+ "acts": [
+  {
+   "name": "VII. Guarded by Birds",
+   "from": "V01",
+   "to": "V03"
+  },
+  {
+   "name": "VIII. The Promise",
+   "from": "V04",
+   "to": "V07"
+  },
+  {
+   "name": "IX. The Boy Who Tamed Lions",
+   "from": "V08",
+   "to": "V10"
+  },
+  {
+   "name": "X. The King Who Forgot",
+   "from": "V11",
+   "to": "V14"
+  },
+  {
+   "name": "XI. The Voice From Heaven",
+   "from": "V15",
+   "to": "V18"
+  }
+ ],
+ "shots": [
+  {
+   "id": "V01",
+   "dur": 6,
+   "chars": [],
+   "beat": "hook",
+   "panel": "vultures_ring",
+   "camera": "Crane down from canopy to riverbank, 35mm",
+   "action": "A ring of great vultures sits motionless in the tall trees above the Malini riverbank, watching over the sleeping infant girl left by Menaka.",
+   "sound": "Wind in tall trees, slow wingbeat, distant river. Silence and gravity.",
+   "frame": "High shot looking down through the canopy: a ring of large, noble vultures perched on branches, still and watchful. Far below on the warm grass of the riverbank, a tiny baby sleeps wrapped in silk. Vultures are painted noble, not horror \u2014 protective, not threatening.",
+   "motion": [
+    "0-3s: slow crane-down through the canopy; the vultures turn their heads gently.",
+    "3-6s: settle on the baby sleeping below, the birds holding their solemn guard."
+   ],
+   "ref": "",
+   "grade": "S",
+   "canon": {
+    "lines": "8900-8914",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V02",
+   "dur": 5,
+   "chars": ["@kanwa"],
+   "beat": "accident",
+   "panel": "kanwa_finds_child",
+   "camera": "Medium wide, 50mm, locked",
+   "action": "The sage @kanwa comes down to the river to draw water, sees the infant, and lifts her with great tenderness.",
+   "sound": "His quiet footsteps, water jar set down, then a soft wondering sound as he sees her.",
+   "frame": "Medium wide of the riverbank: @kanwa \u2014 old white-bearded sage in bark-cloth \u2014 kneels by the sleeping baby. He lifts her gently with both hands. Warm morning light. The vultures in the background have silently spread their wings and departed.",
+   "motion": [
+    "0-2s: @kanwa sets his water jar on the bank, sees the baby, kneels.",
+    "2-5s: he lifts her with both hands, holding her to his chest. The vultures lift from their branches behind him."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "8914-8919",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V03",
+   "dur": 4,
+   "chars": ["@kanwa", "@shakuntala"],
+   "beat": "reaction",
+   "panel": "shakuntala_named",
+   "camera": "Close-up insert on @kanwa's face, 85mm, then cut to baby\u2019s face",
+   "action": "@kanwa names her Shakuntala \u2014 she who was guarded by the shakunta birds \u2014 and decides to raise her as his own daughter.",
+   "sound": "His voice murmuring 'Shakuntala'; gentle water; birdsong.",
+   "frame": "Close-up of @kanwa's face, eyes filled with quiet compassion. Then a brief cut: the baby's small face, eyes opening, calm in his arms.",
+   "motion": [
+    "0-2s: close on @kanwa speaking her name.",
+    "2-4s: cut to the baby's face opening her eyes in his arms, the morning light on her cheek."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "8919-8925",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V04",
+   "dur": 7,
+   "chars": ["@dushmanta", "@shakuntala"],
+   "beat": "setup",
+   "panel": "gandharva_proposal",
+   "camera": "Medium two-shot, 50mm, slight push-in",
+   "action": "@dushmanta asks @shakuntala to marry him in the Gandharva form, man and woman by their own free choice, without priest or fire.",
+   "sound": "His direct voice; her considered silence; the river behind them.",
+   "frame": "The hermitage clearing in afternoon light. @dushmanta faces @shakuntala across the small space between them. He speaks plainly and directly. She listens with her head slightly tilted, thinking.",
+   "motion": [
+    "0-4s: @dushmanta speaks with quiet directness, no kingly commanding.",
+    "4-7s: @shakuntala holds her gaze on him steadily as she considers."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "8921-8970",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V05",
+   "dur": 6,
+   "chars": ["@shakuntala"],
+   "beat": "twist",
+   "panel": "her_condition",
+   "camera": "Medium close-up on @shakuntala, 85mm, locked",
+   "action": "@shakuntala agrees \u2014 but only on one condition: their son must be named @dushmanta's heir and king after him. She speaks it plainly, without apology.",
+   "sound": "Her voice clear and calm. The river. A beat of wind.",
+   "frame": "Medium close-up of @shakuntala: she meets his eyes directly, one hand raised with a calm gesture of condition. Same composure as in the Menaka speech. No tears, no pleading.",
+   "motion": [
+    "0-3s: she raises her hand \u2014 not dramatically \u2014 and states her condition.",
+    "3-6s: she lowers her hand and waits, calm."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "8970-9000",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V06",
+   "dur": 5,
+   "chars": ["@dushmanta"],
+   "beat": "reaction",
+   "panel": "king_agrees",
+   "camera": "Medium close-up on @dushmanta, 85mm, locked",
+   "action": "@dushmanta agrees to @shakuntala's condition immediately \u2014 the first son born of her shall be king.",
+   "sound": "His voice steady; she exhales quietly; a bird call.",
+   "frame": "Medium close-up of @dushmanta: he holds her gaze, nods once, and speaks the agreement. No elaboration. The light on his face is warm and direct.",
+   "motion": [
+    "0-5s: he looks at her steadily as he speaks; a single slow nod as he finishes."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "9000-9020",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V07",
+   "dur": 6,
+   "chars": ["@kanwa", "@dushmanta", "@shakuntala"],
+   "beat": "reaction",
+   "panel": "kanwa_blesses",
+   "camera": "Wide three-shot, 35mm, locked symmetrical",
+   "action": "@kanwa returns from the forest, knows everything through his sight, and blesses them both. @dushmanta departs for his capital shortly after.",
+   "sound": "Kanwa's gentle authoritative voice; the sacred fire; wind in the trees.",
+   "frame": "Three-shot: @kanwa at center in the hermitage clearing, hands raised in blessing. @dushmanta and @shakuntala stand at either side, heads slightly bowed. Warm golden afternoon light.",
+   "motion": [
+    "0-4s: @kanwa raises his hands; the fire altar flame lifts slightly with his blessing.",
+    "4-6s: @dushmanta bows in farewell and turns toward the gate."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "9020-9039",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V08",
+   "dur": 7,
+   "chars": ["@bharata_boy"],
+   "beat": "hook",
+   "panel": "lion_rider",
+   "camera": "Low wide, 24mm, handheld energy tracking shot",
+   "action": "Six years later: a fearless boy \u2014 Sarvadamana \u2014 rides a full-grown lion around the hermitage, binding tigers to the trees and opening their mouths to count their teeth.",
+   "sound": "Lion roar, boy\u2019s laughter, tigers snarling, the sages calling out in alarm.",
+   "frame": "Low wide of the hermitage clearing: Sarvadamana \u2014 a sturdy six-year-old in bark-cloth \u2014 rides a lion at full gait. Behind him, two tigers are loosely tethered to a banyan tree with a vine rope. Forest sages scatter to the edges of the frame.",
+   "motion": [
+    "0-4s: tracking shot follows the boy-and-lion at speed around the clearing.",
+    "4-7s: boy leaps off, grabs a tiger's muzzle with both hands, opens its jaws, and laughs."
+   ],
+   "ref": "",
+   "grade": "S",
+   "canon": {
+    "lines": "9040-9050",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V09",
+   "dur": 5,
+   "chars": ["@kanwa", "@shakuntala", "@bharata_boy"],
+   "beat": "setup",
+   "panel": "named_bharata",
+   "camera": "Medium wide, 50mm, locked",
+   "action": "The sages name the boy Bharata \u2014 the subduer of all, the one who will give his name to a nation. @kanwa tells @shakuntala it is time to take him to his father's court.",
+   "sound": "The sages chanting 'Sarvadamana'; Kanwa's calm decisive voice.",
+   "frame": "The sages ring the boy in the clearing: he stands in the center, lion behind him, still and proud as a small king. @shakuntala watches from the edge of the group, joy and something like sorrow in her face.",
+   "motion": [
+    "0-3s: sages circle the boy chanting his name.",
+    "3-5s: @kanwa steps forward and speaks to @shakuntala; she nods slowly."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "9050-9056",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V10",
+   "dur": 5,
+   "chars": ["@shakuntala", "@bharata_boy"],
+   "beat": "setup",
+   "panel": "departure_road",
+   "camera": "Wide, 35mm, slow push-in from behind them",
+   "action": "@shakuntala and young Bharata walk together away from the hermitage along a forest road toward the distant capital.",
+   "sound": "Footsteps, forest wind, fading sacred fire sound, the river growing distant.",
+   "frame": "Back-shot: @shakuntala walks the forest road holding her son's hand. The hermitage recedes behind them. The road is dappled in midday light. Neither looks back.",
+   "motion": [
+    "0-5s: slow push behind them as they walk; the hermitage gate disappears behind a bend."
+   ],
+   "ref": "",
+   "grade": "C",
+   "canon": {
+    "lines": "9056-9070",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V11",
+   "dur": 8,
+   "chars": ["@shakuntala", "@bharata_boy", "@dushmanta"],
+   "beat": "accident",
+   "panel": "court_denial",
+   "camera": "Wide court shot, 35mm; then close-up on @dushmanta, 85mm",
+   "action": "@shakuntala presents her son in @dushmanta's court. @dushmanta looks at her and denies all knowledge of her \u2014 he says he does not remember her and questions her birth.",
+   "sound": "Court murmur, the king's cold voice, @shakuntala's sharp intake of breath.",
+   "frame": "Wide shot of the Vedic court hall: wooden pillars, oil lamps, courtiers. @shakuntala stands with @bharata_boy at center; @dushmanta on his throne at the far end, face closed and unreadable. Then close-up: @dushmanta's face, jaw set, eyes deliberately avoiding hers.",
+   "motion": [
+    "0-4s: wide shot \u2014 @shakuntala approaches with her son, bows, speaks.",
+    "4-8s: cut to close-up of @dushmanta: his expression shuts down; he speaks the denial quietly."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "9070-9150",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V12",
+   "dur": 8,
+   "chars": ["@shakuntala"],
+   "beat": "twist",
+   "panel": "shakuntala_speech",
+   "camera": "Medium close-up on @shakuntala, 85mm, locked; slight push-in over the speech",
+   "action": "@shakuntala answers @dushmanta's denial with her great speech on truth: a mother is a river, a father is the ocean; a man who abandons wife and child abandons dharma itself. Four lines from the Ganguli text, chosen by sai: lines 1, 3, 7 and 10.",
+   "sound": "Her voice rising from hurt to righteousness; the court holds its breath; no other sound.",
+   "frame": "Medium close-up of @shakuntala in the court, her bark-cloth and simple dress stark against the carved wooden pillars. Her posture has changed: she stands taller. Her son Bharata holds her hand at the edge of frame.",
+   "motion": [
+    "0-8s: steady slow push-in on @shakuntala's face as she delivers the speech; her voice is low at first and rises to clear authority by the last line. Never shouting \u2014 controlled righteousness."
+   ],
+   "ref": "",
+   "grade": "S",
+   "canon": {
+    "lines": "9150-9279 (four lines: 1, 3, 7, 10 \u2014 see shakuntala_lines.md)",
+    "verdict": "dramatised"
+   }
+  },
+  {
+   "id": "V13",
+   "dur": 5,
+   "chars": ["@dushmanta"],
+   "beat": "reaction",
+   "panel": "king_unmoved",
+   "camera": "Medium close-up on @dushmanta, 85mm, locked",
+   "action": "@dushmanta listens without expression as @shakuntala finishes. He does not move. The court waits.",
+   "sound": "Silence. One oil lamp gutters. No court murmur.",
+   "frame": "Medium close-up of @dushmanta on his throne: face still, no remorse visible, jaw set. The key note \u2014 from Ganguli 9304-9320 \u2014 is that he is denying her publicly so the people hear her truth from heaven, not from him alone. That inner knowledge must be faintly readable.",
+   "motion": [
+    "0-5s: @dushmanta holds his gaze just past @shakuntala; his hands rest still on the throne arms; the faintest tightening around his eyes."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "9279-9304",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V14",
+   "dur": 6,
+   "chars": ["@shakuntala", "@bharata_boy"],
+   "beat": "setup",
+   "panel": "she_turns_to_leave",
+   "camera": "Wide court shot, 35mm, locked; she moves toward the door",
+   "action": "@shakuntala lifts her son's hand and turns to leave the court with her dignity intact. She does not weep. She does not look back.",
+   "sound": "Her footsteps on the wooden floor; Bharata's small feet beside hers; the court exhales.",
+   "frame": "Wide court: @shakuntala and @bharata_boy walking toward the great doors at far end of the hall. Courtiers part to either side. @dushmanta visible at throne in background, still and watching.",
+   "motion": [
+    "0-6s: steady locked wide as mother and son walk toward the doors; the camera does not follow them."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "9280-9285",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V15",
+   "dur": 7,
+   "chars": ["@dushmanta", "@bharata_boy"],
+   "beat": "accident",
+   "panel": "voice_from_heaven",
+   "camera": "Wide court, 35mm, then slow crane up to ceiling as the voice sounds",
+   "action": "As @shakuntala reaches the door, a voice from the sky fills the hall and declares: Bharata is @dushmanta's son. The king must acknowledge him. The court turns upward in awe.",
+   "sound": "A deep resonant voice filling the room from above, neither male nor female \u2014 pure and clear. All other sound stops. Then the court breaks into low awed murmur.",
+   "frame": "Wide court: @shakuntala and Bharata frozen at the door. All courtiers look upward. @dushmanta rises from his throne, face finally open with relief and wonder. Golden light streams from above through the rafters.",
+   "motion": [
+    "0-2s: @shakuntala pauses at the door as the voice begins.",
+    "2-5s: slow crane up from the court floor, finding the golden light coming through the ceiling rafters.",
+    "5-7s: crane back down; @dushmanta rises from his throne, face transformed."
+   ],
+   "ref": "",
+   "grade": "S",
+   "canon": {
+    "lines": "9285-9305",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V16",
+   "dur": 6,
+   "chars": ["@dushmanta", "@shakuntala", "@bharata_boy"],
+   "beat": "reaction",
+   "panel": "king_admits",
+   "camera": "Medium wide three-shot, 50mm, locked",
+   "action": "@dushmanta speaks openly to his court: he knew all along, but waited for heaven to confirm it so the people would hear the truth from the voice of the gods, not from him alone.",
+   "sound": "His voice steady and clear; a murmur of assent through the court; @shakuntala's one quiet exhale.",
+   "frame": "Three-shot in the court: @dushmanta has stepped down from the throne and stands at the same level as @shakuntala. @bharata_boy between them, one hand in each of theirs. Warm court light.",
+   "motion": [
+    "0-4s: @dushmanta speaks to the court, gesturing to Bharata.",
+    "4-6s: he looks at @shakuntala; she meets his gaze. No sentimental embrace \u2014 a moment of mutual acknowledgment."
+   ],
+   "ref": "",
+   "grade": "A",
+   "canon": {
+    "lines": "9305-9320",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V17",
+   "dur": 6,
+   "chars": ["@bharata_boy"],
+   "beat": "twist",
+   "panel": "bharata_installed",
+   "camera": "Wide symmetrical court shot, 35mm, locked",
+   "action": "@dushmanta installs Bharata as crown prince. The boy stands before the throne for the first time as the heir of the Puru line.",
+   "sound": "Court chant; conch shell; the boy's steady breathing.",
+   "frame": "Wide locked symmetrical court frame: @bharata_boy stands at center before the throne, small and still and completely unafraid. Courtiers ranged on either side. @dushmanta behind, hand resting on the boy's shoulder.",
+   "motion": [
+    "0-6s: locked symmetrical frame holds as the conch sounds and the court chants."
+   ],
+   "ref": "",
+   "grade": "B",
+   "canon": {
+    "lines": "9320-9330",
+    "verdict": "canon"
+   }
+  },
+  {
+   "id": "V18",
+   "dur": 8,
+   "chars": ["@vyasa", "@ganesha"],
+   "beat": "resolution",
+   "panel": "vyasa_closes",
+   "camera": "Match cut back to hermitage; slow pull-back from @vyasa dictating; then wide hold",
+   "action": "@vyasa's voice over the court image: 'This is the line that ends with the Kurus.' Match-cut back to the hermitage: Vyasa dictating, Ganesha writing, the lamp burning. Pull back to the forest. Cut to black.",
+   "sound": "Vyasa's quiet voice; the stylus on the palm leaf; the sacred fire; the forest; the lamp flame; then silence.",
+   "frame": "Match cut: from the court to the hermitage interior in full shot. @vyasa speaks the closing line, @ganesha writes. The camera slowly pulls back through the thatched gate until only the lamp light is visible through the door, then black.",
+   "motion": [
+    "0-3s: match-cut lands on the hermitage; @vyasa speaks the last sentence.",
+    "3-7s: slow pull-back through the gate.",
+    "7-8s: lamp light holds one beat; fade to black."
+   ],
+   "ref": "",
+   "grade": "S",
+   "canon": {
+    "lines": "9328-9330",
+    "verdict": "dramatised"
+   }
+  }
+ ]
+}
